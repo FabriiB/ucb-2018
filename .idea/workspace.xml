@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90ed4df5-e544-4542-8fca-e9b06113cf15" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/taller2018/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller2018/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +28,7 @@
           <entry key="example" value="1" />
           <entry key="gitignore" value="2" />
           <entry key="md" value="1" />
-          <entry key="php" value="4" />
+          <entry key="php" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -35,7 +36,7 @@
           <entry key=".env file" value="1" />
           <entry key="Blade" value="2" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="2" />
+          <entry key="PHP" value="5" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -44,14 +45,15 @@
           <entry key="env" value="35" />
           <entry key="gitignore" value="2" />
           <entry key="md" value="719" />
-          <entry key="php" value="157" />
+          <entry key="php" value="676" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="35" />
+          <entry key="Blade" value="175" />
           <entry key="Markdown" value="719" />
-          <entry key="PHP" value="157" />
+          <entry key="PHP" value="501" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -65,23 +67,41 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/taller2018/app/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="18" column="116" selection-start-line="18" selection-start-column="116" selection-end-line="18" selection-end-column="116" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/taller2018/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="374">
-                <caret line="17" column="81" selection-start-line="17" selection-start-column="81" selection-end-line="17" selection-end-column="81" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/RegisterController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="665">
+              <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="17" column="139" lean-forward="true" selection-start-line="17" selection-start-column="139" selection-end-line="17" selection-end-column="139" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>created_at</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -93,6 +113,10 @@
         <option value="$PROJECT_DIR$/taller2018/database/migrations/2018_10_10_204453_create_user_table.php" />
         <option value="$PROJECT_DIR$/taller2018/.gitignore" />
         <option value="$PROJECT_DIR$/taller2018/README.md" />
+        <option value="$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php" />
+        <option value="$PROJECT_DIR$/taller2018/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php" />
+        <option value="$PROJECT_DIR$/taller2018/app/User.php" />
+        <option value="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/RegisterController.php" />
       </list>
     </option>
   </component>
@@ -210,6 +234,36 @@
               <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
               <item name="taller2018" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ucb-2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
+              <item name="taller2018" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ucb-2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
+              <item name="taller2018" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ucb-2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
+              <item name="taller2018" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ucb-2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
+              <item name="taller2018" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -243,12 +297,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1539202516832</updated>
-      <workItem from="1539202517896" duration="4126000" />
+      <workItem from="1539202517896" duration="8507000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4126000" />
+    <option name="totallyTimeSpent" value="8507000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="260" y="53" width="1400" height="1000" extended-state="0" />
@@ -289,9 +343,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taller2018/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_10_204453_create_user_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -313,9 +364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/taller2018/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -323,6 +371,37 @@
             <caret line="17" column="81" selection-start-line="17" selection-start-column="81" selection-end-line="17" selection-end-column="81" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="17" column="139" lean-forward="true" selection-start-line="17" selection-start-column="139" selection-end-line="17" selection-end-column="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="18" column="116" selection-start-line="18" selection-start-column="116" selection-end-line="18" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
         </state>
       </provider>
     </entry>

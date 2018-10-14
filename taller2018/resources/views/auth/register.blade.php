@@ -12,14 +12,14 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="firsname" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="firsname" value="{{ old('firstname') }}" required autofocus>
+                                <input id="firsname" type="text" class="form-control{{ $errors->has('firsname') ? ' is-invalid' : '' }}" name="firsname" value="{{ old('firsname') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('firsname'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('firsname') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -29,25 +29,25 @@
                             <label for="lname1" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="lname1" type="text" class="form-control{{ $errors->has('lname1') ? ' is-invalid' : '' }}" name="lastName1" value="{{ old('lname1') }}" required>
+                                <input id="lastName1" type="text" class="form-control{{ $errors->has('lastName1') ? ' is-invalid' : '' }}" name="lastName1" value="{{ old('lastName1') }}" required>
 
-                                @if ($errors->has('lname1'))
+                                @if ($errors->has('lastName1'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('lname1') }}</strong>
+                                        <strong>{{ $errors->first('lastName1') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="lname2" class="col-md-4 col-form-label text-md-right">{{ __('Last Name 2') }}</label>
+                            <label for="lastName2" class="col-md-4 col-form-label text-md-right">{{ __('Last Name 2') }}</label>
 
                             <div class="col-md-6">
-                                <input id="lname2" type="text" class="form-control{{ $errors->has('lname2') ? ' is-invalid' : '' }}" name="lastName2" value="{{ old('lname2') }}">
+                                <input id="lastName2" type="text" class="form-control{{ $errors->has('lastName2') ? ' is-invalid' : '' }}" name="lastName2" value="{{ old('lastName2') }}">
 
-                                @if ($errors->has('lname2'))
+                                @if ($errors->has('lastName2'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('lname2') }}</strong>
+                                        <strong>{{ $errors->first('lastName2') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -85,7 +85,7 @@
                             <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('Mobile') }}</label>
 
                             <div class="col-md-6">
-                                <input id="mobile" type="number" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" required autofocus>
+                                <input id="mobile" type="number" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" required>
 
                                 @if ($errors->has('mobile'))
                                     <span class="invalid-feedback" role="alert">

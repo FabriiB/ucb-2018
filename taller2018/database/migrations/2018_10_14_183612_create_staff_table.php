@@ -14,13 +14,17 @@ class CreateStaffTable extends Migration
     public function up()
     {
         Schema::create('staff', function (Blueprint $table) {
-            $table->increments('idstaff');
+            $table->increments('id_staff');
             $table->string('type',100);
             $table->integer('phone');
             $table->string('id',100);
-            $table->integer('iddepot');
-
+            $table->integer('id_depot');
+            $table->integer('transaction_id');
+            $table->timestamp('transaction_date');
+            $table->string('transaction_host',50);
+            $table->string('transaction_user',50);
             $table->timestamps();
+            $table->rememberToken();
         });
     }
 

@@ -14,12 +14,17 @@ class CreateProductMeassureTable extends Migration
     public function up()
     {
         Schema::create('product_meassure', function (Blueprint $table) {
-            $table->increments('idproduct_meassure');
-            $table->integer('idproduct');
-            $table->integer('idmeassure');
-            $table->integer('idstock');
-            $table->integer('idorder_delivery');
+            $table->increments('id_product_meassure');
+            $table->integer('id_product');
+            $table->integer('id_meassure');
+            $table->integer('id_stock');
+            $table->integer('id_order_delivery');
+            $table->integer('transaction_id');
+            $table->timestamp('transaction_date');
+            $table->string('transaction_host',50);
+            $table->string('transaction_user',50);
             $table->timestamps();
+            $table->rememberToken();
         });
     }
 

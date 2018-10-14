@@ -14,11 +14,16 @@ class CreateDepotTable extends Migration
     public function up()
     {
         Schema::create('depot', function (Blueprint $table) {
-            $table->increments('iddepot');
+            $table->increments('id_depot');
             $table->string('address',100);
             $table->decimal('capacity');
             $table->string('type',100);
+            $table->integer('transaction_id');
+            $table->timestamp('transaction_date');
+            $table->string('transaction_host',50);
+            $table->string('transaction_user',50);
             $table->timestamps();
+            $table->rememberToken();
         });
     }
 

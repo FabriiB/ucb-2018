@@ -29,7 +29,7 @@ class ForeignKeys extends Migration
         });
 
         Schema::table('conversion', function(Blueprint $table){
-            
+
             $table->foreign('id_meassure1')->references('id_meassure')->on('meassure');
             $table->foreign('id_meassure2')->references('id_meassure')->on('meassure');
         });

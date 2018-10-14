@@ -15,8 +15,8 @@ class Conversion extends Migration
     {
         Schema::create('conversion', function (Blueprint $table) {
             $table->increments('id_conversion')->unique();
-            $table->integer('id_product',250);
-            $table->integer('id_meassure1',100);
+            $table->integer('id_product');
+            $table->integer('id_meassure1');
             $table->integer('id_meassure2');
             $table->decimal('factor',10,6);
             $table->integer('transaction_id');

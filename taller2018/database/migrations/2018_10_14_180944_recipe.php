@@ -35,6 +35,6 @@ class Recipe extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('recipe');
     }
 }

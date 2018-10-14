@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class A24Measure extends Migration
+class Meassure extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class A24Measure extends Migration
      */
     public function up()
     {
-        Schema::create('measure', function (Blueprint $table) {
-            $table->increments('idmeasue');
-            $table->string('unit');
-            $table->string('name')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+        Schema::create('meassure', function (Blueprint $table) {
+            $table->increments('id_meassure')->unique();
+            $table->decimal('unit',10,6);
+            $table->string('name',50)->unique();
+            $table->integer('transaction_id');
+            $table->timestamp('transaction_date');
+            $table->string('transaction_host',50);
+            $table->string('transaction_user',50);
             $table->rememberToken();
             $table->timestamps();
         });
@@ -31,6 +33,6 @@ class A24Measure extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('meassure');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class A24MenuDrink extends Migration
+class MenuDrink extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,8 @@ class A24MenuDrink extends Migration
     {
         Schema::create('menu_drink', function (Blueprint $table) {
             $table->increments('id_menu_drink')->unique();
-            $table->timestamp('date_start',);
-            $table->timestamp('date_end',);
+            $table->timestamp('date_start');
+            $table->timestamp('date_end');
             $table->integer('id_menu');
             $table->integer('transaction_id');
             $table->timestamp('transaction_date');
@@ -34,6 +34,6 @@ class A24MenuDrink extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('menu_drink');
     }
 }

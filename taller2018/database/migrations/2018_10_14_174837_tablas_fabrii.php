@@ -16,10 +16,7 @@ class TablasFabrii extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('idUser', 'id_user');
             $table->renameColumn('firsName', 'firs_name');
-            $table->renameColumn('lastName1', 'last_name1');
-            $table->renameColumn('lastName2', 'last_name2');
-            $table->renameColumn('birthDay', 'birth_day');
-            $table->integer('idPlan')->nullable()->default('null');
+            $table->integer('idPlan')->nullable();
             $table->string('status',100)->default('active')->change();
         });
 
@@ -64,7 +61,7 @@ class TablasFabrii extends Migration
             $table->increments('id_plan');
             $table->string('type', 50);
             $table->decimal('price',100);
-            $table->integer('client_number',50);
+            $table->integer('client_number');
             $table->integer('id_drink_plan');
         });
 
@@ -72,7 +69,7 @@ class TablasFabrii extends Migration
             $table->increments('id_plan_drink');
             $table->string('type', 50);
             $table->decimal('price');
-            $table->integer('client_number',50);
+            $table->integer('client_number');
             $table->string('description');
         });
 

@@ -16,10 +16,10 @@ class Order extends Migration
         Schema::create('order', function (Blueprint $table) {
             $table->increments('idOrder');
             $table->timestamp('orderDate');
-            $table->varchar('status');
+            $table->string('status');
             $table->timestamp('cancelDate');
-            $table->serial2('idUser');
-            $table->serial2('idPlan');
+            $table->integer('idUser');
+            $table->integer('idPlan');
             $table->rememberToken();
             $table->timestamps();
         });

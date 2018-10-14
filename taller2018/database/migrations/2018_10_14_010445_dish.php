@@ -16,14 +16,14 @@ class Dish extends Migration
         Schema::create('dish', function (Blueprint $table) {
             $table->increments('idDish');
             $table->timestamp('date');
-            $table->varchar('name');
-            $table->varchar('description');
-            $table->varchar('type');
-            $table->varchar('status');
-            $table->varchar('tip');
+            $table->string('name');
+            $table->string('description');
+            $table->string('type');
+            $table->string('status');
+            $table->string('tip');
             $table->decimal('quantity');
-            $table->serial2('idOrder');
-            $table->serial2('idAdministrator');
+            $table->integer('idOrder');
+            $table->integer('idAdministrator');
             $table->rememberToken();
             $table->timestamps();
         });

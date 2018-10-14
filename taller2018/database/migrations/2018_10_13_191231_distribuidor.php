@@ -15,9 +15,9 @@ class Distribuidor extends Migration
     {
         Schema::create('distributors', function (Blueprint $table) {
             $table->increments('idDistributor');
-            $table->varchar('id');
-            $table->varchar('name');
-            $table->varchar('contact');
+            $table->string('id');
+            $table->string('name');
+            $table->string('contact');
             $table->decimal('commision');
             $table->decimal('medium');
             $table->rememberToken();

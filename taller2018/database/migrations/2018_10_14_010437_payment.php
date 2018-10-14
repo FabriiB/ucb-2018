@@ -16,12 +16,12 @@ class Payment extends Migration
         Schema::create('payment', function (Blueprint $table) {
             $table->increments('idPayment');
             $table->decimal('price');
-            $table->varchar('type');
-            $table->varchar('platform');
+            $table->string('type');
+            $table->string('platform');
             $table->timestamp('date');
-            $table->varchar('status');
-            $table->serial2('idPlan');
-            $table->serial2('idUser');
+            $table->string('status');
+            $table->integer('idPlan');
+            $table->integer('idUser');
             $table->rememberToken();
             $table->timestamps();
         });

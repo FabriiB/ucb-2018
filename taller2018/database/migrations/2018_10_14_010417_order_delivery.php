@@ -18,7 +18,7 @@ class OrderDelivery extends Migration
             $table->timestamp('shippedDate');
             $table->timestamp('deliveryTime');
             $table->timestamp('idOrder');
-            $table->varchar('idDistributor');
+            $table->string('idDistributor');
             $table->rememberToken();
             $table->timestamps();
         });

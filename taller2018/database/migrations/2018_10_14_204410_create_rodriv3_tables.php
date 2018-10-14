@@ -15,18 +15,6 @@ class CreateRodriv3Tables extends Migration
     {
         Schema::create('product_meassure', function (Blueprint $table) {
 
-            Schema::create('product', function (Blueprint $table) {
-                $table->increments('id_product');
-                $table->string('name', 100);
-                $table->string('detail', 100);
-                $table->string('precaution', 100);
-                $table->integer('transaction_id');
-                $table->timestamp('transaction_date');
-                $table->string('transaction_host',50);
-                $table->string('transaction_user',50);
-                $table->timestamps();
-                $table->rememberToken();
-            });
 
             $table->increments('id_product_meassure');
             $table->integer('id_product');
@@ -44,6 +32,19 @@ class CreateRodriv3Tables extends Migration
             $table->timestamps();
             $table->rememberToken();
 
+        });
+        
+        Schema::create('product', function (Blueprint $table) {
+            $table->increments('id_product');
+            $table->string('name', 100);
+            $table->string('detail', 100);
+            $table->string('precaution', 100);
+            $table->integer('transaction_id');
+            $table->timestamp('transaction_date');
+            $table->string('transaction_host',50);
+            $table->string('transaction_user',50);
+            $table->timestamps();
+            $table->rememberToken();
         });
         Schema::create('stock', function (Blueprint $table) {
 

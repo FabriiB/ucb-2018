@@ -23,26 +23,26 @@ class TablaBenji extends Migration
             $table->timestamp('transaction_date');
             $table->string('transaction_host',50);
             $table->string('transaction_user',50);
-            $table->timestamp();
+            $table->timestamps();
             $table->rememberToken();
         });
         Schema::create('provider_product', function (Blueprint $table) {
-            $table->primary('id_provider');
-            $table->primary('id_product');
+            $table->string('id_provider');
+            $table->string('id_product');
             $table->string('status', 50);
             $table->timestamp('date_start');
             $table->timestamp('date_end');
-            $table->primary('id_administrator');
+            $table->string('id_administrator');
             $table->integer('transaction_id');
             $table->timestamp('transaction_date');
             $table->string('transaction_host',50);
             $table->string('transaction_user',50);
-            $table->timestamp();
+            $table->timestamps();
             $table->rememberToken();
         });
         Schema::create('menu', function (Blueprint $table) {
             $table->increments('id_menu');
-            $table->primary('id_administrator');
+            $table->string('id_administrator');
             $table->timestamp('date_created');
             $table->timestamp('date_update');
             $table->string('name', 50);
@@ -51,20 +51,20 @@ class TablaBenji extends Migration
             $table->timestamp('transaction_date');
             $table->string('transaction_host',50);
             $table->string('transaction_user',50);
-            $table->timestamp();
+            $table->timestamps();
             $table->rememberToken();
          });
         Schema::create('menu_dish', function (Blueprint $table) {
             $table->increments('id_menu_dish');
-            $table->primary('id_menu');
-            $table->primary('id_dish');
+            $table->string('id_menu');
+            $table->string('id_dish');
             $table->timestamp('date_start');
             $table->timestamp('date_end');
             $table->integer('transaction_id');
             $table->timestamp('transaction_date');
             $table->string('transaction_host',50);
             $table->string('transaction_user',50);
-            $table->timestamp();
+            $table->timestamps();
             $table->rememberToken();
         });
         Schema::create('administrator', function (Blueprint $table) {
@@ -77,7 +77,7 @@ class TablaBenji extends Migration
             $table->timestamp('transaction_date');
             $table->string('transaction_host',50);
             $table->string('transaction_user',50);
-            $table->timestamp();
+            $table->timestamps();
             $table->rememberToken();
         });
     }

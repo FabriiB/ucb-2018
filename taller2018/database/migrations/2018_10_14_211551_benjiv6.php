@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeNameOnlyRutine extends Migration
+class Benjiv6 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class ChangeNameOnlyRutine extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('lastName1');
-            $table->dropColumn('lastName2');
-            $table->string('last_name1',50);
+        Schema::table('menu', function (Blueprint $table) {
+            $table->dropColumn('id_administrator');
 
-            $table->string('last_name2',50)->nullable()->default('');
+        });
+        Schema::table('menu_dish', function (Blueprint $table) {
+            $table->dropColumn('id_menu');
+            $table->dropColumn('id_dish');
+
         });
     }
 
@@ -29,6 +31,6 @@ class ChangeNameOnlyRutine extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        //
     }
 }

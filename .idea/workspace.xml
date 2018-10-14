@@ -1,106 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98049e85-cc72-4f4e-aaad-312787164801" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ucb-2018.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="90ed4df5-e544-4542-8fca-e9b06113cf15" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Middleware/CheckForMaintenanceMode.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Middleware/CheckForMaintenanceMode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Middleware/EncryptCookies.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Middleware/TrimStrings.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Middleware/TrimStrings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Middleware/TrustProxies.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Middleware/TrustProxies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Providers/BroadcastServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/artisan" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/artisan" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/bootstrap/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/broadcasting.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/broadcasting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/hashing.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/hashing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/logging.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/logging.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/queue.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/queue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/config/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/config/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/database/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/database/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/database/migrations/2018_10_10_204453_create_user_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/public/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/public/svg/403.svg" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/public/svg/403.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/public/svg/404.svg" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/public/svg/404.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/public/svg/500.svg" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/public/svg/500.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/public/svg/503.svg" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/public/svg/503.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/js/components/ExampleComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/lang/en/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/lang/en/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/lang/en/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/lang/en/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/lang/en/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/lang/en/passwords.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/lang/en/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/sass/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/routes/channels.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/routes/console.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/routes/console.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/server.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/server.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/tests/CreatesApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/tests/CreatesApplication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/tests/Feature/ExampleTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/tests/TestCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/tests/Unit/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/tests/Unit/ExampleTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/webpack.mix.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller2018/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/taller2018/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,118 +12,114 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/taller2018/composer.json</pharConfigPath>
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="-1457854129">
+    <session id="-1208341681">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="env" value="1" />
+          <entry key="example" value="1" />
+          <entry key="gitignore" value="2" />
+          <entry key="md" value="2" />
           <entry key="php" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="8" />
+          <entry key=".env file" value="2" />
+          <entry key="Blade" value="2" />
+          <entry key="Markdown" value="2" />
+          <entry key="PHP" value="6" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="592" />
+          <entry key="env" value="35" />
+          <entry key="gitignore" value="2" />
+          <entry key="md" value="808" />
+          <entry key="php" value="1332" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="592" />
+          <entry key=".env file" value="35" />
+          <entry key="Blade" value="209" />
+          <entry key="Markdown" value="808" />
+          <entry key="PHP" value="1123" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.php.rename.constructor" />
+      <usages-collector id="statistics.php.composer.actions" />
+      <usages-collector id="statistics.php.new.test" />
+      <usages-collector id="statistics.php.new.class" />
+      <usages-collector id="statistics.php.composer.command.options" />
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_13_191231_distribuidor.php">
+        <entry file="file://$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-              <folding>
-                <element signature="e#7#45#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="605">
+              <caret line="101" column="62" selection-start-line="101" selection-start-column="62" selection-end-line="101" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010408_order.php">
+        <entry file="file://$PROJECT_DIR$/taller2018/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010437_payment.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="36" column="9" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="40" />
+            <state relative-caret-position="234">
+              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010445_dish.php">
+        <entry file="file://$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2014_10_12_100000_create_password_resets_table.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010417_order_delivery.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2014_10_12_000000_create_users_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="46" />
-              <folding>
-                <element signature="e#7#45#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="456">
+              <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>created_at</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010437_payment.php" />
-        <option value="$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010417_order_delivery.php" />
-        <option value="$PROJECT_DIR$/taller2018/database/migrations/2018_10_13_191231_distribuidor.php" />
-        <option value="$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010408_order.php" />
-        <option value="$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010445_dish.php" />
+        <option value="$PROJECT_DIR$/taller2018/.env" />
+        <option value="$PROJECT_DIR$/taller2018/database/migrations/2018_10_10_204453_create_user_table.php" />
+        <option value="$PROJECT_DIR$/taller2018/.gitignore" />
+        <option value="$PROJECT_DIR$/taller2018/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php" />
+        <option value="$PROJECT_DIR$/taller2018/app/User.php" />
+        <option value="$PROJECT_DIR$/taller2018/README.md" />
+        <option value="$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php" />
+        <option value="$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/RegisterController.php" />
       </list>
     </option>
   </component>
@@ -234,90 +134,94 @@
       <path value="$PROJECT_DIR$/taller2018/package.json" />
     </packageJsonPaths>
   </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
-      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
-      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
-      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
-      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
-      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
-      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
-      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/opis/closure" />
-      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter" />
-      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
-      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
-      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
-      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/beyondcode/laravel-dump-server" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/jakub-onderka/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/composer" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/taller2018/vendor/doctrine/dbal" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="312" />
-    <option name="y" value="178" />
-    <option name="width" value="1264" />
-    <option name="height" value="710" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="260" />
+    <option name="y" value="53" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -328,26 +232,43 @@
         <subPane>
           <expand>
             <path>
-              <item name="ucb-2018-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ucb-2018-master" type="462c0819:PsiDirectoryNode" />
+              <item name="ucb-2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ucb-2018-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ucb-2018-master" type="462c0819:PsiDirectoryNode" />
+              <item name="ucb-2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
               <item name="taller2018" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ucb-2018-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ucb-2018-master" type="462c0819:PsiDirectoryNode" />
+              <item name="ucb-2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
               <item name="taller2018" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ucb-2018-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ucb-2018-master" type="462c0819:PsiDirectoryNode" />
+              <item name="ucb-2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
               <item name="taller2018" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ucb-2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
+              <item name="taller2018" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ucb-2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ucb-2018" type="462c0819:PsiDirectoryNode" />
+              <item name="taller2018" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -357,7 +278,6 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -374,28 +294,38 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="RegisterController.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ucb-2018/Http/Controllers/Auth/RegisterController.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.RegisterController.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="98049e85-cc72-4f4e-aaad-312787164801" name="Default Changelist" comment="" />
-      <created>1539476862503</created>
+      <changelist id="90ed4df5-e544-4542-8fca-e9b06113cf15" name="Default Changelist" comment="" />
+      <created>1539202516832</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1539476862503</updated>
-      <workItem from="1539476864185" duration="256000" />
-      <workItem from="1539477258106" duration="3238000" />
+      <updated>1539202516832</updated>
+      <workItem from="1539202517896" duration="8507000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3494000" />
+    <option name="totallyTimeSpent" value="13243000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="260" y="50" width="1400" height="1000" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30935252" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25851852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -406,8 +336,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -423,54 +353,77 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="6" lean-forward="true" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="18" column="116" selection-start-line="18" selection-start-column="116" selection-end-line="18" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="66">
+            <caret line="3" column="70" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_10_204453_create_user_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="17" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taller2018/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2014_10_12_100000_create_password_resets_table.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2014_10_12_000000_create_users_table.php">
+    <entry file="file://$PROJECT_DIR$/taller2018/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="46" />
-          <folding>
-            <element signature="e#7#45#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="234">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_13_191231_distribuidor.php">
+    <entry file="file://$PROJECT_DIR$/taller2018/resources/views/auth/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <element signature="e#7#45#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="605">
+          <caret line="101" column="62" selection-start-line="101" selection-start-column="62" selection-end-line="101" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010408_order.php">
+    <entry file="file://$PROJECT_DIR$/taller2018/app/Http/Controllers/Auth/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010417_order_delivery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010437_payment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taller2018/database/migrations/2018_10_14_010445_dish.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+        <state relative-caret-position="456">
+          <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
         </state>
       </provider>
     </entry>

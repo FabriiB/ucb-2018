@@ -49,16 +49,26 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firsname' => 'required|string|max:255',
-            'lastName1' => 'required|string|max:255',
-            'lastName2' => 'string|max:255',
-            'address1' => 'required|string|max:255',
-            'address2' => 'nullable|max:255',
-            'mobile' => 'required|numeric',
-            'phone' => 'nullable|numeric',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'birthDay' => 'required|date',
+            'firsname'  => 'required|alpha|min:1|max:50',
+            'lastName1' => 'required|string|max:50',
+            'lastName2' => 'string  |max:50',
+            'address1'  => 'required|string|max:100',
+            'address2'  => 'string  |max:100',
+            'mobile'    => 'required|numeric|digits_between:60000000,79999999',
+            'phone'     => 'numeric |digits_between:2000000,2999999',
+            'email'     => 'required|string|email|max:50|unique:users',
+            'password'  => 'required|string|min:6|max:30|confirmed',
+            'birthDay'  => 'required|date|before:-18 years',
+        ],[
+            ''=>'',
+            'firsname.alpha'        => 'Ingrese solo valores alfabeticos',
+            'mobile.digits_between' => 'Ingrese un numero de celular valido',
+            'phone.digits_between'  => 'Ingrese un numero fijo valido',
+            'email.unique'          => 'El email ya esta en uso',
+            'password.min'          => 'El password proporcionado debe ser mayor a 6 digitos',
+            'password.confirmed'    => 'El password debe ser el mismo en ambos campos',
+            'birthDay.before'       => 'La edad tiene que ser mayor a 18 años',
+
         ]);
     }
 

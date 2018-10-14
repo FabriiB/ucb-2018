@@ -1,7 +1,8 @@
 ### Grupo de Appetito24
 
 ##Tags:
-- v0.0.1: Es la version donde sirve el login y el registro por defecto de Laravel.
+- v0.0.2: Version donde estan mas campos pero faltan arrreglos minimos
+- v0.0.1: Version donde sirve el login y el registro por defecto de Laravel.
 
 #Aclaraciones:
 - Solo se usara el master, por recomendacion del ing Campohermoso, dijo "Aprendan a resolver los conflictos en el master no usen Branches >;v"

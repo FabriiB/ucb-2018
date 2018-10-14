@@ -13,23 +13,7 @@ class CreateRodriv2Tables extends Migration
      */
     public function up()
     {
-        Schema::create('product_meassure', function (Blueprint $table) {
-            $table->foreign('id_product')->references('id_product')->on('product');
-            $table->foreign('id_meassure')->references('id_meassure')->on('meassure');
-            $table->foreign('id_stock')->references('id_stock')->on('stock');
-            $table->foreign('id_order_delivery')->references('id_order_delivery')->on('order_delivery');
 
-        });
-        Schema::create('stock', function (Blueprint $table) {
-
-            $table->foreign('id_product_meassure')->references('id_product_meassure')->on('product_meassure');
-            $table->foreign('id_depot')->references('id_depot')->on('depot');
-
-        });
-        Schema::create('staff', function (Blueprint $table) {
-
-            $table->foreign('id_depot')->references('id_depot')->on('depot');
-        });
 
     }
 
@@ -40,9 +24,6 @@ class CreateRodriv2Tables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_meassure');
-        Schema::dropIfExists('stock');
-        Schema::dropIfExists('staff');
 
     }
 }

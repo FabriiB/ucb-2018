@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBenjiv3Changes extends Migration
+class ForeignKeys2 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateBenjiv3Changes extends Migration
      */
     public function up()
     {
-        Schema::table('provider_product', function (Blueprint $table) {
-            $table->string('id_provider')->change();
-            $table->string('id_product')->change();
+        Schema::table('recipe', function(Blueprint $table){
+            $table->foreign('id_dish')->references('idDish')->on('dish');
+        });
+
+        Schema::table('conversion', function(Blueprint $table){
+            $table->foreign('id_product')->references('id_product')->on('product');
         });
     }
 

@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(15);
+        $users = User::paginate(10);
         $title1 = 'Listado de usuarios';
         $title2 = 'Eliminacion de usuarios';
         return view('users.index', compact('title1', 'users', 'title2'));

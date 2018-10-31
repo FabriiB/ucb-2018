@@ -46,19 +46,17 @@ class RecipeController extends Controller
         $id_dish = DB::table('dish')
             ->select('idDish', 'name')
             ->get();
-        echo "<script>alert('sale del create');</script>";
+        //echo "<script>alert('sale del create');</script>";
         return view('Recipe.create', ['id_ad' => $id_ad, 'id_dish'=> $id_dish]);
     }
     //Registra los datos ingresados
 
     public function store(RecipeRequest $request)
     {
-        echo "<script>alert('entro al store');</script>";
-
+        //echo "<script>alert('entro al store');</script>";
         $tid = '14';
         $ip = getenv("REMOTE_ADDR");
         $tfecha = Carbon::now();
-
         $Recipe                    = new Recipe;
         $Recipe->description       = $request->get('description');
         $Recipe->ingredients       = $request->get('ingredients');
@@ -69,7 +67,7 @@ class RecipeController extends Controller
         $Recipe->transaction_host  = $ip;
         $Recipe->transaction_user  = $request->get('administrator');
         $Recipe->save();
-        echo "<script>alert('salio del store');</script>";
+        //echo "<script>alert('salio del store');</script>";
         //return Redirect::to('/recipe');
         //return redirect()->route('/recipe');
         return redirect()->action('RecipeController@index');
@@ -77,26 +75,30 @@ class RecipeController extends Controller
 
     public function show($id)
     {
-        return view("Recipe.show", ["recipe" => recipe::findOrFail($id)]);
+        return view("Recipe.show", ["recipe" => Recipe::findOrFail($id)]);
     }
 
     public function edit($id)
     {
-        return view("Recipe.edit", ["recipe" => recipe::findOrfail($id)]);
+        return view("Recipe.edit", ["recipe" => Recipe::findOrfail($id)]);
     }
 
     public function update(RecipeRequest $request, $id)
     {
         $Recipe                     = Recipe::findOrFail($id);
+        $Recipe->id_dish           = $request->get('dish');
+        $Recipe->id_administrator  = $request->get('administrator');
         $Recipe ->description       = $request->get('description');
         $Recipe ->ingredients       = $request->get('ingredients');
         $Recipe->update();
-        return Redirect::to('/recipe');
+        //return Redirect::to('/recipe');
+        return redirect()->action('RecipeController@index');
     }
     public function destroy($id)
     {
         $propietario = Recipe::findOrfail($id);
         $propietario->delete();
-        return Redirect::to('/recipe');
+        //return Redirect::to('/recipe');
+        return redirect()->action('RecipeController@index');
     }
 }

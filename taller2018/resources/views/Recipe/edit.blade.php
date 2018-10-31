@@ -9,7 +9,6 @@
 @extends('layouts.template')
 @section('content')
 
-    <section id="main-content">
         <section class="wrapper">
             <h3>
                 <i class="fa fa-angle-right">
@@ -22,7 +21,7 @@
                         <h4>
                             <i class="fa fa-angle-right">
                             </i>
-                            Editar: {{$recipe->description}}
+                            Editar: {{$recipe->id_recipe}}
                         </h4>
                         @if (count($errors)>0)
                             <div class="alert alert-danger">
@@ -35,53 +34,66 @@
                                 </ul>
                             </div>
                         @endif
-                        {!!Form::model($recipe,['method'=>'PATCH','route'=>['Recipe.update', $recipe->recipe]])!!}
+                        {!!Form::model($recipe,['method'=>'PATCH','route'=>['recipe.update', $recipe->id_recipe]])!!}
                         {{Form::token()}}
                         <section class="panel" id="no-more-tables">
                             <table width="100%">
                                 <tr>
-                                    <td width="33%">
-                                        <br>
-                                        <h4>
-                                            <center>
-                                                DATOS
-                                            </center>
-                                        </h4>
-                                        </br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="33%">
+                                    <td width="50%">
                                         <div class="form-group">
                                             <br>
                                             <label class="col-sm-4 col-sm-4 control-label">
-                                                DESCRIPTION
+                                                DISH
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="description" type="text" value="{{$recipe->description}}">
-
+                                                <label>
+                                                    <input class="form-control" name="dish" type="text" value="{{$recipe->id_dish}}" >
+                                                </label>
                                             </div>
-                                            </br>
+                                        </div>
+                                    </td>
+                                    <td width="50%">
+                                        <div class="form-group">
+                                            <br>
+                                            <label class="col-sm-4 col-sm-4 control-label">
+                                                ADMINISTRATOR:
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <label>
+                                                    <input class="form-control" name="administrator" type="text" value="{{$recipe->id_administrator}}" >
+                                                </label>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="">
+                                    <td width="50%">
                                         <div class="form-group">
                                             <br>
                                             <label class="col-sm-4 col-sm-4 control-label">
                                                 INGREDIENTS:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="ingredients" type="text" value="{{$recipe->ingredients}}">
-
+                                                <textarea rows="5" class="form-control" name="ingredients" type="text">{{$recipe->ingredients}}</textarea>
+                                            </div>
+                                            </br>
+                                        </div>
+                                    </td>
+                                    <td  width="50%">
+                                        <div class="form-group">
+                                            <br>
+                                            <label class="col-sm-4 col-sm-4 control-label">
+                                                DESCRIPTION
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <textarea rows="5" class="form-control" name="description" type="text">{{$recipe->description}}</textarea>
                                             </div>
                                             </br>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td colspan="2" width="33%">
                                         <center>
                                             <div class="form-group">
                                                 <br>
@@ -99,7 +111,14 @@
                                     </td>
                                 </tr>
                             </table>
+
                         </section>
+
+
+
+
+
+
                         {!!Form::close()!!}
                     </div>
                     <!-- /content-panel -->
@@ -109,6 +128,5 @@
             <!-- /row -->
         </section>
         <!--/wrapper -->
-    </section>
     <!-- /MAIN CONTENT -->
 @endsection

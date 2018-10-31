@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/recipe', 'RecipeController');
+//Route::resource('/recipe/create', 'RecipeController@create');
+
+Route::get('recipe/create', 'RecipeController@create');

@@ -19,6 +19,9 @@ RUN composer global require "laravel/installer"
 RUN apt-get install -y php-mbstring
 RUN apt-get install -y php-dom
 RUN apt-get install -y php-pgsql
+RUN apt-get install -y nodejs
+RUN apt-get install -y npm
+RUN npm install -g -s @angular/cli
 
 ENV PATH="/root/.composer/vendor/bin:${PATH}"
 

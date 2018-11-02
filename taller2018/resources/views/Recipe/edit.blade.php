@@ -111,14 +111,7 @@
                                     </td>
                                 </tr>
                             </table>
-
                         </section>
-
-
-
-
-
-
                         {!!Form::close()!!}
                     </div>
                     <!-- /content-panel -->

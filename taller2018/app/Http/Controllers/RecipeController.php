@@ -50,12 +50,11 @@ class RecipeController extends Controller
         return view('Recipe.create', ['id_ad' => $id_ad, 'id_dish'=> $id_dish]);
     }
     //Registra los datos ingresados
-
     public function store(RecipeRequest $request)
     {
         //echo "<script>alert('entro al store');</script>";
-        $tid = '14';
-        $ip = getenv("REMOTE_ADDR");
+        $tid = '27';
+        $ip = $_SERVER['REMOTE_ADDR'];
         $tfecha = Carbon::now();
         $Recipe                    = new Recipe;
         $Recipe->description       = $request->get('description');

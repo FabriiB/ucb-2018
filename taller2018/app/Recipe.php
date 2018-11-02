@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Recipe extends Model
 {
+    //use SoftDeletes;
+
     protected $table      = 'recipe';
     protected $primaryKey = 'id_recipe';
     public $timestamps    = false;
@@ -23,4 +26,7 @@ class Recipe extends Model
     ];
     protected $guarded = [
     ];
+
+    //protected $dates=['deleted_at'];
+
 }

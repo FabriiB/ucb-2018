@@ -19,6 +19,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Route::resource('passports','PassportController');
+
+
+Route::resource('/recipe', 'RecipeController');
+//Route::resource('/recipe/create', 'RecipeController@create');
+
+Route::get('recipe/create', 'RecipeController@create');
+
 Route::get('/usuarios', 'UserController@index');
 Route::delete('/usuarios/{id}', 'UserController@destroy');
+
 

@@ -19,7 +19,7 @@
         </head>
     </head>
     <body>
-    <nav class="navbar navbar-inverse navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-inverse navbar-expand-lg bg-dark fixed-top ">
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand">
@@ -69,6 +69,20 @@
             </div>
         </div>
     </nav>
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url({{ asset('images/cover.jpg') }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="title">Come bien todos los dias.</h1>
+                    <h4>Los mejores ingredientes en la comodidad del hogar.</h4>
+                    <br>
+                    <a href="/" target="_blank" class="btn btn-danger btn-raised btn-lg">
+                        PIDE AHORA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     </body>
     <!--   Core JS Files   -->
     <script src="{{ asset('js/core/jquery.min.js') }}" type="text/javascript"></script>

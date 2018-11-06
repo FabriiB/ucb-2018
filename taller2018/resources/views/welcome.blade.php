@@ -71,7 +71,7 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
-                        <a href="{{ route('users/month_order') }}">Month Orders</a>
+                        <a href="{{ url('users/month_order') }}">Month Orders</a>
                     @endauth
                 </div>
             @endif

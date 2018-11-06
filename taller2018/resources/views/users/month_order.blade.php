@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.header')
 
 @section('content')
     <div class="container">
@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        first page!
+                       change!
                     </div>
                 </div>
             </div>

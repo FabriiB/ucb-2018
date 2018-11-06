@@ -64,8 +64,8 @@
                             </a>
                         </li>
                         <li class="button-container nav-item iframe-extern">
-                            <a href="{{ url('users/month_order') }}" target="_blank" class="btn  btn-rose   btn-round btn-block">
-                                <i class="material-icons">face</i> Register
+                            <a href="{{ url('users/month_order') }}" target="_blank" class="btn-rose  btn-round btn-block nav-link">
+                                <i class="material-icons">face</i> Profile
                             </a>
                         </li>
                     @endauth

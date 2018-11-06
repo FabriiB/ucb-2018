@@ -39,7 +39,7 @@ class CreateRodriv4Tables extends Migration
             $table->rememberToken();
         });
 
-        
+
         Schema::create('product_meassure', function (Blueprint $table) {
 
 

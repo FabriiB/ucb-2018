@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+Route::resource('passports','PassportController');
+
 
 Route::resource('/recipe', 'RecipeController');
 //Route::resource('/recipe/create', 'RecipeController@create');

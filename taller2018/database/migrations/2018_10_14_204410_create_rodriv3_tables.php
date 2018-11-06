@@ -21,6 +21,7 @@ class CreateRodriv3Tables extends Migration
 
     }
 
+
     /**
      * Reverse the migrations.
      *

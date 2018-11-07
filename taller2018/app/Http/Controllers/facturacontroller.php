@@ -7,6 +7,7 @@ use App\Http\Requests\facturarequest;
 use App\facturamodel;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Carbon\Carbon;
 
 
 class facturacontroller extends Controller
@@ -18,6 +19,8 @@ class facturacontroller extends Controller
             ->select('firs_name','last_name1', 'last_name2','id')
             ->where('id','=',$id)
             ->first();
-        return view('Facturas.index',["datos"=>$name]);
+        $now = Carbon::now();
+        return view('Facturas.index',["datos"=>$name, "now"=>$now]);
     }
+
 }

@@ -19,7 +19,7 @@
         </head>
     </head>
     <body>
-    <nav class="navbar navbar-inverse navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-inverse navbar-expand-lg bg-dark fixed-top ">
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand">
@@ -74,6 +74,320 @@
             </div>
         </div>
     </nav>
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url({{ asset('images/cover.jpg') }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="title">Come bien todos los dias.</h1>
+                    <h4>Los mejores ingredientes en la comodidad del hogar.</h4>
+                    <br>
+                    <a href="/" target="_blank" class="btn btn-danger btn-raised btn-lg">
+                        PIDE AHORA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main main-raised">
+        <div class="section-space"></div>
+        <div class="features-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h2 class="title">En solo tres pasos</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="info">
+                            <div class="icon icon-info">
+                                <i class="material-icons">credit_card</i>
+                            </div>
+                            <h3 class="info-title">Suscribete al plan mensual</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info">
+                            <div class="icon icon-success">
+                                <i class="material-icons">laptop</i>
+                            </div>
+                            <h3 class="info-title">Elige tus comidas para toda la semana</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info">
+                            <div class="icon icon-danger">
+                                <i class="material-icons">home</i>
+                            </div>
+                            <h3 class="info-title">Recibe los ingredientes en la puerta de tu casa</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="projects-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto text-center">
+                        <h2 class="title">Novedades de la semana</h2>
+                        <div class="section-space"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header card-header-image">
+                                <a href="#pablo">
+                                    <img class="img" src="{{asset('img/platos/asparagus.jpg')}}">
+                                </a>
+                            </div>
+                            <div class="card-body ">
+                                <h4 class="card-title">Carne con verduras</h4>
+                            </div>
+                            <div class="card-footer ">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <span>Detalles</span>
+                                    </a>
+                                </div>
+                                <div class="stats ml-auto">
+                                    <i class="material-icons">schedule</i> 30 min
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header card-header-image">
+                                <a href="#pablo">
+                                    <img class="img" src="{{asset('img/platos/food.jpg')}}">
+                                </a>
+                            </div>
+                            <div class="card-body ">
+                                <h4 class="card-title">Cerdo en salsa soya</h4>
+                            </div>
+                            <div class="card-footer ">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <span>Detalles</span>
+                                    </a>
+                                </div>
+                                <div class="stats ml-auto">
+                                    <i class="material-icons">schedule</i> 25 min
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-header card-header-image">
+                                <a href="#pablo">
+                                    <img class="img" src="{{asset('img/platos/salmon.jpg')}}">
+                                </a>
+                            </div>
+                            <div class="card-body ">
+                                <h4 class="card-title">Salmon con verduras</h4>
+                            </div>
+                            <div class="card-footer ">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <span>Detalles</span>
+                                    </a>
+                                </div>
+                                <div class="stats ml-auto">
+                                    <i class="material-icons">schedule</i> 40 min
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="projects-3 section-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto text-center">
+                        <h2 class="title">Contenido de la caja de Appetito24</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-12 ml-auto">
+                        <div class="card card-plain">
+                            <div class="card-body ">
+                                <a href="#pablo">
+                                    <h4 class="card-title">Deliciosas recetas diseñadas por el chef.</h4>
+                                </a>
+                                <p class="card-description">
+                                    Con instrucciones paso a paso para que nunca se pierda.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card card-plain">
+                            <div class="card-body ">
+                                <a href="#pablo">
+                                    <h4 class="card-title">Ingredientes de calidad y de procedencia responsable.</h4>
+                                </a>
+                                <p class="card-description">
+                                    Como productos frescos, mariscos sostenibles y mezclas exclusivas de especias.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <img src="{{asset('img/sections/box.png') }}" alt="Rounded Image" class="rounded img-fluid">
+                    </div>
+                    <div class="col-lg-3 col-md-12 mr-auto">
+                        <div class="card card-plain">
+                            <div class="card-body ">
+                                <a href="#pablo">
+                                    <h4 class="card-title">Cantidades en porciones perfectas.</h4>
+                                </a>
+                                <p class="card-description">
+                                    Así que no se desperdician bocados o trozos.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card card-plain">
+                            <div class="card-body ">
+                                <a href="#pablo">
+                                    <h4 class="card-title">Bolsas y paquetes de hielo reciclables.</h4>
+                                </a>
+                                <p class="card-description">
+                                    Para asegurar que sus ingredientes se mantengan frescos hasta que esté en casa y listo
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pricing-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto text-center">
+                        <h2 class="title">Elije el mejor plan para ti</h2>
+                        <ul class="nav nav-pills nav-pills-primary">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#personal" data-toggle="tab">Sin bebida</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#commercial" data-toggle="tab">Con bebida</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content tab-space">
+                    <div class="tab-pane active" id="personal">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-plain bg-dark">
+                                    <div class="card-body ">
+                                        <h6 class="card-category">Individual</h6>
+                                        <h1 class="card-title">
+                                            <small>$</small>100
+                                            <small>/mes</small>
+                                        </h1>
+                                    </div>
+                                    <div class="card-footer justify-content-center">
+                                        <a href="#pablo" class="btn btn-rose btn-round">
+                                            Empieza ahora
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-raised bg-primary" >
+                                    <div class="card-body">
+                                        <h6 class="card-category text-info">Pareja</h6>
+                                        <h1 class="card-title">
+                                            <small>$</small>200
+                                            <small>/mes</small>
+                                        </h1>
+                                    </div>
+                                    <div class="card-footer justify-content-center">
+                                        <a href="#pablo" class="btn btn-white btn-round">
+                                            Empieza ahora
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-plain bg-dark">
+                                    <div class="card-body ">
+                                        <h6 class="card-category">Familiar</h6>
+                                        <h1 class="card-title">
+                                            <small>$</small>300
+                                            <small>/mes</small>
+                                        </h1>
+                                    </div>
+                                    <div class="card-footer justify-content-center">
+                                        <a href="#pablo" class="btn btn-rose btn-round">
+                                            Empieza ahora
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="commercial">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-plain bg-dark">
+                                    <div class="card-body ">
+                                        <h6 class="card-category">Individual</h6>
+                                        <h1 class="card-title">
+                                            <small>$</small>150
+                                            <small>/mes</small>
+                                        </h1>
+                                    </div>
+                                    <div class="card-footer justify-content-center">
+                                        <a href="#pablo" class="btn btn-rose btn-round">
+                                            Empieza ahora
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-raised bg-primary" >
+                                    <div class="card-body">
+                                        <h6 class="card-category text-info">Pareja</h6>
+                                        <h1 class="card-title">
+                                            <small>$</small>250
+                                            <small>/mes</small>
+                                        </h1>
+                                    </div>
+                                    <div class="card-footer justify-content-center">
+                                        <a href="#pablo" class="btn btn-white btn-round">
+                                            Empieza ahora
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-plain bg-dark">
+                                    <div class="card-body ">
+                                        <h6 class="card-category">Familiar</h6>
+                                        <h1 class="card-title">
+                                            <small>$</small>350
+                                            <small>/mes</small>
+                                        </h1>
+                                    </div>
+                                    <div class="card-footer justify-content-center">
+                                        <a href="#pablo" class="btn btn-rose btn-round">
+                                            Empieza ahora
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     </body>
     <!--   Core JS Files   -->
     <script src="{{ asset('js/core/jquery.min.js') }}" type="text/javascript"></script>

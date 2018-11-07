@@ -29,8 +29,20 @@ Route::resource('/recipe', 'RecipeController');
 
 Route::get('recipe/create', 'RecipeController@create');
 
-Route::get('/usuarios', 'UserController@index');
-Route::delete('/usuarios/{id}', 'UserController@destroy');
+
+Route::get('/usuarios', [
+    'middleware' => 'auth',
+    'uses' => 'UserController@index'
+]);
+
+Route::delete('usuarios/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'UserController@destroy'
+]);
+
+Route::get('usuarios/{id}',function () {
+    return view('welcome');
+});
 
 Route::get('users/month_order', 'MonthOrderController@show');
 

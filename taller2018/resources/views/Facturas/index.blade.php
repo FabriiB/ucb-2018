@@ -35,7 +35,7 @@
                                     <tr>
                                             <td width="45%">
                                                     <p>Fecha:
-                                                    
+                                                        {{$now}}
                                                     </p>
                                             </td>
                                             <td width="45%">

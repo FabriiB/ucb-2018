@@ -34,15 +34,24 @@
                                 <table width="100%">
                                     <tr>
                                             <td width="45%">
-                                                    <p>Fecha:</p>
+                                                    <p>Fecha:
+                                                    
+                                                    </p>
                                             </td>
                                             <td width="45%">
-                                                    <p>NIT/CI:</p>
+                                                    <p>NIT/CI:
+                                                            {{$datos->id}}
+                                                    </p>
                                             </td>
 
                                     </tr>
                                 </table>
-                                <p align="left">Señor (a): </p>
+                                <p align="left">Señor (a):
+                                        {{$datos->firs_name}}
+                                        {{$datos->last_name1}}
+                                        {{$datos->last_name2}}
+
+                                </p>
                                 <hr>
                                 <center><table border="2" width="100%">
                                                 <thead>

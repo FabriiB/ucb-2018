@@ -34,3 +34,5 @@ Route::delete('/usuarios/{id}', 'UserController@destroy');
 
 Route::get('users/month_order', 'MonthOrderController@show');
 
+Route::get('factura', 'facturacontroller@index');
+

@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('passports','PassportController');
 
 
@@ -31,4 +32,5 @@ Route::get('recipe/create', 'RecipeController@create');
 Route::get('/usuarios', 'UserController@index');
 Route::delete('/usuarios/{id}', 'UserController@destroy');
 
+Route::get('users/month_order', 'MonthOrderController@show');
 

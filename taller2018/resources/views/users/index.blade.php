@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.header')
 @section('title', 'Usuarios')
 
 
@@ -9,7 +9,7 @@
         @forelse ($users as $user)
             <li>{{ $user->id_user }} {{ $user->firs_name }} {{$user->last_name1}} {{$user->last_name1}}, {{ $user->email }}
                 <img src="/storage/{{$user->photo}}" height="50" width="50">
-                <form method="POST" action="/usuarios/{{$user->id_user}}" >
+                <form method="POST" action="/usuarios/{{$user->id}}" >
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 

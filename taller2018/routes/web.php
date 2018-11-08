@@ -19,8 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('passports','PassportController');
 
 
@@ -29,13 +27,30 @@ Route::resource('/recipe', 'RecipeController');
 
 Route::get('recipe/create', 'RecipeController@create');
 
-Route::get('/usuarios', 'UserController@index');
-Route::delete('/usuarios/{id}', 'UserController@destroy');
+
+Route::get('/usuarios', [
+    'middleware' => 'auth',
+    'uses' => 'UserController@index'
+]);
+
+Route::delete('usuarios/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'UserController@destroy'
+]);
+
+Route::get('usuarios/{id}',function () {
+    return view('welcome');
+});
 
 Route::get('users/month_order', 'MonthOrderController@show');
 
 Route::resource('/menu', 'MenuController');
 
 Route::get('factura', 'facturacontroller@index');
+
+Route::get('users/month_order', 'MonthOrderController@show');
+
+Route::resource('pedidos','ListaPedidosController');
+
 
 

@@ -23,8 +23,12 @@
                                                 <td width="33%"><table>
                                                                 <tr>
                                                                         <td width="33%"><h4 align="right">NIT:</h4>
-                                                                                <h4 align="right">Factura nro:</h4>
-                                                                                <h4 align="right">Autorizacion:</h4></td>
+                                                                                <h4 align="right">Factura nro:
+                                                                                        {{$datos->identifier}}
+                                                                                </h4>
+                                                                                <h4 align="right">Autorizacion:
+                                                                                        {{$datos->authorization_number}}
+                                                                                </h4></td>
                                                                 </tr>
                                                                 </table>
                                                 </td>
@@ -34,15 +38,24 @@
                                 <table width="100%">
                                     <tr>
                                             <td width="45%">
-                                                    <p>Fecha:</p>
+                                                    <p>Fecha:
+                                                        {{$now}}
+                                                    </p>
                                             </td>
                                             <td width="45%">
-                                                    <p>NIT/CI:</p>
+                                                    <p>NIT/CI:
+                                                            {{$datos->id}}
+                                                    </p>
                                             </td>
 
                                     </tr>
                                 </table>
-                                <p align="left">Señor (a): </p>
+                                <p align="left">Señor (a):
+                                        {{$datos->firs_name}}
+                                        {{$datos->last_name1}}
+                                        {{$datos->last_name2}}
+
+                                </p>
                                 <hr>
                                 <center><table border="2" width="100%">
                                                 <thead>
@@ -58,10 +71,10 @@
                                                 <tbody>
                                                 <tr>
                                                         <td>
-
+                                                                {{$datos->description_bill}}
                                                         </td>
                                                         <td>
-
+                                                                {{$datos->total_bill}}
                                                         </td>
                                                 </tr>
                                                 </tbody>
@@ -70,7 +83,9 @@
                                 </table></center>
                                 <hr>
                                 <p align="left">Son: </p>
-                                <p align="left">Codigo de control: </p>
+                                <p align="left">Codigo de control:
+                                        {{$datos->control_code}}
+                                </p>
                                 <br>
 
                         </div>

@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ListadoPedidos extends Model
 {
-    protected $fillable = ['idOrder','orderDate','status','cancelDate','idUser'];
+    public function index(Request $request)
+    {
+
+        return view('ListadoPedidos.index');
+    }
 }

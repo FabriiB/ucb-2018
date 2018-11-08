@@ -19,8 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('passports','PassportController');
 
 
@@ -52,6 +50,7 @@ Route::get('factura', 'facturacontroller@index');
 
 Route::get('users/month_order', 'MonthOrderController@show');
 
-Route::resource('pedidos', 'ListaPedidosController');
+Route::resource('pedidos','ListaPedidosController');
+
 
 

@@ -16,8 +16,10 @@ class facturacontroller extends Controller
     {
         $id=6140974;
         $name=DB::table('users')
-            ->select('firs_name','last_name1', 'last_name2','id')
-            ->where('id','=',$id)
+            ->join('bill', 'users.id','=','bill.idUser')
+            ->select('users.firs_name as firs_name','users.last_name1 as last_name1', 'users.last_name2 as last_name2','users.id as id', 'bill.control_code as control_code', 'bill.total_bill as total_bill', 'bill.description_bill as description_bill', 'bill.authorization_number as authorization_number','bill.identifier as identifier')
+            ->where('users.id','=',$id)
+            ->orWhere('bill.idUser','=',$id)
             ->first();
         $now = Carbon::now();
         return view('Facturas.index',["datos"=>$name, "now"=>$now]);

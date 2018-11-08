@@ -9,21 +9,35 @@
 ?>
 @extends('layouts.template')
 @section('content')
-    <section class="wrapper">
-        <h3>
-            <i class="fa fa-angle-right"></i>
-            Pedidos
-        </h3>
-        <div class="row mt">
-            <div class="col-lg-12">
-                <div class="content-panel">
-                    <h4>
-                        <i class="fa fa-angle-right">
-                        </i>
-                        Listado de pedidos
-                    </h4>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-rose card-header-icon">
+                            <div class="card-icon">
+                                <section class="wrapper">
+                                    <h3>
+                                        <i class="fa fa-angle-right"></i>
+                                        Estado de Pedido
+                                    </h3>
+                                    <div class="row mt">
+                                        <div class="col-lg-12">
+                                            <div class="content-panel">
+                                                <h4>
+                                                    <i class="fa fa-angle-right">
+                                                    </i>
+                                                    Seleccione la opcion
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection

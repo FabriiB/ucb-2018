@@ -40,6 +40,7 @@
                                                             <th>ID USUARIO</th>
                                                         </tr>
                                                         </thead>
+                                                        @if($pedidos->count())
                                                         @foreach ($pedidos as $pedido)
                                                             <tbody>
                                                             <tr>
@@ -58,13 +59,17 @@
                                                             </tr>
                                                             </tbody>
                                                         @endforeach
+                                                        @else
+                                                            <tr>
+                                                                <td colspan="8">No hay registro !!</td>
+                                                            </tr>
+                                                        @endif
                                                     </table>
-
-
                                                 </section>
                                             </div>
                                         </div>
                                     </div>
+                                    {{ $pedidos->render() }}
                                 </section>
                             </div>
                         </div>

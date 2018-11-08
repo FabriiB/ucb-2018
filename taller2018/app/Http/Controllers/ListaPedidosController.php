@@ -16,18 +16,8 @@ class ListaPedidosController extends Controller
     public function index(Request $request)
     {
         if ($request) {
-            $pedidos = DB::table('order')->select('idOrder', 'orderDate','status','cancelDate','idUser')->orderBy('idOrder')->get();
-           /* $query    = trim($request->get('searchText'));
-            $pedido = DB::table('order')
-                ->select('idOrder', 'orderDate', 'status', 'cancelDate','idUser')
-                ->where('idOrder', 'LIKE', '%' . $query . '%')
-                ->orwhere('orderDate', 'LIKE', '%' . $query . '%')
-                ->orwhere('status', 'LIKE', '%' . $query . '%')
-                ->orwhere('cancelDate', 'LIKE', '%' . $query . '%')
-                ->orwhere('idUser', 'LIKE', '%' . $query . '%')
-                ->orderBy('idOrder');
-                //->paginate(5);*/
-            return view('ListadoPedidos.index',["pedidos" => $pedidos]);
+            $pedidos = DB::table('order')->select('idOrder', 'orderDate','status','cancelDate','idUser')->orderBy('idOrder')->paginate(10);
+            return view('ListadoPedidos.index',["pedidos" => $pedidos],compact('pedidos'));
         }
 
     }

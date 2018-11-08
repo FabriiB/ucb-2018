@@ -20,7 +20,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-inverse navbar-expand-lg bg-dark">
+        <nav class="navbar navbar-inverse navbar-expand-lg bg-dark fixed-top ">
             <div class="container">
                 <div class="navbar-translate">
                     <a class="navbar-brand" href="/">

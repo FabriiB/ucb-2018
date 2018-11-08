@@ -9,47 +9,68 @@
 ?>
 @extends('layouts.template')
 @section('content')
-    <section class="wrapper">
-        <h3>
-            <i class="fa fa-angle-right"></i>
-            Pedidos
-        </h3>
-        <div class="row mt">
-            <div class="col-lg-12">
-                <div class="content-panel">
-                    <h4>
-                        <i class="fa fa-angle-right">
-                        </i>
-                        Listado de pedidos
-                    </h4>
-                    <section id="no-more-tables">
-                        <table class="table table-bordered table-striped table-condensed cf" id="tablaPedidos">
-                            <thead class="cf">
-                            <tr>
-                                <th>ID ORDEN</th>
-                                <th>FECHA DE LA ORDEN</th>
-                                <th>ESTADO</th>
-                                <th>FECHA DE CANCELACION</th>
-                                <th>ID USUARIO</th>
-                            </tr>
-                            </thead>
-                            @foreach ($pedidos as $pedido)
-                                <tbody>
-                                <tr>
-                                    <td>{{ $pedido->idOrder}}</td>
-                                    <td>{{ $pedido->orderDate }}</td>
-                                    <td>{{ $pedido->status }}</td>
-                                    <td>{{ $pedido->cancelDate }}</td>
-                                    <td>{{ $pedido->idUser }}</td>
-                                </tr>
-                                </tbody>
-                            @endforeach
-                        </table>
-                        <button class="btn btn-info" >Editar estados</button>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-rose card-header-icon">
+                            <div class="card-icon">
+                                <section class="wrapper">
+                                    <h3>
+                                        <i class="fa fa-calendar"></i>
+                                        Pedidos
+                                    </h3>
+                                    <div class="row mt">
+                                        <div class="col-lg-12">
+                                            <div class="content-panel">
+                                                <h4>
+                                                    <i class="fa fa-folder">
+                                                    </i>
+                                                    Listado de pedidos
+                                                </h4>
+                                                <section id="no-more-tables">
+                                                    <table class="table table-bordered table-striped table-condensed cf" id="tablaPedidos">
+                                                        <thead class="cf">
+                                                        <tr>
+                                                            <th>ID ORDEN</th>
+                                                            <th>FECHA DE LA ORDEN</th>
+                                                            <th>ESTADO</th>
+                                                            <th>FECHA DE CANCELACION</th>
+                                                            <th>ID USUARIO</th>
+                                                        </tr>
+                                                        </thead>
+                                                        @foreach ($pedidos as $pedido)
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>{{ $pedido->idOrder}}</td>
+                                                                <td>{{ $pedido->orderDate }}</td>
+                                                                <td>{{ $pedido->status }}</td>
+                                                                <td>{{ $pedido->cancelDate }}</td>
+                                                                <td>{{ $pedido->idUser }}</td>
+                                                                <td>
+                                                                    <a class="btn btn-info" href="{{URL::action('ListaPedidosController@edit',$pedido->idOrder)}}" type="submit">
+                                                                        <i class="fa fa-pencil">
+                                                                            Editar estados
+                                                                        </i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        @endforeach
+                                                    </table>
 
-                    </section>
+
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection

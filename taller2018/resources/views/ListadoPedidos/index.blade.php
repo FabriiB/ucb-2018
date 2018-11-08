@@ -33,7 +33,20 @@
                                 <th>ID USUARIO</th>
                             </tr>
                             </thead>
+                            @foreach ($pedidos as $pedido)
+                                <tbody>
+                                <tr>
+                                    <td>{{ $pedido->idOrder}}</td>
+                                    <td>{{ $pedido->orderDate }}</td>
+                                    <td>{{ $pedido->status }}</td>
+                                    <td>{{ $pedido->cancelDate }}</td>
+                                    <td>{{ $pedido->idUser }}</td>
+                                </tr>
+                                </tbody>
+                            @endforeach
                         </table>
+                        <button class="btn btn-info" >Editar estados</button>
+
                     </section>
                 </div>
             </div>

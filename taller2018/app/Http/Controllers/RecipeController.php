@@ -23,7 +23,7 @@ class RecipeController extends Controller
     {
         if ($request) {
             $query    = trim($request->get('searchText'));
-            $recipe = DB::table('recipe')
+            $pedido = DB::table('recipe')
                 ->select('id_recipe', 'description', 'ingredients', 'id_dish','id_administrator')
                 ->where('id_recipe', 'LIKE', '%' . $query . '%')
                 ->orwhere('description', 'LIKE', '%' . $query . '%')

@@ -27,7 +27,6 @@ class MenuRequest extends FormRequest
             'date_created' => 'required|string|max:200',
             'date_update'=> 'required|string|max:100',
             'name' => 'required|string|max:100',
-            'status' => 'required|string|max:50',
             'id_administrator' => 'required|numeric|max:11',
             // 'transaction_id'=>'',
             // 'transaction_date'=>'',

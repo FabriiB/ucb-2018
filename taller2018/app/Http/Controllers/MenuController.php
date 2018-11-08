@@ -23,16 +23,16 @@ class MenuController extends Controller
             $query    = trim($request->get('searchText'));
             $menu = DB::table('menu')
                 ->join('menu_dish','menu.id_menu', '=', 'menu_dish.id_menu')
-                ->select('menu.id_menu', 'menu_dish.id_menu as dish')
+                ->join('dish','menu_dish.id_dish', '=', 'dish.idDish')
+                ->join('administrator','menu.id_administrator', '=', 'administrator.id_administrator')
+                ->select('menu.id_menu', 'menu.name', 'menu.status','menu_dish.id_menu as dish', 'dish.idDish as id_dish', 'dish.name as dd', 'dish.status as ds', 'administrator.name as an', 'menu.date_created as dc')
+                ->where('menu.id_menu', 'LIKE', '%' . $query . '%')
+                ->orwhere('menu.name', 'LIKE', '%' . $query . '%')
                 ->orderBy('menu.id_menu')
-            ->get();
+                ->get();
             return view('menu.index', ["menu" => $menu, "searchText" => $query]);
         }
-        //return view('menu.index');
     }
-/*
-    //return view('Recipe.index',compact('recipe'), "searchText" => $query);
-    //["Recipe" => $recipe, "searchText" => $query]);
 
     public function create()
     {
@@ -43,7 +43,7 @@ class MenuController extends Controller
             ->select('idDish', 'name')
             ->get();
         //echo "<script>alert('sale del create');</script>";
-        return view('Recipe.create', ['id_ad' => $id_ad, 'id_dish'=> $id_dish]);
+        return view('menu.create', ['id_ad' => $id_ad, 'id_dish'=> $id_dish]);
     }
     //Registra los datos ingresados
     public function store(RecipeRequest $request)
@@ -95,5 +95,5 @@ class MenuController extends Controller
         $propietario->delete();
         //return Redirect::to('/recipe');
         return redirect()->action('RecipeController@index');
-    }*/
+    }
 }

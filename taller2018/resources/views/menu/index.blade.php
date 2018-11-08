@@ -23,9 +23,9 @@
                                 <tr>
                                     <td width="90%"></td>
                                     <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" class="btn btn-info">
+                                        <a rel="tooltip" class="btn btn-info" href="menu/create">
                                             <i class="material-icons">add</i>
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
                             </table>
@@ -38,9 +38,10 @@
                                     <tr>
                                         <th class="text-center">ID</th>
                                         <th>NAME</th>
-                                        <th>DESCIRPTION</th>
-                                        <th>DISH DESCRIPTION</th>
+                                        <th>DISHES</th>
                                         <th>DISH STATUS</th>
+                                        <th>CREATED BY</th>
+                                        <th>CREATED DATE</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                     </thead>
@@ -48,10 +49,11 @@
                                     <tbody>
                                     <tr>
                                         <td>{{$m->id_menu}}</td>
-                                        <td>{{$m->dish}}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{$m->name}}</td>
+                                        <td>{{$m->dd}}</td>
+                                        <td>{{$m->ds}}</td>
+                                        <td>{{$m->an}}</td>
+                                        <td>{{$m->dc}}</td>
                                         <td class="td-actions text-right">
                                             <a rel="tooltip" class="btn btn-success" href="" type="submit">
                                                 <i class="material-icons">edit</i>
@@ -68,7 +70,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>

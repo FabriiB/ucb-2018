@@ -85,7 +85,7 @@
         </div>
     </div>
     <div class="main-panel">
-        <!-- Navbar -->
+        <!-- Navbar
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
@@ -97,7 +97,7 @@
 
             </div>
         </nav>
-        <!-- End Navbar -->
+         End Navbar -->
         @yield('content');
 
     </div>

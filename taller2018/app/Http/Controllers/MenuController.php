@@ -17,22 +17,18 @@ class MenuController extends Controller
     {
         //$this->middleware('auth');
     }
-    //Primera vista en pantalla al ingresar
     public function index(Request $request)
     {
-        /*if ($request) {
+        if ($request) {
             $query    = trim($request->get('searchText'));
-            $recipe = DB::table('recipe')
-                ->select('id_recipe', 'description', 'ingredients', 'id_dish','id_administrator')
-                ->where('id_recipe', 'LIKE', '%' . $query . '%')
-                ->orwhere('description', 'LIKE', '%' . $query . '%')
-                 'LIKE', '%' . $query . '%')
-                ->orderBy('id_recipe', 'asc')
-                ->paginate(5);
-            //return view('Recipe.index',compact('recipe'), ["searchText" => $query]);
-            return view('Recipe.index', ["Recipe" => $recipe, "searchText" => $query]);
-        }*/
-        return view('menu.index');
+            $menu = DB::table('menu')
+                ->join('menu_dish','menu.id_menu', '=', 'menu_dish.id_menu')
+                ->select('menu.id_menu', 'menu_dish.id_menu as dish')
+                ->orderBy('menu.id_menu')
+            ->get();
+            return view('menu.index', ["menu" => $menu, "searchText" => $query]);
+        }
+        //return view('menu.index');
     }
 /*
     //return view('Recipe.index',compact('recipe'), "searchText" => $query);

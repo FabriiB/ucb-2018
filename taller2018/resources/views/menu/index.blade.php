@@ -39,35 +39,36 @@
                                         <th class="text-center">ID</th>
                                         <th>NAME</th>
                                         <th>DESCIRPTION</th>
-                                        <th>RECIPES</th>
-                                        <th>PREPARACION</th>
-                                        <th>CREATED BY</th>
+                                        <th>DISH DESCRIPTION</th>
+                                        <th>DISH STATUS</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                     </thead>
+                                    @foreach ($menu as $m)
                                     <tbody>
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Andrew Mike</td>
-                                        <td>Develop</td>
-                                        <td>2013</td>
-                                        <td>2013</td>
-                                        <td class="text-right">&euro; 99,225</td>
+                                        <td>{{$m->id_menu}}</td>
+                                        <td>{{$m->dish}}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" class="btn btn-success">
+                                            <a rel="tooltip" class="btn btn-success" href="" type="submit">
                                                 <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
+                                            </a>
+                                            <a rel="tooltip" class="btn btn-danger" data-target="" data-toggle="modal" href="">
                                                 <i class="material-icons">close</i>
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                     </tbody>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>

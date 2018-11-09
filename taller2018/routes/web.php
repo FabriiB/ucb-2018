@@ -52,5 +52,6 @@ Route::get('users/month_order', 'MonthOrderController@show');
 
 Route::resource('pedidos','ListaPedidosController');
 
+Route::get('menu/create', 'MenuController@create');
 
 

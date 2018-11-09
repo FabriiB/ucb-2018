@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        //DB::statement('TRUNCATE TABLE order CASCADE;');
+        $this->call(OrderSeeder::class);
+
     }
 }

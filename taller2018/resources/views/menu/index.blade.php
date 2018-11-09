@@ -23,9 +23,9 @@
                                 <tr>
                                     <td width="90%"></td>
                                     <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" class="btn btn-info">
+                                        <a rel="tooltip" class="btn btn-info" href="menu/create">
                                             <i class="material-icons">add</i>
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
                             </table>
@@ -38,31 +38,33 @@
                                     <tr>
                                         <th class="text-center">ID</th>
                                         <th>NAME</th>
-                                        <th>DESCIRPTION</th>
-                                        <th>RECIPES</th>
-                                        <th>PREPARACION</th>
+                                        <th>DISHES</th>
+                                        <th>DISH STATUS</th>
                                         <th>CREATED BY</th>
+                                        <th>CREATED DATE</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                     </thead>
+                                    @foreach ($menu as $m)
                                     <tbody>
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Andrew Mike</td>
-                                        <td>Develop</td>
-                                        <td>2013</td>
-                                        <td>2013</td>
-                                        <td class="text-right">&euro; 99,225</td>
+                                        <td>{{$m->id_menu}}</td>
+                                        <td>{{$m->name}}</td>
+                                        <td>{{$m->dd}}</td>
+                                        <td>{{$m->ds}}</td>
+                                        <td>{{$m->an}}</td>
+                                        <td>{{$m->dc}}</td>
                                         <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" class="btn btn-success">
+                                            <a rel="tooltip" class="btn btn-success" href="" type="submit">
                                                 <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
+                                            </a>
+                                            <a rel="tooltip" class="btn btn-danger" data-target="" data-toggle="modal" href="">
                                                 <i class="material-icons">close</i>
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                     </tbody>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>

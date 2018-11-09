@@ -53,6 +53,7 @@
                                     </th>
                                 </tr>
                                 </thead>
+                                @if($pedidos->count())
                                 @foreach ($Recipe as $r)
                                     <tbody>
                                     <tr>

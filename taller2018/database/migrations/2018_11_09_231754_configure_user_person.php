@@ -13,7 +13,7 @@ class ConfigureUserPerson extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {//drops causing missing column errors
             $table->dropColumn('last_name2');
             $table->dropColumn('address2');
             $table->dropColumn('address1');

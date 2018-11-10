@@ -13,7 +13,7 @@
                             </a>
                         </div>
                         <div class="card-body ">
-                            <h4 class="card-title">Alec Thompson</h4>
+                            <h4 class="card-title">{{$user->firs_name}} {{$user->last_name1}}</h4>
                             <a href="#pablo" class="btn btn-info btn-round">Mi cuenta</a>
                             <a href="#pablo" class="btn btn-info btn-round">Mis datos</a>
                             <a href="#pablo" class="btn btn-info btn-round">Historial de pedidos</a>

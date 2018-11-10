@@ -1,21 +1,24 @@
 @extends('layouts.header')
 
 @section('content')
+    <div class="section-space"></div>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <div class="row ">
+        <div class="col-md-10 mr-auto ml-auto">
+            <div class="card card-signup">
+                <h2 class="card-title text-center">Registro</h2>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
-
                         <div class="form-group row">
-                            <label for="firs_name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
                             <div class="col-md-6">
-                                <input id="firs_name" type="text" class="form-control{{ $errors->has('firs_name') ? ' is-invalid' : '' }}" name="firs_name" value="{{ old('firs_name') }}" required autofocus>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">face</i>
+                                    </span>
+                                    <input id="firs_name" type="text" class="form-control{{ $errors->has('firs_name') ? ' is-invalid' : '' }}" name="firs_name" value="{{ old('firs_name') }}" placeholder="Nombre" required autofocus>
+                                </div>
 
                                 @if ($errors->has('firs_name'))
                                     <span class="invalid-feedback" role="alert">
@@ -26,10 +29,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="last_name1" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
-
                             <div class="col-md-6">
-                                <input id="last_name1" type="text" class="form-control{{ $errors->has('last_name1') ? ' is-invalid' : '' }}" name="last_name1" value="{{ old('last_name1') }}" required>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">face</i>
+                                    </span>
+                                    <input id="last_name1" type="text" class="form-control{{ $errors->has('last_name1') ? ' is-invalid' : '' }}" name="last_name1" value="{{ old('last_name1') }}"  placeholder="Apellido" required>
+                                </div>
 
                                 @if ($errors->has('lastName1'))
                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +45,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{--<div class="form-group row">
                             <label for="last_name2" class="col-md-4 col-form-label text-md-right">{{ __('Last Name 2') }}</label>
 
                             <div class="col-md-6">
@@ -51,9 +57,9 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div>--}}
 
-                        <div class="form-group row">
+                        {{--<div class="form-group row">
                             <label for="address1" class="col-md-4 col-form-label text-md-right">{{ __('Address 1') }}</label>
 
                             <div class="col-md-6">
@@ -79,9 +85,9 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div>--}}
 
-                        <div class="form-group row">
+                        {{--<div class="form-group row">
                             <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('Mobile') }}</label>
 
                             <div class="col-md-6">
@@ -107,13 +113,16 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div>--}}
 
                         <div class="form-group row">
-                            <label for="birth_day" class="col-md-4 col-form-label text-md-right">{{ __('Birth Day') }}</label>
-
                             <div class="col-md-6">
-                                <input id="birth_day" type="date" class="form-control{{ $errors->has('birth_day') ? ' is-invalid' : '' }}" name="birth_day" value="{{ old('birth_day') }}" required>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">calendar_today</i>
+                                    </span>
+                                    <input id="birth_day" type="date" class="form-control{{ $errors->has('birth_day') ? ' is-invalid' : '' }}" name="birth_day" value="{{ old('birth_day') }}" required>
+                                </div>
 
                                 @if ($errors->has('birth_day'))
                                     <span class="invalid-feedback" role="alert">
@@ -124,10 +133,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">mail</i>
+                                    </span>
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Correo electronico" required>
+                                </div>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -137,7 +149,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{--<div class="form-group row">
                             <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('Photo') }}</label>
 
                             <div class="col-md-6">
@@ -149,13 +161,16 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div>--}}
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">lock_outline</i>
+                                    </span>
+                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Contraseña" required>
+                                </div>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -166,10 +181,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">lock_outline</i>
+                                    </span>
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirme su contraseña" required>
+                                </div>
                             </div>
                         </div>
 

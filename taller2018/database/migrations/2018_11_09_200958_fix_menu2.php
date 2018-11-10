@@ -74,6 +74,7 @@ class FixMenu2 extends Migration
         });
         Schema::table('meassure', function (Blueprint $table) {
             $table->string('type')->after('name');
+            $table->dropColumn('unit');
         });
         Schema::create('ingredients', function (Blueprint $table) {
             $table->increments('id_ingredients');

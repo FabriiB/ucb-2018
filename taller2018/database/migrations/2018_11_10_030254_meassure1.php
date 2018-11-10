@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class KillForeignKeys extends Migration
+class Meassure1 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,8 @@ class KillForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('order', function(Blueprint $table){
-            $table->dropForeign(['idUser']);
-            $table->dropColumn('idUser');
-        });
-
-        Schema::table('bill', function(Blueprint $table){
-            $table->dropForeign(['idUser']);
-            $table->dropColumn('idUser');
+        Schema::table('meassure', function (Blueprint $table) {
+            $table->string('unit',50);
         });
     }
 
@@ -31,6 +25,6 @@ class KillForeignKeys extends Migration
      */
     public function down()
     {
-        //
+
     }
 }

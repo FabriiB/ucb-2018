@@ -52,19 +52,19 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'firs_name' => 'required|string |min:1|max:50',
             'last_name1'=> 'required|string |max:50',
-            'last_name2'=> 'string  |max:50',
+            /*'last_name2'=> 'string  |max:50',
             'address1'  => 'required|string |max:100',
             'address2'  => 'nullable|string |max:100',
             'mobile'    => 'required|numeric|min:60000000|max:79999999',
-            'phone'     => 'nullable|numeric|min:2000000|max:2999999',
+            'phone'     => 'nullable|numeric|min:2000000|max:2999999',*/
             'email'     => 'required|string |email|max:50|unique:users',
             'password'  => 'required|string |min:6|max:30|confirmed',
             'birth_day' => 'required|date   |before:-18 years',
-            'photo'     => 'image   |nullable|max:1999',
+            /*'photo'     => 'image   |nullable|max:1999',*/
         ],[
             ''=>'',
-            'mobile.digits_between' => 'Ingrese un numero de celular valido',
-            'phone.digits_between'  => 'Ingrese un numero fijo valido',
+            /*'mobile.digits_between' => 'Ingrese un numero de celular valido',
+            'phone.digits_between'  => 'Ingrese un numero fijo valido',*/
             'email.unique'          => 'El email ya esta en uso',
             'password.min'          => 'El password proporcionado debe ser mayor a 6 digitos',
             'password.confirmed'    => 'El password debe ser el mismo en ambos campos',
@@ -82,26 +82,21 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        $request = request();
+        /*$request = request();
         $profileImage = $request->file('photo');
         $profileImageSaveAsName = time() .
             $profileImage->getClientOriginalExtension();
         $upload_path = 'storage/';
         $profile_image_url =$profileImageSaveAsName;
-        $success = $profileImage->move($upload_path, $profileImageSaveAsName);
+        $success = $profileImage->move($upload_path, $profileImageSaveAsName);*/
         return User::create([
             'firs_name' => $data['firs_name'],
             'last_name1'=> $data['last_name1'],
-            'last_name2'=> $data['last_name2'],
-            'address1'  => $data['address1'],
-            'address2'  => $data['address2'],
-            'mobile'    => $data['mobile'],
-            'phone'     => $data['phone'],
             'email'     => $data['email'],
             'password'  => Hash::make($data['password']),
             'birth_day' => $data['birth_day'],
             'status'    => 'active',
-            'photo'     => $profile_image_url,
+            /*'photo'     => $profile_image_url,*/
         ]);
     }
 

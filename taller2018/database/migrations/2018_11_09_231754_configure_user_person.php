@@ -22,7 +22,7 @@ class ConfigureUserPerson extends Migration
             $table->dropColumn('id_plan');
             $table->integer('tx_id')->nullable();
             $table->timestamp('tx_date')->nullable();
-            $table->string('tx_host')->nulllable();
+            $table->string('tx_host')->nullable();
             $table->string('tx_user')->nullable();
             $table->boolean('is_admin')->default(false);
 

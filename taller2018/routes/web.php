@@ -17,7 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix'=>'mi_cuenta'],(function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('/datos', 'HomeController@edit');
+    Route::get('/datos_factura', 'HomeController@index');
+    Route::get('/historial', 'HomeController@index');
+}));
+
 
 Route::resource('passports','PassportController');
 

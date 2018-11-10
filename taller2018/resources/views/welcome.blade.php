@@ -48,7 +48,7 @@
                 <ul class="navbar-nav ml-auto">
                     @auth
                         <li class="button-container nav-item iframe-extern">
-                            <a href="{{ url('/home') }}" class="nav-link">
+                            <a href="{{ url('/mi_cuenta') }}" class="nav-link">
                                 Home
                             </a>
                         </li>

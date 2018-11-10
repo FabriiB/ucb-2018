@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -26,6 +29,9 @@ class HomeController extends Controller
     {
         $id = Auth::id();
         $user = User::findOrFail($id);
-        return view('home',compact('user'));
+        $order_table = DB::table('order')
+            ->select('orderDate', 'status')
+            ->get();
+        return view('home',compact('user', 'order_table'));
     }
 }

@@ -17,8 +17,8 @@ class OrderDelivery extends Migration
             $table->increments('idOrder_Delivery');
             $table->timestamp('shippedDate');
             $table->timestamp('deliveryTime');
-            $table->timestamp('idOrder');
-            $table->string('idDistributor');
+            $table->integer('idOrder')->unsigned();
+            $table->integer('idDistributor')->unsigned();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -97,6 +97,22 @@
                                 </div>
                             </div>
                         </div>
+
+                {{--        <div>  fetches data from the DB, needs work
+                               @foreach($order_table as $OrderTable)
+                                   <tbody>
+                                   <tr>
+                                       <td>
+                                           {{ $table->orderDate }}
+                                       </td>
+                                       <td>
+                                           {{ $OrderTable->status }}
+                                       </td>
+                                   </tr>
+                                   </tbody>
+                               @endforeach
+                           </div>--}}
+
                     </div>
                 </div>
             </div>

@@ -62,15 +62,7 @@ class TablasFabrii extends Migration
             $table->string('type', 50);
             $table->decimal('price',100);
             $table->integer('client_number');
-            $table->integer('id_drink_plan');
-        });
-
-        Schema::create('plan_drink', function (Blueprint $table) {
-            $table->increments('id_plan_drink');
-            $table->string('type', 50);
-            $table->decimal('price');
-            $table->integer('client_number');
-            $table->string('description');
+            $table->boolean('drink_plan');
         });
 
     }

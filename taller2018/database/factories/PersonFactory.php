@@ -16,3 +16,5 @@ $factory->define(App\Person::class, function (Faker $faker) {
         'birthDay' => $faker->date($format = 'Y-m-d'),
     ];
 });
+
+

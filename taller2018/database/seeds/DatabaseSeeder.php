@@ -16,14 +16,11 @@ class DatabaseSeeder extends Seeder
         //DB::statement('TRUNCATE TABLE order CASCADE;');
         factory(User::class,50)->create();
         factory(Person::class,50)->create();
+        factory(Distributors::class,50)->create();
         $this->call(
             OrderSeeder::class,
             DistributorSeeder::class,
             CompanySeeder::class
         );
-
-
-
-
     }
 }

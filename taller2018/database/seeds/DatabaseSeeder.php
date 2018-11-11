@@ -25,16 +25,25 @@ class DatabaseSeeder extends Seeder
         factory(Dish::class,10)->create();
         factory(Drink::class,10)->create();
         $this->call(
-            UserSeeder::class,
-            OrderSeeder::class,
-            DistributorSeeder::class,
+            UserSeeder::class
+        );
+
+        $this->call(
             PlanSeeder::class
         );
 
+        $this->call(
+            OrderSeeder::class
+        );
 
+        $this->call(
+            CompanySeeder::class
+           // DistributorSeeder::class
+        );
 
-
-
-
+        factory(User::class,50)->create();
+        factory(Person::class,50)->create();
+        factory(Meassure::class,10)->create();
+        factory(Distributors::class,50)->create();
     }
 }

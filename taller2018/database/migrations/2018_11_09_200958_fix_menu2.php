@@ -34,10 +34,10 @@ class FixMenu2 extends Migration
             $table->string('tip', 200)->nullable();
             $table->integer('id_user');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->integer('transaction_id');
-            $table->timestamp('transaction_date');
-            $table->string('transaction_host',50);
-            $table->string('transaction_user',50);
+            $table->integer('transaction_id')->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->string('transaction_host',50)->nullable();
+            $table->string('transaction_user',50)->nullable();
             $table->timestamps();
             $table->rememberToken();
         });

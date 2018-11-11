@@ -12,7 +12,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //DB::statement('TRUNCATE TABLE order CASCADE;');
-        $this->call(OrderSeeder::class);
+        $this->call(
+            OrderSeeder::class,
+            DistributorSeeder::class
+            );
 
     }
 }

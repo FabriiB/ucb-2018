@@ -17,9 +17,9 @@ class Order extends Migration
             $table->increments('idOrder');
             $table->timestamp('orderDate');
             $table->string('status');
-            $table->timestamp('cancelDate');
-            $table->integer('idUser');
-            $table->integer('idPlan');
+            $table->timestamp('cancelDate')->nullable();
+            $table->integer('idUser')->nullable();
+            $table->integer('idPlan')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

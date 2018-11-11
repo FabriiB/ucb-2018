@@ -29,6 +29,11 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class
         );
 
+        $this->call(
+            CompanySeeder::class
+           // DistributorSeeder::class
+        );
+
         factory(User::class,50)->create();
         factory(Person::class,50)->create();
         factory(Meassure::class,10)->create();
@@ -37,9 +42,6 @@ class DatabaseSeeder extends Seeder
         factory(Menu::class,50)->create();
 
 
-
-
-//arreglo benji
 
 
     }

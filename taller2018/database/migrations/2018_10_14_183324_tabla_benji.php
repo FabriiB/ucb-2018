@@ -47,10 +47,10 @@ class TablaBenji extends Migration
             $table->timestamp('date_update');
             $table->string('name', 50);
             $table->string('status', 50);
-            $table->integer('transaction_id');
-            $table->timestamp('transaction_date');
-            $table->string('transaction_host',50);
-            $table->string('transaction_user',50);
+            $table->integer('transaction_id')->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->string('transaction_host',50)->nullable();
+            $table->string('transaction_user',50)->nullable();
             $table->timestamps();
             $table->rememberToken();
          });

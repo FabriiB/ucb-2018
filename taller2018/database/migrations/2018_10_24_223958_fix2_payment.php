@@ -15,10 +15,10 @@ class Fix2Payment extends Migration
     {
         Schema::table('payment', function (Blueprint $table) {
             $table->string('platform')->nullable()->change();
-            $table->integer('transaction_id');
-            $table->timestamp('transaction_date');
-            $table->string('transaction_host',50);
-            $table->string('transaction_user',50);
+            $table->integer('transaction_id')->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->string('transaction_host',50)->nullable();
+            $table->string('transaction_user',50)->nullable();
         });
     }
     /**

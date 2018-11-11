@@ -6,6 +6,8 @@ use App\Person;
 use App\Meassure;
 use App\Distributors;
 use App\Menu;
+use App\Dish;
+use App\Drink;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +19,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //DB::statement('TRUNCATE TABLE order CASCADE;');
+        factory(User::class,50)->create();
+        factory(Person::class,50)->create();
+        factory(Meassure::class,10)->create();
+        factory(Distributors::class,50)->create();
+        factory(Dish::class,10)->create();
+        factory(Drink::class,10)->create();
         $this->call(
             UserSeeder::class
         );

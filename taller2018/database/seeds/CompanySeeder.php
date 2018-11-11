@@ -11,6 +11,17 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        //
+
+            DB::table('company')->insert([
+                'id_company' => "1",
+                'name' => "'Satellite'",
+                'heading' => 'ventas abc',
+                'identifier' => "'10028'",
+                'country' => "Bolivia",
+                'region' => "America"]);
+
+
+
     }
 }
+

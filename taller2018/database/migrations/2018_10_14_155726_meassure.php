@@ -16,11 +16,11 @@ class Meassure extends Migration
         Schema::create('meassure', function (Blueprint $table) {
             $table->increments('id_meassure')->unique();
             $table->decimal('unit',10,6);
-            $table->string('name',50)->unique();
-            $table->integer('transaction_id');
-            $table->timestamp('transaction_date');
-            $table->string('transaction_host',50);
-            $table->string('transaction_user',50);
+            $table->string('name',50);
+            $table->integer('transaction_id')->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->string('transaction_host',50)->nullable();
+            $table->string('transaction_user',50)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

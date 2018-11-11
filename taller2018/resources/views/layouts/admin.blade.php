@@ -40,7 +40,7 @@
             </div>
         </div>
     </nav>
-    <div class="sidebar" data-color="purple" data-background-color="black"">
+    <div class="sidebar" data-color="purple" data-background-color="black">
         <!--
           Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger |rose"
 
@@ -61,10 +61,34 @@
                 </div>
             </div>
             <ul class="nav">
-                <li class="nav-item active ">
+                <li class="nav-item ">
                     <a class="nav-link" href="">
                         <i class="material-icons">dashboard</i>
-                        <p> Dashboard </p>
+                        <p> Gestion de Menu </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="">
+                        <i class="material-icons">dashboard</i>
+                        <p> Gestion de Platos </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="">
+                        <i class="material-icons">dashboard</i>
+                        <p> Gestion de ingredientes </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="">
+                        <i class="material-icons">dashboard</i>
+                        <p> Gestion de medidas </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="">
+                        <i class="material-icons">dashboard</i>
+                        <p> Gestion de preparacion </p>
                     </a>
                 </li>
             </ul>

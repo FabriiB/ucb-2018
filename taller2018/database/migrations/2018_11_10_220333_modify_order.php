@@ -14,10 +14,10 @@ class ModifyOrder extends Migration
     public function up()
     {
         Schema::table('order', function (Blueprint $table) {
-            $table->integer('id_person')->unsigned();
-            $table->foreign('id_person')->references('id_person')->on('person');
-            $table->integer('id_menu_dish')->unsigned();
-            $table->foreign('id_menu_dish')->references('id_menu_dish')->on('menu_dish');
+            $table->integer('id_person')->unsigned()->nullable();
+            $table->foreign('id_person')->references('id_person')->on('person')->nullable();
+            $table->integer('id_menu_dish')->unsigned()->nullable();
+            $table->foreign('id_menu_dish')->references('id_menu_dish')->on('menu_dish')->nullable();
         });
 
         Schema::table('person', function (Blueprint $table) {

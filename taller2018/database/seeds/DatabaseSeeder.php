@@ -19,9 +19,12 @@ class DatabaseSeeder extends Seeder
         factory(Person::class,50)->create();
         factory(Distributors::class,50)->create();
         $this->call(
-            OrderSeeder::class
-            //DistributorSeeder::class
+            UserSeeder::class,
+            OrderSeeder::class,
+            DistributorSeeder::class
         );
+
+
 
 
 

@@ -9,5 +9,6 @@ $factory->define(App\Distributors::class, function (Faker $faker) {
         'contact' => $faker->address,
         'commision' => $faker->randomDigit,
         'medium' => $faker->name,
+
     ];
 });

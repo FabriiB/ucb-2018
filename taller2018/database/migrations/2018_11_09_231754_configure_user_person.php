@@ -32,6 +32,9 @@ class ConfigureUserPerson extends Migration
         Schema::table('person', function (Blueprint $table) {
             $table->timestamps();
             $table->dropColumn('email');
+            $table->string('city');
+            $table->string('country');
+            $table->integer('nit');
             $table->integer('dishes')->default(0)->nullable();
             $table->integer('transaction_id')->nullable();
             $table->timestamp('transaction_date')->nullable();

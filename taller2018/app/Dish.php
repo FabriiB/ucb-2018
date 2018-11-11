@@ -7,19 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Dish extends Model
 {
     protected $table      = 'dish';
-    protected $primaryKey = 'idDish';
+    protected $primaryKey = 'id_dish';
     public $timestamps    = false;
     protected $fillable = [
 
-        'date',
         'name',
         'description',
-        'type',
+        'portion',
+        'date_created',
+        'images',
         'status',
+        'type',
         'tip',
-        'quantity',
-        'idOrder',
-        'idAdministrator',
+        'id_user',
         'transaction_id',
         'transaction_date',
         'transaction_host',

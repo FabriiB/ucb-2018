@@ -32,6 +32,8 @@ class FixMenu2 extends Migration
             $table->string('status', 50);
             $table->string('type', 50);
             $table->string('tip', 200)->nullable();
+            $table->integer('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->integer('transaction_id');
             $table->timestamp('transaction_date');
             $table->string('transaction_host',50);

@@ -15,7 +15,7 @@ class Menu extends Model
         'date_update',
         'name',
         'status',
-        'id_administrator',
+        'id_user',
         'transaction_id',
         'transaction_date',
         'transaction_host',

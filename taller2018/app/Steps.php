@@ -4,17 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MenuDish extends Model
+class Steps extends Model
 {
-    protected $table      = 'menu_dish';
-    protected $primaryKey = 'id_menu_dish';
+    protected $table      = 'steps';
+    protected $primaryKey = 'id_step';
     public $timestamps    = false;
     protected $fillable = [
 
-        'date_start',
-        'date_end',
-        'id_menu',
-        'id_dish',
+        'title',
+        'description',
+        'date_created',
+        'images',
         'status',
         'transaction_id',
         'transaction_date',

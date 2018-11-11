@@ -33,7 +33,7 @@ class MeassureController extends Controller
         return view('meassure.create');
     }
     //Registra los datos ingresados
-    public function store(RecipeRequest $request)
+    public function store(MeassureRequest $request)
     {
         //echo "<script>alert('entro al store');</script>";
         $tid = '27';
@@ -50,5 +50,9 @@ class MeassureController extends Controller
         $meassure->save();
         //echo "<script>alert('salio del store');</script>";
         return redirect()->action('MeassureController@index');
+    }
+    public function tx()
+    {
+
     }
 }

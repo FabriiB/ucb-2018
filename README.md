@@ -18,3 +18,11 @@
 <li>Hacer un PULL para obtener los ultimos cambios OTRA VEZ</li>
 <li>RECIEN Y SOLO RECIEN hacer el PUSH de los cambios realizados por cada persona</li>
 </ol>
+
+#Aclaraciones:
+
+Comandos bonitos para arreglar errores
+
+composer dump-autoload = para cuando no reconozca un seed
+
+php artisan migrate:fresh --seed = para que haga los migrates y los seeds al mismo tiempo

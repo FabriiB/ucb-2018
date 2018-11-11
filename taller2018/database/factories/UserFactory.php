@@ -22,3 +22,20 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Distributors::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->userName,
+        'name' => $faker->email,
+        'contact' => $faker->name,
+        'comision' => $faker->str_ramdon,
+        'medium' => $faker->name,
+        'remember_token' =>  str_random(10),
+        'created_at' => $faker->name,
+        'updated_at' => $faker->name,
+        'transaction_id' => $faker->name,
+        'transaction_date' => $faker->name,
+        'transaction_host' => $faker->name,
+        'transaction_user' => $faker->name,
+    ];
+});

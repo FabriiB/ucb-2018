@@ -22,10 +22,15 @@ class OrderController extends Controller
     public function index()
 
     {
-
         $order = order::all();
-        return view('order.index', ['order' => $order->toArray()]);
-
+        $gold = order::select(array('order.*'))
+            ->orderBy('order.id_person')
+            ->join('person', function($join)
+            {
+                $join->on('person.id_person', '=', 'order.id_person');
+            })
+            ->get();
+        return view('order.index',['order' => $order->toArray()]);
 
     }
 
@@ -65,11 +70,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
 
-    {
-
-        ///////////
-        ///
-        //PassportController.php
+    {DB::statement('ALTER TABLE "order" DISABLE TRIGGER ALL;');
         /**
          * Store a newly created resource in storage.
          *
@@ -83,12 +84,19 @@ class OrderController extends Controller
             $name=time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
         }
+
         $order= new \App\Order;
+        $person= new \App\personu();
         $order->orderDate=$request->get('orderDate');
+
+        //$person-> id_person=$request->get ('\App\personu:find(1)->firs_name');
+
+        $order->id_person=$request->get('id_person');
         $order->status=$request->get('status');
         $order->save();
 
         return redirect('order')->with('success', 'Information has been added');
+        DB::statement('ALTER TABLE "order" ENABLE TRIGGER ALL;');
 
     }
 

@@ -24,5 +24,4 @@ class Menu extends Model
     ];
     protected $guarded = [
     ];
-
 }

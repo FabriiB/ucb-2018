@@ -26,3 +26,5 @@ Comandos bonitos para arreglar errores
 composer dump-autoload = para cuando no reconozca un seed
 
 php artisan migrate:fresh --seed = para que haga los migrates y los seeds al mismo tiempo
+
+la tabla payment tiene el nombre de person como idUser

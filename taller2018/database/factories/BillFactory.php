@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Drink::class, function (Faker $faker) {
+$factory->define(App\Bill::class, function (Faker $faker) {
     $users = App\Payment::pluck('idPayment')->toArray();
     return [
 

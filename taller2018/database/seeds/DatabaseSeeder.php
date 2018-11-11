@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
 
 
 
-
+//arreglo benji
 
 
     }

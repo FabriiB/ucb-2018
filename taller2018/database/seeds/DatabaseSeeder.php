@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             OrderSeeder::class,
             DistributorSeeder::class,
-            CompanySeeder::class
+            CompanySeeder::class,
+            PlanSeeder::class
+
         );
     }
 }

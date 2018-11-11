@@ -5,6 +5,7 @@ use App\User;
 use App\Person;
 use App\Meassure;
 use App\Distributors;
+use App\Payment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -37,5 +38,6 @@ class DatabaseSeeder extends Seeder
         factory(Person::class,50)->create();
         factory(Meassure::class,10)->create();
         factory(Distributors::class,50)->create();
+        factory(Payment::class,10)->create();
     }
 }

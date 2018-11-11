@@ -2,16 +2,14 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Distributors::class, function (Faker\Generator $faker) {
-    $array = medium(
-        'Taxi','Moto','Drone'
-    );
+$factory->define(App\Distributors::class, function (Faker $faker) {
+    $array = ['Taxi','Moto','Drone'];
     return [
         'id' => $faker->randomElement(),
         'name' => $faker->name,
-        'contact' => $faker->number,
-        'commision' => $faker->number,
-        'medium' => $faker->medium,
+        'contact' => $faker->randomDigit,
+        'commision' => $faker->randomDigit,
+        'medium' => $faker->randomElement($array),
         'remember_token' =>  str_random(10),
         'created_at' => date($format = 'Y-m-d'),
         'updated_at' => date($format = 'Y-m-d'),

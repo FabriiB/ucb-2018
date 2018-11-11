@@ -20,9 +20,6 @@ class RefenreceKeys extends Migration
             $table->foreign('idUser')->references('id_user')->on('users');
             $table->foreign('idCompany')->references('id_company')->on('company');
         });
-        Schema::table('plan', function (Blueprint $table) {
-            $table->foreign('id_drink_plan')->references('id_plan_drink')->on('plan_drink');
-        });
     }
 
     /**

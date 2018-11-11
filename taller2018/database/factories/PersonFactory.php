@@ -13,6 +13,9 @@ $factory->define(App\Person::class, function (Faker $faker) {
         'address2' => $faker->address,
         'phone' => $faker->randomDigit,
         'mobile' => $faker->randomDigit,
+        'nit' => $faker->randomDigit,
+        'city' => $faker->city,
+        'country' => $faker->country,
         'birthDay' => $faker->date($format = 'Y-m-d'),
     ];
 });

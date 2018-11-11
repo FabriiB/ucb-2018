@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Person;
+use App\Distributors;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
         factory(Person::class,50)->create();
         factory(Distributors::class,50)->create();
         $this->call(
+            UserSeeder::class,
             OrderSeeder::class,
             DistributorSeeder::class,
             CompanySeeder::class

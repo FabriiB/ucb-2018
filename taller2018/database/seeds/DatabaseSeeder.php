@@ -9,6 +9,7 @@ use App\Menu;
 use App\Payment;
 use App\Dish;
 use App\Drink;
+use App\Bill;
 
 class DatabaseSeeder extends Seeder
 {
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
            // DistributorSeeder::class
         );
 
+
         factory(User::class,50)->create();
         factory(Person::class,50)->create();
         factory(Meassure::class,10)->create();
@@ -45,5 +47,6 @@ class DatabaseSeeder extends Seeder
         factory(Payment::class,10)->create();
         factory(Dish::class,10)->create();
         factory(Drink::class,10)->create();
+        factory(Bill::class,10)->create();
     }
 }

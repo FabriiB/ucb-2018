@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         factory(Person::class,50)->create();
         $this->call(
             OrderSeeder::class,
-            DistributorSeeder::class
+            DistributorSeeder::class,
+            CompanySeeder::class
         );
 
 

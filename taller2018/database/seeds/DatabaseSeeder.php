@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Person;
+use App\Distributors;
 
 class DatabaseSeeder extends Seeder
 {

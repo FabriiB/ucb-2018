@@ -11,7 +11,7 @@ class DistributorsSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('ALTER TABLE distributors DISABLE TRIGGER ALL;');
+        //DB::statement('ALTER TABLE distributors DISABLE TRIGGER ALL;');
 
         for ($cont=1;$cont<=1;$cont++){
             DB::table('order')->insert([
@@ -31,7 +31,7 @@ class DistributorsSeeder extends Seeder
             ]);
         }
 
-        DB::statement('ALTER TABLE distributors ENABLE TRIGGER ALL;');
+        //DB::statement('ALTER TABLE distributors ENABLE TRIGGER ALL;');
 
     }
 }

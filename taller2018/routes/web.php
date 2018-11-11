@@ -57,9 +57,7 @@ Route::resource('pedidos','ListaPedidosController');
 
 Route::get('menu/create', 'MenuController@create');
 
-<<<<<<< HEAD
 Route::resource('meassure', 'MeassureController');
-=======
+
 Route::resource('order', 'OrderController');
->>>>>>> e547bf8649908efe38d829fe78ddadbbdc255e78
 

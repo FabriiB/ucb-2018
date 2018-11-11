@@ -8,4 +8,5 @@ class Distributors extends Model
 {
     protected $table = 'distributors';
     protected $primaryKey = 'idDistributor';
+
 }

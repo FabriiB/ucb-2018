@@ -53,10 +53,10 @@ class FixMenu1 extends Migration
             $table->timestamp('date_start');
             $table->timestamp('date_end');
             $table->integer('id_menu');
-            $table->integer('transaction_id');
-            $table->timestamp('transaction_date');
-            $table->string('transaction_host',50);
-            $table->string('transaction_user',50);
+            $table->integer('transaction_id')->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->string('transaction_host',50)->nullable();
+            $table->string('transaction_user',50)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

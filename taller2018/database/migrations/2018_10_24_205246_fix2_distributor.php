@@ -16,10 +16,10 @@ class Fix2Distributor extends Migration
         Schema::table('distributors', function (Blueprint $table) {
             DB::statement('ALTER TABLE distributors ALTER COLUMN id TYPE integer USING id::integer');
             $table->string('medium',50)->nullable()->change();
-            $table->integer('transaction_id');
-            $table->timestamp('transaction_date');
-            $table->string('transaction_host',50);
-            $table->string('transaction_user',50);
+            $table->integer('transaction_id')->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->string('transaction_host',50)->nullable();
+            $table->string('transaction_user',50)->nullable();
         });
     }
 

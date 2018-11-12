@@ -27,11 +27,43 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $plan = DB::table('user_plan')
+            ->where('start_date_plan', '<=', now())
+            ->where('ending_date_plan', '>=',now())
+            ->get();
         $id = Auth::id();
         $user = User::findOrFail($id);
         $order_table = DB::table('order')
             ->select('orderDate', 'status')
             ->get();
-        return view('home',compact('user', 'order_table'));
+        return view('home.home',compact('user', 'order_table'));
+    }
+
+    public function edit()
+    {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+        return view('home.edit',compact('user'));
+    }
+
+    public function factura()
+    {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+        return view('home.factura',compact('user'));
+    }
+
+    public function historial()
+    {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+        return view('home.historial',compact('user'));
+    }
+
+    public function historial2()
+    {
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+        return view('home.historial2',compact('user'));
     }
 }

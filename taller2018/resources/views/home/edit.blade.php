@@ -14,9 +14,10 @@
                         </div>
                         <div class="card-body ">
                             <h4 class="card-title">{{$user->firs_name}} {{$user->last_name1}}</h4>
-                            <a href="#pablo" class="btn btn-info btn-round">Mi cuenta</a>
-                            <a href="#pablo" class="btn btn-info btn-round">Mis datos</a>
-                            <a href="#pablo" class="btn btn-info btn-round">Historial de pedidos</a>
+                            <a href="{{ url('/mi_cuenta/') }}" class="btn btn-info btn-round">Inicio</a>
+                            <a href="{{ url('/mi_cuenta/datos') }}" class="btn btn-info btn-round">Mi cuenta</a>
+                            <a href="{{ url('/mi_cuenta/factura') }}" class="btn btn-info btn-round">Mis datos</a>
+                            <a href="{{ url('/mi_cuenta/historial') }}" class="btn btn-info btn-round">Historial de pedidos</a>
                         </div>
                     </div>
                 </div>
@@ -38,7 +39,7 @@
                                         </a>
                                     </div>
                                     <div class="card-body ">
-                                        <h4 class="card-title">Carne con verduras</h4>
+                                        <h4 class="card-title">Carne con pollo</h4>
                                     </div>
                                     <div class="card-footer ">
                                         <div class="author">
@@ -98,20 +99,20 @@
                             </div>
                         </div>
 
-                {{--        <div>  fetches data from the DB, needs work
-                               @foreach($order_table as $OrderTable)
-                                   <tbody>
-                                   <tr>
-                                       <td>
-                                           {{ $table->orderDate }}
-                                       </td>
-                                       <td>
-                                           {{ $OrderTable->status }}
-                                       </td>
-                                   </tr>
-                                   </tbody>
-                               @endforeach
-                           </div>--}}
+                        {{--        <div>  fetches data from the DB, needs work
+                                       @foreach($order_table as $OrderTable)
+                                           <tbody>
+                                           <tr>
+                                               <td>
+                                                   {{ $table->orderDate }}
+                                               </td>
+                                               <td>
+                                                   {{ $OrderTable->status }}
+                                               </td>
+                                           </tr>
+                                           </tbody>
+                                       @endforeach
+                                   </div>--}}
 
                     </div>
                 </div>

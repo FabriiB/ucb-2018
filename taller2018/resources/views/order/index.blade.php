@@ -1,16 +1,8 @@
 <!-- index.blade.php -->
-<?php
-/**
- * Created by PhpStorm.
- * User: cristal
- * Date: 23/10/18
- * Time: 11:44 PM
- */
 
-?>
 @extends('layouts.template')
 @section('content')
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -19,17 +11,21 @@
 </head>
 <body>
 <div class="container">
+    <h2>Order list</h2><br/>
     <br />
     @if (\Session::has('success'))
         <div class="alert alert-success">
             <p>{{ \Session::get('success') }}</p>
         </div><br />
     @endif
+    <?php
+
+    ?>
     <table class="table table-striped">
         <thead>
         <tr>
             <th>ID</th>
-            <th>client</th>
+            <th>user</th>
             <th>orderDate</th>
             <th>status</th>
         </tr>
@@ -38,6 +34,7 @@
         <?php foreach ($order as $order): ?>
         <tr>
             <td><?=$order['idOrder']?></td>
+            <td><?=$order['id_person']?></td>
             <td><?=$order['orderDate']?></td>
             <td><?=$order['status']?></td>
         </tr>

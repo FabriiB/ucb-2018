@@ -15,6 +15,7 @@ class MenuDish extends Model
         'date_end',
         'id_menu',
         'id_dish',
+        'status',
         'transaction_id',
         'transaction_date',
         'transaction_host',

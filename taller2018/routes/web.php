@@ -21,8 +21,9 @@ Auth::routes();
 Route::group(['prefix'=>'mi_cuenta'],(function () {
     Route::get('/', 'HomeController@index');
     Route::get('/datos', 'HomeController@edit');
-    Route::get('/datos_factura', 'HomeController@index');
-    Route::get('/historial', 'HomeController@index');
+    Route::get('/factura', 'HomeController@factura');
+    Route::get('/historial', 'HomeController@historial');
+    Route::get('/historial_planes', 'HomeController@historial2');
 }));
 
 
@@ -56,6 +57,8 @@ Route::get('factura', 'facturacontroller@index');
 Route::resource('pedidos','ListaPedidosController');
 
 Route::get('menu/create', 'MenuController@create');
+
+Route::resource('meassure', 'MeassureController');
 
 Route::resource('order', 'OrderController');
 

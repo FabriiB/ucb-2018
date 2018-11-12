@@ -30,11 +30,15 @@ class ConfigureUserPerson extends Migration
         });
 
         Schema::table('person', function (Blueprint $table) {
+            $table->timestamps();
             $table->dropColumn('email');
+            $table->string('city');
+            $table->string('country');
+            $table->integer('nit');
             $table->integer('dishes')->default(0)->nullable();
             $table->integer('transaction_id')->nullable();
             $table->timestamp('transaction_date')->nullable();
-            $table->string('transaction_host')->nulllable();
+            $table->string('transaction_host')->nullable();
             $table->string('transaction_user')->nullable();
             $table->integer('id_plan')->unsigned();
             $table->foreign('id_plan')->references('id_plan')->on('plan');

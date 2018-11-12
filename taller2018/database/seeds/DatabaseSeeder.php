@@ -1,6 +1,20 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
+use App\Person;
+use App\Meassure;
+use App\Distributors;
+use App\Menu;
+use App\Payment;
+use App\Dish;
+use App\Drink;
+use App\DishDrink;
+use App\MenuDish;
+use App\Bill;
+
+use App\Order;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,11 +25,37 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //DB::statement('TRUNCATE TABLE order CASCADE;');
+
         $this->call(
-            OrderSeeder::class,
-            DistributorSeeder::class
-            );
+            UserSeeder::class
+        );
+
+        $this->call(
+            PlanSeeder::class
+        );
+
+        $this->call(
+            OrderSeeder::class
+        );
+
+        $this->call(
+            CompanySeeder::class
+           // DistributorSeeder::class
+        );
+
+
+        factory(User::class,50)->create();
+        factory(Person::class,50)->create();
+        factory(Meassure::class,10)->create();
+        factory(Distributors::class,50)->create();
+        factory(Menu::class,50)->create();
+        factory(Payment::class,10)->create();
+        factory(Dish::class,10)->create();
+        factory(Drink::class,10)->create();
+        factory(DishDrink::class,10)->create();
+        factory(MenuDish::class,10)->create();
+        factory(Bill::class,10)->create();
+        factory(Order::class,20)->create();
 
     }
 }

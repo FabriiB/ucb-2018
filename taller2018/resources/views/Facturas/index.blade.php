@@ -44,7 +44,7 @@
                                             </td>
                                             <td width="45%">
                                                     <p>NIT/CI:
-                                                            {{$datos->id}}
+                                                            {{$datos->nit}}
                                                     </p>
                                             </td>
 

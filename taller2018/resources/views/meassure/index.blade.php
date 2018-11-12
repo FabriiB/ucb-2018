@@ -27,9 +27,9 @@
                                             @include('meassure.search')
                                         </td>
                                         <td width="8%" valign="top">
-                                            <button type="submit" class="btn btn-info btn-sm">
+                                            <a class="btn btn-info btn-sm" href="meassure/create">
                                                 <i class="material-icons">add</i>
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </table>
@@ -51,14 +51,15 @@
                                             <td>{{$m->unit}}</td>
                                             <td>{{$m->type}}</td>
                                             <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" class="btn btn-success">
+                                                <a rel="tooltip" class="btn btn-success" href="{{URL::action('MeassureController@edit',$m->id_meassure)}}" type="submit">
                                                     <i class="material-icons">edit</i>
-                                                </button>
-                                                <button type="button" rel="tooltip" class="btn btn-danger">
+                                                </a>
+                                                <a class="btn btn-danger" data-target="#modal-delete-{{$m->id_meassure}}" data-toggle="modal" href="">
                                                     <i class="material-icons">close</i>
-                                                </button>
+                                                </a>
                                             </td>
-                                        </tr>
+                                        </tr>                                                                                                      
+                                        @include('meassure.modal')
                                         </tbody>
                                     @endforeach
                                 </table>

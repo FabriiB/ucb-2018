@@ -36,4 +36,8 @@ class DrinkController extends Controller
     {
         return view('drink.create');
     }
+    public function show($id)
+    {
+        return view("drink.show");
+    }
 }

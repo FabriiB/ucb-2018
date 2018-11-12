@@ -81,12 +81,24 @@ class FixMenu2 extends Migration
         Schema::create('ingredients', function (Blueprint $table) {
             $table->increments('id_ingredients');
             $table->string('name');
-            $table->decimal('quantity');
             $table->timestamp('date_created');
             $table->string('type', 50);
             $table->string('status', 50);
             $table->integer('id_meassure');
             $table->foreign('id_meassure')->references('id_meassure')->on('meassure');
+            $table->integer('transaction_id')->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->string('transaction_host',50)->nullable();
+            $table->string('transaction_user',50)->nullable();
+            $table->timestamps();
+            $table->rememberToken();
+        });
+        Schema::create('dish_ingredients', function (Blueprint $table) {
+            $table->increments('id_dish_ingredients');
+            $table->decimal('quantity');
+            $table->timestamp('date_created');
+            $table->integer('id_ingredients');
+            $table->foreign('id_ingredients')->references('id_ingredients')->on('ingredients');
             $table->integer('id_dish');
             $table->foreign('id_dish')->references('id_dish')->on('dish');
             $table->integer('transaction_id')->nullable();

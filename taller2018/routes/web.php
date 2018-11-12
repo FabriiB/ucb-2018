@@ -61,3 +61,8 @@ Route::resource('meassure', 'MeassureController');
 
 Route::resource('order', 'OrderController');
 
+Route::resource('ingredients', 'IngredientsController');
+Route::resource('instructions', 'InstructionsController');
+Route::resource('dish', 'PlatosController');
+Route::resource('drink', 'DrinkController');
+

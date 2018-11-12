@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: cristal
- * Date: 6/11/18
- * Time: 08:40 PM
+ * Date: 11/11/18
+ * Time: 08:00 PM
  */
 ?>
 @extends('layouts.admin')
@@ -24,7 +24,7 @@
                                     <table width="100%">
                                         <tr>
                                             <td width="92%">
-                                                @include('menu.search')
+                                                @include('meassure.search')
                                             </td>
                                             <td width="8%" valign="top">
                                                 <button type="submit" class="btn btn-info btn-sm">
@@ -38,22 +38,18 @@
                                         <tr>
                                             <th class="text-center"><b></b>ID</th>
                                             <th><b>NOMBRE</b></th>
-                                            <th><b>FECHA DE INICIO</b></th>
-                                            <th><b>FECHA DE FIN</b></th>
-                                            <th><b>CREADO POR </b></th>
-                                            <th><b>STATUS</b></th>
+                                            <th><b>UNIDAD</b></th>
+                                            <th><b>TIPO</b></th>
                                             <th class="text-right"><b>OPCIONES</b></th>
                                         </tr>
                                         </thead>
-                                        @foreach ($menu as $m)
+                                        @foreach ($meassure as $m)
                                             <tbody>
                                             <tr>
-                                                <td class="text-center">{{$m->id_menu}}</td>
+                                                <td class="text-center">{{$m->id_meassure}}</td>
                                                 <td>{{$m->name}}</td>
-                                                <td>{{$m->date_created}}</td>
-                                                <td>{{$m->date_end}}</td>
-                                                <td>{{$m->id_user}}</td>
-                                                <td>{{$m->status}}</td>
+                                                <td>{{$m->unit}}</td>
+                                                <td>{{$m->type}}</td>
                                                 <td class="td-actions text-right">
                                                     <button type="button" rel="tooltip" class="btn btn-success">
                                                         <i class="material-icons">edit</i>
@@ -68,7 +64,7 @@
                                     </table>
                                 </div>
                             </div>
-                            {{$menu->render()}}
+                            {{$meassure->render()}}
                         </div>
                     </div>
                 </div>
@@ -76,5 +72,3 @@
         </div>
     </div>
 @endsection
-
-

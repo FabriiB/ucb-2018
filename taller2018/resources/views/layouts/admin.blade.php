@@ -62,31 +62,37 @@
             </div>
             <ul class="nav">
                 <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="menu">
                         <i class="material-icons">dashboard</i>
                         <p> Gestion de Menu </p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="drink">
+                        <i class="material-icons">dashboard</i>
+                        <p> Gestion de Bebidas </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="dish">
                         <i class="material-icons">dashboard</i>
                         <p> Gestion de Platos </p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="ingredients">
                         <i class="material-icons">dashboard</i>
                         <p> Gestion de ingredientes </p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="meassure">
                         <i class="material-icons">dashboard</i>
                         <p> Gestion de medidas </p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="instructions">
                         <i class="material-icons">dashboard</i>
                         <p> Gestion de preparacion </p>
                     </a>

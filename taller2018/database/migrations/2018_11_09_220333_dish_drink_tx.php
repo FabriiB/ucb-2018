@@ -21,10 +21,10 @@ class DishDrinkTx extends Migration
             $table->foreign('id_dish')->references('id_dish')->on('dish');
             $table->integer('id_drink');
             $table->foreign('id_drink')->references('id_drink')->on('drink');
-            $table->integer('transaction_id');
-            $table->timestamp('transaction_date');
-            $table->string('transaction_host',50);
-            $table->string('transaction_user',50);
+            $table->integer('transaction_id')->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->string('transaction_host',50)->nullable();
+            $table->string('transaction_user',50)->nullable();
             $table->timestamps();
             $table->rememberToken();
         });

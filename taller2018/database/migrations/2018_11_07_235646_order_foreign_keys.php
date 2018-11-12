@@ -14,8 +14,8 @@ class OrderForeignKeys extends Migration
     public function up()
     {
         Schema::table('order', function(Blueprint $table){
-            $table->foreign('idUser')->references('id')->on('users');
-            $table->foreign('idPlan')->references('id_plan')->on('plan');
+            $table->foreign('idUser')->references('id')->on('users')->nullable();
+            $table->foreign('idPlan')->references('id_plan')->on('plan')->nullable();
         });
     }
 

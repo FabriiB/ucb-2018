@@ -28,6 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $plan = DB::table('user_plan')
+            ->join('person', 'bill.id_person','=','payment.idPayment')
             ->where('start_date_plan', '<=', now())
             ->where('ending_date_plan', '>=',now())
             ->get();

@@ -38,12 +38,10 @@
                                         <tr>
                                             <th class="text-center"><b></b>ID</th>
                                             <th><b>NOMBRE</b></th>
-                                            <th><b>CANTIDAD</b></th>
                                             <th><b>TIPO</b></th>
                                             <th><b>FECHA DE CREACION</b></th>
                                             <th><b>ESTADO</b></th>
                                             <th><b>MEDIDA</b></th>
-                                            <th><b>DISH</b></th>
                                             <th class="text-right"><b>OPCIONES</b></th>
                                         </tr>
                                         </thead>
@@ -52,12 +50,10 @@
                                             <tr>
                                                 <td class="text-center">{{$i->id_ingredients}}</td>
                                                 <td>{{$i->name}}</td>
-                                                <td>{{$i->quantity}}</td>
                                                 <td>{{$i->type}}</td>
                                                 <td>{{$i->date_created}}</td>
                                                 <td>{{$i->status}}</td>
                                                 <td>{{$i->id_meassure}}</td>
-                                                <td>{{$i->id_dish}}</td>
                                                 <td class="td-actions text-right">
                                                     <button type="button" rel="tooltip" class="btn btn-success">
                                                         <i class="material-icons">edit</i>

@@ -16,9 +16,20 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de las medidas</h4>
+                                    <h4 class="card-title">Crear medida</h4>
                                 </div>
                             </div>
+                            @if (count($errors)>0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>
+                                                {{$error}}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="card-body ">
                                 <form method="get" action="/" class="form-horizontal">
                                     <div class="row">

@@ -12,12 +12,10 @@ class Ingredients extends Model
     protected $fillable = [
 
         'name',
-        'quantity',
         'date_created',
         'type',
         'status',
         'id_meassure',
-        'id_dish',
         'transaction_id',
         'transaction_date',
         'transaction_host',

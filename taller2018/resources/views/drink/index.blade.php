@@ -27,9 +27,9 @@
                                             @include('drink.search')
                                         </td>
                                         <td width="8%" valign="top">
-                                            <button type="submit" class="btn btn-info btn-sm">
+                                            <a class="btn btn-primary btn-xs" href="drink/create">
                                                 <i class="material-icons">add</i>
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </table>

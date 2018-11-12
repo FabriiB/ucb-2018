@@ -18,11 +18,9 @@ class IngredientsController extends Controller
             $ingredients = DB::table('ingredients')
                 ->where('id_ingredients', 'LIKE', '%' . $query . '%')
                 ->orwhere('name', 'LIKE', '%' . $query . '%')
-                ->orwhere('quantity', 'LIKE', '%' . $query . '%')
                 ->orwhere('type', 'LIKE', '%' . $query . '%')
                 ->orwhere('status', 'LIKE', '%' . $query . '%')
                 ->orwhere('id_meassure', 'LIKE', '%' . $query . '%')
-                ->orwhere('id_dish', 'LIKE', '%' . $query . '%')
                 ->orderBy('id_ingredients', 'asc')
                 ->paginate(5);
             //return view('Recipe.index',compact('recipe'), ["searchText" => $query]);

@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: cristal
- * Date: 6/11/18
- * Time: 08:40 PM
+ * Date: 11/11/18
+ * Time: 08:00 PM
  */
 ?>
 @extends('layouts.admin')
@@ -24,7 +24,7 @@
                                     <table width="100%">
                                         <tr>
                                             <td width="92%">
-                                                @include('menu.search')
+                                                @include('ingredientes.search')
                                             </td>
                                             <td width="8%" valign="top">
                                                 <button type="submit" class="btn btn-info btn-sm">
@@ -38,22 +38,26 @@
                                         <tr>
                                             <th class="text-center"><b></b>ID</th>
                                             <th><b>NOMBRE</b></th>
-                                            <th><b>FECHA DE INICIO</b></th>
-                                            <th><b>FECHA DE FIN</b></th>
-                                            <th><b>CREADO POR </b></th>
-                                            <th><b>STATUS</b></th>
+                                            <th><b>CANTIDAD</b></th>
+                                            <th><b>TIPO</b></th>
+                                            <th><b>FECHA DE CREACION</b></th>
+                                            <th><b>ESTADO</b></th>
+                                            <th><b>MEDIDA</b></th>
+                                            <th><b>DISH</b></th>
                                             <th class="text-right"><b>OPCIONES</b></th>
                                         </tr>
                                         </thead>
-                                        @foreach ($menu as $m)
+                                        @foreach ($ingredients as $i)
                                             <tbody>
                                             <tr>
-                                                <td class="text-center">{{$m->id_menu}}</td>
-                                                <td>{{$m->name}}</td>
-                                                <td>{{$m->date_created}}</td>
-                                                <td>{{$m->date_end}}</td>
-                                                <td>{{$m->id_user}}</td>
-                                                <td>{{$m->status}}</td>
+                                                <td class="text-center">{{$i->id_ingredients}}</td>
+                                                <td>{{$i->name}}</td>
+                                                <td>{{$i->quantity}}</td>
+                                                <td>{{$i->type}}</td>
+                                                <td>{{$i->date_created}}</td>
+                                                <td>{{$i->status}}</td>
+                                                <td>{{$i->id_meassure}}</td>
+                                                <td>{{$i->id_dish}}</td>
                                                 <td class="td-actions text-right">
                                                     <button type="button" rel="tooltip" class="btn btn-success">
                                                         <i class="material-icons">edit</i>
@@ -68,7 +72,7 @@
                                     </table>
                                 </div>
                             </div>
-                            {{$menu->render()}}
+                            {{$ingredients->render()}}
                         </div>
                     </div>
                 </div>
@@ -76,5 +80,3 @@
         </div>
     </div>
 @endsection
-
-

@@ -58,7 +58,7 @@
                                                     <i class="material-icons">close</i>
                                                 </a>
                                             </td>
-                                        </tr>                                                                                                      
+                                        </tr>
                                         @include('meassure.modal')
                                         </tbody>
                                     @endforeach

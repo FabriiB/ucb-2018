@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de las medidas</h4>
+                                    <h4 class="card-title">Listado de los ingredientes</h4>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -27,9 +27,9 @@
                                                 @include('ingredientes.search')
                                             </td>
                                             <td width="8%" valign="top">
-                                                <button type="submit" class="btn btn-info btn-sm">
+                                                <a class="btn btn-info btn-sm" href="ingredientes/create">
                                                     <i class="material-icons">add</i>
-                                                </button>
+                                                </a>
                                             </td>
                                         </tr>
                                     </table>
@@ -55,12 +55,18 @@
                                                 <td>{{$i->status}}</td>
                                                 <td>{{$i->id_meassure}}</td>
                                                 <td class="td-actions text-right">
-                                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('IngredientsController@edit',$i->id_ingredients)}}" type="submit">
                                                         <i class="material-icons">edit</i>
-                                                    </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger">
-                                                        <i class="material-icons">close</i>
-                                                    </button>
+                                                    </a>
+                                                    @if($i->status == 'activo')
+                                                        <a class="btn btn-danger" href="{{URL::action('IngredientsController@edit',$i->id_ingredients)}}">
+                                                            <i class="material-icons">not_interested</i>
+                                                        </a>
+                                                    @else
+                                                        <a class="btn btn-primary" href="{{URL::action('IngredientsController@edit',$i->id_ingredients)}}">
+                                                            <i class="material-icons">not_interested</i>
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             </tbody>

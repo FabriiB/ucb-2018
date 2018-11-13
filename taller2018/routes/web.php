@@ -49,19 +49,13 @@ Route::delete('usuarios/{id}', [
 Route::get('usuarios/{id}',function () {
     return view('welcome');
 });
-
 Route::resource('/menu', 'MenuController');
-
 Route::get('factura', 'facturacontroller@index');
-
 Route::resource('pedidos','ListaPedidosController');
-
 Route::get('menu/create', 'MenuController@create');
-
 Route::resource('meassure', 'MeassureController');
-
+Route::get('ingredientes/create', 'IngredientsController@create');
 Route::resource('order', 'OrderController');
-
 Route::resource('ingredients', 'IngredientsController');
 Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');

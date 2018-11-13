@@ -15,6 +15,8 @@ class ListaPedidosController extends Controller
      */
     public function index(Request $request)
     {
+        $fechainicial = null;
+        $fechafinal = null;
         if ($request) {
 
             /*
@@ -24,8 +26,8 @@ class ListaPedidosController extends Controller
             $pedidos = DB::table('order')
                 ->select('order.idOrder', 'order.orderDate','order.status','person.firs_name','person.last_name1','person.last_name2')
                 ->join('person', 'person.id_person', '=', 'order.id_person')
-                ->where('order.orderDate','>', '20060719')
-                ->where('order.orderDate','<', '20200529')
+                ->where('order.orderDate','>', '20060719')//$fechainicial
+                ->where('order.orderDate','<', '20200529')//$fechafinal
                 ->orderBy('idOrder')
                 ->paginate(10);
             return view('ListadoPedidos.index',["pedidos" => $pedidos],compact('pedidos'));

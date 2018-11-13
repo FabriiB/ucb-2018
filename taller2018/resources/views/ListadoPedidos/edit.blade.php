@@ -28,6 +28,9 @@
                                                     <i class="fa fa-angle-right">
                                                     </i>
                                                     Seleccione la opcion
+                                                    <?php
+                                                    echo pedido.idOrder;
+                                                    ?>
                                                 </h4>
                                             </div>
                                         </div>

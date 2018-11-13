@@ -99,7 +99,7 @@
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="pedidos">
-                        <i class="material-icons">dashboard</i>
+                        <i class="fa fa-calendar"></i>
                         <p> Gestion de pedidos </p>
                     </a>
                 </li>

@@ -16,7 +16,17 @@ class ListaPedidosController extends Controller
     public function index(Request $request)
     {
         if ($request) {
+
+            /*
             $pedidos = DB::table('order')->select('idOrder', 'orderDate','status','id_person')->orderBy('idOrder')->paginate(10);
+            return view('ListadoPedidos.index',["pedidos" => $pedidos],compact('pedidos'));
+            */
+            $pedidos = DB::table('order')
+                ->select('order.idOrder', 'order.orderDate','order.status','order.id_person')
+                ->join('person', 'person.id_person', '=', 'order.id_person')
+                ->where('order.orderDate','=', '20060719')
+                ->orderBy('idOrder')
+                ->paginate(10);
             return view('ListadoPedidos.index',["pedidos" => $pedidos],compact('pedidos'));
         }
 

@@ -18,7 +18,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de pedidos</h4>
+                                    <h4 class="card-title"><i class="fa fa-calendar"></i> Listado de pedidos</h4>
                                 </div>
                             </div>
                             <div class="card-body">

@@ -97,6 +97,12 @@
                         <p> Gestion de preparacion </p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="pedidos">
+                        <i class="material-icons">dashboard</i>
+                        <p> Gestion de pedidos </p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

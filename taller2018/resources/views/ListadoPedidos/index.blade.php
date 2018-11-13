@@ -29,7 +29,7 @@
                                             <th>ID ORDEN</th>
                                             <th>FECHA DE LA ORDEN</th>
                                             <th>ESTADO</th>
-                                            <th>ID USUARIO</th>
+                                            <th>NOMBRE DEL USUARIO</th>
                                             <th>MODIFICAR ESTADO</th>
                                         </tr>
                                         </thead>
@@ -40,7 +40,7 @@
                                                     <td>{{ $pedido->idOrder}}</td>
                                                     <td>{{ $pedido->orderDate }}</td>
                                                     <td>{{ $pedido->status }}</td>
-                                                    <td>{{ $pedido->id_person }}</td>
+                                                    <td>{{ $pedido->firs_name }} {{ $pedido->last_name1 }} {{ $pedido->last_name2 }}</td>
                                                     <td>
                                                         <a class="btn btn-info" href="{{URL::action('ListaPedidosController@edit',$pedido->idOrder)}}" type="submit">
                                                             <i class="fa fa-pencil">

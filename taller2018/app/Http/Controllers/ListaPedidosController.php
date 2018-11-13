@@ -22,9 +22,10 @@ class ListaPedidosController extends Controller
             return view('ListadoPedidos.index',["pedidos" => $pedidos],compact('pedidos'));
             */
             $pedidos = DB::table('order')
-                ->select('order.idOrder', 'order.orderDate','order.status','order.id_person')
+                ->select('order.idOrder', 'order.orderDate','order.status','person.firs_name','person.last_name1','person.last_name2')
                 ->join('person', 'person.id_person', '=', 'order.id_person')
-                ->where('order.orderDate','=', '20060719')
+                ->where('order.orderDate','>', '20060719')
+                ->where('order.orderDate','<', '20200529')
                 ->orderBy('idOrder')
                 ->paginate(10);
             return view('ListadoPedidos.index',["pedidos" => $pedidos],compact('pedidos'));

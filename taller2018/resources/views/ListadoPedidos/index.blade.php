@@ -35,8 +35,7 @@
                                                         <tr>
                                                             <th>ID ORDEN</th>
                                                             <th>FECHA DE LA ORDEN</th>
-                                                            <th>ESTADO</th>
-                                                            <th>FECHA DE CANCELACION</th>
+                                                            <th>ESTADO</th> 
                                                             <th>ID USUARIO</th>
                                                         </tr>
                                                         </thead>
@@ -47,8 +46,7 @@
                                                                 <td>{{ $pedido->idOrder}}</td>
                                                                 <td>{{ $pedido->orderDate }}</td>
                                                                 <td>{{ $pedido->status }}</td>
-                                                                <td>{{ $pedido->cancelDate }}</td>
-                                                                <td>{{ $pedido->idUser }}</td>
+                                                                <td>{{ $pedido->id_person }}</td>
                                                                 <td>
                                                                     <a class="btn btn-info" href="{{URL::action('ListaPedidosController@edit',$pedido->idOrder)}}" type="submit">
                                                                         <i class="fa fa-pencil">

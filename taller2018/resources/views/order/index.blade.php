@@ -19,7 +19,8 @@
         </div><br />
     @endif
     <?php
-
+    $mytime = Carbon\Carbon::now();
+    echo $mytime->toDateTimeString();
     ?>
     <table class="table table-striped">
         <thead>

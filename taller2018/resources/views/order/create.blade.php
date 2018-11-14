@@ -2,6 +2,9 @@
 @extends('layouts.template')
 @section('content')
 
+<?php
+$mytime = Carbon\Carbon::now();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -17,11 +20,11 @@
     <h2>Create order</h2><br/>
     <form method="post" action="{{url('order')}}" enctype="multipart/form-data">
         @csrf
+        <!-- Sending date as hidden value -->
         <div class="row">
-            <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <label for="Name">ordeDate:</label>
-                <input type="text" class="form-control" name="orderDate">
+                <label for="Name"></label>
+                <input type="hidden" class="form-control" name="orderDate" value="<?php echo $mytime; ?>">
             </div>
         </div>
         <div class="row">

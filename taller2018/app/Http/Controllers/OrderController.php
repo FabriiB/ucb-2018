@@ -86,10 +86,10 @@ class OrderController extends Controller
         }
 
         $order= new \App\Order;
-        $person= new \App\personu();
+        //$person= new \App\personu(); //Conect to person table(?)
         $order->orderDate=$request->get('orderDate');
 
-        //$person-> id_person=$request->get ('\App\personu:find(1)->firs_name');
+        //$person-> id_person=$request->get ('\App\personu:find(1)->firs_name'); //Conect to person (?)
 
         $order->id_person=$request->get('id_person');
         $order->status=$request->get('status');

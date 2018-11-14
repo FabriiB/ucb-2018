@@ -44,7 +44,20 @@ class HomeController extends Controller
 
         if($person === null){
             $plan = null;
+            $ordenes = null;
         }else{
+
+            $ordenes = DB::table('order')
+                ->join('menu_dish', 'order.id_menu_dish','=','menu_dish.id_menu_dish')
+                ->where('order.id_person','=',$person)
+                ->select('menu_dish.id_dish as dish')
+                ->pluck('dish');
+
+
+            $dish = DB::table('dish')
+                ->whereIn('id_dish',$ordenes)
+                ->pluck('name');
+
             $plan = DB::table('user_plan')
                 ->join('person', 'user_plan.id_person','=','person.id_person')
                 ->join('plan', 'user_plan.id_plan','=','plan.id_plan')
@@ -60,7 +73,7 @@ class HomeController extends Controller
         $order_table = DB::table('order')
             ->select('orderDate', 'status')
             ->get();
-        return view('home.home',compact('user', 'order_table','plan'));
+        return view('home.home',compact('user', 'order_table','plan','dish'));
     }
 
     public function edit()

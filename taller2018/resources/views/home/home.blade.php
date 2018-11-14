@@ -38,72 +38,32 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="card card-profile">
-                                    <div class="card-header card-header-image">
-                                        <a href="#pablo">
-                                            <img class="img" src="{{asset('img/platos/asparagus.jpg')}}">
-                                        </a>
-                                    </div>
-                                    <div class="card-body ">
-                                        <h4 class="card-title">Carne con verduras</h4>
-                                    </div>
-                                    <div class="card-footer ">
-                                        <div class="author">
+                            @if($dish !== null)
+                                @foreach ($dish as $di)
+                                <div class="col-md-4">
+                                    <div class="card card-profile">
+                                        <div class="card-header card-header-image">
                                             <a href="#pablo">
-                                                <span>Detalles</span>
+                                                <img class="img" src="{{asset('img/platos/asparagus.jpg')}}">
                                             </a>
                                         </div>
-                                        <div class="stats ml-auto">
-                                            <i class="material-icons">schedule</i> 30 min
+                                        <div class="card-body ">
+                                            <h4 class="card-title">{{ $di }}</h4>
+                                        </div>
+                                        <div class="card-footer ">
+                                            <div class="author">
+                                                <a href="#pablo">
+                                                    <span>Detalles</span>
+                                                </a>
+                                            </div>
+                                            <div class="stats ml-auto">
+                                                <i class="material-icons">schedule</i> 30 min
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-profile">
-                                    <div class="card-header card-header-image">
-                                        <a href="#pablo">
-                                            <img class="img" src="{{asset('img/platos/food.jpg')}}">
-                                        </a>
-                                    </div>
-                                    <div class="card-body ">
-                                        <h4 class="card-title">Cerdo en salsa soya</h4>
-                                    </div>
-                                    <div class="card-footer ">
-                                        <div class="author">
-                                            <a href="#pablo">
-                                                <span>Detalles</span>
-                                            </a>
-                                        </div>
-                                        <div class="stats ml-auto">
-                                            <i class="material-icons">schedule</i> 25 min
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-profile">
-                                    <div class="card-header card-header-image">
-                                        <a href="#pablo">
-                                            <img class="img" src="{{asset('img/platos/salmon.jpg')}}">
-                                        </a>
-                                    </div>
-                                    <div class="card-body ">
-                                        <h4 class="card-title">Salmon con verduras</h4>
-                                    </div>
-                                    <div class="card-footer ">
-                                        <div class="author">
-                                            <a href="#pablo">
-                                                <span>Detalles</span>
-                                            </a>
-                                        </div>
-                                        <div class="stats ml-auto">
-                                            <i class="material-icons">schedule</i> 40 min
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            @endif
                         </div>
                     @else
                         <div class="row">

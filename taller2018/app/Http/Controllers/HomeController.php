@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\User;
+use App\Plan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,8 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+
+
     /**
      * Show the application dashboard.
      *
@@ -27,17 +30,50 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $plan = DB::table('user_plan')
-            ->join('person', 'bill.id_person','=','payment.idPayment')
-            ->where('start_date_plan', '<=', now())
-            ->where('ending_date_plan', '>=',now())
-            ->get();
         $id = Auth::id();
+        try {
+            $person = DB::table('person')
+                ->select('id_person')
+                ->where('id_user','=',$id)
+                ->first()
+                ->id_person;
+        }
+        catch (\Exception $e) {
+            $person=null;
+        }
+
+        if($person === null){
+            $plan = null;
+            $ordenes = null;
+        }else{
+
+            $ordenes = DB::table('order')
+                ->join('menu_dish', 'order.id_menu_dish','=','menu_dish.id_menu_dish')
+                ->where('order.id_person','=',$person)
+                ->select('menu_dish.id_dish as dish')
+                ->pluck('dish');
+
+
+            $dish = DB::table('dish')
+                ->whereIn('id_dish',$ordenes)
+                ->pluck('name');
+
+            $plan = DB::table('user_plan')
+                ->join('person', 'user_plan.id_person','=','person.id_person')
+                ->join('plan', 'user_plan.id_plan','=','plan.id_plan')
+                ->where('start_date_plan', '<=', now())
+                ->where('ending_date_plan', '>=',now())
+                ->where('user_plan.id_person','=',$person)
+                ->select('plan.type as type', 'user_plan.ending_date_plan as end')
+                ->first();
+        }
+
+
         $user = User::findOrFail($id);
         $order_table = DB::table('order')
             ->select('orderDate', 'status')
             ->get();
-        return view('home.home',compact('user', 'order_table'));
+        return view('home.home',compact('user', 'order_table','plan','dish'));
     }
 
     public function edit()
@@ -52,6 +88,24 @@ class HomeController extends Controller
         $id = Auth::id();
         $user = User::findOrFail($id);
         return view('home.factura',compact('user'));
+    }
+
+    public function planes($planid,$id)
+    {
+        $id = Auth::id();
+        try {
+            $person = DB::table('person')
+                ->select('id_person')
+                ->where('id_user','=',$id)
+                ->first()
+                ->id_person;
+        }
+        catch (\Exception $e) {
+            $person=null;
+        }
+        $plan = Plan::findOrFail($planid);
+        $user = User::findOrFail($id);
+        return view('home.planes',compact('user','plan','person'));
     }
 
     public function historial()

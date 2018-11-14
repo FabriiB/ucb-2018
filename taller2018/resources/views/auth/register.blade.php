@@ -122,13 +122,14 @@
                                         <i class="material-icons">calendar_today</i>
                                     </span>
                                     <input id="birth_day" type="date" class="form-control{{ $errors->has('birth_day') ? ' is-invalid' : '' }}" name="birth_day" value="{{ old('birth_day') }}" required>
-                                </div>
-
-                                @if ($errors->has('birth_day'))
-                                    <span class="invalid-feedback" role="alert">
+                                    @if ($errors->has('birth_day'))
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('birth_day') }}</strong>
                                     </span>
-                                @endif
+                                    @endif
+                                </div>
+
+
                             </div>
                         </div>
 

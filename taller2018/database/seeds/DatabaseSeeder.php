@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
         factory(DishDrink::class,10)->create();
         factory(MenuDish::class,10)->create();
         factory(Bill::class,10)->create();
-        factory(Order::class,20)->create();
+        factory(Order::class,30)->create();
 
     }
 }

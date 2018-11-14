@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">CREAR BEBIDA</h4>
+                                    <h4 class="card-title">CREAR INGREDIENTE</h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)
@@ -31,22 +31,15 @@
                                 </div>
                             @endif
                             <div class="card-body ">
+                                {!!Form::open(array('url'=>'/drink','method'=>'POST','autocomplete'=>'off'))!!}
+                                {{Form::token()}}
+                            <div class="card-body ">
                                 <form method="get" action="/" class="form-horizontal">
                                     <div class="row">
                                         <label class="col-sm-3 col-form-label">NOMBRE : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="text" class="form-control">
-                                                <span class="bmd-help">A block of help text that breaks onto a new line.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-3 col-form-label">TIPO : </label>
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control">
-                                                <span class="bmd-help">A block of help text that breaks onto a new line.</span>
+                                                <input type="text" name="name" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -54,8 +47,7 @@
                                         <label class="col-sm-3 col-form-label">FECHA DE CADUCIDAD : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="text" class="form-control">
-                                                <span class="bmd-help">A block of help text that breaks onto a new line.</span>
+                                                <input type="date" name="caducity_date" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -63,8 +55,7 @@
                                         <label class="col-sm-3 col-form-label">FECHA DE EMPAQUETADO : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="text" class="form-control">
-                                                <span class="bmd-help">A block of help text that breaks onto a new line.</span>
+                                                <input type="date" name="packaging_date" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -72,26 +63,14 @@
                                         <label class="col-sm-3 col-form-label">MEDIDA : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="text" class="form-control">
-                                                <span class="bmd-help">A block of help text that breaks onto a new line.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-3 col-form-label">USUARIO : </label>
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control">
-                                                <span class="bmd-help">A block of help text that breaks onto a new line.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-sm-3 col-form-label">ESTADO : </label>
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control">
-                                                <span class="bmd-help">A block of help text that breaks onto a new line.</span>
+                                                <select class="form-control" name="id_meassure" type="text">
+                                                    @foreach ($meassure as $m)
+                                                        <option value="{{$m->id_meassure}}">
+                                                            {{$m->id_meassure}} .-
+                                                            {{$m->name}}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -99,8 +78,7 @@
                                         <label class="col-sm-3 col-form-label">DESCRIPCION : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="text" class="form-control">
-                                                <span class="bmd-help">A block of help text that breaks onto a new line.</span>
+                                                <input type="text" name="description" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -108,7 +86,7 @@
                                         <label class="col-sm-3 col-form-label">TIPO : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <select class="form-control" name="dish" type="text">
+                                                <select class="form-control" name="type" type="text">
                                                     <option selected>asdfsa</option>
                                                     <option>asdfsa</option>
                                                     <option>asdfsa</option>
@@ -118,7 +96,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="form-group">
+                                        <center>
+                                            <div class="col-sm-12">
+                                                <button class="btn btn-info" type="submit">
+                                                    Guardar
+                                                </button>
+                                                <a class="btn btn-danger" href="{{ URL::previous() }}" type="reset">
+                                                    Cancelar
+                                                </a>
+                                            </div>
+                                        </center>
+                                    </div>
+                                {!!Form::close()!!}
                             </div>
                         </div>
                     </div>

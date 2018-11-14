@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Dish;
+use App\Http\Requests\DishRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -34,22 +37,25 @@ class PlatosController extends Controller
             ->get();
         return view('platos.create', ["meassure" => $meassure]);
     }
-    public function store(IngredientsRequest $request)
+    public function store(DishRequest $request)
     {
         $tid = '27';
         $ip = $_SERVER['REMOTE_ADDR'];
         $tfecha = Carbon::now();
-        $ingredients       = new Ingredients;
+        $ingredients       = new Dish;
         $ingredients->name = $request->get('name');
+        $ingredients->description = $request->get('description');
+        $ingredients->images = 'images';
+        $ingredients->portion = '2';
         $ingredients->date_created = $tfecha->format('Y-m-d H:i:s');
         $ingredients->type = $request->get('type');
         $ingredients->status = 'activo';
-        $ingredients->id_meassure = $request->get('id_meassure');
+        $ingredients->id_user = '1';
         /*$Recipe->transaction_id    = $tid;
         $Recipe->transaction_date  = $tfecha->format('Y-m-d H:i:s');
         $Recipe->transaction_host  = $ip;
         $Recipe->transaction_user  = $request->get('administrator');*/
         $ingredients->save();
-        return redirect()->action('IngredientsController@index');
+        return redirect()->action('PlatosController@index');
     }
 }

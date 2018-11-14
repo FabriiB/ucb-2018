@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Drink;
+use App\Http\Requests\DrinkRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -34,10 +37,32 @@ class DrinkController extends Controller
     }
     public function create()
     {
-        return view('drink.create');
+        $meassure = DB::table('meassure')
+            ->select('id_meassure', 'name')
+            ->orderBy('id_meassure', 'asc')
+            ->get();
+        return view('drink.create', ["meassure" => $meassure]);
     }
-    public function show($id)
+    public function store(DrinkRequest $request)
     {
-        return view("drink.show");
+        $tid = '27';
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $tfecha = Carbon::now();
+        $ingredients       = new Drink;
+        $ingredients->name = $request->get('name');
+        $ingredients->description = $request->get('description');
+        $ingredients->caducity_date = $request->get('caducity_date');
+        $ingredients->packaging_date = $request->get('packaging_date');
+        $ingredients->type = $request->get('type');
+        $ingredients->date_created = $tfecha->format('Y-m-d H:i:s');
+        $ingredients->id_meassure = $request->get('id_meassure');
+        $ingredients->status = 'activo';
+        $ingredients->id_user = '1';
+        /*$Recipe->transaction_id    = $tid;
+        $Recipe->transaction_date  = $tfecha->format('Y-m-d H:i:s');
+        $Recipe->transaction_host  = $ip;
+        $Recipe->transaction_user  = $request->get('administrator');*/
+        $ingredients->save();
+        return redirect()->action('DrinkController@index');
     }
 }

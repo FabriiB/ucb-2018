@@ -52,9 +52,10 @@ Route::get('usuarios/{id}',function () {
     return view('welcome');
 });
 Route::resource('/menu', 'MenuController');
+Route::get('menu/create', 'MenuController@create');
+Route::get('menu/first', 'MenuController@first');
 Route::get('factura', 'facturacontroller@index');
 Route::resource('pedidos','ListaPedidosController');
-Route::get('menu/create', 'MenuController@create');
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');
 Route::resource('order', 'OrderController');
@@ -63,3 +64,4 @@ Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
 Route::resource('drink', 'DrinkController');
 Route::get('platos/create', 'PlatosController@create');
+

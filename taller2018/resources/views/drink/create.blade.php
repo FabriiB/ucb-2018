@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">CREAR INGREDIENTE</h4>
+                                    <h4 class="card-title">CREAR DRINK</h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)

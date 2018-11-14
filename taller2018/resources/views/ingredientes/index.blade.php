@@ -59,12 +59,12 @@
                                                         <i class="material-icons">edit</i>
                                                     </a>
                                                     @if($i->status == 'activo')
-                                                        <a class="btn btn-danger" href="{{URL::action('IngredientsController@edit',$i->id_ingredients)}}">
+                                                        <a class="btn btn-danger" href="{{URL::action('IngredientsController@index',$i->id_ingredients)}}" type="submit">
                                                             <i class="material-icons">not_interested</i>
                                                         </a>
                                                     @else
-                                                        <a class="btn btn-primary" href="{{URL::action('IngredientsController@edit',$i->id_ingredients)}}">
-                                                            <i class="material-icons">not_interested</i>
+                                                        <a class="btn btn-primary" href="{{URL::action('IngredientsController@index',$i->id_ingredients)}}" type="submit">
+                                                            <i class="material-icons">replay</i>
                                                         </a>
                                                     @endif
                                                 </td>

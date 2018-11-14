@@ -77,10 +77,24 @@ class IngredientsController extends Controller
         $ingredients->update();
         return redirect()->action('IngredientsController@index');
     }
+    public function active($id)
+    {
+        $ingredients       = Ingredients::findOrFail($id);
+        if($ingredients->status == 'activo')
+        {$ingredients->status = 'no actvo';}
+        else
+        {$ingredients->status = 'activo';}
+        $ingredients->update();
+        return redirect()->action('IngredientsController@index');
+    }
     public function destroy($id)
     {
-        $meassure = Ingredients::findOrfail($id);
-        $meassure->delete();
+        $ingredients       = Ingredients::findOrFail($id);
+        if($ingredients->status == 'activo')
+        {$ingredients->status = 'no actvo';}
+        else
+        {$ingredients->status = 'activo';}
+        $ingredients->update();
         return redirect()->action('IngredientsController@index');
     }
 }

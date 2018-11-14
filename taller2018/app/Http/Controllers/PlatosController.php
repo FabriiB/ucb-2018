@@ -15,14 +15,41 @@ class PlatosController extends Controller
     {
         if ($request) {
             $query    = trim($request->get('searchText'));
-            $meassure = DB::table('meassure')
-                ->where('id_meassure', 'LIKE', '%' . $query . '%')
+            $meassure = DB::table('dish')
+                ->where('id_dish', 'LIKE', '%' . $query . '%')
                 ->orwhere('name', 'LIKE', '%' . $query . '%')
                 ->orwhere('type', 'LIKE', '%' . $query . '%')
-                ->orderBy('id_meassure', 'asc')
+                ->orwhere('description', 'LIKE', '%' . $query . '%')
+                ->orderBy('id_dish', 'asc')
                 ->paginate(5);
             //return view('Recipe.index',compact('recipe'), ["searchText" => $query]);
-            return view('meassure.index', ["meassure" => $meassure, "searchText" => $query]);
+            return view('platos.index', ["meassure" => $meassure, "searchText" => $query]);
         }
+    }
+    public function create()
+    {
+        $meassure = DB::table('meassure')
+            ->select('id_meassure', 'name')
+            ->orderBy('id_meassure', 'asc')
+            ->get();
+        return view('platos.create', ["meassure" => $meassure]);
+    }
+    public function store(IngredientsRequest $request)
+    {
+        $tid = '27';
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $tfecha = Carbon::now();
+        $ingredients       = new Ingredients;
+        $ingredients->name = $request->get('name');
+        $ingredients->date_created = $tfecha->format('Y-m-d H:i:s');
+        $ingredients->type = $request->get('type');
+        $ingredients->status = 'activo';
+        $ingredients->id_meassure = $request->get('id_meassure');
+        /*$Recipe->transaction_id    = $tid;
+        $Recipe->transaction_date  = $tfecha->format('Y-m-d H:i:s');
+        $Recipe->transaction_host  = $ip;
+        $Recipe->transaction_user  = $request->get('administrator');*/
+        $ingredients->save();
+        return redirect()->action('IngredientsController@index');
     }
 }

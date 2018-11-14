@@ -27,9 +27,9 @@
                                             @include('drink.search')
                                         </td>
                                         <td width="8%" valign="top">
-                                            <button type="submit" class="btn btn-info btn-sm">
+                                            <a class="btn btn-info btn-sm" href="drink/create">
                                                 <i class="material-icons">add</i>
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </table>
@@ -40,12 +40,10 @@
                                         <th><b>NOMBRE</b></th>
                                         <th><b>TIPO</b></th>
                                         <th><b>FECHA DE CADUCIDAD</b></th>
-                                        <th><b>FECHA DE EMPAQUE</b></th>
                                         <th><b>MEDIDA</b></th>
                                         <th><b>CREADO POR</b></th>
                                         <th><b>ESTADO</b></th>
                                         <th><b>DESCRICION</b></th>
-                                        <th><b>FECHA DE CREACION</b></th>
                                         <th class="text-right"><b>OPCIONES</b></th>
                                     </tr>
                                     </thead>
@@ -56,12 +54,10 @@
                                             <td>{{$m->name}}</td>
                                             <td>{{$m->type}}</td>
                                             <td>{{$m->caducity_date}}</td>
-                                            <td>{{$m->packaging_date}}</td>
                                             <td>{{$m->id_meassure}}</td>
                                             <td>{{$m->id_user}}</td>
                                             <td>{{$m->status}}</td>
                                             <td>{{$m->description}}</td>
-                                            <td>{{$m->date_created}}</td>
                                             <td class="td-actions text-right">
                                                 <button type="button" rel="tooltip" class="btn btn-success">
                                                     <i class="material-icons">edit</i>

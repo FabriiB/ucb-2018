@@ -32,4 +32,8 @@ class DrinkController extends Controller
             return view('drink.index', ["drink" => $ingredients, "searchText" => $query]);
         }
     }
+    public function create()
+    {
+        return view('drink.create');
+    }
 }

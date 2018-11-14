@@ -4,7 +4,20 @@
  * User: benji
  * Date: 7/11/18
  * Time: 08:13
+
+/**
+require_once 'phpqrcode/qrlib.php';
+
  */
+$content="CodigoQR"
+QRcode::png(
+    $content
+        ,"example.png"
+        ,QR_ECLEVEL_L
+        ,5
+        ,1
+        );
+)
 ?>
 
 @extends('layouts.header')

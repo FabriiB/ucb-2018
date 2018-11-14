@@ -15,8 +15,6 @@ class Payment extends Migration
     {
         Schema::create('payment', function (Blueprint $table) {
             $table->increments('idPayment');
-            $table->decimal('price');
-            $table->string('type');
             $table->string('platform');
             $table->timestamp('date');
             $table->string('status');

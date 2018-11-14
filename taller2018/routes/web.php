@@ -19,14 +19,16 @@ Auth::routes();
 
 
 Route::group(['prefix'=>'mi_cuenta'],(function () {
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index')->name('mi_cuenta');
     Route::get('/datos', 'HomeController@edit');
     Route::get('/factura', 'HomeController@factura');
+    Route::get('/plan/{plan}/{id}', 'HomeController@planes');
     Route::get('/historial', 'HomeController@historial');
     Route::get('/historial_planes', 'HomeController@historial2');
 }));
 
-
+Route::post('person/create', 'PersonController@create');
+Route::get('person/createPlan/{data}', 'PersonController@createNext');
 Route::resource('passports','PassportController');
 
 

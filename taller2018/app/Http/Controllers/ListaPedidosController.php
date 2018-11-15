@@ -6,6 +6,7 @@ use App\ListadoPedidos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class ListaPedidosController extends Controller
 {
     /**
@@ -102,5 +103,8 @@ class ListaPedidosController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function filtro(Request $request){
+        $fechaini = $request->input('fechaiini');
     }
 }

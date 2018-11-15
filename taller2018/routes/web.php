@@ -59,7 +59,9 @@ Route::get('factura', 'facturacontroller@index');
 Route::resource('pedidos','ListaPedidosController');
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');
-//Route::resource('order', 'OrderController');
+Route::resource('ordera', 'OrderController');
+Route::resource('ordera/create', 'OrderController@createa');
+Route::get('ordera/create', 'OrderController@createa');
 Route::resource('order', 'OrderController')->except([
 
 ]);

@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: cristal
- * Date: 11/11/18
- * Time: 08:20 PM
+ * Date: 12/11/18
+ * Time: 02:16 PM
  */
 ?>
 @extends('layouts.admin')
@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">CREAR INGREDIENTE</h4>
+                                    <h4 class="card-title">EDITAR MEDIDA {{$ingredients->id_ingredients}}</h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)
@@ -31,13 +31,13 @@
                                 </div>
                             @endif
                             <div class="card-body ">
-                                {!!Form::open(array('url'=>'/ingredients','method'=>'POST','autocomplete'=>'off'))!!}
+                                {!!Form::model($ingredients,['method'=>'PATCH','route'=>['ingredients.update', $ingredients->id_ingredients]])!!}
                                 {{Form::token()}}
                                 <div class="row">
                                     <label class="col-sm-3 col-form-label">NOMBRE : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="Ejemplo: Zanahorias, Azucar, Apio, entre otros...">
+                                            <input type="text" name="name" class="form-control" placeholder="Ejemplo: Zanahorias, Azucar, Apio, entre otros..." value="{{$ingredients->name}}">
                                         </div>
                                     </div>
                                 </div>
@@ -46,7 +46,8 @@
                                     <div class="col-sm-8">
                                         <div class="form-group">
                                             <select class="form-control" name="type" type="text">
-                                                <option selected value="Especies y hierbas">Especies y hierbas</option>
+                                                <option selected value="{{$ingredients->type}}">{{$ingredients->type}}</option>
+                                                <option value="Especies y hierbas">Especies y hierbas</option>
                                                 <option value="Aceites Vinagres">Aceites Vinagres</option>
                                                 <option value="Las Salsas">Las Salsas</option>
                                                 <option value="Arroces, pastas, legumbres">Arroces, pastas, legumbres</option>
@@ -65,10 +66,17 @@
                                         <div class="form-group">
                                             <select class="form-control" name="id_meassure" type="text">
                                                 @foreach ($meassure as $m)
+                                                    @if($m->id_meassure == $ingredients->id_meassure)
+                                                        <option selected value="{{$m->id_meassure}}">
+                                                            {{$m->id_meassure}} .-
+                                                            {{$m->name}}
+                                                        </option>
+                                                    @else
                                                     <option value="{{$m->id_meassure}}">
                                                         {{$m->id_meassure}} .-
                                                         {{$m->name}}
                                                     </option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                         </div>

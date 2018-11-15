@@ -24,9 +24,9 @@ class MeassureRequest extends FormRequest
     public function rules()
     {
         return [
-            'unit' => 'required|numeric|max:100',
-            'name'=> 'required|string|max:50',
-            'type' => 'required|numeric|max:255',
+            'unit' => 'required|string|max:50',
+            'name' => 'required|string|max:50',
+            'type' => 'required|string|max:50',
         ];
     }
 }

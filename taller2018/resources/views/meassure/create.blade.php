@@ -16,44 +16,63 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de las medidas</h4>
+                                    <h4 class="card-title">CREAR MEDIDA</h4>
                                 </div>
                             </div>
+                            @if (count($errors)>0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>
+                                                {{$error}}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="card-body ">
-                                <form method="get" action="/" class="form-horizontal">
+                                {!!Form::open(array('url'=>'/meassure','method'=>'POST','autocomplete'=>'off'))!!}
+                                {{Form::token()}}
                                     <div class="row">
-                                        <label class="col-sm-2 col-form-label">With help</label>
+                                        <label class="col-sm-3 col-form-label">NOMBRE : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="text" class="form-control">
-                                                <span class="bmd-help">A block of help text that breaks onto a new line.</span>
+                                                <input type="text" name="name" class="form-control" placeholder="Ejemplo: Gramos, Kilogramo, Litro">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label class="col-sm-2 col-form-label">Password</label>
+                                        <label class="col-sm-3 col-form-label">UNIDAD : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="password" class="form-control">
+                                                <input type="text" name="unit" class="form-control" placeholder="Ejemplo: gr. , kg. , l. ">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label class="col-sm-2 col-form-label">Password</label>
+                                        <label class="col-sm-3 col-form-label">TIPO : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <select class="selectpicker" data-size="7" data-style="btn btn-default btn-round" title="Single Select">
-                                                    <option disabled selected>Single Option</option>
-                                                    <option value="2">Foobar</option>
-                                                    <option value="3">Is great</option>
-                                                    <option value="4">Is bum</option>
-                                                    <option value="5">Is wow</option>
-                                                    <option value="6">boom</option>
+                                                <select class="form-control" name="type" type="text">
+                                                    <option selected value="Masa">Masa</option>
+                                                    <option value="Volumen">Volumen</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="form-group">
+                                        <center>
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-info" type="submit">
+                                                Guardar
+                                            </button>
+                                            <a class="btn btn-danger" href="{{ URL::previous() }}" type="reset">
+                                                Cancelar
+                                            </a>
+                                        </div>
+                                        </center>
+                                    </div>
+                                {!!Form::close()!!}
                             </div>
                         </div>
                     </div>

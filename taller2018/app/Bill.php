@@ -25,4 +25,8 @@ class Bill extends Model
     ];
     protected $guarded = [
     ];
+
+    public function get_numerito ($id){
+
+    }
 }

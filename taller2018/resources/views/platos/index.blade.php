@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de las medidas</h4>
+                                    <h4 class="card-title">Listado de los Platos</h4>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -24,12 +24,12 @@
                                     <table width="100%">
                                         <tr>
                                             <td width="92%">
-                                                @include('meassure.search')
+                                                @include('platos.search')
                                             </td>
                                             <td width="8%" valign="top">
-                                                <button type="submit" class="btn btn-info btn-sm">
+                                                <a class="btn btn-info btn-sm" href="platos/create">
                                                     <i class="material-icons">add</i>
-                                                </button>
+                                                </a>
                                             </td>
                                         </tr>
                                     </table>
@@ -38,18 +38,22 @@
                                         <tr>
                                             <th class="text-center"><b></b>ID</th>
                                             <th><b>NOMBRE</b></th>
-                                            <th><b>UNIDAD</b></th>
+                                            <th><b>DESCRIPCION</b></th>
                                             <th><b>TIPO</b></th>
+                                            <th><b>ESTADO</b></th>
+                                            <th><b>USUARIO</b></th>
                                             <th class="text-right"><b>OPCIONES</b></th>
                                         </tr>
                                         </thead>
                                         @foreach ($meassure as $m)
                                             <tbody>
                                             <tr>
-                                                <td class="text-center">{{$m->id_meassure}}</td>
+                                                <td class="text-center">{{$m->id_dish}}</td>
                                                 <td>{{$m->name}}</td>
-                                                <td>{{$m->unit}}</td>
+                                                <td>{{$m->description}}</td>
                                                 <td>{{$m->type}}</td>
+                                                <td>{{$m->status}}</td>
+                                                <td>{{$m->id_user}}</td>
                                                 <td class="td-actions text-right">
                                                     <button type="button" rel="tooltip" class="btn btn-success">
                                                         <i class="material-icons">edit</i>

@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: cristal
- * Date: 11/11/18
- * Time: 08:20 PM
+ * Date: 12/11/18
+ * Time: 02:16 PM
  */
 ?>
 @extends('layouts.admin')
@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">CREAR INGREDIENTE</h4>
+                                    <h4 class="card-title">EDITAR MEDIDA {{$meassure->id_meassure}}</h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)
@@ -31,13 +31,21 @@
                                 </div>
                             @endif
                             <div class="card-body ">
-                                {!!Form::open(array('url'=>'/ingredients','method'=>'POST','autocomplete'=>'off'))!!}
+                                {!!Form::model($meassure,['method'=>'PATCH','route'=>['meassure.update', $meassure->id_meassure]])!!}
                                 {{Form::token()}}
                                 <div class="row">
                                     <label class="col-sm-3 col-form-label">NOMBRE : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="Ejemplo: Zanahorias, Azucar, Apio, entre otros...">
+                                            <input type="text" name="name" class="form-control" placeholder="Ejemplo: Gramos, Kilogramo, Litro" value="{{$meassure->name}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">UNIDAD : </label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" name="unit" class="form-control" placeholder="Ejemplo: gr. , kg. , l. " value="{{$meassure->unit}}">
                                         </div>
                                     </div>
                                 </div>
@@ -46,30 +54,13 @@
                                     <div class="col-sm-8">
                                         <div class="form-group">
                                             <select class="form-control" name="type" type="text">
-                                                <option selected value="Especies y hierbas">Especies y hierbas</option>
-                                                <option value="Aceites Vinagres">Aceites Vinagres</option>
-                                                <option value="Las Salsas">Las Salsas</option>
-                                                <option value="Arroces, pastas, legumbres">Arroces, pastas, legumbres</option>
-                                                <option value="Conservas y deshidratados">Conservas y deshidratados</option>
-                                                <option value="Verduras">Verduras</option>
-                                                <option value="Frutas">Frutas</option>
-                                                <option value="Sales y azucares">Sales y azucares</option>
-                                                <option value="Aperitivos">Aperitivos</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 col-form-label">TIPO DE MEDIDA: </label>
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <select class="form-control" name="id_meassure" type="text">
-                                                @foreach ($meassure as $m)
-                                                    <option value="{{$m->id_meassure}}">
-                                                        {{$m->id_meassure}} .-
-                                                        {{$m->name}}
-                                                    </option>
-                                                @endforeach
+                                                @if($meassure->type == 'Masa')
+                                                    <option selected value="Masa">Masa</option>
+                                                    <option value="Volumen">Volumen</option>
+                                                @else
+                                                    <option value="Masa">Masa</option>
+                                                    <option selected value="Volumen">Volumen</option>
+                                                @endif
                                             </select>
                                         </div>
                                     </div>

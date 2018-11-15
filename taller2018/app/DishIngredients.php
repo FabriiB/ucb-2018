@@ -14,7 +14,7 @@ class DishIngredients extends Model
         'quantity',
         'date_created',
         'id_ingredients',
-        'id_didh',
+        'id_dish',
         'transaction_id',
         'transaction_date',
         'transaction_host',

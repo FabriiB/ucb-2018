@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de las medidas</h4>
+                                    <h4 class="card-title">Listado de las menu</h4>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -27,9 +27,9 @@
                                                 @include('menu.search')
                                             </td>
                                             <td width="8%" valign="top">
-                                                <button type="submit" class="btn btn-info btn-sm">
+                                                <a class="btn btn-info btn-sm" href="/menu/create">
                                                     <i class="material-icons">add</i>
-                                                </button>
+                                                </a>
                                             </td>
                                         </tr>
                                     </table>

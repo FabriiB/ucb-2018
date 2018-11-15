@@ -6,7 +6,7 @@
  * Time: 08:20 PM
  */
 ?>
-{!! Form::open(array('url'=>'/ingredients','method'=>'GET','autocomplete'=>'on','role'=>'search')) !!}
+{!! Form::open(array('url'=>'/dish','method'=>'GET','autocomplete'=>'on','role'=>'search')) !!}
 <section>
     <div class="col-md-6">
         <div class="input-group">

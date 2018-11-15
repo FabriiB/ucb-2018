@@ -11,6 +11,7 @@ use App\Http\Requests\MenuRequest;
 use Illuminate\Routing\Redirector;
 use App\Menu;
 use App\MenuDish;
+use NumeroALetras;
 
 class MenuController extends Controller
 {
@@ -31,16 +32,38 @@ class MenuController extends Controller
                 ->orwhere('id_user', 'LIKE', '%' . $query . '%')
                 ->orderBy('id_menu', 'asc')
                 ->paginate(5);
-            //return view('Recipe.index',compact('recipe'), ["searchText" => $query]);
-            return view('menu.index', ["menu" => $menu, "searchText" => $query]);
+            return view('menu.index', ["menu" => $menu, "searchText" => $query, "letras"=>$letras]);
         }
     }
-
     public function create()
     {
-        $id_ad = DB::table('administrator')
-            ->select('id_administrator', 'name')
-            ->get();
-        return view('menu.create', ['id_ad' => $id_ad]);
+        return view('menu.create');
+    }
+    public function store(MenuRequest $request)
+    {
+        $tid = '27';
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $tfecha = Carbon::now();
+        $menu       = new Menu;
+        $menu->name = $request->get('name');
+        $menu->date_created = $request->get('date_created');
+        $menu->date_end = $request->get('date_end');
+        $menu->status = 'activo';
+        $menu->id_user = '1';
+        /*$Recipe->transaction_id    = $tid;
+        $Recipe->transaction_date  = $tfecha->format('Y-m-d H:i:s');
+        $Recipe->transaction_host  = $ip;
+        $Recipe->transaction_user  = $request->get('administrator');*/
+        $menu->save();
+
+        return redirect()->action('MenuController@index');
+    }
+    public function menu_first()
+    {
+        return view('platos.create');
+    }
+    public function show()
+    {
+        return view('menu.create');
     }
 }

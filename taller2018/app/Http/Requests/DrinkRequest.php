@@ -13,7 +13,7 @@ class DrinkRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class DrinkRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=> 'required|string|max:100',
+            'type'=> 'required|string|max:100',
+            'caducity_date'=> 'required|max:100',
+            'description'=> 'required|string|max:100',
         ];
     }
 }

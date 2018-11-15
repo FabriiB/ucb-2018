@@ -8,6 +8,12 @@
     <meta charset="utf-8">
     <title>Index Page</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
+
+
 </head>
 <body>
 <div class="container">
@@ -18,9 +24,7 @@
             <p>{{ \Session::get('success') }}</p>
         </div><br />
     @endif
-    <?php
 
-    ?>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -42,5 +46,7 @@
         </tbody>
     </table>
 </div>
+
+
 </body>
 </html>

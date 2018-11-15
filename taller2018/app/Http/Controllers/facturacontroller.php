@@ -73,7 +73,7 @@ class facturacontroller extends Controller
 
         $bill = Bill::find($id);
         /*$numerito1 = (int)$numerito;*/
-        $numerito = 1;
+        $numerito = 6;
         $letras = NumeroALetras::convertir($numerito,'bolivianos 00/100','centimos' );
         return view('Facturas.index',["datos"=>$name, "now"=>$now, "numerito"=>$letras, "nit"=>$nit]);
     }

@@ -7,7 +7,7 @@ $factory->define(App\Bill::class, function (Faker $faker) {
     return [
 
 
-        'control_code' => '1JHG7765',
+        'control_code' => 'B5-96-59-2A-27',
         'issue_date' =>$faker->date($format = 'Y-m-d'),
         'number_bill'=>$faker->randomDigit,
         'total_bill'=>$faker->randomDigit,

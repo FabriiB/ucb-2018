@@ -28,7 +28,6 @@
                 </div>
                 <div class="projects-2">
                     <div class="container">
-
                     @if($plan !== null )
                         <div class="row">
                             <div class="col-md-8 ml-auto mr-auto text-center">
@@ -38,7 +37,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            @if($dish !== null)
+                            @if($dish->count() > 0)
                                 @foreach ($dish as $di)
                                 <div class="col-md-4">
                                     <div class="card card-profile">
@@ -62,7 +61,46 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
+                                @endforeach
+                            @else
+                                @foreach($pedido as $pedid)
+                                    <div class="col-md-4">
+                                    <div class="card card-profile">
+                                        <form method="POST" action="{{ url('/order/create') }}" >
+                                            @csrf
+                                            <div class="card-header card-header-image">
+                                                <a href="#pablo">
+                                                    <img class="img" src="{{asset('img/platos/asparagus.jpg')}}">
+                                                </a>
+                                            </div>
+                                            <div class="card-body ">
+                                                <h4 class="card-title">{{$pedid->dish}}</h4>
+                                            </div>
+                                            <div class="card-footer ">
+                                                <div class="author">
+                                                    <a href="#pablo">
+                                                        <span>Detalles</span>
+                                                    </a>
+                                                </div>
+                                                <div class="stats ml-auto">
+                                                    <i class="material-icons">schedule</i> 30 min
+                                                </div>
+                                            </div>
+
+                                            <input id="id_plan"  class="form-control{{ $errors->has('id_plan') ? ' is-invalid' : '' }}" name="id_plan" value="{{$plan->plan}}" hidden>
+                                            <input id="id_person"  class="form-control{{ $errors->has('id_person') ? ' is-invalid' : '' }}" name="id_person" value="{{$person}}" hidden>
+                                            <input id="id_menu_dish"  class="form-control{{ $errors->has('id_menu_dish') ? ' is-invalid' : '' }}" name="id_menu_dish" value="{{$pedid->id}}" hidden required>
+
+
+                                            <div class="col-md-6 mr-auto ml-auto">
+                                                <button type="submit" class="btn btn-rose btn-round">
+                                                    {{ __('Adquirir plato') }}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                @endforeach
                             @endif
                         </div>
                     @else

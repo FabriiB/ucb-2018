@@ -64,8 +64,15 @@ class HomeController extends Controller
                 ->where('start_date_plan', '<=', now())
                 ->where('ending_date_plan', '>=',now())
                 ->where('user_plan.id_person','=',$person)
-                ->select('plan.type as type', 'user_plan.ending_date_plan as end')
+                ->select('plan.type as type', 'user_plan.ending_date_plan as end', 'user_plan.id_plan as plan')
                 ->first();
+
+            $pedido = DB::table('menu_dish')
+                ->join('dish', 'menu_dish.id_dish','=','dish.id_dish')
+                ->where('date_start', '<=', now())
+                ->where('date_end', '>=',now())
+                ->select('dish.name as dish','menu_dish.id_dish as id')
+                ->get();
         }
 
 
@@ -73,7 +80,7 @@ class HomeController extends Controller
         $order_table = DB::table('order')
             ->select('orderDate', 'status')
             ->get();
-        return view('home.home',compact('user', 'order_table','plan','dish'));
+        return view('home.home',compact('user', 'order_table','plan','dish','pedido','person'));
     }
 
     public function edit()

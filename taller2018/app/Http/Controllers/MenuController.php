@@ -11,6 +11,7 @@ use App\Http\Requests\MenuRequest;
 use Illuminate\Routing\Redirector;
 use App\Menu;
 use App\MenuDish;
+use NumeroALetras;
 
 class MenuController extends Controller
 {
@@ -31,8 +32,7 @@ class MenuController extends Controller
                 ->orwhere('id_user', 'LIKE', '%' . $query . '%')
                 ->orderBy('id_menu', 'asc')
                 ->paginate(5);
-            //return view('Recipe.index',compact('recipe'), ["searchText" => $query]);
-            return view('menu.index', ["menu" => $menu, "searchText" => $query]);
+            return view('menu.index', ["menu" => $menu, "searchText" => $query, "letras"=>$letras]);
         }
     }
     public function create()
@@ -55,6 +55,7 @@ class MenuController extends Controller
         $Recipe->transaction_host  = $ip;
         $Recipe->transaction_user  = $request->get('administrator');*/
         $menu->save();
+
         return redirect()->action('MenuController@index');
     }
     public function menu_first()

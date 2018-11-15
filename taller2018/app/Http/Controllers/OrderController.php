@@ -36,22 +36,19 @@ class OrderController extends Controller
 
 
 
-    /**
-
-     * Show the form for creating a new resource.
-
-     *
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function create()
-
+    public function create(Request $data)
     {
+        Order::create([
+                    'orderDate'     => now(),
+                    'cancelDate'    => null,
+                    'status'        => 'En proceso',
+                    'detalle'       => null,
+                    'idPlan'        => $data['id_plan'],
+                    'id_person'     => $data['id_person'],
+                    'id_menu_dish'  => $data['id_menu_dish'],
+                ]);
 
-        return view('order.create');
-
+        return redirect()->route('mi_cuenta');
     }
 
 

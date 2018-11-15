@@ -24,8 +24,8 @@ class MenuDishRequest extends FormRequest
     public function rules()
     {
         return [
-            'date_start' => 'required|string|max:200',
-            'date_end'=> 'required|string|max:100',
+            'date_start' => 'string|max:200',
+            'date_end'=> 'string|max:100',
             //'name' => 'required|string|max:100',
             //'id_administrator' => 'required|numeric|max:11',
             // 'transaction_id'=>'',

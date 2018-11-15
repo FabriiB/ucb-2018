@@ -72,4 +72,6 @@ Route::post ('pedidos/filtro','ListaPedidosController@filtro');
 
 Route::get('platos/create', 'PlatosController@create');
 
-
+Route::resource('/menu_dish', 'MenuDishController');
+Route::get('menu_dish/{id}/create', 'MenuDishController@create');
+Route::get('menu_dish/{id}/index', 'MenuDishController@index');

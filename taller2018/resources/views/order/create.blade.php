@@ -12,7 +12,21 @@ $mytime = Carbon\Carbon::now();
     <meta charset="utf-8">
     <title>Create</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
+
     <script  data-src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" media="print" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.print.css"/>
+
+
 </head>
 
 <body>
@@ -56,7 +70,21 @@ $mytime = Carbon\Carbon::now();
         </div>
     </form>
 </div>
+
+
+
 <script type="text/javascript">
+    $('#startdate').datepicker({
+        autoclose: true,
+        format: 'dd-mm-yyyy'
+    });
+    $('#enddate').datepicker({
+        autoclose: true,
+        format: 'dd-mm-yyyy'
+    });
+</script>
+
+<script type="text/javascript"> //date picker conf
     $('#datepicker').datepicker({
         autoclose: true,
         format: 'dd-mm-yyyy'

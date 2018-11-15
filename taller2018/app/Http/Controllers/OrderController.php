@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
 use Illuminate\Support\Facades\DB;
 
@@ -31,6 +32,30 @@ class OrderController extends Controller
             })
             ->get();
         return view('order.index',['order' => $order->toArray()]);
+
+/* calendar
+        $orders = [];
+        $data = Order::all();
+        if($data->count())
+        {
+            foreach ($data as $key => $value)
+            {
+                $orders[] = Calendar::event(
+                    $value->status,
+                    true,
+                    new \DateTime($value->oderDate),
+                    new \DateTime($value->orderDate.'+1 day'),
+                    null,
+                    // Add color
+                    [
+                        'color' => '#000000',
+                        'textColor' => '#008000',
+                    ]
+                );
+            }
+        }
+        $calendar = Calendar::addEvents($orders);
+        return view('order.index', compact('calendar'));*/
 
     }
 
@@ -70,7 +95,8 @@ class OrderController extends Controller
 
     public function store(Request $request)
 
-    {DB::statement('ALTER TABLE "order" DISABLE TRIGGER ALL;');
+    {
+        DB::statement('ALTER TABLE "order" DISABLE TRIGGER ALL;');
         /**
          * Store a newly created resource in storage.
          *
@@ -85,7 +111,7 @@ class OrderController extends Controller
             $file->move(public_path().'/images/', $name);
         }
 
-        $order= new \App\Order;
+        $order= new Order();
         //$person= new \App\personu(); //Conect to person table(?)
         $order->orderDate=$request->get('orderDate');
 
@@ -181,5 +207,7 @@ class OrderController extends Controller
         return redirect('order')->with('success','Information has been  deleted');
 
     }
+
+
 
 }

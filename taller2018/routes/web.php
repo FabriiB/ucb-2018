@@ -64,6 +64,10 @@ Route::resource('meassure', 'MeassureController');
 
 Route::resource('order', 'OrderController');
 
+Route::get('order/create','OrderController@create')->name('order.create');;
+Route::post('order/store','OrderController@store');
+Route::get('order','OrderController@index');
+
 Route::resource('ingredients', 'IngredientsController');
 Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');

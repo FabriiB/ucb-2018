@@ -35,7 +35,8 @@ QRcode::png(
                                                 <td width="33%"><h1 align="center"><b>Factura</b></h1></td>
                                                 <td width="33%"><table>
                                                                 <tr>
-                                                                        <td width="33%"><h4 align="right">NIT:</h4>
+                                                                        <td width="33%"><h4 align="right">NIT:
+                                                                                        {{$nit->identifier}}</h4>
                                                                                 <h4 align="right">Factura nro:
                                                                                         {{$datos->identifier}}
                                                                                 </h4>
@@ -95,9 +96,13 @@ QRcode::png(
 
                                 </table></center>
                                 <hr>
-                                <p align="left">Son: </p>
+                                <p align="left">Son:{{$numerito}} </p>
                                 <p align="left">Codigo de control:
                                         {{$datos->control_code}}
+                                <!---->
+                                </p>
+                                <p align="left">Fecha Limite de Emision:
+                                        {{$datos->issue_date}}
                                 </p>
                                 <br>
 

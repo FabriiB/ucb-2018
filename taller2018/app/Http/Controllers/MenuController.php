@@ -30,9 +30,9 @@ class MenuController extends Controller
                 ->orwhere('date_created', 'LIKE', '%' . $query . '%')
                 ->orwhere('date_end', 'LIKE', '%' . $query . '%')
                 ->orwhere('id_user', 'LIKE', '%' . $query . '%')
-                ->orderBy('id_menu', 'asc')
+                ->orderBy('id_menu', 'desc')
                 ->paginate(5);
-            return view('menu.index', ["menu" => $menu, "searchText" => $query, "letras"=>$letras]);
+            return view('menu.index', ["menu" => $menu, "searchText" => $query]);
         }
     }
     public function create()
@@ -58,12 +58,8 @@ class MenuController extends Controller
 
         return redirect()->action('MenuController@index');
     }
-    public function menu_first()
-    {
-        return view('platos.create');
-    }
     public function show()
     {
-        return view('menu.create');
+        return view('menu_dish.create');
     }
 }

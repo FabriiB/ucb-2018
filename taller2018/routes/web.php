@@ -68,4 +68,6 @@ Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
 Route::resource('drink', 'DrinkController');
 Route::get('platos/create', 'PlatosController@create');
-
+Route::resource('/menu_dish', 'MenuDishController');
+Route::get('menu_dish/{id}/create', 'MenuDishController@create');
+Route::get('menu_dish/{id}/index', 'MenuDishController@index');

@@ -53,7 +53,7 @@
                                                 </div>
                                                 <center>
                                                     <button class="btn btn-success">EDITAR</button>
-                                                    <a class="btn btn-danger" href="{{url()->previous()}}" type="reset">
+                                                    <a class="btn btn-danger" href="{{url('/pedidos')}}" type="reset">
                                                         CANCELAR
                                                     </a>
                                                 </center>

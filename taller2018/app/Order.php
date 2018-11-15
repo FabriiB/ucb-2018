@@ -11,9 +11,11 @@ class Order extends Model
     protected $primaryKey = 'idOrder';
     protected $fillable = [
 
-        'order.orderDate',
-        'order.id_person',
-        'order.status'
+        'orderDate',
+        'id_person',
+        'id_menu_dish',
+        'idPlan',
+        'status'
 
     ];
 

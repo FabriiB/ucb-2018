@@ -27,6 +27,7 @@ Route::group(['prefix'=>'mi_cuenta'],(function () {
     Route::get('/historial_planes', 'HomeController@historial2');
 }));
 
+Route::post('order/create', 'OrderController@create');
 Route::post('person/create', 'PersonController@create');
 Route::get('person/createPlan/{data}', 'PersonController@createNext');
 Route::resource('passports','PassportController');
@@ -62,7 +63,9 @@ Route::get('menu/create', 'MenuController@create');
 
 Route::resource('meassure', 'MeassureController');
 
-Route::resource('order', 'OrderController');
+Route::resource('order', 'OrderController')->except([
+    'create'
+]);
 
 Route::resource('ingredients', 'IngredientsController');
 Route::resource('instructions', 'InstructionsController');

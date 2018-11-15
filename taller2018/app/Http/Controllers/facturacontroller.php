@@ -35,7 +35,8 @@ class facturacontroller extends Controller
         $numerito=DB::table('bill')
             ->select('total_bill')
             ->where('id_bill','=',$id)
-            ->first();
+            ->first()
+            ->total_bill;
 
         /*try{
             $filename="factura.txt";
@@ -73,7 +74,8 @@ class facturacontroller extends Controller
 
         $bill = Bill::find($id);
         /*$numerito1 = (int)$numerito;*/
-        $numerito = 6;
+        //$numerito = 6;
+        //dd($numerito);
         $letras = NumeroALetras::convertir($numerito,'bolivianos 00/100','centimos' );
         return view('Facturas.index',["datos"=>$name, "now"=>$now, "numerito"=>$letras, "nit"=>$nit]);
     }

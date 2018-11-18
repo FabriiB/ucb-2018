@@ -14,6 +14,7 @@ class PersonRole extends Migration
     public function up()
     {
         Schema::create('person_role', function (Blueprint $table) {
+            $table->increments('id_person_role');
             $table->integer('id_person')->unsigned();
             $table->foreign('id_person')->references('id_person')->on('person')->onDelete('cascade');
             $table->integer('id_role')->unsigned();

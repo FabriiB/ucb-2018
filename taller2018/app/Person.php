@@ -20,4 +20,9 @@ class Person extends Model
         'id_user',
     ];
 
+    public function roles()
+    {
+        return $this->belongsToMany('\App\Role');
+    }
+
 }

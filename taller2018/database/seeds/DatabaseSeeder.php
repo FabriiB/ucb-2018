@@ -12,6 +12,7 @@ use App\Drink;
 use App\DishDrink;
 use App\MenuDish;
 use App\Bill;
+use App\Role;
 
 use App\Order;
 
@@ -25,6 +26,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        factory(Role::class,2)->create();
+        factory(Person::class,1)->create();
+
+        $this->call(
+            RoleSeeder::class
+        );
+
 
         $this->call(
             UserSeeder::class
@@ -38,6 +46,7 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class
         );
 
+
         $this->call(
             CompanySeeder::class
            // DistributorSeeder::class
@@ -45,7 +54,6 @@ class DatabaseSeeder extends Seeder
 
 
         factory(User::class,50)->create();
-        factory(Person::class,50)->create();
         factory(Meassure::class,10)->create();
         factory(Distributors::class,50)->create();
         factory(Menu::class,50)->create();
@@ -55,7 +63,8 @@ class DatabaseSeeder extends Seeder
         factory(DishDrink::class,10)->create();
         factory(MenuDish::class,10)->create();
         factory(Bill::class,10)->create();
-        factory(Order::class,30)->create();
+        //factory(Order::class,30)->create(); //search for non existent field name in order table causing an error in the seeding
+
 
     }
 }

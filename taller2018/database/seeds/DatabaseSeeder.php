@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
         factory(User::class,50)->create();
         factory(Role::class,2)->create();
-        factory(Person::class,1)->create();
+        factory(Person::class,20)->create();
 
         $this->call(
             RoleSeeder::class
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
         factory(DishDrink::class,10)->create();
         factory(MenuDish::class,10)->create();
         factory(Bill::class,10)->create();
-        //factory(Order::class,30)->create(); //search for non existent field name in order table causing an error in the seeding
+        factory(Order::class,30)->create();
 
 
     }

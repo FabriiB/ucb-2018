@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        factory(User::class,50)->create();
         factory(Role::class,2)->create();
         factory(Person::class,1)->create();
 
@@ -53,7 +55,6 @@ class DatabaseSeeder extends Seeder
         );
 
 
-        factory(User::class,50)->create();
         factory(Meassure::class,10)->create();
         factory(Distributors::class,50)->create();
         factory(Menu::class,50)->create();

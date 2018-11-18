@@ -11,14 +11,19 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $PersonIds = DB::table('person')->lists('id_person');
-        $roleIds = DB::table('roles')->lists('id_role');
+        $PersonIds = DB::table('person')->pluck('id_person');
+        $RoleIds = DB::table('role')->pluck('id_role');
+
+        $IndexPerson = rand(0, count($PersonIds));
+        $IndexRole = rand(0, count($RoleIds));
+
+
 
         foreach ((range(1, 20)) as $index) {
-            DB::table('role')->insert(
+            DB::table('person_role')->insert(
                 [
-                    'id_role' => $PersonIds[array_rand($roleIds)],
-                    'id_person' => $PersonIds[array_rand($roleIds)]
+                    'id_role' => $RoleIds[$IndexRole],
+                    'id_person' => $PersonIds[$IndexPerson]
                 ]
             );
         }

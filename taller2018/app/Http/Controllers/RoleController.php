@@ -12,11 +12,11 @@ class RoleController extends Controller
     {
         $role = new Role;
         $role->name = 'Admin';
-        $role->description = 'user with privileges';
+        $role->description = 'user with admin role';
 
         $role->save();
 
-        $person = Person::find([3, 4]);
+        $person = Person::find([0, 4]);
         $role->persons->attach($person);
 
         return 'Success';

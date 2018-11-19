@@ -13,6 +13,7 @@ use App\DishDrink;
 use App\MenuDish;
 use App\Bill;
 use App\Role;
+use App\Permision;
 
 use App\Order;
 
@@ -26,15 +27,42 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
+        //user needs to be before the many to many seeding for roles management
         factory(User::class,50)->create();
-        factory(Role::class,2)->create();
+
+        //factory(Role::class,3)->create();
+        //need to seed specific roles
+        DB::table('role')->insert([
+            'name' => 'Admin',
+        ]);
+        DB::table('role')->insert([
+            'name' => 'Operator',
+        ]);
+        DB::table('role')->insert([
+            'name' => 'User',
+        ]);
+
+        //person needs to be before the seeding for permisions management
         factory(Person::class,20)->create();
+        //factory(Permision::class,3)->create();
+        //need to seed specific permisions
+        DB::table('permision')->insert([
+            'name' => 'Admin',
+        ]);
+        DB::table('permision')->insert([
+            'name' => 'Operator',
+        ]);
+        DB::table('permision')->insert([
+            'name' => 'User',
+        ]);
 
         $this->call(
             RoleSeeder::class
         );
 
+        $this->call(
+            PermisionSeeder::class
+        );
 
         $this->call(
             UserSeeder::class

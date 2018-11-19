@@ -14,12 +14,13 @@ class PermisionSeeder extends Seeder
         $RoleIds = DB::table('role')->pluck('id_role');
         $PermisionIds = DB::table('permision')->pluck('id_permision');
 
-        $IndexRole = rand(0, count($RoleIds));
-        $IndexPermision = rand(0, count($PermisionIds));
 
 
 
-        foreach ((range(10, 2)) as $index) {
+        foreach ((range(0, 1)) as $index) {
+
+            $IndexRole = rand(0, count($RoleIds));
+            $IndexPermision = rand(0, count($PermisionIds));
             DB::table('role_permision')->insert(
                 [
                     'id_permision' => $PermisionIds[$IndexPermision],

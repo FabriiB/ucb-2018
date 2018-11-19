@@ -14,11 +14,12 @@ class RoleSeeder extends Seeder
         $PersonIds = DB::table('person')->pluck('id_person');
         $RoleIds = DB::table('role')->pluck('id_role');
 
+        $MaxRange =  DB::table('person')->max('id_person');
 
-        foreach ((range(0, 1)) as $index) {
+        foreach ((range(0, $MaxRange)) as $index) {//one more than permision seeder range
 
-            $IndexPerson = rand(0, count($PersonIds));
-            $IndexRole = rand(0, count($RoleIds));
+            $IndexPerson = rand(0, count($PersonIds)-1);
+            $IndexRole = rand(0, count($RoleIds)-1);
             DB::table('person_role')->insert(
                 [
                     'id_role' => $RoleIds[$IndexRole],

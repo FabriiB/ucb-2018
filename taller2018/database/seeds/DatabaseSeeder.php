@@ -32,28 +32,21 @@ class DatabaseSeeder extends Seeder
         //person needs to be before the seeding for permisions management
         factory(Person::class,10)->create();
 
-        //factory(Role::class,3)->create();
         //need to seed specific roles
         DB::table('role')->insert([
             'name' => 'Admin',
         ]);
         DB::table('role')->insert([
-            'name' => 'Operator',
-        ]);
-        DB::table('role')->insert([
             'name' => 'User',
         ]);
-        //factory(Permision::class,3)->create();
         //need to seed specific permisions
         DB::table('permision')->insert([
             'name' => 'Admin',
         ]);
         DB::table('permision')->insert([
-            'name' => 'Operator',
-        ]);
-        DB::table('permision')->insert([
             'name' => 'User',
         ]);
+
 
         $this->call(
             RoleSeeder::class

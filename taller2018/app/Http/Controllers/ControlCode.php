@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Http\Controllers\AllegedRC4;
-USE \App\Http\Controllers\Verhoeff;
-USE \App\Http\Controllers\Base64SIN;
+use \App\Http\Controllers\Verhoeff;
+use \App\Http\Controllers\Base64SIN;
 
 class ControlCode extends Controller
 

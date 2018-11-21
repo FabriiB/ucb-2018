@@ -17,11 +17,11 @@ class Admin
 
     {
         $Search = DB::select(
-            DB::raw("select 'id_person' 
-            from 'person', 'person_role'
-            where 'person.id_person' = 'person_role.id_person'
-            and 'person_role.id_role ' = 1")
-            )->pluck('id_person')->toArray();
+            DB::raw("select 'id' 
+            from 'users', 'users_role'
+            where 'users.id' = 'users_role.id_users'
+            and 'users_role.id_users ' = 1")
+            )->pluck('id')->toArray();
 
         $UserSession = isset(Auth::person()->id_person);
 

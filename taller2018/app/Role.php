@@ -15,9 +15,9 @@ class Role extends Model
         'description',
     ];
 
-    public function persons()
+    public function users()
     {
-        return $this->belongsToMany('\App\Person');
+        return $this->belongsToMany('\App\UserMod');
     }
 
     protected $guarded = [

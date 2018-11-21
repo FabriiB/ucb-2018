@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //user and person needs to be seeded before the many to many seeding
+        factory(App\UserMod::class,50)->create();
         factory(User::class,50)->create();
         //person needs to be before the seeding for permisions management
         factory(Person::class,10)->create();

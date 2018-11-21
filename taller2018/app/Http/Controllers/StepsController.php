@@ -3,17 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Faker\Provider\DateTime;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-use Illuminate\support\Facades\Redirect;
 use App\Http\Requests\MenuRequest;
-use Illuminate\Routing\Redirector;
-use App\Menu;
-use App\MenuDish;
-use NumeroALetras;
+use App\Steps;
 
-class MenuController extends Controller
+class StepsController extends Controller
 {
     public function __construct()
     {
@@ -23,16 +18,13 @@ class MenuController extends Controller
     {
         if ($request) {
             $query    = trim($request->get('searchText'));
-            $menu = DB::table('menu')
-                ->where('id_menu', 'LIKE', '%' . $query . '%')
-                ->orwhere('name', 'LIKE', '%' . $query . '%')
+            $menu = DB::table('steps')
+                ->where('id_step', 'LIKE', '%' . $query . '%')
+                ->orwhere('title', 'LIKE', '%' . $query . '%')
                 ->orwhere('status', 'LIKE', '%' . $query . '%')
-                ->orwhere('date_created', 'LIKE', '%' . $query . '%')
-                ->orwhere('date_end', 'LIKE', '%' . $query . '%')
-                ->orwhere('id_user', 'LIKE', '%' . $query . '%')
-                ->orderBy('id_menu', 'desc')
+                ->orderBy('id_step', 'desc')
                 ->paginate(5);
-            return view('menu.index', ["menu" => $menu, "searchText" => $query]);
+            return view('steps.index', ["steps" => $menu, "searchText" => $query]);
         }
     }
     public function create()
@@ -57,13 +49,5 @@ class MenuController extends Controller
         $menu->save();
 
         return redirect()->action('MenuController@index');
-    }
-    public function first()
-    {
-        return view('menu_dish.create');
-    }
-    public function show()
-    {
-        return view('menu_dish.create');
     }
 }

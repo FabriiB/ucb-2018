@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
+
     protected $table = 'person';
     protected $primaryKey = 'id_person';
 
@@ -19,5 +20,10 @@ class Person extends Model
         'birthDay','dishes',
         'id_user',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany('\App\Role');
+    }
 
 }

@@ -1,6 +1,10 @@
 @extends('layouts.header')
 
 @section('content')
+
+
+    <!------------------------->
+
     <div class="page-header header-filter" data-parallax="true" style="background-image:url({{asset('img/city-profile.jpg')}});height: 300px"></div>
     <div class="main main-raised">
         <div class="profile-content">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StepsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -29,25 +30,28 @@ class StepsController extends Controller
     }
     public function create()
     {
-        return view('menu.create');
+        return view('steps.create');
     }
-    public function store(MenuRequest $request)
+    public function store(StepsRequest $request)
     {
         $tid = '27';
         $ip = $_SERVER['REMOTE_ADDR'];
         $tfecha = Carbon::now();
-        $menu       = new Menu;
-        $menu->name = $request->get('name');
-        $menu->date_created = $request->get('date_created');
-        $menu->date_end = $request->get('date_end');
+        $menu       = new Steps;
+        $menu->title = $request->get('title');
+        $menu->description = $request->get('description');
+        $menu->date_created = $tfecha->format('Y-m-d H:i:s');
         $menu->status = 'activo';
-        $menu->id_user = '1';
         /*$Recipe->transaction_id    = $tid;
         $Recipe->transaction_date  = $tfecha->format('Y-m-d H:i:s');
         $Recipe->transaction_host  = $ip;
         $Recipe->transaction_user  = $request->get('administrator');*/
         $menu->save();
 
-        return redirect()->action('MenuController@index');
+        return redirect()->action('StepsController@index');
+    }
+    public function show()
+    {
+        return view('steps.index');
     }
 }

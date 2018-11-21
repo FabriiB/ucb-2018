@@ -6,15 +6,15 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
+        "arielcr/numero-a-letras": "dev-master",
+        "barryvdh/laravel-dompdf": "^0.8.3",
         "doctrine/dbal": "^2.8",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.7",
         "maddhatter/laravel-fullcalendar": "^1.3",
-        "arielcr/numero-a-letras": "dev-master",
-        "barryvdh/laravel-dompdf": "0.6.*",
-        "simplesoftwareio/simple-qrcode": "~1"
+        "werneckbh/laravel-qr-code": "^0.1.3"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

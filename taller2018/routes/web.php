@@ -27,7 +27,7 @@ Route::group(['prefix'=>'mi_cuenta'],(function () {
     Route::get('/historial_planes', 'HomeController@historial2');
 }));
 
-Route::post('ordera/create', 'OrderController@createa');
+Route::post('order/create', 'OrderController@create');
 Route::post('person/create', 'PersonController@create');
 Route::get('person/createPlan/{data}', 'PersonController@createNext');
 Route::resource('passports','PassportController');

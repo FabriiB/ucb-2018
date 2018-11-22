@@ -1,10 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: cristal
- * Date: 11/11/18
- * Time: 08:20 PM
- */
+* Created by PhpStorm.
+* User: cristal
+* Date: 6/11/18
+* Time: 08:57 PM
+*/
 ?>
 @extends('layouts.admin')
 @section('content')
@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">CREAR PLATO</h4>
+                                    <h4 class="card-title">CREAR PASOS DE PREPARACION</h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)
@@ -31,13 +31,13 @@
                                 </div>
                             @endif
                             <div class="card-body ">
-                                {!!Form::open(array('url'=>'/dish','method'=>'POST','autocomplete'=>'off'))!!}
+                                {!!Form::open(array('url'=>'/steps','method'=>'POST','autocomplete'=>'off'))!!}
                                 {{Form::token()}}
                                 <div class="row">
-                                    <label class="col-sm-3 col-form-label">NOMBRE : </label>
+                                    <label class="col-sm-3 col-form-label">TITULO : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="">
+                                            <input type="text" name="title" class="form-control" placeholder="Ejemplo: Menu Semana 2">
                                         </div>
                                     </div>
                                 </div>
@@ -45,42 +45,13 @@
                                     <label class="col-sm-3 col-form-label">DESCRIPCION : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" name="description" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 col-form-label">TIPO : </label>
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <select class="form-control" name="type" type="text">
-                                                <option selected value="Vegetariano">Vegetariano</option>
-                                                <option value="Asiatico">Asiatico</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 col-form-label">PORCION : </label>
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <select name="porcion" class="form-control">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="4">4</option>
-                                            </select>
+                                            <input type="text" name="description" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <center>
                                         <div class="col-sm-12">
-                                            <a rel="tooltip" class="btn btn-success" href="{{URL::action('IngredientsController@create',$m->id_menu)}}" type="submit">
-                                                <i class="material-icons">playlist_add</i>
-                                            </a>
-                                            <a rel="tooltip" class="btn btn-rose" href="{{URL::action('MenuDishController@index',$m->id_menu)}}" type="submit">
-                                                <i class="material-icons">format_list_numbered</i>
-                                            </a>
                                             <button class="btn btn-info" type="submit">
                                                 Guardar
                                             </button>

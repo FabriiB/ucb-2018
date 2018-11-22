@@ -4,6 +4,11 @@ namespace App\Http\Middleware;
 
 use Closure;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
+
 class Admin
 {
     /**
@@ -16,28 +21,29 @@ class Admin
     public function handle($request, Closure $next)
 
     {
-        $Search = DB::select(
-            DB::raw("select 'id_person' 
-            from 'person', 'person_role'
-            where 'person.id_person' = 'person_role.id_person'
-            and 'person_role.id_role ' = 1")
-            )->pluck('id_person')->toArray();
+        $Cop = False;
 
-        $UserSession = isset(Auth::person()->id_person);
+        collect($Search = DB::select(
+            DB::raw("select users.id
+                from users, users_role
+                where users.id = users_role.id_users")
+        ))->pluck('id')->toArray();
 
-        if(in_array($UserSession, $Search)){
 
-            return $next($request);
+        $UserSession = isset(Auth::user()->id);
 
+        if(in_array($UserSession, $Search))
+        {
+            $Cop = True;
         }
 
-        return redirect('home')->with('error','You have not admin access');
+        return $Cop;
 
     }
 }
-
+/*
 DB::table('users')
     ->select('users.id','users.name','profiles.photo')
     ->join('profiles','profiles.id','=','users.id')
     ->where(['something' => 'something', 'otherThing' => 'otherThing'])
-    ->get();
+    ->get();*/

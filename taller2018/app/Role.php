@@ -15,12 +15,18 @@ class Role extends Model
         'description',
     ];
 
-    public function persons()
+    public function users()
     {
-        return $this->belongsToMany('\App\Person');
+        return $this->belongsToMany(User::class, 'users_role');
     }
 
     protected $guarded = [
     ];
+
+    protected $casts = [
+        'permissions' => 'array',
+    ];
+
+//insert into "users_role" (id_users, id_role) values (103, 1);
 
 }

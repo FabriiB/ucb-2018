@@ -27,18 +27,6 @@ class Role extends Model
         'permissions' => 'array',
     ];
 
-    public function hasAccess(array $permissions) : bool
-    {
-        foreach ($permissions as $permission) {
-            if ($this->hasPermission($permission))
-                return true;
-        }
-        return false;
-    }
-
-    private function hasPermission(string $permission) : bool
-    {
-        return $this->permissions[$permission] ?? false;
-    }
+//insert into "users_role" (id_users, id_role) values (103, 1);
 
 }

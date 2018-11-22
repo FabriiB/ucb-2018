@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: cristal
- * Date: 11/11/18
- * Time: 08:00 PM
+ * Date: 6/11/18
+ * Time: 08:40 PM
  */
 ?>
 @extends('layouts.admin')
@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de los Platos</h4>
+                                    <h4 class="card-title">MENU</h4>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -24,10 +24,10 @@
                                     <table width="100%">
                                         <tr>
                                             <td width="92%">
-                                                @include('platos.search')
+                                                @include('menu.search')
                                             </td>
                                             <td width="8%" valign="top">
-                                                <a class="btn btn-info btn-sm" href="platos/create">
+                                                <a class="btn btn-info btn-sm" href="/menu/create">
                                                     <i class="material-icons">add</i>
                                                 </a>
                                             </td>
@@ -36,37 +36,22 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b></b>ID</th>
+                                            <th class="text-center"><b>ID</b></th>
                                             <th><b>NOMBRE</b></th>
-                                            <th><b>DESCRIPCION</b></th>
-                                            <th><b>TIPO</b></th>
-                                            <th><b>ESTADO</b></th>
-                                            <th><b>USUARIO</b></th>
-                                            <th class="text-right"><b>OPCIONES</b></th>
+                                            <th><b>STATUS</b></th>
+                                            <th class="text-right" width="16%"><b>OPCIONES</b></th>
                                         </tr>
                                         </thead>
-                                        @foreach ($meassure as $m)
+                                        @foreach ($menu as $m)
                                             <tbody>
                                             <tr>
-                                                <td class="text-center">{{$m->id_dish}}</td>
+                                                <td class="text-center">{{$m->id_menu}}</td>
                                                 <td>{{$m->name}}</td>
-                                                <td>{{$m->description}}</td>
-                                                <td>{{$m->type}}</td>
                                                 <td>{{$m->status}}</td>
-                                                <td>{{$m->id_user}}</td>
                                                 <td class="td-actions text-right">
-                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('DishIngredientsController@create',$m->id_dish)}}" type="submit">
-                                                        <i class="material-icons">playlist_add</i>
-                                                    </a>
-                                                    <a rel="tooltip" class="btn btn-rose" href="{{URL::action('DishIngredientsController@index',$m->id_dish)}}" type="submit">
+                                                    <a rel="tooltip" class="btn btn-rose" href="{{URL::action('MenuGeneralController@historial',$m->id_menu)}}" type="submit">
                                                         <i class="material-icons">format_list_numbered</i>
                                                     </a>
-                                                    <button type="button" rel="tooltip" class="btn btn-success">
-                                                        <i class="material-icons">edit</i>
-                                                    </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger">
-                                                        <i class="material-icons">close</i>
-                                                    </button>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -74,7 +59,7 @@
                                     </table>
                                 </div>
                             </div>
-                            {{$meassure->render()}}
+                            {{$menu->render()}}
                         </div>
                     </div>
                 </div>
@@ -82,3 +67,5 @@
         </div>
     </div>
 @endsection
+
+

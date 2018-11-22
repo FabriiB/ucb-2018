@@ -90,6 +90,50 @@
         <div class="section-space"></div>
         <div class="features-1">
             <div class="container">
+
+
+                    @if(\Illuminate\Support\Facades\Session::has('error'))
+
+                        <div class=”alert alert-danger”>
+
+                            {{\Illuminate\Support\Facades\Session::get('error')}}
+
+                        </div>
+
+                    @endif
+
+                    <div class=”row”>
+
+                        <div class=”col-md-8"></div>
+
+                        <div class=”panel panel-default”></div>
+
+                        <?php
+
+                        $validateuser = new \App\User();
+
+                        $Cop = $validateuser::ValidateUser();
+
+
+                        if($Cop == True)
+                        {
+                        ?>
+                        <div class=”panel-body”>
+                            <a href="{{ url('/pedidos') }}" target="_blank" class="btn  btn-rose   btn-round btn-block"”>Admin</a>
+
+                        </div>
+                        <?php
+                        }
+                        else
+                        {
+                            echo '<div class=”panel-heading”>Normal User</div>';
+                        }
+                        ?>
+                    </div>
+
+
+
+
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto">
                         <h2 class="title">En solo tres pasos</h2>
@@ -123,37 +167,8 @@
                 </div>
             </div>
         </div>
-<!--------- Testing admin authentication ------------->
-        <div class=”container”>
 
-            @if(\Session::has('error'))
 
-                <div class=”alert alert-danger”>
-
-                    {{\Session::get('error')}}
-
-                </div>
-
-            @endif
-
-            <div class=”row”>
-
-                <div class=”col-md-8"></div>
-
-                <div class=”panel panel-default”></div>
-
-                <?php if(auth()->user()->isAdmin == 1){?>
-
-                <div class=”panel-body”>
-
-                    <a href=”{{url('admin/routes')}}”>Admin</a>
-
-                </div><?php } else echo '<div class=”panel-heading”>Normal User</div>';?>
-
-            </div>
-
-        </div>
-<!--------- Testing admin authentication ------------->
         <div class="projects-2">
             <div class="container">
                 <div class="row">

@@ -1,10 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: cristal
- * Date: 11/11/18
- * Time: 08:20 PM
- */
+* Created by PhpStorm.
+* User: cristal
+* Date: 6/11/18
+* Time: 08:57 PM
+*/
 ?>
 @extends('layouts.admin')
 @section('content')
@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">CREAR PLATO</h4>
+                                    <h4 class="card-title">ELEGIR INGREDIENTE PARA EL PLATO</h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)
@@ -31,13 +31,13 @@
                                 </div>
                             @endif
                             <div class="card-body ">
-                                {!!Form::open(array('url'=>'/dish','method'=>'POST','autocomplete'=>'off'))!!}
+                                {!!Form::open(array('url'=>'/dish_ingredients','method'=>'POST','autocomplete'=>'off'))!!}
                                 {{Form::token()}}
                                 <div class="row">
-                                    <label class="col-sm-3 col-form-label">NOMBRE : </label>
+                                    <label class="col-sm-3 col-form-label">PLATO : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="">
+                                            <input type="text" name="dish_name" class="form-control" value="{{$menu->name}}" readonly="readonly">
                                         </div>
                                     </div>
                                 </div>
@@ -45,18 +45,7 @@
                                     <label class="col-sm-3 col-form-label">DESCRIPCION : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" name="description" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 col-form-label">TIPO : </label>
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <select class="form-control" name="type" type="text">
-                                                <option selected value="Vegetariano">Vegetariano</option>
-                                                <option value="Asiatico">Asiatico</option>
-                                            </select>
+                                            <input type="text" name="description" class="form-control" value="{{$menu->description}}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -64,11 +53,38 @@
                                     <label class="col-sm-3 col-form-label">PORCION : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <select name="porcion" class="form-control">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="4">4</option>
+                                            <input type="text" name="portion" class="form-control" value="{{$menu->portion}}" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">TIPO : </label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" name="type" class="form-control" value="{{$menu->type}}" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">INGREDIENTES : </label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <select class="form-control" name="id_ingredient" type="text">
+                                                @foreach ($dish as $m)
+                                                    <option value="{{$m->id_ingredients}}">
+                                                        {{$m->id_ingredients}} .-
+                                                        {{$m->name}}
+                                                    </option>
+                                                @endforeach
                                             </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">CANTIDAD : </label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <input type="number" name="quantity" class="form-control" value="1">
                                         </div>
                                     </div>
                                 </div>

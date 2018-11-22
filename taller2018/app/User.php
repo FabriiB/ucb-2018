@@ -7,6 +7,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
+
 
 class User extends Authenticatable
 {
@@ -32,4 +38,29 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function ValidateUser()
+
+    {
+        $Cop = False;
+
+        collect($Search = DB::select(
+            DB::raw("select users.id 
+            from users, users_role 
+            where users.id=users_role.id_users 
+            and users_role.id_role=1;")
+        ))->pluck('id')->toArray();
+
+
+        $UserSession = isset(auth()->user()->id);
+
+        if(in_array($UserSession, $Search))
+        {
+            $Cop = True;
+        }
+
+        return $Cop;
+
+    }
+
 }

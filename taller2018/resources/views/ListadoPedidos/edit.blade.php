@@ -19,15 +19,15 @@
                                 <div class="card-text">
                                     <h4 class="card-title"><i class="fa fa-pencil"></i> Estado del pedido</h4>
                                 </div>
-                                    {!!Form::open(array('url'=>'/menu','method'=>'POST','autocomplete'=>'off'))!!}
+                                    {!!Form::model($pedido,['method'=>'PATCH','route'=>['pedidos.update', $pedido->idOrder]])!!}
                                     {{Form::token()}}
+
                                         <div class="card-body ">
-                                            <form method="get" action="/" class="form-horizontal">
                                                 <div class="row">
                                                     <label class="col-sm-2 col-form-label">ID PEDIDO:</label>
                                                     <div class="col-sm-10">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" name="name" readonly="readonly">
+                                                            <input type="text" class="form-control" name="name" readonly="readonly" value="{{$pedido->idOrder}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -52,8 +52,8 @@
                                                     </div>
                                                 </div>
                                                 <center>
-                                                    <button class="btn btn-success">EDITAR</button>
-                                                    <a class="btn btn-danger" href="{{url('/pedidos')}}" type="reset">
+                                                    <button class="btn btn-success" href="{{URL::action('ListaPedidosController@update',$pedido->idOrder)}}">EDITAR</button>
+                                                    <a class="btn btn-danger" type="reset">
                                                         CANCELAR
                                                     </a>
                                                 </center>

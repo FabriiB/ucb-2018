@@ -16,8 +16,8 @@ class RoleController extends Controller
 
         $role->save();
 
-        $person = Person::find([1, 3]);
-        $role->persons->attach($person);
+        $user = Person::find([1, 3]);
+        $role->users->attach($user);
 
         return 'Success';
     }

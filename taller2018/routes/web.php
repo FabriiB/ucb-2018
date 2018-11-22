@@ -76,7 +76,6 @@ Route::resource('/menu_dish', 'MenuDishController');
 Route::get('menu_dish/{id}/create', 'MenuDishController@create');
 Route::get('menu_dish/{id}/index', 'MenuDishController@index');
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
-Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 Route::get('/qrcode', 'QrController@make');
 Route::resource('/dish_ingredients', 'DishIngredientsController');
 Route::get('dish_ingredients/{id}/create', 'DishIngredientsController@create');

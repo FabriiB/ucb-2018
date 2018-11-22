@@ -21,7 +21,7 @@
                                     <h4 class="card-title"><i class="fa fa-calendar"></i> Listado de pedidos</h4>
                                 </div>
                                 <div class="card-body">
-                                    {!!Form::open(array('url'=>'pedidos/filtro','method'=>'POST'))!!}
+                                    {!!Form::open(array('url'=>'pedidos/filtro','method'=>'POST','autocomplete'=>'off'))!!}
                                     {{Form::token()}}
                                         <table class="table table-bordered d-md-table-cell" >
                                             <p style="color:#000000";>Filtro por fecha de la orden:</p>
@@ -37,6 +37,8 @@
                                                 </td>
                                             </tr>
                                         </table>
+                                    <hr>
+
                                     {!!Form::close()!!}
                                     <hr>
                                 </div>

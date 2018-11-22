@@ -42,10 +42,53 @@ class DatabaseSeeder extends Seeder
         ]);
         //need to seed specific permisions
         DB::table('permision')->insert([
-            'name' => 'Admin',
+            'name' => 'Rodrigo',
         ]);
         DB::table('permision')->insert([
-            'name' => 'User',
+            'name' => 'Benji',
+        ]);
+        DB::table('permision')->insert([
+            'name' => 'Cristal',
+        ]);
+        DB::table('permision')->insert([
+            'name' => 'Fabrisio',
+        ]);
+        //Seeding specific users
+        DB::table('users')->insert([
+            'firs_name' => 'Rodrigo',
+            'email' => 'rodrigo@rodrigo.com',
+            'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm',
+            'status' => 'active',
+            'last_name1' => 'rod',
+            'birth_day' => '1976-09-29',
+            'is_admin' => true,
+        ]);
+        DB::table('users')->insert([
+            'firs_name' => 'Benji',
+            'email' => 'benji@benji.com',
+            'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm',
+            'status' => 'active',
+            'last_name1' => 'ben',
+            'birth_day' => '1976-09-29',
+            'is_admin' => true,
+        ]);
+        DB::table('users')->insert([
+            'firs_name' => 'Cristal',
+            'email' => 'cristal@cristal.com',
+            'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm',
+            'status' => 'active',
+            'last_name1' => 'cris',
+            'birth_day' => '1976-09-29',
+            'is_admin' => true,
+        ]);
+        DB::table('users')->insert([
+            'firs_name' => 'Fabrisio',
+            'email' => 'fabricio@fabricio.com',
+            'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm',
+            'status' => 'active',
+            'last_name1' => 'fab',
+            'birth_day' => '1976-09-29',
+            'is_admin' => true,
         ]);
 
 /*

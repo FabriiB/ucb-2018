@@ -78,3 +78,10 @@ Route::get('menu_dish/{id}/index', 'MenuDishController@index');
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 Route::get('/qrcode', 'QrController@make');
+Route::resource('/dish_ingredients', 'DishIngredientsController');
+Route::get('dish_ingredients/{id}/create', 'DishIngredientsController@create');
+Route::get('dish_ingredients/{id}/index', 'DishIngredientsController@index');
+
+Route::resource('/menugeneral', 'MenuGeneralController');
+Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');
+

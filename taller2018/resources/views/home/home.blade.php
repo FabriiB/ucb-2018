@@ -258,46 +258,6 @@
 
     </div>
 
-    <div class=”container”>
-        @if(\Illuminate\Support\Facades\Session::has('error'))
 
-            <div class=”alert alert-danger”>
-
-                {{\Illuminate\Support\Facades\Session::get('error')}}
-
-            </div>
-
-        @endif
-
-        <div class=”row”>
-
-            <div class=”col-md-8"></div>
-
-            <div class=”panel panel-default”></div>
-
-            <?php
-
-            $validateuser = new \App\User();
-
-            $Cop = $validateuser::ValidateUser();
-
-
-            if($Cop == True)
-            {
-            ?>
-            <div class=”panel-body”>
-
-                <a href=”{{url('admin/routes')}}”>Admin</a>
-
-            </div>
-            <?php
-            }
-            else
-            {
-                echo '<div class=”panel-heading”>Normal User</div>';
-            }
-            ?>
-        </div>
-    </div>
 
 @endsection

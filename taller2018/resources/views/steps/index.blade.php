@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de las menu</h4>
+                                    <h4 class="card-title">Listado de los pasos</h4>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -24,10 +24,10 @@
                                     <table width="100%">
                                         <tr>
                                             <td width="92%">
-                                                @include('menu.search')
+                                                @include('steps.search')
                                             </td>
                                             <td width="8%" valign="top">
-                                                <a class="btn btn-info btn-sm" href="/menu/create">
+                                                <a class="btn btn-info btn-sm" href="/steps/create">
                                                     <i class="material-icons">add</i>
                                                 </a>
                                             </td>
@@ -36,31 +36,21 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b>ID</b></th>
-                                            <th><b>NOMBRE</b></th>
-                                            <th><b>FECHA DE INICIO</b></th>
-                                            <th><b>FECHA DE FIN</b></th>
-                                            <th><b>CREADO POR </b></th>
+                                            <th class="text-center"><b></b>ID</th>
+                                            <th><b>TITULO</b></th>
+                                            <th><b>DESCRIPCION</b></th>
                                             <th><b>STATUS</b></th>
-                                            <th class="text-right" width="16%"><b>OPCIONES</b></th>
+                                            <th class="text-right"><b>OPCIONES</b></th>
                                         </tr>
                                         </thead>
-                                        @foreach ($menu as $m)
+                                        @foreach ($steps as $m)
                                             <tbody>
                                             <tr>
-                                                <td class="text-center">{{$m->id_menu}}</td>
-                                                <td>{{$m->name}}</td>
-                                                <td>{{$m->date_created}}</td>
-                                                <td>{{$m->date_end}}</td>
-                                                <td>{{$m->id_user}}</td>
+                                                <td class="text-center">{{$m->id_step}}</td>
+                                                <td>{{$m->title}}</td>
+                                                <td>{{$m->description}}</td>
                                                 <td>{{$m->status}}</td>
                                                 <td class="td-actions text-right">
-                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('MenuDishController@create',$m->id_menu)}}" type="submit">
-                                                        <i class="material-icons">playlist_add</i>
-                                                    </a>
-                                                    <a rel="tooltip" class="btn btn-rose" href="{{URL::action('MenuDishController@index',$m->id_menu)}}" type="submit">
-                                                        <i class="material-icons">format_list_numbered</i>
-                                                    </a>
                                                     <a rel="tooltip" class="btn btn-warning" href="" type="submit">
                                                         <i class="material-icons">edit</i>
                                                     </a>
@@ -74,7 +64,7 @@
                                     </table>
                                 </div>
                             </div>
-                            {{$menu->render()}}
+                            {{$steps->render()}}
                         </div>
                     </div>
                 </div>

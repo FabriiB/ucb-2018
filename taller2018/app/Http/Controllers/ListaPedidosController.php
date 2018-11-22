@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\ListadoPedidos;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\PedidoRequest;
 
 
 class ListaPedidosController extends Controller
@@ -97,7 +99,7 @@ class ListaPedidosController extends Controller
      */
     public function edit($id)
     {
-        return view('ListadoPedidos.edit');
+        return view("ListadoPedidos.edit", ["pedido" => Order::findOrfail($id)]);
     }
 
     /**
@@ -107,9 +109,14 @@ class ListaPedidosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+    public function update(PedidoRequest $request, $id)
     {
-        //
+        $pedido = Order::findOrFail($id);
+        $pedido->status = $request->get('status');
+        $pedido->detalle = $request->get('detalle');
+        $pedido->update();
+        return redirect()->action('MeassureController@index');
     }
 
     /**

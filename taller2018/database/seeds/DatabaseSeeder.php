@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'User',
         ]);
 
-
+/*
         $this->call(
             RoleSeeder::class
         );
@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
         $this->call(
             PermisionSeeder::class
         );
-
+*/
         $this->call(
             UserSeeder::class
         );
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
 
         factory(Meassure::class,10)->create();
         factory(Distributors::class,50)->create();
-        factory(Menu::class,50)->create();
+        factory(Menu::class,10)->create();
         factory(Payment::class,10)->create();
         factory(Dish::class,10)->create();
         factory(Drink::class,10)->create();

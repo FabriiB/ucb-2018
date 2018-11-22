@@ -46,7 +46,7 @@ class PlatosController extends Controller
         $ingredients->name = $request->get('name');
         $ingredients->description = $request->get('description');
         $ingredients->images = 'images';
-        $ingredients->portion = '2';
+        $ingredients->portion = $request->get('porcion');;
         $ingredients->date_created = $tfecha->format('Y-m-d H:i:s');
         $ingredients->type = $request->get('type');
         $ingredients->status = 'activo';

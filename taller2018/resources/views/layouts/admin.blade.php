@@ -92,7 +92,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="/instructions">
+                    <a class="nav-link" href="/steps">
                         <i class="material-icons">dashboard</i>
                         <p> Gestion de preparacion </p>
                     </a>

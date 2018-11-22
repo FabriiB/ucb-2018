@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -39,10 +39,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    function userCanEdit(User $user)
-    {
-        return $user->isAdmin() || $this->user_id == $user->id;
-    }
     public static function ValidateUser()
 
     {
@@ -56,7 +52,7 @@ class User extends Authenticatable
         ))->pluck('id')->toArray();
 
 
-        $UserSession = isset(Auth::user()->id);
+        $UserSession = isset(auth()->user()->id);
 
         if(in_array($UserSession, $Search))
         {

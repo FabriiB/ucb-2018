@@ -15,10 +15,6 @@ class DishIngredients extends Model
         'date_created',
         'id_ingredients',
         'id_dish',
-        'transaction_id',
-        'transaction_date',
-        'transaction_host',
-        'transaction_user',
 
     ];
     protected $guarded = [

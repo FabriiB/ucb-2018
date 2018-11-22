@@ -35,7 +35,7 @@
                                                     <label class="col-sm-2 col-form-label">ESTADO DEL PEDIDO:</label>
                                                     <div class="card-body ">
                                                         <div class="form-group">
-                                                            <select name="listaestado" form="estadoform">
+                                                            <select name="listaestado" form="estadoform" value="{{$pedido->status}}">
                                                                 <option value="proceso">En proceso</option>
                                                                 <option value="cancelado">Cancelado</option>
                                                                 <option value="enviado">Enviado</option>
@@ -47,13 +47,14 @@
                                                     <label class="col-sm-2 col-form-label">DETALLE:</label>
                                                     <div class="card-body ">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" name="name">
+                                                            <input type="text" class="form-control" name="name" value="{{$pedido->detalle}}">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <center>
-                                                    <button class="btn btn-success" href="{{URL::action('ListaPedidosController@update',$pedido->idOrder)}}">EDITAR</button>
-                                                    <a class="btn btn-danger" type="reset">
+                                                    <button class="btn btn-info" type="submit">
+                                                    EDITAR</button>
+                                                    <a class="btn btn-danger" type="reset" href="{{ URL::previous() }}">
                                                         CANCELAR
                                                     </a>
                                                 </center>

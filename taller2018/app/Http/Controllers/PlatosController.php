@@ -41,6 +41,14 @@ class PlatosController extends Controller
     {
         $tid = '27';
         $ip = $_SERVER['REMOTE_ADDR'];
+/*
+$profileImage = $request->file('imagen');
+$profileImageSaveAsName = time() .
+    $profileImage->getClientOriginalExtension();
+$upload_path = 'storage/';
+$profile_image_url =$profileImageSaveAsName;
+$success = $profileImage->move($upload_path, $profileImageSaveAsName); */
+
         $tfecha = Carbon::now();
         $ingredients       = new Dish;
         $ingredients->name = $request->get('name');
@@ -56,6 +64,6 @@ class PlatosController extends Controller
         $Recipe->transaction_host  = $ip;
         $Recipe->transaction_user  = $request->get('administrator');*/
         $ingredients->save();
-        return redirect()->action('PlatosController@index');
+        return redirect()->action('DishIngredientsController@index', ["id" => $ingredients->id_dish]);
     }
 }

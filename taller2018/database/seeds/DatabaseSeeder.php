@@ -27,11 +27,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //user and person needs to be seeded before the many to many seeding
-        factory(App\UserMod::class,50)->create();
-        factory(User::class,50)->create();
-        //person needs to be before the seeding for permisions management
-        factory(Person::class,10)->create();
+
 
         //need to seed specific roles
         DB::table('role')->insert([
@@ -118,6 +114,11 @@ class DatabaseSeeder extends Seeder
            // DistributorSeeder::class
         );
 
+        //user and person needs to be seeded before the many to many seeding
+        factory(App\UserMod::class,50)->create();
+        factory(User::class,50)->create();
+        //person needs to be before the seeding for permisions management
+        factory(Person::class,10)->create();
 
         factory(Meassure::class,10)->create();
         factory(Distributors::class,50)->create();

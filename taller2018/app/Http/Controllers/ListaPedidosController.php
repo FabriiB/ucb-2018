@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ListadoPedidos;
 use App\Order;
+use App\Person;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PedidoRequest;
@@ -54,6 +55,7 @@ class ListaPedidosController extends Controller
             return view('ListadoPedidos.index',["pedidos" => $pedidos],compact('pedidos'));
          */
 
+
     }
 
     /**
@@ -61,9 +63,12 @@ class ListaPedidosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $person = DB::table('person')
+            ->select('id_person', 'firs_name')
+            -> get();
+        return view('pedidos.create', ["person" => Person::findOrFail($id), "person" =>$person]);
     }
 
     /**
@@ -115,8 +120,12 @@ class ListaPedidosController extends Controller
         $pedido = Order::findOrFail($id);
         $pedido->status = $request->get('status');
         $pedido->detalle = $request->get('detalle');
+        /*DB::table('order')
+            ->where('id', $id)
+            ->update(['status' => $pedido->status,'detalle' => $pedido->detalle]);
+        return redirect('pedidos');*/
         $pedido->update();
-        return redirect()->action('MeassureController@index');
+        return redirect()->action('ListaPedidosController@index');
     }
 
     /**

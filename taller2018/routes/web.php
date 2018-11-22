@@ -27,7 +27,7 @@ Route::group(['prefix'=>'mi_cuenta'],(function () {
     Route::get('/historial_planes', 'HomeController@historial2');
 }));
 
-Route::post('ordera/create', 'OrderController@createa');
+Route::post('order/create', 'OrderController@create');
 Route::post('person/create', 'PersonController@create');
 Route::get('person/createPlan/{data}', 'PersonController@createNext');
 Route::resource('passports','PassportController');
@@ -77,3 +77,10 @@ Route::get('menu_dish/{id}/create', 'MenuDishController@create');
 Route::get('menu_dish/{id}/index', 'MenuDishController@index');
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 Route::get('/qrcode', 'QrController@make');
+Route::resource('/dish_ingredients', 'DishIngredientsController');
+Route::get('dish_ingredients/{id}/create', 'DishIngredientsController@create');
+Route::get('dish_ingredients/{id}/index', 'DishIngredientsController@index');
+
+Route::resource('/menugeneral', 'MenuGeneralController');
+Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');
+

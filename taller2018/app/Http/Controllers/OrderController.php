@@ -76,6 +76,11 @@ class OrderController extends Controller
         return redirect()->route('mi_cuenta');
     }
 
+    public function createa()
+    {
+        return view('order.create',compact('ordera'));
+    }
+
 
 
     /**

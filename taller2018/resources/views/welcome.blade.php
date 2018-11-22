@@ -48,7 +48,7 @@
                 <ul class="navbar-nav ml-auto">
                     @auth
                         <li class="button-container nav-item iframe-extern">
-                            <a href="{{ url('/mi_cuenta') }}" class="nav-link">
+                            <a href="{{ url('/mi_cuenta') }}" class="nav-link"><!---->
                                 Home
                             </a>
                         </li>
@@ -69,6 +69,8 @@
             </div>
         </div>
     </nav>
+
+
     <div class="page-header header-filter" data-parallax="true" style="background-image: url({{ asset('images/cover.jpg') }})">
         <div class="container">
             <div class="row">
@@ -121,6 +123,37 @@
                 </div>
             </div>
         </div>
+<!--------- Testing admin authentication ------------->
+        <div class=”container”>
+
+            @if(\Session::has('error'))
+
+                <div class=”alert alert-danger”>
+
+                    {{\Session::get('error')}}
+
+                </div>
+
+            @endif
+
+            <div class=”row”>
+
+                <div class=”col-md-8"></div>
+
+                <div class=”panel panel-default”></div>
+
+                <?php if(auth()->user()->isAdmin == 1){?>
+
+                <div class=”panel-body”>
+
+                    <a href=”{{url('admin/routes')}}”>Admin</a>
+
+                </div><?php } else echo '<div class=”panel-heading”>Normal User</div>';?>
+
+            </div>
+
+        </div>
+<!--------- Testing admin authentication ------------->
         <div class="projects-2">
             <div class="container">
                 <div class="row">

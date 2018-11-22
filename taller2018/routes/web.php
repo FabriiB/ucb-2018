@@ -27,7 +27,7 @@ Route::group(['prefix'=>'mi_cuenta'],(function () {
     Route::get('/historial_planes', 'HomeController@historial2');
 }));
 
-Route::post('order/create', 'OrderController@create');
+Route::post('ordera/create', 'OrderController@createa');
 Route::post('person/create', 'PersonController@create');
 Route::get('person/createPlan/{data}', 'PersonController@createNext');
 Route::resource('passports','PassportController');
@@ -59,13 +59,22 @@ Route::get('factura', 'facturacontroller@index');
 Route::resource('pedidos','ListaPedidosController');
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');
-Route::resource('order', 'OrderController');
+Route::resource('ordera', 'OrderController');
+Route::resource('ordera/create', 'OrderController@createa');
+Route::get('ordera/create', 'OrderController@createa');
 Route::resource('order', 'OrderController')->except([
-    'create'
+
 ]);
 Route::resource('ingredients', 'IngredientsController');
 Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
 Route::resource('drink', 'DrinkController');
+Route::resource('steps', 'StepsController');
+Route::post ('pedidos/filtro','ListaPedidosController@filtro');
 Route::get('platos/create', 'PlatosController@create');
-
+Route::resource('/menu_dish', 'MenuDishController');
+Route::get('menu_dish/{id}/create', 'MenuDishController@create');
+Route::get('menu_dish/{id}/index', 'MenuDishController@index');
+Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+Route::get('/qrcode', 'QrController@make');

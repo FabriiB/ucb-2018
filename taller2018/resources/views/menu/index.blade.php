@@ -36,13 +36,13 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b></b>ID</th>
+                                            <th class="text-center"><b>ID</b></th>
                                             <th><b>NOMBRE</b></th>
                                             <th><b>FECHA DE INICIO</b></th>
                                             <th><b>FECHA DE FIN</b></th>
                                             <th><b>CREADO POR </b></th>
                                             <th><b>STATUS</b></th>
-                                            <th class="text-right"><b>OPCIONES</b></th>
+                                            <th class="text-right" width="16%"><b>OPCIONES</b></th>
                                         </tr>
                                         </thead>
                                         @foreach ($menu as $m)
@@ -55,12 +55,18 @@
                                                 <td>{{$m->id_user}}</td>
                                                 <td>{{$m->status}}</td>
                                                 <td class="td-actions text-right">
-                                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('MenuDishController@create',$m->id_menu)}}" type="submit">
+                                                        <i class="material-icons">playlist_add</i>
+                                                    </a>
+                                                    <a rel="tooltip" class="btn btn-rose" href="{{URL::action('MenuDishController@index',$m->id_menu)}}" type="submit">
+                                                        <i class="material-icons">format_list_numbered</i>
+                                                    </a>
+                                                    <a rel="tooltip" class="btn btn-warning" href="" type="submit">
                                                         <i class="material-icons">edit</i>
-                                                    </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                                    </a>
+                                                    <a rel="tooltip" class="btn btn-danger" href="" type="submit">
                                                         <i class="material-icons">close</i>
-                                                    </button>
+                                                    </a>
                                                 </td>
                                             </tr>
                                             </tbody>

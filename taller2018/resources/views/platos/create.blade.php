@@ -60,9 +60,27 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">PORCION : </label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <select name="porcion" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <center>
                                         <div class="col-sm-12">
+                                            <a rel="tooltip" class="btn btn-success" href="{{URL::action('IngredientsController@create',$m->id_menu)}}" type="submit">
+                                                <i class="material-icons">playlist_add</i>
+                                            </a>
+                                            <a rel="tooltip" class="btn btn-rose" href="{{URL::action('MenuDishController@index',$m->id_menu)}}" type="submit">
+                                                <i class="material-icons">format_list_numbered</i>
+                                            </a>
                                             <button class="btn btn-info" type="submit">
                                                 Guardar
                                             </button>

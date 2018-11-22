@@ -8,6 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
+
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -32,4 +38,33 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    function userCanEdit(User $user)
+    {
+        return $user->isAdmin() || $this->user_id == $user->id;
+    }
+    public static function ValidateUser()
+
+    {
+        $Cop = False;
+
+        collect($Search = DB::select(
+            DB::raw("select users.id 
+            from users, users_role 
+            where users.id=users_role.id_users 
+            and users_role.id_role=1;")
+        ))->pluck('id')->toArray();
+
+
+        $UserSession = isset(Auth::user()->id);
+
+        if(in_array($UserSession, $Search))
+        {
+            $Cop = True;
+        }
+
+        return $Cop;
+
+    }
+
 }

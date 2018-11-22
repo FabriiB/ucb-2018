@@ -128,4 +128,8 @@ class HomeController extends Controller
         $user = User::findOrFail($id);
         return view('home.historial2',compact('user'));
     }
+
+    public function admin()
+
+    { return view('ListadoPedidos.index'); }
 }

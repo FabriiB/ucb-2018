@@ -20,6 +20,26 @@
                                 <div class="card-text">
                                     <h4 class="card-title"><i class="fa fa-calendar"></i> Listado de pedidos</h4>
                                 </div>
+                                <div class="card-body">
+                                    {!!Form::open(array('url'=>'pedidos/filtro','method'=>'POST'))!!}
+                                    {{Form::token()}}
+                                        <table class="table table-bordered d-md-table-cell" >
+                                            <p style="color:#000000";>Filtro por fecha de la orden:</p>
+                                            <tr>
+                                                <td><p style="color:#000000";>Fecha inicial:</p><input id="dateini" type="date" min="1990-01-01" max="2050-12-31" required></td>
+                                            </tr>
+                                            <tr>
+                                                <td><p style="color:#000000";>Fecha final:</p><input id="datefin" type="date" min="1990-01-01" max="2050-12-31" required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button class="btn btn-success" title="Filtrar">FILTRAR</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {!!Form::close()!!}
+                                    <hr>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -42,7 +62,7 @@
                                                     <td>{{ $pedido->status }}</td>
                                                     <td>{{ $pedido->firs_name }} {{ $pedido->last_name1 }} {{ $pedido->last_name2 }}</td>
                                                     <td>
-                                                        <a class="btn btn-info" href="{{URL::action('ListaPedidosController@edit',$pedido->idOrder)}}" type="submit">
+                                                        <a class="btn btn-info" href="{{URL::action('ListaPedidosController@edit',$pedido->idOrder)}}" type="submit" title="Modificar Estado">
                                                             <i class="fa fa-pencil">
                                                             </i>
                                                         </a>

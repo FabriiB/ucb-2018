@@ -60,9 +60,9 @@
                                 <div class="form-group">
                                     <center>
                                         <div class="col-sm-12">
-                                            <a class="btn btn-primary" href="first" >
+                                            <!--<a class="btn btn-primary" href="{{URL::action('MenuController@first')}}" >
                                                 Guardar y añadir plato
-                                            </a>
+                                            </a>-->
                                             <button class="btn btn-info" type="submit">
                                                 Guardar
                                             </button>

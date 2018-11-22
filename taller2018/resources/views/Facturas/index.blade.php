@@ -9,14 +9,6 @@
 require_once 'phpqrcode/qrlib.php';
 
  */
-$content="CodigoQR"
-QRcode::png(
-    $content
-        ,"example.png"
-        ,QR_ECLEVEL_L
-        ,5
-        ,1
-        );
 )
 ?>
 
@@ -107,6 +99,10 @@ QRcode::png(
                                 <br>
 
                         </div>
+                        <div class="col-md-10 ml-auto" >
+                                <!-- <a class="btn btn-info" href="{{URL::action('QrController@make')}}" type="submit" title="Generar QR"></a>-->
+                                <img src="../../qr.png">
+                        </div>
                         <table width="100%">
                                 <tr>
                                         <td width="80%">
@@ -117,6 +113,7 @@ QRcode::png(
                                                         <div class="col-md-10 ml-auto" >
                                                                 <button class="btn btn-info">Generar PDF</button>
                                                         </div>
+
                                                 </div>
                                         </td>
                                 </tr>

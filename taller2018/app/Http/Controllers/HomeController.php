@@ -102,8 +102,6 @@ class HomeController extends Controller
 
     public function planes($planid,$id)
     {
-        //$id = Auth::id();
-        $id = 1;
         try {
             $person = DB::table('person')
                 ->select('id_person')

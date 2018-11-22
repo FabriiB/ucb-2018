@@ -59,6 +59,10 @@
                                 @endif
                             </li>
                     @else
+                                <a href="{{ url('/mi_cuenta/') }}" class="btn btn-info btn-round btn-sm">Inicio</a>
+                                <a href="{{ url('/mi_cuenta/datos') }}" class="btn btn-info btn-round btn-sm">Mi cuenta</a>
+                                <a href="{{ url('/mi_cuenta/factura') }}" class="btn btn-info btn-round btn-sm">Mis datos</a>
+                                <a href="{{ url('/mi_cuenta/historial') }}" class="btn btn-info btn-round btn-sm">Historial de pedidos</a>
                             <li class="dropdown nav-item">
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <i class="material-icons">view_carousel</i> {{ Auth::user()->firs_name}}

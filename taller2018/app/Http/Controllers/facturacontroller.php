@@ -80,4 +80,8 @@ class facturacontroller extends Controller
         return view('Facturas.index',["datos"=>$name, "now"=>$now, "numerito"=>$letras, "nit"=>$nit]);
     }
 
+
+    public function create(Request $request){
+
+    }
 }

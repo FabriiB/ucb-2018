@@ -34,7 +34,7 @@ class ConfigureUserPerson extends Migration
             $table->dropColumn('email');
             $table->string('city');
             $table->string('country');
-            $table->integer('nit');
+            $table->string('nit');
             $table->integer('dishes')->default(0)->nullable();
             $table->integer('transaction_id')->nullable();
             $table->timestamp('transaction_date')->nullable();

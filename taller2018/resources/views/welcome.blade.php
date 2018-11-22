@@ -119,7 +119,7 @@
                         {
                         ?>
                         <div class=”panel-body”>
-                            <a href="{{ url('/mi_cuenta') }}" target="_blank" class="btn  btn-rose   btn-round btn-block"”>Admin</a>
+                            <a href="{{ url('/pedidos') }}" target="_blank" class="btn  btn-rose   btn-round btn-block"”>Admin</a>
 
                         </div>
                         <?php

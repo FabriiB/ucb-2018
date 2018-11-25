@@ -110,9 +110,9 @@
 
                         <?php
 
-                        $validateuser = new \App\User();
+                        $validateuser = new \App\Http\Middleware\Admin();
 
-                        $Cop = $validateuser::ValidateUser();
+                        $Cop = $validateuser::handle();
 
 
                         if($Cop == True)

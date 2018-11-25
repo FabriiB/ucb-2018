@@ -18,19 +18,21 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public static function handle()
 
     {
         $Cop = False;
 
         collect($Search = DB::select(
-            DB::raw("select users.id
-                from users, users_role
-                where users.id = users_role.id_users")
+            DB::raw("select u.id 
+            from users u, users_role ur, role_permision rp 
+            where u.id=ur.id_users 
+            and ur.id_role=rp.id_role
+            and rp.id_permision=5;")
         ))->pluck('id')->toArray();
 
 
-        $UserSession = isset(Auth::user()->id);
+        $UserSession = isset(auth()->user()->id);
 
         if(in_array($UserSession, $Search))
         {
@@ -40,6 +42,8 @@ class Admin
         return $Cop;
 
     }
+
+
 }
 /*
 DB::table('users')

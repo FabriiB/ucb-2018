@@ -45,10 +45,11 @@ class User extends Authenticatable
         $Cop = False;
 
         collect($Search = DB::select(
-            DB::raw("select users.id 
-            from users, users_role 
-            where users.id=users_role.id_users 
-            and users_role.id_role=1;")
+            DB::raw("select u.id 
+            from users u, users_role ur, role_permision rp 
+            where u.id=ur.id_users 
+            and ur.id_role=rp.id_role
+            and rp.id_permision=5;")
         ))->pluck('id')->toArray();
 
 

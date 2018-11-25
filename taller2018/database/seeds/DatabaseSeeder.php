@@ -31,10 +31,16 @@ class DatabaseSeeder extends Seeder
 
         //need to seed specific roles
         DB::table('role')->insert([
-            'name' => 'Admin',
+            'name' => 'Rodrigo',
         ]);
         DB::table('role')->insert([
-            'name' => 'User',
+            'name' => 'Benji',
+        ]);
+        DB::table('role')->insert([
+            'name' => 'Cristal',
+        ]);
+        DB::table('role')->insert([
+            'name' => 'Fabrisio',
         ]);
         //need to seed specific permisions
         DB::table('permision')->insert([
@@ -48,6 +54,9 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('permision')->insert([
             'name' => 'Fabrisio',
+        ]);
+        DB::table('permision')->insert([
+            'name' => 'Admin',
         ]);
         //Seeding specific users
         DB::table('users')->insert([
@@ -85,6 +94,58 @@ class DatabaseSeeder extends Seeder
             'last_name1' => 'fab',
             'birth_day' => '1976-09-29',
             'is_admin' => true,
+        ]);
+        //Seeding specific users_role
+        DB::table('users_role')->insert([
+            'id_users' => 1,
+            'id_role' => 1,
+        ]);
+        DB::table('users_role')->insert([
+            'id_users' => 2,
+            'id_role' => 2,
+        ]);
+        DB::table('users_role')->insert([
+            'id_users' => 3,
+            'id_role' => 3,
+        ]);
+        DB::table('users_role')->insert([
+            'id_users' => 4,
+            'id_role' => 4,
+        ]);
+        //Seeding specific role_permision
+        DB::table('role_permision')->insert([
+            'id_permision' => 1,
+            'id_role' => 1,
+        ]);
+        DB::table('role_permision')->insert([
+            'id_permision' => 2,
+            'id_role' => 2,
+        ]);
+        DB::table('role_permision')->insert([
+            'id_permision' => 3,
+            'id_role' => 3,
+        ]);
+        DB::table('role_permision')->insert([
+            'id_permision' => 4,
+            'id_role' => 4,
+        ]);
+
+
+        DB::table('role_permision')->insert([
+            'id_permision' => 5,
+            'id_role' => 1,
+        ]);
+        DB::table('role_permision')->insert([
+            'id_permision' => 5,
+            'id_role' => 2,
+        ]);
+        DB::table('role_permision')->insert([
+            'id_permision' => 5,
+            'id_role' => 3,
+        ]);
+        DB::table('role_permision')->insert([
+            'id_permision' => 5,
+            'id_role' => 4,
         ]);
 
 /*

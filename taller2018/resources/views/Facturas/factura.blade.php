@@ -98,12 +98,12 @@
         <table width="100%">
             <tr>
                 <td width="80%">
-
+                    <h5>"ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAIS. EL USO ILICITO DE ESTA SERA SANCIONADO DE ACUERDO A LEY"</h5>
                 </td>
                 <td>
                     <div class="row">
                         <div class="col-md-10 ml-auto" >
-
+                            <h6>Ley Nro 453: "los servicios deben suministrarse en condiciones de inocuidad, calidad y seguridad"</h6>
                         </div>
 
                     </div>

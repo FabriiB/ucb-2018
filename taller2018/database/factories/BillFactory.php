@@ -15,7 +15,7 @@ $factory->define(App\Bill::class, function (Faker $faker) {
         'identifier'=>'123456789',
         'email'=> $faker->safeEmail,
         'limit_issue_date'=> $faker->date($format = 'Y-m-d'),
-        'authorization_number' =>'12456787',
+        'authorization_number' =>'798347',
         'idCompany'=> 1,
         'id_payment'=> $faker->randomElement($users),
     ];

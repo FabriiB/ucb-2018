@@ -62,9 +62,7 @@ Route::get('ingredientes/create', 'IngredientsController@create');
 Route::resource('ordera', 'OrderController');
 Route::resource('ordera/create', 'OrderController@createa');
 Route::get('ordera/create', 'OrderController@createa');
-Route::resource('order', 'OrderController')->except([
-
-]);
+Route::post('order/create', 'OrderController@create');
 Route::resource('ingredients', 'IngredientsController');
 Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
@@ -83,4 +81,5 @@ Route::get('dish_ingredients/{id}/index', 'DishIngredientsController@index');
 
 Route::resource('/menugeneral', 'MenuGeneralController');
 Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');
+Route::get('/download-pdf', 'facturacontroller@downloadPDF');
 

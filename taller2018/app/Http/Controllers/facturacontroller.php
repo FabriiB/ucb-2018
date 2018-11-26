@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Requests\facturarequest;
 use Illuminate\Support\Facades\DB;
@@ -15,12 +16,12 @@ class facturacontroller extends Controller
 {
     public function index(Request $request)
     {
-        $id=1;
+        $id=2;
         $name=DB::table('bill')
             ->join('payment', 'bill.id_payment','=','payment.idPayment')
             ->join('person', 'person.id_user','=','payment.idUser')
             ->select('person.firs_name as firs_name','person.last_name1 as last_name1', 'person.last_name2 as last_name2','person.nit as nit',
-                'bill.control_code as control_code', 'bill.total_bill as total_bill', 'bill.description_bill as description_bill', 'bill.authorization_number as authorization_number','bill.identifier as identifier','bill.issue_date as issue_date')
+                'bill.control_code as control_code', 'bill.total_bill as total_bill', 'bill.description_bill as description_bill', 'bill.authorization_number as authorization_number','bill.identifier as identifier','bill.issue_date as issue_date','bill.id_bill as id_bill')
             ->where('bill.id_bill','=',$id)
             ->first();
 
@@ -86,4 +87,37 @@ class facturacontroller extends Controller
     public function create(Request $request){
 
     }
+    public function downloadPDF(Request $request){
+        $id=2;
+        $datos=DB::table('bill')
+            ->join('payment', 'bill.id_payment','=','payment.idPayment')
+            ->join('person', 'person.id_user','=','payment.idUser')
+            ->select('person.firs_name as firs_name','person.last_name1 as last_name1', 'person.last_name2 as last_name2','person.nit as nit',
+                'bill.control_code as control_code', 'bill.total_bill as total_bill', 'bill.description_bill as description_bill', 'bill.authorization_number as authorization_number','bill.identifier as identifier','bill.issue_date as issue_date','bill.id_bill as id_bill')
+            ->where('bill.id_bill','=',$id)
+            ->first();
+
+        $nit=DB::table('company')
+            ->select('company.identifier as identifier')
+            ->where('company.id_company','=',1)
+            ->first();
+
+
+        $now = Carbon::now();
+        $numerito = 0;
+        $numerito=DB::table('bill')
+            ->select('total_bill')
+            ->where('id_bill','=',$id)
+            ->first()
+            ->total_bill;
+
+
+
+        $letras = NumeroALetras::convertir($numerito,'bolivianos 00/100','centimos' );
+        $pdf = PDF::loadView('Facturas.factura', compact(['datos','nit','now','letras']));
+        return $pdf->download('factura.pdf');
+
+
+    }
+
 }

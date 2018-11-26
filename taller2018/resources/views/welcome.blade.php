@@ -109,10 +109,12 @@
                         <div class=”panel panel-default”></div>
 
                         <?php
+                            $id = Auth::id();
+                            echo ("loged user id is ");
+                            echo $id;
+                        $validateuser = new \App\Http\Middleware\Admin();
 
-                        $validateuser = new \App\User();
-
-                        $Cop = $validateuser::ValidateUser();
+                        $Cop = $validateuser::handle();
 
 
                         if($Cop == True)

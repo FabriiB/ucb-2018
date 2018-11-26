@@ -21,13 +21,12 @@ Auth::routes();
 Route::group(['prefix'=>'mi_cuenta'],(function () {
     Route::get('/', 'HomeController@index')->name('mi_cuenta');
     Route::get('/datos', 'HomeController@edit');
-    Route::get('/factura', 'HomeController@factura');
     Route::get('/plan/{plan}/{id}', 'HomeController@planes');
     Route::get('/historial', 'HomeController@historial');
     Route::get('/historial_planes', 'HomeController@historial2');
 }));
 
-Route::post('ordera/create', 'OrderController@createa');
+Route::post('order/create', 'OrderController@create');
 Route::post('person/create', 'PersonController@create');
 Route::get('person/createPlan/{data}', 'PersonController@createNext');
 Route::resource('passports','PassportController');
@@ -55,8 +54,6 @@ Route::get('usuarios/{id}',function () {
 Route::resource('/menu', 'MenuController');
 Route::get('menu/create', 'MenuController@create');
 Route::get('menu/first', 'MenuController@first');
-Route::get('factura', 'facturacontroller@index');
-Route::resource('pedidos','ListaPedidosController');
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');
 Route::resource('ordera', 'OrderController');
@@ -68,7 +65,6 @@ Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
 Route::resource('drink', 'DrinkController');
 Route::resource('steps', 'StepsController');
-Route::post ('pedidos/filtro','ListaPedidosController@filtro');
 Route::get('platos/create', 'PlatosController@create');
 Route::resource('/menu_dish', 'MenuDishController');
 Route::get('menu_dish/{id}/create', 'MenuDishController@create');
@@ -82,4 +78,30 @@ Route::get('dish_ingredients/{id}/index', 'DishIngredientsController@index');
 Route::resource('/menugeneral', 'MenuGeneralController');
 Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');
 Route::get('/download-pdf', 'facturacontroller@downloadPDF');
+
+//Security routing
+Route::group(["middleware" => 'entryrodrigo'], function () {
+    Route::resource('pedidos','ListaPedidosController');
+    Route::post ('pedidos/filtro','ListaPedidosController@filtro');
+
+});
+
+Route::group(["middleware" => 'entrybenji'], function () {
+    Route::get('/factura', 'HomeController@factura');
+    Route::get('factura', 'facturacontroller@index');
+
+
+
+});
+
+Route::group(["middleware" => 'entrycristal'], function () {
+    Route::resource('pedidos','ListaPedidosController');
+    Route::post ('pedidos/filtro','ListaPedidosController@filtro');
+
+
+});
+
+Route::group(["middleware" => 'entryfabrisio'], function () {
+
+});
 

@@ -181,12 +181,6 @@ class OrderController extends Controller
     public function update(Request $request,$idOrder)
 
     {
-
-        $order= \App\Order::find($idOrder);
-        $order->orderDate=$request->get('orderDate');
-        $order->status=$request->get('status');
-        $order->save();
-        return redirect('order');
         //
 
     }

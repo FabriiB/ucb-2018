@@ -1,4 +1,4 @@
-<?php;
+<?php
 /**
  * Created by PhpStorm.
  * User: benji
@@ -9,7 +9,7 @@
 require_once 'phpqrcode/qrlib.php';
 
  */
-)
+
 ?>
 
 @extends('layouts.header')

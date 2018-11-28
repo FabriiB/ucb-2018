@@ -26,6 +26,7 @@ Route::group(['prefix'=>'mi_cuenta'],(function () {
     Route::get('/historial_planes', 'HomeController@historial2');
 }));
 
+
 Route::post('order/create', 'OrderController@create');
 Route::post('person/create', 'PersonController@create');
 Route::get('person/createPlan/{data}', 'PersonController@createNext');
@@ -54,12 +55,21 @@ Route::get('usuarios/{id}',function () {
 Route::resource('/menu', 'MenuController');
 Route::get('menu/create', 'MenuController@create');
 Route::get('menu/first', 'MenuController@first');
+Route::get('factura', 'facturacontroller@index');
+Route::resource('pedidos1','ListaPedidosController');
+
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');
+
 Route::resource('ordera', 'OrderController');
 Route::resource('ordera/create', 'OrderController@createa');
 Route::get('ordera/create', 'OrderController@createa');
 Route::post('order/create', 'OrderController@create');
+Route::resource('pedidos', 'OrderController');
+Route::resource('order', 'OrderController')->except([
+
+]);
+
 Route::resource('ingredients', 'IngredientsController');
 Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
@@ -105,3 +115,8 @@ Route::group(["middleware" => 'entryfabrisio'], function () {
 
 });
 
+
+
+
+Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));
+Route::post('/insert', array('as'=>'insert', 'uses'=>'RecetaController@insert'));

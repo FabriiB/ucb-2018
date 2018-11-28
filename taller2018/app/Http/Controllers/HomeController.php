@@ -30,8 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$id = Auth::id();
-        $id = 1;
+        $id = Auth::id();
         try {
             $person = DB::table('person')
                 ->select('id_person')
@@ -86,16 +85,14 @@ class HomeController extends Controller
 
     public function edit()
     {
-        //$id = Auth::id();
-        $id = 1;
+        $id = Auth::id();
         $user = User::findOrFail($id);
         return view('home.edit',compact('user'));
     }
 
     public function factura()
     {
-        //$id = Auth::id();
-        $id = 1;
+        $id = Auth::id();
         $user = User::findOrFail($id);
         return view('home.factura',compact('user'));
     }
@@ -119,16 +116,14 @@ class HomeController extends Controller
 
     public function historial()
     {
-        //$id = Auth::id();
-        $id = 1;
+        $id = Auth::id();
         $user = User::findOrFail($id);
         return view('home.historial',compact('user'));
     }
 
     public function historial2()
     {
-        //$id = Auth::id();
-        $id = 1;
+        $id = Auth::id();
         $user = User::findOrFail($id);
         return view('home.historial2',compact('user'));
     }

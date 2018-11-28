@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Cristal',
         ]);
         DB::table('role')->insert([
-            'name' => 'Fabrisio',
+            'name' => 'Fabricio',
         ]);
         //need to seed specific permisions
         DB::table('permision')->insert([
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Cristal',
         ]);
         DB::table('permision')->insert([
-            'name' => 'Fabrisio',
+            'name' => 'Fabricio',
         ]);
         DB::table('permision')->insert([
             'name' => 'Admin',
@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
         DB::table('users')->insert([
-            'firs_name' => 'Fabrisio',
+            'firs_name' => 'Fabricio',
             'email' => 'fabricio@fabricio.com',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm',
             'status' => 'active',

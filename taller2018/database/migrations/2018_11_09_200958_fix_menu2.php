@@ -51,22 +51,8 @@ class FixMenu2 extends Migration
             $table->timestamp('date_created');
             $table->string('images')->nullable();
             $table->string('status', 50);
-            $table->integer('transaction_id')->nullable();
-            $table->timestamp('transaction_date')->nullable();
-            $table->string('transaction_host',50)->nullable();
-            $table->string('transaction_user',50)->nullable();
-            $table->timestamps();
-            $table->rememberToken();
-        });
-        Schema::create('instructions', function (Blueprint $table) {
-            $table->increments('id_instruction');
-            $table->integer('time');
-            $table->timestamp('date_created');
-            $table->string('type', 50);
             $table->integer('id_dish');
             $table->foreign('id_dish')->references('id_dish')->on('dish');
-            $table->integer('id_step');
-            $table->foreign('id_step')->references('id_step')->on('steps');
             $table->integer('transaction_id')->nullable();
             $table->timestamp('transaction_date')->nullable();
             $table->string('transaction_host',50)->nullable();

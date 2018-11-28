@@ -24,4 +24,8 @@ class Ingredients extends Model
     ];
     protected $guarded = [
     ];
+
+    public static function lists(string $string, string $string1)
+    {
+    }
 }

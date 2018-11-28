@@ -25,6 +25,36 @@
     <link href="{{asset('/assets/admin/css/material-dashboard.css?v=2.0.2')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('/assets/admin/demo/demo.css')}}" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+
+    <script>
+
+        $(function(){
+            // Clona la fila oculta que tiene los campos base, y la agrega al final de la tabla
+            $("#adicional").on('click', function(){
+                $("#tabla tbody tr:eq(0)").clone().removeClass('fila-fija').appendTo("#tabla");
+            });
+
+            // Evento que selecciona la fila y la elimina
+            $(document).on("click",".eliminar",function(){
+                var parent = $(this).parents().get(0);
+                $(parent).remove();
+            });
+        });
+
+        $(function(){
+            // Clona la fila oculta que tiene los campos base, y la agrega al final de la tabla
+            $("#adicional1").on('click', function(){
+                $("#tabla1 tbody tr:eq(0)").clone().removeClass('fila-fija1').appendTo("#tabla1");
+            });
+
+            // Evento que selecciona la fila y la elimina
+            $(document).on("click",".eliminar1",function(){
+                var parent = $(this).parents().get(0);
+                $(parent).remove();
+            });
+        });
+    </script>
 </head>
 
 <body class="">

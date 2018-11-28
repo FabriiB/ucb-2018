@@ -11,7 +11,6 @@ $factory->define(App\Bill::class, function (Faker $faker) {
         'issue_date' =>$faker->date($format = 'Y-m-d'),
         'number_bill'=>$faker->randomDigit,
         'total_bill'=>$faker->randomDigit,
-        'description_bill'=> $faker->randomElement(['type1','type2','type3']),
         'identifier'=>'123456789',
         'email'=> $faker->safeEmail,
         'limit_issue_date'=> $faker->date($format = 'Y-m-d'),

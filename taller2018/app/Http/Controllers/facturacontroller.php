@@ -18,12 +18,21 @@ class facturacontroller extends Controller
     {
         $id=1;
         $name=DB::table('bill')
-            ->join('payment', 'bill.id_payment','=','payment.idPayment')
-            ->join('person', 'person.id_person','=','payment.idUser')
+            ->join('detalle_fac','bill.id_bill','=','detalle_fac.id_bill')
+            ->join('person', 'person.id_person','=','detalle_fac.id_person')
             ->select('person.firs_name as firs_name','person.last_name1 as last_name1', 'person.last_name2 as last_name2','person.nit as nit',
-                'bill.control_code as control_code', 'bill.total_bill as total_bill', 'bill.description_bill as description_bill', 'bill.authorization_number as authorization_number','bill.identifier as identifier','bill.issue_date as issue_date','bill.id_bill as id_bill')
+                'bill.control_code as control_code', 'bill.total_bill as total_bill', 'detalle_fac.description_bill as description_bill', 'detalle_fac.monto as monto','bill.authorization_number as authorization_number',
+                'bill.identifier as identifier','bill.issue_date as issue_date','bill.id_bill as id_bill' )
+            //->where('bill.id_bill','=','detalle_fac.id_bill')
             ->where('bill.id_bill','=',$id)
             ->first();
+
+        $detalle=DB::table('detalle_fac')
+            ->join('bill','detalle_fac.id_bill','=','bill.id_bill')
+            ->select( 'detalle_fac.description_bill as description_bill', 'detalle_fac.monto as monto')
+            ->where('detalle_fac.id_bill','=',$id)
+            ->get();
+
 
         $nit=DB::table('company')
             ->select('company.identifier as identifier')
@@ -78,7 +87,7 @@ class facturacontroller extends Controller
         //$numerito = 6;
         //dd($numerito);
         $letras = NumeroALetras::convertir($numerito,'bolivianos 00/100','centimos' );
-        return view('Facturas.index',["datos"=>$name, "now"=>$now, "numerito"=>$letras, "nit"=>$nit]);
+        return view('Facturas.index',["datos"=>$name, "now"=>$now, "numerito"=>$letras, "nit"=>$nit, "detalle"=>$detalle]);
 
 
     }
@@ -88,14 +97,22 @@ class facturacontroller extends Controller
 
     }
     public function downloadPDF(Request $request){
-        $id=10;
+        $id=1;
         $datos=DB::table('bill')
-            ->join('payment', 'bill.id_payment','=','payment.idPayment')
-            ->join('person', 'person.id_person','=','payment.idUser')
+            ->join('detalle_fac','bill.id_bill','=','detalle_fac.id_bill')
+            ->join('person', 'person.id_person','=','detalle_fac.id_person')
             ->select('person.firs_name as firs_name','person.last_name1 as last_name1', 'person.last_name2 as last_name2','person.nit as nit',
-                'bill.control_code as control_code', 'bill.total_bill as total_bill', 'bill.description_bill as description_bill', 'bill.authorization_number as authorization_number','bill.identifier as identifier','bill.issue_date as issue_date','bill.id_bill as id_bill')
+                'bill.control_code as control_code', 'bill.total_bill as total_bill', 'detalle_fac.description_bill as description_bill', 'detalle_fac.monto as monto','bill.authorization_number as authorization_number',
+                'bill.identifier as identifier','bill.issue_date as issue_date','bill.id_bill as id_bill' )
+            //->where('bill.id_bill','=','detalle_fac.id_bill')
             ->where('bill.id_bill','=',$id)
             ->first();
+
+        $detalle=DB::table('detalle_fac')
+            ->join('bill','detalle_fac.id_bill','=','bill.id_bill')
+            ->select( 'detalle_fac.description_bill as description_bill', 'detalle_fac.monto as monto')
+            ->where('detalle_fac.id_bill','=',$id)
+            ->get();
 
         $nit=DB::table('company')
             ->select('company.identifier as identifier')
@@ -114,7 +131,7 @@ class facturacontroller extends Controller
 
 
         $letras = NumeroALetras::convertir($numerito,'bolivianos 00/100','centimos' );
-        $pdf = PDF::loadView('Facturas.factura', compact(['datos','nit','now','letras']));
+        $pdf = PDF::loadView('Facturas.factura', compact(['datos','nit','now','letras','detalle']));
         return $pdf->download('factura.pdf');
 
 

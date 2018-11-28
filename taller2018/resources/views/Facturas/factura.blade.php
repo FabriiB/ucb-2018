@@ -60,16 +60,18 @@
                         </th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            {{$datos->description_bill}}
-                        </td>
-                        <td>
-                            {{$datos->total_bill}}
-                        </td>
-                    </tr>
-                    </tbody>
+                    @foreach($detalle as $d)
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{$d->description_bill}}
+                            </td>
+                            <td>
+                                {{$d->monto}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    @endforeach
 
 
                 </table></center>

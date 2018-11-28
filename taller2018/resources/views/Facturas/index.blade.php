@@ -76,19 +76,23 @@ require_once 'phpqrcode/qrlib.php';
                                                 </th>
                                         </tr>
                                                 </thead>
+                                                @foreach($detalle as $d)
                                                 <tbody>
                                                 <tr>
                                                         <td>
-                                                                {{$datos->description_bill}}
+                                                                {{$d->description_bill}}
                                                         </td>
                                                         <td>
-                                                                {{$datos->total_bill}}
+                                                                {{$d->monto}}
                                                         </td>
                                                 </tr>
                                                 </tbody>
+                                                @endforeach
+
 
 
                                 </table></center>
+
                                 <hr>
                                 <p align="left">Son:{{$numerito}} </p>
                                 <p align="left">Codigo de control:

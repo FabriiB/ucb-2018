@@ -38,29 +38,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public static function ValidateUser()
-
-    {
-        $Cop = False;
-
-        collect($Search = DB::select(
-            DB::raw("select users.id 
-            from users, users_role 
-            where users.id=users_role.id_users 
-            and users_role.id_role=1;")
-        ))->pluck('id')->toArray();
-
-
-        $UserSession = isset(auth()->user()->id);
-
-        if(in_array($UserSession, $Search))
-        {
-            $Cop = True;
-        }
-
-        return $Cop;
-
-    }
-
 }

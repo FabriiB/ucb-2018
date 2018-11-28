@@ -72,6 +72,13 @@
                         </tr>
                         </tbody>
                     @endforeach
+                    <tfoot>
+                    <tr>
+                        <td>TOTAL</td>
+                        <td>{{$datos->total_bill}}</td>
+
+                    </tr>
+                    </tfoot>
 
 
                 </table></center>

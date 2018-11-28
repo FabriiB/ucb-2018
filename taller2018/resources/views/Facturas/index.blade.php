@@ -88,6 +88,13 @@ require_once 'phpqrcode/qrlib.php';
                                                 </tr>
                                                 </tbody>
                                                 @endforeach
+                                                <tfoot>
+                                                <tr>
+                                                        <td>TOTAL</td>
+                                                        <td>{{$datos->total_bill}}</td>
+
+                                                </tr>
+                                                </tfoot>
 
 
 
@@ -123,7 +130,7 @@ require_once 'phpqrcode/qrlib.php';
                                                         <div class="col-md-10 ml-auto" >
                                                                 <form method="get" action="/download-pdf">
                                                                         <input type="hidden" name="{{$datos->id_bill}}" >
-                                                                <button type="submit" class="btn btn-info">Generar PDF</button>
+                                                                <button type="submit" class="btn btn-info">Descargar PDF</button>
                                                                 </form>
                                                         </div>
 

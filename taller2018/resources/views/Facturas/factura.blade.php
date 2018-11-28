@@ -10,12 +10,13 @@
                         <p align="left">La Paz - Bolivia</p>
                     </td>
                     <td width="33%"><h1 align="center"><b>Factura</b></h1></td>
-                    <td width="33%"><table>
+                    <td width="33%">
+                        <table>
                             <tr>
                                 <td width="33%"><h4 align="right">NIT:
                                         {{$nit->identifier}}</h4>
                                     <h4 align="right">Factura nro:
-                                        {{$datos->identifier}}
+                                        {{$datos->id_bill}}
                                     </h4>
                                     <h4 align="right">Autorizacion:
                                         {{$datos->authorization_number}}
@@ -39,7 +40,6 @@
                             {{$datos->nit}}
                         </p>
                     </td>
-
                 </tr>
             </table>
             <p align="left">Señor (a):
@@ -48,8 +48,8 @@
                 {{$datos->last_name2}}
 
             </p>
-            <hr>
-            <center><table border="2" width="100%">
+            <center>
+                <table border="2" width="100%">
                     <thead>
                     <tr>
                         <th>
@@ -83,6 +83,7 @@
 
                 </table></center>
             <hr>
+
             <p align="left">Son:{{$letras}} </p>
             <p align="left">Codigo de control:
             {{$datos->control_code}}
@@ -102,7 +103,7 @@
         </div>
         <div class="col-md-10 ml-auto" >
         <!-- <a class="btn btn-info" href="{{URL::action('QrController@make')}}" type="submit" title="Generar QR"></a>-->
-            <img src="../../qr.png">
+            <img src="../../qr1.png">
         </div>
         <table width="100%">
             <tr>

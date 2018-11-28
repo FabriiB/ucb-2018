@@ -90,10 +90,7 @@ class ListaPedidosController extends Controller
      */
     public function show($id)
     {
-        /*$pedidos=ListadoPedidos::find($id);
-        return  view('pedido.show',compact('pedidos'));
-        $pedidos = \Order::paginate(10);
-        return view('ListadoPedidos.index');*/
+        return view('ListadoPedidos.index');
     }
 
     /**

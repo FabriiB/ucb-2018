@@ -19,7 +19,7 @@
                                 <div class="card-text">
                                     <h4 class="card-title"><i class="fa fa-pencil"></i> Estado del pedido</h4>
                                 </div>
-                                    {!!Form::model($pedido,['method'=>'PATCH','route'=>['pedidos.update', $pedido->idOrder]])!!}
+                                    {!!Form::model($pedido,['method'=>'PATCH','route'=>['pedidos1.update', $pedido->idOrder]])!!}
                                     {{Form::token()}}
 
                                         <div class="card-body ">
@@ -27,7 +27,7 @@
                                                     <label class="col-sm-2 col-form-label">ID PEDIDO:</label>
                                                     <div class="col-sm-10">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" name="name" readonly="readonly" value="{{$pedido->idOrder}}">
+                                                            <input type="text" class="form-control" name="idOrder" readonly="readonly" value="{{$pedido->idOrder}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -35,7 +35,7 @@
                                                     <label class="col-sm-2 col-form-label">ESTADO DEL PEDIDO:</label>
                                                     <div class="card-body ">
                                                         <div class="form-group">
-                                                            <select name="listaestado" form="estadoform" value="{{$pedido->status}}">
+                                                            <select name="status" form="estadoform" value="{{$pedido->status}}">
                                                                 <option value="proceso">En proceso</option>
                                                                 <option value="cancelado">Cancelado</option>
                                                                 <option value="enviado">Enviado</option>
@@ -47,7 +47,7 @@
                                                     <label class="col-sm-2 col-form-label">DETALLE:</label>
                                                     <div class="card-body ">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" name="name" value="{{$pedido->detalle}}">
+                                                            <input type="text" class="form-control" name="detalle" value="{{$pedido->detalle}}">
                                                         </div>
                                                     </div>
                                                 </div>

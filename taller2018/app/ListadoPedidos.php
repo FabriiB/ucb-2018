@@ -6,9 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class ListadoPedidos extends Model
 {
-    public function index(Request $request)
-    {
+    protected $table      = 'order';
+    protected $primaryKey = 'idOrder';
+    public $timestamps    = false;
+    protected $fillable = [
 
-        return view('ListadoPedidos.index');
-    }
+        'status',
+        'detalle',
+        'orderDate',
+        'cancelDate',
+        'id_person',
+        'idPlan',
+    ];
+    protected $guarded = [
+    ];
 }

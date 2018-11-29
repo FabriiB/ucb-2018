@@ -116,17 +116,21 @@
                                     </div>
                                     <div class="col-lg-10">
                                         <div class="form-group">
-                                            <select id="country" class="selectpicker" data-style="select-with-transition" title="Country" name="country" data-size="7">
+                                            <select id="country" class="selectpicker" data-style="select-with-transition" title="Pais" name="country" data-size="7">
                                                 <option disabled>Elija un pais</option>
-                                                <option value="1">Foobar</option>
+                                                @foreach ($paises as $pais)
+                                                    <option value="{{$pais->name}}">{{$pais->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-10">
                                         <div class="form-group">
-                                            <select id="city"s class="selectpicker" data-style="select-with-transition" title="City" name="city" data-size="7">
+                                            <select id="city"s class="selectpicker" data-style="select-with-transition" title="Departamento" name="city" data-size="7">
                                                 <option disabled>Elija una ciudad</option>
-                                                <option value="1">Foobar</option>
+                                                @foreach ($depts as $dept)
+                                                    <option value="{{$dept->name}}">{{$dept->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>

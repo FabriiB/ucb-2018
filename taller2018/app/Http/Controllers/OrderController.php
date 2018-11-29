@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\OrderDelivery;
 use Illuminate\Http\Request;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
@@ -63,8 +64,9 @@ class OrderController extends Controller
 
     public function create(Request $data)
     {
+        $time = now();
         Order::create([
-                    'orderDate'     => now(),
+                    'orderDate'     => $time,
                     'cancelDate'    => null,
                     'status'        => 'En proceso',
                     'detalle'       => null,
@@ -73,14 +75,76 @@ class OrderController extends Controller
                     'id_menu_dish'  => $data['id_menu_dish'],
                 ]);
 
+
+        $id = DB::table('order')
+            ->where('orderDate','=',$time)
+            ->where('id_person','=',$data['id_person'])
+            ->select('idOrder')
+            ->first()
+            ->idOrder;
+
+        $results = DB::select(DB::raw("SELECT to_char(DATE '".now()->format('Y-m-d')."', 'day')"));
+
+        if($results[0]->to_char == 'monday'){
+            OrderDelivery::create([
+                'shippedDate'   => $time->addDay(3),
+                'idOrder'       => $id,
+                'status'        => 'En proceso',
+                'idPlan'        => $data['id_plan'],
+                'idDistributor' => 1,
+            ]);
+        }elseif ($results[0]->to_char == 'tuesday'){
+            OrderDelivery::create([
+                'shippedDate'   => $time->addDay(2),
+                'idOrder'       => $id,
+                'status'        => 'En proceso',
+                'idPlan'        => $data['id_plan'],
+                'idDistributor' => 1,
+            ]);
+        }elseif ($results[0]->to_char == 'wednesday'){
+            OrderDelivery::create([
+                'shippedDate'   => $time->addDay(1),
+                'idOrder'       => $id,
+                'status'        => 'En proceso',
+                'idPlan'        => $data['id_plan'],
+                'idDistributor' => 1,
+            ]);
+        }elseif ($results[0]->to_char == 'thursday'){
+            OrderDelivery::create([
+                'shippedDate'   => $time->addDay(4),
+                'idOrder'       => $id,
+                'status'        => 'En proceso',
+                'idPlan'        => $data['id_plan'],
+                'idDistributor' => 1,
+            ]);
+        }elseif ($results[0]->to_char == 'friday'){
+            OrderDelivery::create([
+                'shippedDate'   => $time->addDay(3),
+                'idOrder'       => $id,
+                'status'        => 'En proceso',
+                'idPlan'        => $data['id_plan'],
+                'idDistributor' => 1,
+            ]);
+        }elseif ($results[0]->to_char == 'saturday'){
+            OrderDelivery::create([
+                'shippedDate'   => $time->addDay(2),
+                'idOrder'       => $id,
+                'status'        => 'En proceso',
+                'idPlan'        => $data['id_plan'],
+                'idDistributor' => 1,
+            ]);
+        }elseif ($results[0]->to_char == 'sunday'){
+            OrderDelivery::create([
+                'shippedDate'   => $time->addDay(1),
+                'idOrder'       => $id,
+                'status'        => 'En proceso',
+                'idPlan'        => $data['id_plan'],
+                'idDistributor' => 1,
+            ]);
+        }
+
         return redirect()->route('mi_cuenta');
     }
-
-    public function createa()
-    {
-        return view('order.create',compact('ordera'));
-    }
-
 
 
     /**

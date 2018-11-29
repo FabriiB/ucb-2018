@@ -16,10 +16,9 @@ class OrderDelivery extends Migration
         Schema::create('order_delivery', function (Blueprint $table) {
             $table->increments('idOrder_Delivery');
             $table->timestamp('shippedDate');
-            $table->timestamp('deliveryTime');
+            $table->timestamp('deliveryTime')->nullable();
             $table->integer('idOrder')->unsigned();
             $table->integer('idDistributor')->unsigned();
-            $table->rememberToken();
             $table->timestamps();
         });
     }

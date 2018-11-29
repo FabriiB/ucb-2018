@@ -14,6 +14,7 @@ use App\MenuDish;
 use App\Bill;
 use App\Role;
 use App\Permision;
+use App\Items;
 
 use App\Order;
 
@@ -175,12 +176,17 @@ class DatabaseSeeder extends Seeder
            // DistributorSeeder::class
         );
 
+        $this->call(
+            ContrySeeder::class
+        // DistributorSeeder::class
+        );
+
         //user and person needs to be seeded before the many to many seeding
         factory(App\UserMod::class,50)->create();
         factory(User::class,50)->create();
         //person needs to be before the seeding for permisions management
         factory(Person::class,10)->create();
-
+        factory(Items::class,190)->create();
         factory(Meassure::class,10)->create();
         factory(Distributors::class,50)->create();
         factory(Menu::class,10)->create();

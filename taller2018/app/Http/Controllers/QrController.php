@@ -12,8 +12,9 @@ class QrController extends Controller
 {
     public function make()
     {
-        $file=resource_path('qr.png');
-        return QRCode::meCard('QR prueba 3','qr2','q3','qr4')->setOutfile($file)->setSize(4)->png();
+
+        $file=resource_path('qr1.png');
+        return QRCode::text('hhhh','qrasd','qasd','asd')->setOutfile($file)->setSize(4)->png();
 
     }
 }

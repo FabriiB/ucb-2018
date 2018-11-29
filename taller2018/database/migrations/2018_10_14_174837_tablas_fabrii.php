@@ -39,7 +39,6 @@ class TablasFabrii extends Migration
             $table->timestamp('issue_date');
             $table->integer('number_bill');
             $table->integer('total_bill');
-            $table->string('description_bill',250);
             $table->string('identifier',50);
             $table->string('email');
             $table->timestamp('limit_issue_date');

@@ -35,10 +35,10 @@ class Fix2OrderDelivery extends Migration
                 DB::statement('ALTER TABLE order_delivery ADD COLUMN delivery_time timestamp;');
             }
             $table->string('status',100);
-            $table->integer('transaction_id');
-            $table->timestamp('transaction_date');
-            $table->string('transaction_host',50);
-            $table->string('transaction_user',50);
+            $table->integer('transaction_id')->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->string('transaction_host',50)->nullable();
+            $table->string('transaction_user',50)->nullable();
         });
     }
     /**

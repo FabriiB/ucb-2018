@@ -22,7 +22,8 @@ class EntryRodrigo
             from users u, users_role ur, role_permision rp 
             where u.id=ur.id_users 
             and ur.id_role=rp.id_role
-            and rp.id_permision=1;")
+            and (rp.id_permision=1
+            OR rp.id_permision=3);")
         ))->pluck('id')->toArray();
 
 

@@ -94,6 +94,22 @@ class FixMenu2 extends Migration
             $table->timestamps();
             $table->rememberToken();
         });
+        Schema::create('detalle_fac', function (Blueprint $table) {
+            $table->increments('id_detalle');
+            $table->string('description_bill',250);
+            $table->timestamp('date_created');
+            $table->integer('monto');
+            $table->integer('id_person');
+            $table->foreign('id_person')->references('id_person')->on('person');
+            $table->integer('id_bill');
+            $table->foreign('id_bill')->references('id_bill')->on('bill');
+            $table->integer('transaction_id')->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->string('transaction_host',50)->nullable();
+            $table->string('transaction_user',50)->nullable();
+            $table->timestamps();
+            $table->rememberToken();
+        });
     }
 
     /**

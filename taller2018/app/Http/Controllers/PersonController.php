@@ -49,7 +49,7 @@ class PersonController extends Controller
                 'birthDay'  => 'required|date   |before:-18 years',
                 'country'   => 'required|string |max:50',
                 'city'      => 'required|string |max:50',
-                'nit'       => 'required',
+                'nit'       => 'required|string',
                 'id_user'   => 'required|unique:person',
             ],
                 [

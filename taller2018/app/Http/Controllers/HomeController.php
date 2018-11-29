@@ -33,21 +33,28 @@ class HomeController extends Controller
 
         // Controla la cantidad de platos que puede pedir dependiendo el dia
 
-        $results = DB::select(DB::raw("SELECT to_char(DATE '".now()->format('Y-m-d')."', 'day')"));
 
-        if($results[0]->to_char == 'monday'){
+        $results = DB::select(DB::raw("SELECT to_char(DATE '".now()->format('Y-m-d')."','day')"));
+        if($results[0]->to_char === 'monday   '){
+            $order_delivery = now()->addDay(3)->format('Y-m-d');
             $max = 4;
-        }elseif ($results[0]->to_char == 'tuesday'){
+        }elseif ($results[0]->to_char === 'tuesday  '){
+            $order_delivery = now()->addDay(2)->format('Y-m-d');
             $max = 4;
-        }elseif ($results[0]->to_char == 'wednesday'){
+        }elseif ($results[0]->to_char === 'wednesday'){
+            $order_delivery = now()->addDay(1)->format('Y-m-d');
             $max = 4;
-        }elseif ($results[0]->to_char == 'thursday'){
+        }elseif ($results[0]->to_char === 'thursday '){
+            $order_delivery = now()->addDay(4)->format('Y-m-d');
             $max = 3;
-        }elseif ($results[0]->to_char == 'friday'){
+        }elseif ($results[0]->to_char === 'friday   '){
+            $order_delivery = now()->addDay(3)->format('Y-m-d');
             $max = 3;
-        }elseif ($results[0]->to_char == 'saturday'){
+        }elseif ($results[0]->to_char === 'saturday '){
+            $order_delivery = now()->addDay(2)->format('Y-m-d');
             $max = 3;
-        }elseif ($results[0]->to_char == 'sunday'){
+        }elseif ($results[0]->to_char === 'sunday   '){
+            $order_delivery = now()->addDay(1)->format('Y-m-d');
             $max = 3;
         }
 
@@ -106,13 +113,6 @@ class HomeController extends Controller
                 ->select('dish.name as dish','menu_dish.id_dish as id')
                 ->get();
 
-            $order_delivery = DB::table('order_delivery')
-                ->join('order', 'order_delivery.idOrder','=','order.idOrder')
-                ->where('order.id_person','=', $person)
-                ->where('order_delivery.shippedDate','>',now())
-                ->select('order_delivery.shippedDate as date')
-                ->first()
-                ->date;
         }
 
         //Encuentra los datos del user logueado

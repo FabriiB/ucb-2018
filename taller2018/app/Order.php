@@ -16,18 +16,14 @@ class Order extends Model
         'detalle',
         'cancelDate',
         'idPlan',
-        'id_person',
-        'id_menu_dish',
         'transaction_id',
         'transaction_date',
         'transaction_host',
         'transaction_user',
-
-
+        'id_person',
+        'id_menu_dish',
     ];
 
-    protected $guarded = [
-    ];
 
 }
 

@@ -15,8 +15,8 @@ class Order extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->increments('idOrder');
-            $table->timestamp('orderDate');
-            $table->string('status');
+            $table->timestamp('orderDate')->nullable();
+            $table->string('status',100)->nullable();
             $table->string('detalle')->nullable();
             $table->timestamp('cancelDate')->nullable();
             $table->integer('idUser')->nullable();

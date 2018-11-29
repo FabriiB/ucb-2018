@@ -44,6 +44,16 @@ class RecetaController extends Controller
                               'date_created' => $tfecha->format('Y-m-d H:i:s'));
                 DishIngredients::insert($data);
             }
+            foreach ($request->titulo_p as $key => $t)
+            {
+                $data1 = array('id_dish'=>$id_diiii,
+                               'title' => $request->titulo_p [$key],
+                               'description' => $request->descripcion_p [$key],
+                               'status' => 'activo',
+                               'date_created' => $tfecha->format('Y-m-d H:i:s'));
+                Steps::insert($data1);
+            }
+
         }
         return redirect()->action('MenuController@index');
     }

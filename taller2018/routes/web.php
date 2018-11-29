@@ -62,7 +62,6 @@ Route::resource('ListadoPedidos','ListaPedidosController');
 
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');
-=======
 
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');

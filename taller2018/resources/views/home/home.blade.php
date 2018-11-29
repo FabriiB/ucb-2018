@@ -24,6 +24,7 @@
                         </div>
                         <div class="card-body ">
                             <h4 class="card-title">{{$user->firs_name}} {{$user->last_name1}}</h4>
+                            <h2>{{$max}}</h2>
                             @if($plan !== null )
                                 <h4 class="title">Su plan es de tipo {{$plan->type}} y termina el {{$plan->end}}</h4>
                             @else
@@ -37,11 +38,10 @@
                     @if($plan !== null )
 
 
-
                         <div class="row">
                             <div class="col-md-8 ml-auto mr-auto text-center">
                                 <h2 class="title">Proximo envio</h2>
-                                <h6 class="description">Fecha: 21/11/2018</h6>
+                                <h6 class="description">Fecha: {{$order_delivery}}</h6>
                                 <div class="section-space"></div>
                             </div>
                         </div>

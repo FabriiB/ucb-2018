@@ -18,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
 
@@ -30,25 +30,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $id = Auth::id();
-
-        // Prueba si user tiene un person
-
-        try {
-            $person = DB::table('person')
-                ->select('id_person')
-                ->where('id_user','=',$id)
-                ->first()
-                ->id_person;
-        }
-        catch (\Exception $e) {
-            $person=null;
-        }
-
 
         // Controla la cantidad de platos que puede pedir dependiendo el dia
 
         $results = DB::select(DB::raw("SELECT to_char(DATE '".now()->format('Y-m-d')."', 'day')"));
+
         if($results[0]->to_char == 'monday'){
             $max = 4;
         }elseif ($results[0]->to_char == 'tuesday'){
@@ -65,6 +51,21 @@ class HomeController extends Controller
             $max = 3;
         }
 
+
+        $id = Auth::id();
+
+        // Prueba si user tiene un person
+
+        try {
+            $person = DB::table('person')
+                ->select('id_person')
+                ->where('id_user','=',$id)
+                ->first()
+                ->id_person;
+        }
+        catch (\Exception $e) {
+            $person=null;
+        }
 
 
         // Si no existiese un person no hace el quilombo de querys
@@ -104,6 +105,14 @@ class HomeController extends Controller
                 ->where('date_end', '>=',now())
                 ->select('dish.name as dish','menu_dish.id_dish as id')
                 ->get();
+
+            $order_delivery = DB::table('order_delivery')
+                ->join('order', 'order_delivery.idOrder','=','order.idOrder')
+                ->where('order.id_person','=', $person)
+                ->where('order_delivery.shippedDate','>',now())
+                ->select('order_delivery.shippedDate as date')
+                ->first()
+                ->date;
         }
 
         //Encuentra los datos del user logueado
@@ -116,8 +125,7 @@ class HomeController extends Controller
             ->select('orderDate', 'status')
             ->get();
 
-
-        return view('home.home',compact('user', 'order_table','plan','ordenes','person','pedido','max'));
+        return view('home.home',compact('user', 'order_table','plan','ordenes','person','pedido','order_delivery','max'));
     }
 
     public function edit()

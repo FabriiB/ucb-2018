@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+
 class EntryCristal
 {
     /**

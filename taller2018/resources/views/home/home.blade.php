@@ -35,6 +35,9 @@
                 </div>
                 <div class="container">
                     @if($plan !== null )
+
+
+
                         <div class="row">
                             <div class="col-md-8 ml-auto mr-auto text-center">
                                 <h2 class="title">Proximo envio</h2>
@@ -42,9 +45,12 @@
                                 <div class="section-space"></div>
                             </div>
                         </div>
+
+
+
                         <div class="row">
-                            @if($dish->count() > 0)
-                                @foreach ($dish as $di)
+                            @if($ordenes->count() > 0 )
+                                @foreach ($ordenes as $orden)
                                     <div class="col-md-4">
                                         <div class="card card-profile">
                                             <div class="card-header card-header-image">
@@ -53,7 +59,8 @@
                                                 </a>
                                             </div>
                                             <div class="card-body ">
-                                                <h4 class="card-title">{{ $di }}</h4>
+                                                <h4 class="card-title">{{ $orden->dish }}</h4>
+
                                             </div>
                                             <div class="card-footer ">
                                                 <div class="author">
@@ -61,14 +68,12 @@
                                                         <span>Detalles</span>
                                                     </a>
                                                 </div>
-                                                <div class="stats ml-auto">
-                                                    <i class="material-icons">schedule</i> 30 min
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
-                            @else
+                            @endif
+                            @if($ordenes->count() < $max)
                                 @foreach($pedido as $pedid)
                                     <div class="col-md-4">
                                         <div class="card card-profile">
@@ -87,9 +92,6 @@
                                                         <a href="#pablo">
                                                             <span>Detalles</span>
                                                         </a>
-                                                    </div>
-                                                    <div class="stats ml-auto">
-                                                        <i class="material-icons">schedule</i> 30 min
                                                     </div>
                                                 </div>
 

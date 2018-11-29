@@ -60,10 +60,16 @@ Route::resource('pedidos1','ListaPedidosController');
 
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');
+
+Route::resource('ordera', 'OrderController');
+Route::resource('ordera/create', 'OrderController@createa');
+Route::get('ordera/create', 'OrderController@createa');
+Route::post('order/create', 'OrderController@create');
 Route::resource('pedidos', 'OrderController');
 Route::resource('order', 'OrderController')->except([
 
 ]);
+
 Route::resource('ingredients', 'IngredientsController');
 Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
@@ -81,6 +87,7 @@ Route::get('dish_ingredients/{id}/index', 'DishIngredientsController@index');
 
 Route::resource('/menugeneral', 'MenuGeneralController');
 Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');
+Route::get('/download-pdf', 'facturacontroller@downloadPDF');
 
 //Security routing
 Route::group(["middleware" => 'entryrodrigo'], function () {

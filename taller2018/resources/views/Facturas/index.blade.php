@@ -15,6 +15,7 @@ require_once 'phpqrcode/qrlib.php';
 @extends('layouts.header')
 @section('content')
         <br>
+
         <div class="main main-raised">
                 <div class="section section-basic">
                         <div class="container">
@@ -30,10 +31,11 @@ require_once 'phpqrcode/qrlib.php';
                                                                         <td width="33%"><h4 align="right">NIT:
                                                                                         {{$nit->identifier}}</h4>
                                                                                 <h4 align="right">Factura nro:
-                                                                                        {{$datos->identifier}}
+                                                                                        {{$datos->id_bill}}
                                                                                 </h4>
                                                                                 <h4 align="right">Autorizacion:
                                                                                         {{$datos->authorization_number}}
+
                                                                                 </h4></td>
                                                                 </tr>
                                                                 </table>
@@ -74,19 +76,30 @@ require_once 'phpqrcode/qrlib.php';
                                                 </th>
                                         </tr>
                                                 </thead>
+                                                @foreach($detalle as $d)
                                                 <tbody>
                                                 <tr>
                                                         <td>
-                                                                {{$datos->description_bill}}
+                                                                {{$d->description_bill}}
                                                         </td>
                                                         <td>
-                                                                {{$datos->total_bill}}
+                                                                {{$d->monto}}
                                                         </td>
                                                 </tr>
                                                 </tbody>
+                                                @endforeach
+                                                <tfoot>
+                                                <tr>
+                                                        <td>TOTAL</td>
+                                                        <td>{{$datos->total_bill}}</td>
+
+                                                </tr>
+                                                </tfoot>
+
 
 
                                 </table></center>
+
                                 <hr>
                                 <p align="left">Son:{{$numerito}} </p>
                                 <p align="left">Codigo de control:
@@ -94,14 +107,18 @@ require_once 'phpqrcode/qrlib.php';
                                 <!---->
                                 </p>
                                 <p align="left">Fecha Limite de Emision:
-                                        {{$datos->issue_date}}
+                                        @php
+                                                $fecha = date('d-m-Y');
+                                        $nuevafecha = strtotime('+90 day', strtotime($fecha));
+                                        $nuevafecha = date('d-m-Y', $nuevafecha);
+                                        @endphp
+                                        {{$nuevafecha}}
                                 </p>
                                 <br>
 
                         </div>
                         <div class="col-md-10 ml-auto" >
-                                <!-- <a class="btn btn-info" href="{{URL::action('QrController@make')}}" type="submit" title="Generar QR"></a>-->
-                                <img src="../../qr.png">
+
                         </div>
                         <table width="100%">
                                 <tr>
@@ -111,7 +128,10 @@ require_once 'phpqrcode/qrlib.php';
                                         <td>
                                                 <div class="row">
                                                         <div class="col-md-10 ml-auto" >
-                                                                <button class="btn btn-info">Generar PDF</button>
+                                                                <form method="get" action="/download-pdf">
+                                                                        <input type="hidden" name="{{$datos->id_bill}}" >
+                                                                <button type="submit" class="btn btn-info">Descargar PDF</button>
+                                                                </form>
                                                         </div>
 
                                                 </div>

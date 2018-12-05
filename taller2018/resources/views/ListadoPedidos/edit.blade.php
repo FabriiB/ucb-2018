@@ -19,15 +19,16 @@
                                 <div class="card-text">
                                     <h4 class="card-title"><i class="fa fa-pencil"></i> Estado del pedido</h4>
                                 </div>
-                                    {!!Form::model($pedido,['method'=>'PATCH','route'=>['pedidos1.update', $pedido->idOrder]])!!}
-                                    {{Form::token()}}
+                                    <form  action="{{route('ListaPedidos.update',$order->idOrder)}}" method="POST">
+                                    @csrf
+                                    @method('PUT')
 
                                         <div class="card-body ">
                                                 <div class="row">
                                                     <label class="col-sm-2 col-form-label">ID PEDIDO:</label>
                                                     <div class="col-sm-10">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" name="idOrder" readonly="readonly" value="{{$pedido->idOrder}}">
+                                                            <input type="text" class="form-control" name="idOrder" readonly="readonly" value="{{$order->idOrder}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -35,7 +36,7 @@
                                                     <label class="col-sm-2 col-form-label">ESTADO DEL PEDIDO:</label>
                                                     <div class="card-body ">
                                                         <div class="form-group">
-                                                            <select name="status" form="estadoform" value="{{$pedido->status}}">
+                                                            <select name="status" form="estadoform" required>
                                                                 <option value="proceso">En proceso</option>
                                                                 <option value="cancelado">Cancelado</option>
                                                                 <option value="enviado">Enviado</option>
@@ -47,26 +48,25 @@
                                                     <label class="col-sm-2 col-form-label">DETALLE:</label>
                                                     <div class="card-body ">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" name="detalle" value="{{$pedido->detalle}}">
+                                                            <input type="text" class="form-control" name="detalle" value="{{$order->detalle}}" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <center>
                                                     <button class="btn btn-info" type="submit">
                                                     EDITAR</button>
-                                                    <a class="btn btn-danger" type="reset" href="{{ URL::previous() }}">
-                                                        CANCELAR
-                                                    </a>
+                                                    {{--<a class="btn btn-danger" type="reset" href="{{ URL::previous() }}">--}}
+                                                        {{--CANCELAR--}}
+                                                    {{--</a>--}}
                                                 </center>
-                                            </form>
                                         </div>
-                                    {!!Form::close()!!}
+                                </form>
                              </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
 @endsection
 

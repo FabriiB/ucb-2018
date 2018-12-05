@@ -18,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
 
@@ -30,6 +30,35 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        // Controla la cantidad de platos que puede pedir dependiendo el dia
+
+
+        $results = DB::select(DB::raw("SELECT to_char(DATE '".now()->format('Y-m-d')."','day')"));
+        if($results[0]->to_char === 'monday   '){
+            $order_delivery = now()->addDay(3)->format('Y-m-d');
+            $max = 4;
+        }elseif ($results[0]->to_char === 'tuesday  '){
+            $order_delivery = now()->addDay(2)->format('Y-m-d');
+            $max = 4;
+        }elseif ($results[0]->to_char === 'wednesday'){
+            $order_delivery = now()->addDay(1)->format('Y-m-d');
+            $max = 4;
+        }elseif ($results[0]->to_char === 'thursday '){
+            $order_delivery = now()->addDay(4)->format('Y-m-d');
+            $max = 3;
+        }elseif ($results[0]->to_char === 'friday   '){
+            $order_delivery = now()->addDay(3)->format('Y-m-d');
+            $max = 3;
+        }elseif ($results[0]->to_char === 'saturday '){
+            $order_delivery = now()->addDay(2)->format('Y-m-d');
+            $max = 3;
+        }elseif ($results[0]->to_char === 'sunday   '){
+            $order_delivery = now()->addDay(1)->format('Y-m-d');
+            $max = 3;
+        }
+
+
         $id = Auth::id();
 
         // Prueba si user tiene un person
@@ -44,27 +73,6 @@ class HomeController extends Controller
         catch (\Exception $e) {
             $person=null;
         }
-
-
-        // Controla la cantidad de platos que puede pedir dependiendo el dia
-
-        $results = DB::select(DB::raw("SELECT to_char(DATE '".now()->format('Y-m-d')."', 'day')"));
-        if($results[0]->to_char == 'monday'){
-            $max = 4;
-        }elseif ($results[0]->to_char == 'tuesday'){
-            $max = 4;
-        }elseif ($results[0]->to_char == 'wednesday'){
-            $max = 4;
-        }elseif ($results[0]->to_char == 'thursday'){
-            $max = 3;
-        }elseif ($results[0]->to_char == 'friday'){
-            $max = 3;
-        }elseif ($results[0]->to_char == 'saturday'){
-            $max = 3;
-        }elseif ($results[0]->to_char == 'sunday'){
-            $max = 3;
-        }
-
 
 
         // Si no existiese un person no hace el quilombo de querys
@@ -104,6 +112,7 @@ class HomeController extends Controller
                 ->where('date_end', '>=',now())
                 ->select('dish.name as dish','menu_dish.id_dish as id')
                 ->get();
+
         }
 
         //Encuentra los datos del user logueado
@@ -116,8 +125,7 @@ class HomeController extends Controller
             ->select('orderDate', 'status')
             ->get();
 
-
-        return view('home.home',compact('user', 'order_table','plan','ordenes','person','pedido','max'));
+        return view('home.home',compact('user', 'order_table','plan','ordenes','person','pedido','order_delivery','max'));
     }
 
     public function edit()

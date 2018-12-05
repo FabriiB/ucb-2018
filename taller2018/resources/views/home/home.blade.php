@@ -37,11 +37,9 @@
                     @if($plan !== null )
 
 
-
                         <div class="row">
                             <div class="col-md-8 ml-auto mr-auto text-center">
-                                <h2 class="title">Proximo envio</h2>
-                                <h6 class="description">Fecha: 21/11/2018</h6>
+                                <h3 class="title">El proximo envio sera el {{$order_delivery}} </h3>
                                 <div class="section-space"></div>
                             </div>
                         </div>

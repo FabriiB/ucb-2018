@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Middleware;
-use Illuminate\Support\Facades\DB;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class EntryRodrigo
 {
@@ -17,29 +15,11 @@ class EntryRodrigo
      */
     public function handle($request, Closure $next)
     {
-        $Look=collect($Search = DB::select(
-            DB::raw("select u.id 
-            from users u, users_role ur, role_permision rp 
-            where u.id=ur.id_users 
-            and ur.id_role=rp.id_role
-            and (rp.id_permision=1
-            OR rp.id_permision=3);")
-        ))->pluck('id')->toArray();
+        $entry = new Entries();
 
+        $entry::handle($request, $next, 1);
 
-        $id = Auth::id();
-
-        if(in_array($id, $Look))
-        {
-            return $next($request);
-        }
-
-        else
-        {
-            return abort(403, "No access here, sorry!");
-        }
-
-
+        return $next($request);
     }
 }
 

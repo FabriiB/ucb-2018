@@ -19,7 +19,7 @@
                                 <div class="card-text">
                                     <h4 class="card-title"><i class="fa fa-pencil"></i> Estado del pedido</h4>
                                 </div>
-                                    <form  action="{{route('ListaPedidos.update',$order->idOrder)}}" method="POST">
+                                    <form  action="{{route('update',$order->idOrder)}}" method="POST">
                                     @csrf
                                     @method('PUT')
 

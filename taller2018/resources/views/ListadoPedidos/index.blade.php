@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: cristal
- * Date: 23/10/18
- * Time: 11:44 PM
- */
 
-?>
 
 @extends('layouts.admin')
 @section('content')
@@ -43,6 +35,9 @@
                                     {{--<hr>--}}
                                 {{--</div>--}}
                             </div>
+                            <a class="btn btn-outline-warning mb-1" href="{{route('filtro')}}" title="Filtrar">
+                                Realizar Filtros
+                            </a>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-striped table-condensed cf" id="tablaPedidos">

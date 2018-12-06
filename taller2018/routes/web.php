@@ -59,7 +59,14 @@ Route::get('menu/first', 'MenuController@first');
 Route::get('factura', 'facturacontroller@index');
 
 Route::resource('ListadoPedidos','ListaPedidosController');
-
+Route::get('ListadoPedidos.filtro', [
+    'as' => 'filtro',
+    'uses' => 'ListaPedidosController@filtro'
+]);
+Route::get('ListadoPedidos.update', [
+    'as' => 'update',
+    'uses' => 'ListaPedidosController@update'
+]);
 
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');

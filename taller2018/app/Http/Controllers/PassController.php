@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Person;
 use App\Role;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ListDB;
 
 
 class PassController extends Controller
@@ -18,18 +19,8 @@ class PassController extends Controller
     public static function ShowPass()
 
     {
-        collect($Search = DB::select(
-            DB::raw("select name 
-            from permision p")
-        ))->pluck('name')->toArray();
-
-        foreach ($Search as $search)
-        {
-
-        }
-
-
-        return $Search;
-
+        $Table = 'Permision' ;
+        $SentTable = str_replace("'", '', $Table);
+        return ListDB::ShowPass($SentTable);
     }
 }

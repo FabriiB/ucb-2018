@@ -23,24 +23,22 @@
             </div>
         </div>
 
-        <?php
-        $Search = \App\Http\Controllers\PassController::ShowPass();
-
-        /*$Search = \App\Http\Controllers\PassController::ShowPass();
-        var_dump ($Search);*/
-        ?>
-
-        @foreach ($Search as $Searchs)
-            <li>{{ $Searchs->name }}</li>
-        @endforeach
-
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <lable>Passport Office</lable>
+                <lable>Permission</lable>
                 <select name="office">
                     <div class="col-sm-9">
+                        <?php
+                        $Search = \App\Http\Controllers\PassController::ShowPass();
 
+                        /*$Search = \App\Http\Controllers\PassController::ShowPass();
+                        var_dump ($Search);*/
+                        ?>
+
+                        @foreach ($Search as $Searchs)
+                            <option>{{ $Searchs->name }}</option>
+                        @endforeach
                     </div>
                 </select>
             </div>

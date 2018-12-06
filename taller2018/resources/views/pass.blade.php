@@ -30,7 +30,7 @@
                 <select name="office">
                     <div class="col-sm-9">
                         <?php
-                        $Search = \App\Http\Controllers\PassController::ShowPass();
+                        $Search = \App\Http\Controllers\PassController::ShowPermision();
 
                         /*$Search = \App\Http\Controllers\PassController::ShowPass();
                         var_dump ($Search);*/
@@ -43,6 +43,25 @@
                 </select>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <lable>User</lable>
+                <select name="office">
+                    <div class="col-sm-9">
+                        <?php
+                        $Search = \App\Http\Controllers\PassController::ShowUser();
+                        ?>
+
+                        @foreach ($Search as $Searchs)
+                            <option>{{ $Searchs->firs_name }}</option>
+                        @endforeach
+                    </div>
+                </select>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4" style="margin-top:60px">

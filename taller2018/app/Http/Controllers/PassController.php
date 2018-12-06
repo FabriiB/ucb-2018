@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DemeterChain\C;
+use Doctrine\DBAL\Schema\Column;
 use Illuminate\Http\Request;
 use App\Person;
 use App\Role;
@@ -16,11 +18,19 @@ class PassController extends Controller
 
     }
 
-    public static function ShowPass()
+    public static function ShowPermision()
 
     {
-        $Table = 'Permision' ;
-        $SentTable = str_replace("'", '', $Table);
-        return ListDB::ShowPass($SentTable);
+        $Table = 'Permision';
+        $Column = 'name';
+        return ListDB::ShowPass($Table, $Column);
+    }
+
+    public static function ShowUser()
+
+    {
+        $Table = 'Users';
+        $Column = 'firs_name';
+        return ListDB::ShowPass($Table, $Column);
     }
 }

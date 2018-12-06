@@ -15,12 +15,15 @@ class ListDB extends Controller
 
     }
 
-    public static function ShowPass($Table)
+    public static function ShowPass($Table, $Column)
 
     {
+        $SentTable = str_replace("'", '', $Table);
+        $SentColumn = str_replace("'", '', $Column);
+
         collect($Search = DB::select(
-            DB::raw("select name 
-            from $Table")
+            DB::raw("select $SentColumn 
+            from $SentTable")
         ))->pluck('name')->toArray();
 
         return $Search;

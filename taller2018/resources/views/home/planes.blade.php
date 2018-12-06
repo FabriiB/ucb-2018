@@ -114,26 +114,30 @@
                                             @endif
                                         </div>
                                     </div>
+
+
+
                                     <div class="col-lg-10">
                                         <div class="form-group">
                                             <select id="country" class="selectpicker" data-style="select-with-transition" title="Pais" name="country" data-size="7">
                                                 <option disabled>Elija un pais</option>
                                                 @foreach ($paises as $pais)
-                                                    <option value="{{$pais->name}}">{{$pais->name}}</option>
+                                                    <option value="{{$pais->id}}">{{$pais->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
+
                                     <div class="col-lg-10">
                                         <div class="form-group">
-                                            <select id="city"s class="selectpicker" data-style="select-with-transition" title="Departamento" name="city" data-size="7">
-                                                <option disabled>Elija una ciudad</option>
-                                                @foreach ($depts as $dept)
-                                                    <option value="{{$dept->name}}">{{$dept->name}}</option>
-                                                @endforeach
+                                            <select id="city" class="selectpicker" data-style="select-with-transition" title="Departamento" name="city" data-size="7">
                                             </select>
                                         </div>
                                     </div>
+
+
+
+
                                     <div class="col-lg-10">
                                         <div class="form-group">
                                             <label for="nit" class="bmd-label-floating">NIT</label>
@@ -231,4 +235,38 @@
 
         </form>
     </div>
+
+
+    <script src="{{ asset('js/core/jquery.min.js') }}" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $('#country').on('change', function() {
+                var stateID = $(this).val();
+                if(stateID) {
+                    $.ajax({
+                        url: '/mi_cuenta/depts/'+stateID,
+                        type: "GET",
+                        data : {"_token":"{{ csrf_token() }}"},
+                        dataType: "json",
+                        success:function(data) {
+                            console.log(data);
+                            if(data){
+                                $('#city').empty();
+                                $('#city').focus;
+                                $('#city').append('<option disabled> Elija departamento</option>')
+                                $.each(data, function(key, value){
+                                    $('select[name="city"]').append('<option value="'+ key +'">' + value.name+ '</option>');
+                                });
+                                $('#city').selectpicker('refresh');
+                            }else{
+                                $('#city').empty();
+                            }
+                        }
+                    });
+                }else{
+                    $('#city').empty();
+                }
+            });
+        });
+    </script>
 @endsection

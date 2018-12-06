@@ -134,7 +134,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="pedidos">
+                    <a class="nav-link" href="ListadoPedidos">
                         <i class="fa fa-calendar"></i>
                         <p> Gestion de pedidos </p>
                     </a>

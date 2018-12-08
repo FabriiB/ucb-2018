@@ -129,3 +129,5 @@ Route::get('/pass', function () {
     return view('pass');
 });
 
+Route::post('/pass','PassController@AddNewRole');
+

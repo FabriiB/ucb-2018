@@ -13,13 +13,13 @@
 <body>
 <div class="container">
     <h2>Add New Role</h2><br/>
-    <form method="post" action="{{url('passports')}}" enctype="multipart/form-data">
+    {{Form::open(array('url'=>'/pass','method'=>'AdNewRole'))}}
         @csrf
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <label for="Name">New Role:</label>
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control" name="new_role">
             </div>
         </div>
 
@@ -35,7 +35,7 @@
                         var_dump ($Search);*/
                         ?>
                         @foreach ($Search as $Searchs)
-                                <input type="checkbox" name="camera_video" value="{{ $Searchs->name }}"> {{ $Searchs->name }} <br>
+                                <input type="checkbox" name="new_permission" value="{{ $Searchs->name }}"> {{ $Searchs->name }} <br>
                         @endforeach
                     </div>
             </div>
@@ -45,14 +45,14 @@
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <lable>User</lable>
-                <select name="office">
+                <select name="new_user">
                     <div class="col-sm-9">
                         <?php
                         $Search = \App\Http\Controllers\PassController::ShowUser();
                         ?>
 
                         @foreach ($Search as $Searchs)
-                            <option>{{ $Searchs->firs_name }}</option>
+                            <option value="{{ $Searchs->firs_name }}">{{ $Searchs->firs_name }}</option>
                         @endforeach
                     </div>
                 </select>
@@ -115,11 +115,5 @@
         </div>
     </form>
 </div>
-<script type="text/javascript">
-    $('#datepicker').datepicker({
-        autoclose: true,
-        format: 'dd-mm-yyyy'
-    });
-</script>
 </body>
 </html>

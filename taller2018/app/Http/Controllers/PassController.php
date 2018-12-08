@@ -9,6 +9,7 @@ use App\Person;
 use App\Role;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ListDB;
+use Illuminate\Support\Facades\Input;
 
 
 class PassController extends Controller
@@ -41,4 +42,16 @@ class PassController extends Controller
         $Column = 'name';
         return ListDB::ShowPass($Table, $Column);
     }
+
+    public function AddNewRole()
+    {
+        dd( Input::all() );
+
+        $role = new Role;
+        $role->name = Input::get('new_role');
+        $role->save();
+
+        return view('pass');
+    }
+
 }

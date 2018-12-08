@@ -45,13 +45,21 @@ class PassController extends Controller
 
     public function AddNewRole()
     {
+
+
+
         dd( Input::all() );
 
         $role = new Role;
         $role->name = Input::get('new_role');
+        $role->role = Input::get('new_role');
+        $role->permission = Input::get('new_permission');
         $role->save();
 
-        return view('pass');
+        return Redirect::back();
     }
 
 }
+
+
+

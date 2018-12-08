@@ -454,8 +454,6 @@
     <!--	Plugin for Small Gallery in Product Page -->
     <script src="{{ asset('js/plugins/jquery.flexisel.js') }}" type="text/javascript"></script>
     <!-- Plugins for presentation and navigation  -->
-    <script src="{{ asset('demo/modernizr.js" type="text/javascript') }}"></script>
-    <script src="{{ asset('demo/vertical-nav.js" type="text/javascript') }}"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->

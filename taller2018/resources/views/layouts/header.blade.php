@@ -86,7 +86,7 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4">
+        <main class="py-5">
             @yield('content')
         </main>
     </div>
@@ -100,8 +100,6 @@
 <script src="{{ asset('js/plugins/bootstrap-datetimepicker.js') }}" type="text/javascript"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 <script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
-<!--  Google Maps Plugin  -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
 <script src="{{ asset('js/plugins/bootstrap-tagsinput.js') }}"></script>
 <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
@@ -111,8 +109,6 @@
 <!--	Plugin for Small Gallery in Product Page -->
 <script src="{{ asset('js/plugins/jquery.flexisel.js') }}" type="text/javascript"></script>
 <!-- Plugins for presentation and navigation  -->
-<script src="{{ asset('demo/modernizr.js" type="text/javascript') }}"></script>
-<script src="{{ asset('demo/vertical-nav.js" type="text/javascript') }}"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->

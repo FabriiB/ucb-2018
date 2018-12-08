@@ -33,4 +33,12 @@ class PassController extends Controller
         $Column = 'firs_name';
         return ListDB::ShowPass($Table, $Column);
     }
+
+    public static function ShowRole()
+
+    {
+        $Table = 'Role';
+        $Column = 'name';
+        return ListDB::ShowPass($Table, $Column);
+    }
 }

@@ -27,7 +27,6 @@
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <lable>Permission</lable>
-                <select name="office">
                     <div class="col-sm-9">
                         <?php
                         $Search = \App\Http\Controllers\PassController::ShowPermision();
@@ -37,10 +36,9 @@
                         ?>
 
                         @foreach ($Search as $Searchs)
-                            <option>{{ $Searchs->name }}</option>
+                                <input type="checkbox" name="camera_video" value="{{ $Searchs->name }}"> {{ $Searchs->name }} <br>
                         @endforeach
                     </div>
-                </select>
             </div>
         </div>
 

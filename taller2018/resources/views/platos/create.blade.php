@@ -31,7 +31,7 @@
                                 </div>
                             @endif
                             <div class="card-body ">
-                                {!!Form::open(array('url'=>'/dish','method'=>'POST','autocomplete'=>'off'))!!}
+                                {!!Form::open(array('url'=>'/dish','method'=>'POST','autocomplete'=>'off', 'files'=>true))!!}
                                 {{Form::token()}}
 
                                 <div class="row">
@@ -62,6 +62,14 @@
                                                 <option value="2">2</option>
                                                 <option value="4">4</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">IMAGEN  : </label>
+                                    <div class="col-sm-8">
+                                        <div><br>
+                                            <input type="file" accept="image/*" name="imagen">
                                         </div>
                                     </div>
                                 </div>

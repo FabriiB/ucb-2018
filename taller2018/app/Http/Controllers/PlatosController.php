@@ -49,11 +49,20 @@ $upload_path = 'storage/';
 $profile_image_url =$profileImageSaveAsName;
 $success = $profileImage->move($upload_path, $profileImageSaveAsName); */
 
+        if ($request->hasFile('imagen'))
+        {
+            $file = $request->file('imagen');
+            $name = $file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+        }
+
+
         $tfecha = Carbon::now();
-        $ingredients       = new Dish;
+        $ingredients = new Dish;
         $ingredients->name = $request->get('name');
         $ingredients->description = $request->get('description');
-        $ingredients->images = 'images';
+        //$ingredients->images = 'images';
+        $ingredients->images = $name;
         $ingredients->portion = $request->get('porcion');;
         $ingredients->date_created = $tfecha->format('Y-m-d H:i:s');
         $ingredients->type = $request->get('type');

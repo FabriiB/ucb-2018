@@ -31,13 +31,13 @@
                                 </div>
                             @endif
                             <div class="card-body ">
-                                {!!Form::open(array('url'=>'/menu','method'=>'POST','autocomplete'=>'off'))!!}
+                                {!!Form::open(array('url'=>'/menu','method'=>'POST','autocomplete'=>'on'))!!}
                                 {{Form::token()}}
                                 <div class="row">
                                     <label class="col-sm-3 col-form-label">NOMBRE : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="Ejemplo: Menu Semana 2">
+                                            <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Ejemplo: Menu Semana 2">
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                     <label class="col-sm-3 col-form-label">DESDE LA FECHA : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="date" name="date_created" class="form-control">
+                                            <input type="date" value="{{ old('date_created') }}" name="date_created" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -53,16 +53,13 @@
                                     <label class="col-sm-3 col-form-label">HASTA LA FECHA  : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="date" name="date_end" class="form-control">
+                                            <input type="date" value="{{ old('date_end') }}" name="date_end" class="form-control"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <center>
+                                    <div style="text-align: center;">
                                         <div class="col-sm-12">
-                                            <!--<a class="btn btn-primary" href="{{URL::action('MenuController@first')}}" >
-                                                Guardar y añadir plato
-                                            </a>-->
                                             <button class="btn btn-info" type="submit">
                                                 Guardar
                                             </button>
@@ -70,7 +67,7 @@
                                                 Cancelar
                                             </a>
                                         </div>
-                                    </center>
+                                    </div>
                                 </div>
                                 {!!Form::close()!!}
                             </div>

@@ -57,21 +57,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <label class="col-sm-3 col-form-label">PLATO : </label>
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <select class="form-control" name="id_dish" type="text">
-                                                @foreach ($dish as $m)
-                                                    <option value="{{$m->id_dish}}">
-                                                        {{$m->id_dish}} .-
-                                                        {{$m->name}}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+                                <table width="100%">
+                                    <tr>
+                                        <td colspan="6"><br><hr><center><h4>Elija platos para el menu</h4><hr></center></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="90%"></td>
+                                        <td width="10%"><button id="adicional100" name="adicional100" type="button" class="btn btn-primary btn-sm"> + </button></td>
+                                    </tr>
+                                </table>
+                                <table width="100%" id="tabla100">
+                                    <tr class="fila-fija100">>
+                                        <td width="10%"></td>
+                                        <td width="40%">
+                                            <div class="row">
+                                                <label class="col-sm-3 col-form-label">PLATO : </label>
+                                                <div class="col-sm-8">
+                                                    <div class="form-group">
+                                                        <select class="form-control" name="id_dish[]" type="text">
+                                                            @foreach ($dish as $m)
+                                                                <option value="{{$m->id_dish}}">
+                                                                    {{$m->id_dish}} .-
+                                                                    {{$m->name}}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="eliminar100"><input type="button" class="btn btn-warning btn-sm" value="-"/></td>
+                                        <td width="10%"></td>
+                                    </tr>
+                                </table>
                                 <div class="form-group">
                                     <center>
                                         <div class="col-sm-12">

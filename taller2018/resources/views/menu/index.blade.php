@@ -52,7 +52,7 @@
                                                 <td>{{$m->name}}</td>
                                                 <td>{{$m->date_created}}</td>
                                                 <td>{{$m->date_end}}</td>
-                                                <td>{{$m->id_user}}</td>
+                                                <td>{{$m->fn}} {{$m->ln}}</td>
                                                 <td>{{$m->status}}</td>
                                                 <td class="td-actions text-right">
                                                     <a rel="tooltip" class="btn btn-success" href="{{URL::action('MenuDishController@create',$m->id_menu)}}" type="submit">

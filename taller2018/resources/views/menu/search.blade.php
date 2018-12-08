@@ -10,10 +10,10 @@
 <section>
     <div class="col-md-5">
         <div class="input-group">
-            <input class="form-control" name="searchText" placeholder="Search..." style="padding: 5px" type="text" >
+            <input class="form-control" name="searchText" placeholder="Buscar..." style="padding: 5px" type="text" >
             <span class="input-group-btn">
                     <button class="btn btn-primary btn-sm" type="submit">
-                        Search
+                        Buscar
                     </button>
                 </span>
             </input>

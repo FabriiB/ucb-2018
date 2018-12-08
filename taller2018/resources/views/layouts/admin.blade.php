@@ -54,6 +54,19 @@
                 $(parent).remove();
             });
         });
+
+        $(function(){
+            // Clona la fila oculta que tiene los campos base, y la agrega al final de la tabla
+            $("#adicional100").on('click', function(){
+                $("#tabla100 tbody tr:eq(0)").clone().removeClass('fila-fija100').appendTo("#tabla100");
+            });
+
+            // Evento que selecciona la fila y la elimina
+            $(document).on("click",".eliminar100",function(){
+                var parent = $(this).parents().get(0);
+                $(parent).remove();
+            });
+        });
     </script>
 </head>
 

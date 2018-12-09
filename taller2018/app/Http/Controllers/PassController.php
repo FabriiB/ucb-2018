@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use DemeterChain\C;
 use Doctrine\DBAL\Schema\Column;
 use Illuminate\Http\Request;
-use App\Person;
+use App\Permision;
 use App\Role;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ListDB;
@@ -45,16 +46,24 @@ class PassController extends Controller
 
     public function AddNewRole()
     {
-
-
-
         dd( Input::all() );
 
         $role = new Role;
+        $permission = new Permision;
+        $user = new User;
+
         $role->name = Input::get('new_role');
-        $role->role = Input::get('new_role');
-        $role->permission = Input::get('new_permission');
+        $permission->name = Input::get('new_permission');
+        $user->name = Input::get('new_user');
+
+        DB::insert(
+            DB::raw(
+                "insert into users_role (id_users, id_role)
+                values (users, users_role)"));
+
+
         $role->save();
+
 
         return Redirect::back();
     }

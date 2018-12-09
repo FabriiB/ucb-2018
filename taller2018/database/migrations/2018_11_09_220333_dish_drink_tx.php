@@ -17,8 +17,8 @@ class DishDrinkTx extends Migration
             $table->increments('id_dish_drink');
             $table->timestamp('date_created');
             $table->string('status', 50);
-            $table->integer('id_dish');
-            $table->foreign('id_dish')->references('id_dish')->on('dish');
+            $table->integer('id_menu');
+            $table->foreign('id_menu')->references('id_menu')->on('menu');
             $table->integer('id_drink');
             $table->foreign('id_drink')->references('id_drink')->on('drink');
             $table->integer('transaction_id')->nullable();

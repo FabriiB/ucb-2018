@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DishDrink;
 use Illuminate\Http\Request;
 use Faker\Provider\DateTime;
 use Illuminate\Support\Carbon;
@@ -41,7 +42,13 @@ class MenuController extends Controller
     public function create()
     {
         //echo '<script type="text/javascript">alert("hello!");</script>';
-        return view('menu.create');
+        $dish = DB::table('dish')
+            ->select('id_dish', 'name')
+            -> get();
+        $drink = DB::table('drink')
+            ->select('id_drink', 'name')
+            -> get();
+        return view('menu.create', ["dish" =>$dish, "drink"=>$drink]);
     }
     public function store(MenuRequest $request)
     {
@@ -58,8 +65,32 @@ class MenuController extends Controller
         $Recipe->transaction_date  = $tfecha->format('Y-m-d H:i:s');
         $Recipe->transaction_host  = $ip;
         $Recipe->transaction_user  = $request->get('administrator');*/
-        $menu->save();
+        $id = $menu->save();
+        $idd = $menu->id_menu;
+
+        if($id !=0){
+            foreach ($request->id_dish as $key => $i)
+            {
+                $data = array('id_menu'=>$idd,
+                    'id_dish' => $i,
+                    'date_start' => $request->get('date_created'),
+                    'date_end' => $request->get('date_end'),
+                    'status' => 'activo');
+                MenuDish::insert($data);
+            }
+
+            foreach ($request->id_drink as $key => $t)
+            {
+                $data1 = array('id_menu'=>$idd,
+                    'id_drink' => $t,
+                    'status' => 'activo',
+                    'date_created' => $tfecha->format('Y-m-d H:i:s'));
+                DishDrink::insert($data1);
+            }
+
+        }
         return redirect()->action('MenuDishController@create', ["menu" => $menu->id_menu]);
+
     }
     public function show()
     {

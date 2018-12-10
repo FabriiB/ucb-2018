@@ -89,11 +89,11 @@ class MenuController extends Controller
             }
 
         }
-        return redirect()->action('MenuDishController@create', ["menu" => $menu->id_menu]);
+        return redirect()->action('MenuController@index');
 
     }
     public function show()
     {
-        return view('menu_dish.create');
+        return view('menu.index');
     }
 }

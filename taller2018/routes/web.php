@@ -84,6 +84,7 @@ Route::resource('order', 'OrderController')->except([
 ]);
 
 Route::resource('ingredients', 'IngredientsController');
+Route::get('ingredients/{id}/cambiar', 'IngredientsController@cambiar');
 Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
 Route::resource('drink', 'DrinkController');

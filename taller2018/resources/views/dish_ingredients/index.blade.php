@@ -47,6 +47,40 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
+                                    <table width="100%">
+                                        <tr>
+                                            <td><br><hr><center><h4>Ingredientes del plato</h4><hr></center></td>
+                                        </tr>
+                                    </table>
+                                    <table class="table">
+                                        <thead class="text-success">
+                                        <tr>
+                                            <th class="text-center"><b></b>ID</th>
+                                            <th><b>NOMBRE</b></th>
+                                            <th><b>CANTIDAD</b></th>
+                                            <th><b>MEDIDA</b></th>
+                                            <th><b>TIPO</b></th>
+                                            <th><b>ESTADO</b></th>
+                                        </tr>
+                                        </thead>
+                                        @foreach ($ing as $m)
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-center">{{$m->id_dish}}</td>
+                                                <td>{{$m->name}}</td>
+                                                <td>{{$m->quantity}}</td>
+                                                <td>{{$m->id_meassure}}</td>
+                                                <td>{{$m->type}}</td>
+                                                <td>{{$m->status}}</td>
+                                            </tr>
+                                            </tbody>
+                                        @endforeach
+                                    </table>
+                                    <table width="100%">
+                                        <tr>
+                                            <td><hr><center><h4>Pasos de preparacion del plato</h4><hr></center></td>
+                                        </tr>
+                                    </table>
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>

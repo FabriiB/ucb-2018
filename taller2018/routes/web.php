@@ -62,9 +62,22 @@ Route::get('ListadoPedidos.filtro', [
     'as' => 'filtro',
     'uses' => 'ListaPedidosController@filtro'
 ]);
-Route::get('ListadoPedidos.update', [
-    'as' => 'update',
-    'uses' => 'ListaPedidosController@update'
+//Route::get('ListadoPedidos.update', [
+//    'as' => 'update',
+//    'uses' => 'ListaPedidosController@update'
+//]);
+//
+Route::post('ListadoPedidos', [
+    'as' => 'fecha',
+    'uses' => 'ListaPedidosController@filtroFecha'
+]);
+Route::post('ListadoPedidos', [
+    'as' => 'nombre',
+    'uses' => 'ListaPedidosController@filtroNombre'
+]);
+Route::post('ListadoPedidos', [
+    'as' => 'estado',
+    'uses' => 'ListaPedidosController@filtroEstado'
 ]);
 
 Route::resource('meassure', 'MeassureController');

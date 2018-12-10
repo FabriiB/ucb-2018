@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: cristal
- * Date: 23/10/18
- * Time: 11:44 PM
- */
 
-?>
 @extends('layouts.admin')
 @section('content')
     <div class="content">
@@ -19,7 +11,8 @@
                                 <div class="card-text">
                                     <h4 class="card-title"><i class="fa fa-pencil"></i> Estado del pedido</h4>
                                 </div>
-                                    <form  action="{{route('update',$order->idOrder)}}" method="POST">
+                                    <form  action="{{route('ListadoPedidos.update',$order->idOrder)}}" method="POST">
+                                    {{--{!! Form::open(['method'=>'PATCH','action'=>['ListaPedidosController@update',$order->idOrder]]) !!}--}}
                                     @csrf
                                     @method('PUT')
 
@@ -36,11 +29,12 @@
                                                     <label class="col-sm-2 col-form-label">ESTADO DEL PEDIDO:</label>
                                                     <div class="card-body ">
                                                         <div class="form-group">
-                                                            <select name="status" form="estadoform" required>
-                                                                <option value="proceso">En proceso</option>
-                                                                <option value="cancelado">Cancelado</option>
-                                                                <option value="enviado">Enviado</option>
-                                                            </select>
+                                                            {{--<select name="status" form="estadoform" required>--}}
+                                                                {{--<option value="proceso">En proceso</option>--}}
+                                                                {{--<option value="cancelado">Cancelado</option>--}}
+                                                                {{--<option value="enviado">Enviado</option>--}}
+                                                            {{--</select>--}}
+                                                            <input type="text" class="form-control" name="status" readonly="readonly" value="{{$order->status}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -55,9 +49,9 @@
                                                 <center>
                                                     <button class="btn btn-info" type="submit">
                                                     EDITAR</button>
-                                                    {{--<a class="btn btn-danger" type="reset" href="{{ URL::previous() }}">--}}
-                                                        {{--CANCELAR--}}
-                                                    {{--</a>--}}
+                                                    <a class="btn btn-danger" type="reset" href="{{ URL::previous() }}">
+                                                        CANCELAR
+                                                    </a>
                                                 </center>
                                         </div>
                                 </form>

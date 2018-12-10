@@ -13,20 +13,22 @@
 <body>
 <div class="container">
     <h2>Add New Role</h2><br/>
-    {{Form::open(array('url'=>'/pass','method'=>'AdNewRole'))}}
+
+    {{Form::open(array('url'=>'/pass','method'=>'AddNewRole'))}}
         @csrf
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <label for="Name">New Role:</label>
-                <input type="text" class="form-control" name="new_role">
+                <input type="text" class="form-control" name="new_role" required>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <lable>Permission</lable>
+                <lable>Permission:</lable>
+                <select name="new_permission">
                     <div class="col-sm-9">
                         <?php
                         $Search = \App\Http\Controllers\PassController::ShowPermision();
@@ -35,16 +37,17 @@
                         var_dump ($Search);*/
                         ?>
                         @foreach ($Search as $Searchs)
-                                <input type="checkbox" name="new_permission" value="{{ $Searchs->name }}"> {{ $Searchs->name }} <br>
+                                <option value="{{ $Searchs->name }}"> {{ $Searchs->name }}</option> <br>
                         @endforeach
                     </div>
+                </select>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <lable>User</lable>
+                <lable>User:</lable>
                 <select name="new_user">
                     <div class="col-sm-9">
                         <?php
@@ -65,16 +68,17 @@
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
-    </form>
+    {{ Form::close() }}
 <!-- ------->
     <h2>Assign Role</h2><br/>
 
-    <form method="post" action="{{url('passports')}}" enctype="multipart/form-data">
-        @csrf
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <lable>Role</lable>
+    {{Form::open(array('url'=>'/PassAssign','method'=>'AssignRole'))}}
+    @csrf
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-group col-md-4">
+            <lable>Role</lable>
+            <select name="assign_role">
                 <div class="col-sm-9">
                     <?php
                     $Search = \App\Http\Controllers\PassController::ShowRole();
@@ -83,37 +87,39 @@
                     var_dump ($Search);*/
                     ?>
                     @foreach ($Search as $Searchs)
-                        <input type="checkbox" name="camera_video" value="{{ $Searchs->name }}"> {{ $Searchs->name }} <br>
+                        <option value="{{ $Searchs->name }}"> {{ $Searchs->name }} </option>
                     @endforeach
                 </div>
-            </div>
-        </div>
+            </select>
 
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <lable>User</lable>
-                <select name="office">
-                    <div class="col-sm-9">
-                        <?php
-                        $Search = \App\Http\Controllers\PassController::ShowUser();
-                        ?>
-
-                        @foreach ($Search as $Searchs)
-                            <option>{{ $Searchs->firs_name }}</option>
-                        @endforeach
-                    </div>
-                </select>
-            </div>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4" style="margin-top:60px">
-                <button type="submit" class="btn btn-success">Submit</button>
-            </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-group col-md-4">
+            <lable>User</lable>
+            <select name="assign_user">
+                <div class="col-sm-9">
+                    <?php
+                    $Search = \App\Http\Controllers\PassController::ShowUser();
+                    ?>
+
+                    @foreach ($Search as $Searchs)
+                        <option>{{ $Searchs->firs_name }}</option>
+                    @endforeach
+                </div>
+            </select>
         </div>
-    </form>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-group col-md-4" style="margin-top:60px">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+    {{ Form::close() }}
 </div>
 </body>
 </html>

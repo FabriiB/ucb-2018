@@ -99,6 +99,8 @@ Route::get('/qrcode', 'QrController@make');
 Route::resource('/dish_ingredients', 'DishIngredientsController');
 Route::get('dish_ingredients/{id}/create', 'DishIngredientsController@create');
 Route::get('dish_ingredients/{id}/index', 'DishIngredientsController@index');
+Route::get('dish_ingredients/{id}/edit', 'DishIngredientsController@edit');
+Route::get('dish_ingredients/{id}/cambiar', 'DishIngredientsController@cambiar');
 
 Route::resource('/menugeneral', 'MenuGeneralController');
 Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');

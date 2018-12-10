@@ -76,4 +76,9 @@ $success = $profileImage->move($upload_path, $profileImageSaveAsName); */
         $ingredients->save();
         return redirect()->action('DishIngredientsController@index', ["id" => $ingredients->id_dish]);
     }
+    public function edit($id)
+    {
+        return view("dish_ingredients.edit", ["d" => Dish::findOrfail($id)]);
+    }
+
 }

@@ -125,3 +125,10 @@ Route::group(["middleware" => 'entryfabrisio'], function () {
 
 Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));
 Route::post('/insert', array('as'=>'insert', 'uses'=>'RecetaController@insert'));
+
+Route::get('/pass', function () {
+    return view('pass');
+});
+
+Route::post('/pass','PassController@AddNewRole');
+

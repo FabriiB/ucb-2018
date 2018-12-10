@@ -28,8 +28,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
-
         //need to seed specific roles
         DB::table('role')->insert([
             'name' => 'Rodrigo',
@@ -107,7 +105,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('users_role')->insert([
             'id_users' => 3,
-            'id_role' => 3,
+            'id_role' => 1,
         ]);
         DB::table('users_role')->insert([
             'id_users' => 4,

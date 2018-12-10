@@ -46,7 +46,7 @@ class PassController extends Controller
 
     public function AddNewRole()
     {
-        dd( Input::all() );
+        //dd( Input::all() );
 
         $role = new Role;
         $permission = new Permision;
@@ -55,20 +55,41 @@ class PassController extends Controller
         $role->name = Input::get('new_role');
         $permission->name = Input::get('new_permission');
         $user->name = Input::get('new_user');
-
-        DB::insert(
-            DB::raw(
-                "insert into users_role (id_users, id_role)
-                values (users, users_role)"));
-
-
         $role->save();
+        //////////////////////
 
 
-        return Redirect::back();
+
+        $fetch_user_id = User::where('firs_name',$user->name)->pluck('id');
+        $fetch_role_id = Role::where('name',$role->name)->pluck('id_role');
+
+
+        ///////////////////
+
+        $values = array('id_users' => $fetch_user_id[0],'id_role' => $fetch_role_id[0]);
+        DB::table('users_role')
+            ->insert($values);
+
+
+        return view('pass');
     }
 
 }
 
 
+/*
+DB::statement(
+    DB::raw(
+        "insert into users_role (id_users, id_role)
+                values ($fetch_user_id, $fetch_role_id)"));
+DB::statement(
+    DB::raw(
+        "insert into role_permission (id_role, id_permission)
+                values ($fetch_role_id, $fetch_permission_id)"));
 
+
+        $fetch_role_id=collect($Search = DB::select(
+            DB::raw("select r.id
+            from role r
+            where r.name=$role->name;")
+        ));

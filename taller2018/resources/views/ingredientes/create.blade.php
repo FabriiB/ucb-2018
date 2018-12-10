@@ -37,7 +37,7 @@
                                     <label class="col-sm-3 col-form-label">NOMBRE : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="Ejemplo: Zanahorias, Azucar, Apio, entre otros...">
+                                            <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Ejemplo: Zanahorias, Azucar, Apio, entre otros...">
                                         </div>
                                     </div>
                                 </div>

@@ -56,9 +56,9 @@ class IngredientsController extends Controller
         $ingredients->save();
         return redirect()->action('IngredientsController@index');
     }
-    public function show($id)
+    public function show()
     {
-        return view("ingredientes.show", ["ingredientes" => Ingredients::findOrFail($id)]);
+        return view("ingredientes.index");
     }
     public function edit($id)
     {
@@ -77,24 +77,19 @@ class IngredientsController extends Controller
         $ingredients->update();
         return redirect()->action('IngredientsController@index');
     }
-    public function active($id)
+    public function cambiar($id)
     {
         $ingredients       = Ingredients::findOrFail($id);
         if($ingredients->status == 'activo')
-        {$ingredients->status = 'no actvo';}
+        {
+            $ingredients->status = 'no actvo';
+        }
         else
-        {$ingredients->status = 'activo';}
+        {
+            $ingredients->status = 'activo';
+        }
         $ingredients->update();
         return redirect()->action('IngredientsController@index');
     }
-    public function destroy($id)
-    {
-        $ingredients       = Ingredients::findOrFail($id);
-        if($ingredients->status == 'activo')
-        {$ingredients->status = 'no actvo';}
-        else
-        {$ingredients->status = 'activo';}
-        $ingredients->update();
-        return redirect()->action('IngredientsController@index');
-    }
+
 }

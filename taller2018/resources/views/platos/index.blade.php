@@ -27,7 +27,7 @@
                                                 @include('platos.search')
                                             </td>
                                             <td width="8%" valign="top">
-                                                <a class="btn btn-info btn-sm" href="platos/create">
+                                                <a class="btn btn-info btn-sm" href="receta_c">
                                                     <i class="material-icons">add</i>
                                                 </a>
                                             </td>

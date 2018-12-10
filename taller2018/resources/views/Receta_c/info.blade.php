@@ -19,7 +19,7 @@
                                     <h4 class="card-title">Registro del Plato</h4>
                                 </div>
                             </div>
-                            {!!Form::open(array('route'=>'insert','method'=>'POST','autocomplete'=>'off', 'id'=>'frmsave'))!!}
+                            {!!Form::open(array('route'=>'insert','method'=>'POST','autocomplete'=>'off', 'id'=>'frmsave' , 'files'=>true))!!}
                             {{Form::token()}}
                             <table width="100%">
                                 <tr>
@@ -27,7 +27,7 @@
                                 </tr>
                                 <tr>
                                     <td width="10%"></td>
-                                    <td width="20%">
+                                    <td width="30%">
                                         <div class="row">
                                             <div class="col-sm-10"><br>
                                                 <div class="form-group">
@@ -36,7 +36,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td width="30%">
+                                    <td width=50%">
                                         <div class="row">
                                             <div class="col-sm-11"><br>
                                                 <div class="form-group">
@@ -45,7 +45,13 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td width="10%">
+                                    <td width="10%"></td>
+                                </tr>
+                            </table>
+                            <table width="100%">
+                                <tr>
+                                    <td width="10%"></td>
+                                    <td width="15%">
                                         <div class="row">
                                             <div class="col-sm-10">
                                                 <div class="form-group">
@@ -59,15 +65,25 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td width="20%">
+                                    <td width="30%">
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-10">
                                                 <div class="form-group">
                                                     <select class="form-control" name="tipo" type="text" title="TIPO">
                                                         <option disabled selected> TIPO</option>
                                                         <option value="Vegetariano">Vegetariano</option>
                                                         <option value="Asiatico">Asiatico</option>
                                                     </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td width="35%">
+                                        <div class="row"><br>
+                                            <label class="col-sm-3 col-form-label">&emsp;IMAGEN  : </label>
+                                            <div class="col-sm-8">
+                                                <div><br>
+                                                    <input type="file" accept="image/*" name="imagen">
                                                 </div>
                                             </div>
                                         </div>

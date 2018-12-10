@@ -26,7 +26,7 @@ class DrinkRequest extends FormRequest
         return [
             'name'=> 'required|string|max:100',
             'type'=> 'required|string|max:100',
-            'caducity_date'=> 'required|max:100',
+            'caducity_date'=> 'max:100',
             'description'=> 'required|string|max:100',
         ];
     }

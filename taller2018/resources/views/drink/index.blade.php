@@ -36,14 +36,13 @@
                                 <table class="table">
                                     <thead class="text-success">
                                     <tr>
-                                        <th class="text-center"><b></b>ID</th>
+                                        <th class="text-center"><b>ID</b></th>
                                         <th><b>NOMBRE</b></th>
                                         <th><b>TIPO</b></th>
                                         <th><b>FECHA DE CADUCIDAD</b></th>
                                         <th><b>MEDIDA</b></th>
-                                        <th><b>CREADO POR</b></th>
-                                        <th><b>ESTADO</b></th>
                                         <th><b>DESCRICION</b></th>
+                                        <th><b>ESTADO</b></th>
                                         <th class="text-right"><b>OPCIONES</b></th>
                                     </tr>
                                     </thead>
@@ -54,14 +53,17 @@
                                             <td>{{$m->name}}</td>
                                             <td>{{$m->type}}</td>
                                             <td>{{$m->caducity_date}}</td>
-                                            <td>{{$m->id_meassure}}</td>
-                                            <td>{{$m->id_user}}</td>
-                                            <td>{{$m->status}}</td>
+                                            <td>{{$m->mn}}</td>
                                             <td>{{$m->description}}</td>
+                                            @if($m->status == 'activo')
+                                                <td><span class="badge badge-success">{{$m->status}}</span></td>
+                                            @else
+                                                <td><span class="badge badge-danger">{{$m->status}}</span></td>
+                                            @endif
                                             <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" class="btn btn-success">
+                                                <a rel="tooltip" class="btn btn-success" href="{{URL::action('DrinkController@edit',$m->id_drink)}}" type="submit">
                                                     <i class="material-icons">edit</i>
-                                                </button>
+                                                </a>
                                                 <button type="button" rel="tooltip" class="btn btn-danger">
                                                     <i class="material-icons">close</i>
                                                 </button>

@@ -185,14 +185,14 @@ class DatabaseSeeder extends Seeder
         //person needs to be before the seeding for permisions management
         factory(Person::class,10)->create();
         factory(Items::class,190)->create();
-        factory(Meassure::class,10)->create();
+        factory(Meassure::class,2)->create();
         factory(Distributors::class,50)->create();
-        factory(Menu::class,10)->create();
+        factory(Menu::class,2)->create();
         factory(Payment::class,10)->create();
-        factory(Dish::class,10)->create();
-        factory(Drink::class,10)->create();
-        factory(DishDrink::class,10)->create();
-        factory(MenuDish::class,10)->create();
+        factory(Dish::class,2)->create();
+        factory(Drink::class,2)->create();
+        factory(DishDrink::class,2)->create();
+        factory(MenuDish::class,2)->create();
         factory(Bill::class,10)->create();
         factory(Order::class,30)->create();
 

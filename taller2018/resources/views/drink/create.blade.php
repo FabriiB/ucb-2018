@@ -33,8 +33,6 @@
                             <div class="card-body ">
                                 {!!Form::open(array('url'=>'/drink','method'=>'POST','autocomplete'=>'off'))!!}
                                 {{Form::token()}}
-                            <div class="card-body ">
-                                <form method="get" action="/" class="form-horizontal">
                                     <div class="row">
                                         <label class="col-sm-3 col-form-label">NOMBRE : </label>
                                         <div class="col-sm-8">

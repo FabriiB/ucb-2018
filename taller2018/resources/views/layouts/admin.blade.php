@@ -118,15 +118,9 @@
             </div>
             <ul class="nav">
                 <li class="nav-item ">
-                    <a class="nav-link" href="/menugeneral">
+                    <a class="nav-link" href="/meassure">
                         <i class="material-icons">dashboard</i>
-                        <p> Menu (reporte) </p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="/menu">
-                        <i class="material-icons">dashboard</i>
-                        <p> Gestion de Menu </p>
+                        <p> Gestion de medidas </p>
                     </a>
                 </li>
                 <li class="nav-item ">
@@ -148,15 +142,21 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="/meassure">
-                        <i class="material-icons">dashboard</i>
-                        <p> Gestion de medidas </p>
-                    </a>
-                </li>
-                <li class="nav-item ">
                     <a class="nav-link" href="/steps">
                         <i class="material-icons">dashboard</i>
                         <p> Gestion de preparacion </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/menu">
+                        <i class="material-icons">dashboard</i>
+                        <p> Gestion de Menu </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/menugeneral">
+                        <i class="material-icons">dashboard</i>
+                        <p> Menu (reporte) </p>
                     </a>
                 </li>
                 <li class="nav-item ">

@@ -24,6 +24,7 @@ Route::group(['prefix'=>'mi_cuenta'],(function () {
     Route::get('/plan/{plan}/{id}', 'HomeController@planes');
     Route::get('/historial', 'HomeController@historial');
     Route::get('/historial_planes', 'HomeController@historial2');
+    Route::get('/depts/{id}','HomeController@deptsId');
 }));
 
 
@@ -96,9 +97,11 @@ Route::resource('order', 'OrderController')->except([
 ]);
 
 Route::resource('ingredients', 'IngredientsController');
+Route::get('ingredients/{id}/cambiar', 'IngredientsController@cambiar');
 Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
 Route::resource('drink', 'DrinkController');
+Route::get('drink/{id}/cambiar', 'DrinkController@cambiar');
 Route::resource('steps', 'StepsController');
 Route::get('platos/create', 'PlatosController@create');
 Route::resource('/menu_dish', 'MenuDishController');
@@ -109,6 +112,8 @@ Route::get('/qrcode', 'QrController@make');
 Route::resource('/dish_ingredients', 'DishIngredientsController');
 Route::get('dish_ingredients/{id}/create', 'DishIngredientsController@create');
 Route::get('dish_ingredients/{id}/index', 'DishIngredientsController@index');
+Route::get('dish_ingredients/{id}/edit', 'DishIngredientsController@edit');
+Route::get('dish_ingredients/{id}/cambiar', 'DishIngredientsController@cambiar');
 
 Route::resource('/menugeneral', 'MenuGeneralController');
 Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');
@@ -136,3 +141,16 @@ Route::group(["middleware" => 'entryfabrisio'], function () {
 
 Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));
 Route::post('/insert', array('as'=>'insert', 'uses'=>'RecetaController@insert'));
+
+Route::get('/pass', function () {
+    return view('pass');
+});
+
+Route::get('/PassAssign', function () {
+    return view('PassAssign');
+});
+
+Route::post('/pass','PassController@AddNewRole');
+Route::post('/PassAssign','PassController@AssignRole');
+
+

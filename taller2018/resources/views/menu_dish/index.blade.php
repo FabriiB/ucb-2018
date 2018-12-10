@@ -20,33 +20,51 @@
                                 </div>
                             </div>
                             <div class="card-body ">
-                                <div class="row">
-                                    <label class="col-sm-3 col-form-label">NOMBRE : </label>
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <input type="text" name="name" class="form-control" value="{{$menu->name}}" readonly>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 col-form-label">DESDE LA FECHA : </label>
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <input type="text" name="date_created" class="form-control" value="{{$menu->date_created}}" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 col-form-label">HASTA LA FECHA  : </label>
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <input type="text" name="date_end" class="form-control" value="{{$menu->date_end}}" disabled>
-                                        </div>
-                                    </div>
-                                </div>
+                                <table width="100%">
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="row">
+                                                <label class="col-sm-3 col-form-label">NOMBRE : </label>
+                                                <div class="col-sm-8">
+                                                    <div class="form-group">
+                                                        <input type="text" name="name" class="form-control" value="{{$menu->name}}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="3%"></td>
+                                        <td>
+                                            <div class="row">
+                                                <label class="col-sm-4 col-form-label">DESDE LA FECHA : </label>
+                                                <div class="col-sm-8">
+                                                    <div class="form-group">
+                                                        <input type="text" name="date_created" class="form-control" value="{{$menu->date_created}}" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="row">
+                                                <label class="col-sm-4 col-form-label">HASTA LA FECHA  : </label>
+                                                <div class="col-sm-8">
+                                                    <div class="form-group">
+                                                        <input type="text" name="date_end" class="form-control" value="{{$menu->date_end}}" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
+                                    <table width="100%">
+                                        <tr>
+                                            <td><br><hr><center><h4>Platos del menu</h4><hr></center></td>
+                                        </tr>
+                                    </table>
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
@@ -69,6 +87,33 @@
                                                 <td>{{$m->status}}</td>
                                                 <td>{{$m->type}}</td>
                                                 <td>{{$m->id_user}}</td>
+                                            </tr>
+                                            </tbody>
+                                        @endforeach
+                                    </table>
+                                    <table width="100%">
+                                        <tr>
+                                            <td><br><hr><center><h4>Bebidas del menu</h4><hr></center></td>
+                                        </tr>
+                                    </table>
+                                    <table class="table">
+                                        <thead class="text-success">
+                                        <tr>
+                                            <th class="text-center"><b></b>ID</th>
+                                            <th><b>NOMBRE</b></th>
+                                            <th><b>DESCRIPCION</b></th>
+                                            <th><b>TIPO</b></th>
+                                            <th><b>ESTADO</b></th>
+                                        </tr>
+                                        </thead>
+                                        @foreach ($drink as $d)
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-center">{{$m->id_dish}}</td>
+                                                <td>{{$d->name}}</td>
+                                                <td>{{$d->description}}</td>
+                                                <td>{{$d->type}}</td>
+                                                <td>{{$d->status}}</td>
                                             </tr>
                                             </tbody>
                                         @endforeach

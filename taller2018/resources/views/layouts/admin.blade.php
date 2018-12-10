@@ -54,6 +54,32 @@
                 $(parent).remove();
             });
         });
+
+        $(function(){
+            // Clona la fila oculta que tiene los campos base, y la agrega al final de la tabla
+            $("#adicional100").on('click', function(){
+                $("#tabla100 tbody tr:eq(0)").clone().removeClass('fila-fija100').appendTo("#tabla100");
+            });
+
+            // Evento que selecciona la fila y la elimina
+            $(document).on("click",".eliminar100",function(){
+                var parent = $(this).parents().get(0);
+                $(parent).remove();
+            });
+        });
+
+        $(function(){
+            // Clona la fila oculta que tiene los campos base, y la agrega al final de la tabla
+            $("#adicional200").on('click', function(){
+                $("#tabla200 tbody tr:eq(0)").clone().removeClass('fila-fija200').appendTo("#tabla200");
+            });
+
+            // Evento que selecciona la fila y la elimina
+            $(document).on("click",".eliminar200",function(){
+                var parent = $(this).parents().get(0);
+                $(parent).remove();
+            });
+        });
     </script>
 </head>
 
@@ -92,15 +118,9 @@
             </div>
             <ul class="nav">
                 <li class="nav-item ">
-                    <a class="nav-link" href="/menugeneral">
+                    <a class="nav-link" href="/meassure">
                         <i class="material-icons">dashboard</i>
-                        <p> Menu (reporte) </p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="/menu">
-                        <i class="material-icons">dashboard</i>
-                        <p> Gestion de Menu </p>
+                        <p> Gestion de medidas </p>
                     </a>
                 </li>
                 <li class="nav-item ">
@@ -122,15 +142,21 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="/meassure">
-                        <i class="material-icons">dashboard</i>
-                        <p> Gestion de medidas </p>
-                    </a>
-                </li>
-                <li class="nav-item ">
                     <a class="nav-link" href="/steps">
                         <i class="material-icons">dashboard</i>
                         <p> Gestion de preparacion </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/menu">
+                        <i class="material-icons">dashboard</i>
+                        <p> Gestion de Menu </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/menugeneral">
+                        <i class="material-icons">dashboard</i>
+                        <p> Menu (reporte) </p>
                     </a>
                 </li>
                 <li class="nav-item ">

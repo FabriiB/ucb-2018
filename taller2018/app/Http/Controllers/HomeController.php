@@ -145,18 +145,10 @@ class HomeController extends Controller
     public function planes($planid,$id)
     {
         $paises = DB::table('items')
-            ->select('name')
+            ->select('name','id')
             ->where('catalogue_id','=',1)
             ->orderBy('name')
             ->get();
-
-        $depts = DB::table('items')
-            ->select('name')
-            ->where('catalogue_id','=',2)
-            ->where('level_id','=',1)
-            ->orderBy('name')
-            ->get();
-
 
         try {
             $person = DB::table('person')
@@ -170,7 +162,16 @@ class HomeController extends Controller
         }
         $plan = Plan::findOrFail($planid);
         $user = User::findOrFail($id);
-        return view('home.planes',compact('user','plan','person','paises','depts'));
+        return view('home.planes',compact('user','plan','person','paises'));
+    }
+
+    public function deptsId($id){
+        $depts = DB::table('items')
+            ->select('name')
+            ->where('boss_id','=',$id)
+            ->orderBy('name')
+            ->get();
+        return response()->json($depts);
     }
 
     public function historial()

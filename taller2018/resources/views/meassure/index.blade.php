@@ -36,7 +36,7 @@
                                 <table class="table">
                                     <thead class="text-success">
                                     <tr>
-                                        <th class="text-center"><b></b>ID</th>
+                                        <th class="text-center"><b>CODIGO</b></th>
                                         <th><b>NOMBRE</b></th>
                                         <th><b>UNIDAD</b></th>
                                         <th><b>TIPO</b></th>
@@ -54,9 +54,9 @@
                                                 <a rel="tooltip" class="btn btn-success" href="{{URL::action('MeassureController@edit',$m->id_meassure)}}" type="submit">
                                                     <i class="material-icons">edit</i>
                                                 </a>
-                                                <a class="btn btn-danger" data-target="#modal-delete-{{$m->id_meassure}}" data-toggle="modal" href="">
+                                                <!--<a class="btn btn-danger" data-target="#modal-delete-{{$m->id_meassure}}" data-toggle="modal" href="">
                                                     <i class="material-icons">close</i>
-                                                </a>
+                                                </a>-->
                                             </td>
                                         </tr>
                                         @include('meassure.modal')

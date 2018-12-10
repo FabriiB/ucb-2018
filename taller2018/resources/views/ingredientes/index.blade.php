@@ -41,7 +41,6 @@
                                             <th><b>TIPO</b></th>
                                             <th><b>FECHA DE CREACION</b></th>
                                             <th><b>ESTADO</b></th>
-                                            <th><b>MEDIDA</b></th>
                                             <th class="text-right"><b>OPCIONES</b></th>
                                         </tr>
                                         </thead>
@@ -52,18 +51,21 @@
                                                 <td>{{$i->name}}</td>
                                                 <td>{{$i->type}}</td>
                                                 <td>{{$i->date_created}}</td>
-                                                <td>{{$i->status}}</td>
-                                                <td>{{$i->id_meassure}}</td>
+                                                @if($i->status == 'activo')
+                                                    <td><span class="badge badge-success">{{$i->status}}</span></td>
+                                                @else
+                                                    <td><span class="badge badge-danger">{{$i->status}}</span></td>
+                                                @endif
                                                 <td class="td-actions text-right">
                                                     <a rel="tooltip" class="btn btn-success" href="{{URL::action('IngredientsController@edit',$i->id_ingredients)}}" type="submit">
                                                         <i class="material-icons">edit</i>
                                                     </a>
                                                     @if($i->status == 'activo')
-                                                        <a class="btn btn-danger" href="{{URL::action('IngredientsController@index',$i->id_ingredients)}}" type="submit">
+                                                        <a class="btn btn-danger" href="{{URL::action('IngredientsController@cambiar',$i->id_ingredients)}}" type="submit">
                                                             <i class="material-icons">not_interested</i>
                                                         </a>
                                                     @else
-                                                        <a class="btn btn-primary" href="{{URL::action('IngredientsController@index',$i->id_ingredients)}}" type="submit">
+                                                        <a class="btn btn-primary" href="{{URL::action('IngredientsController@cambiar',$i->id_ingredients)}}" type="submit">
                                                             <i class="material-icons">replay</i>
                                                         </a>
                                                     @endif

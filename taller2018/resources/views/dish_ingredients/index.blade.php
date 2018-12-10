@@ -47,6 +47,11 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
+                                    <table width="100%">
+                                        <tr>
+                                            <td><br><hr><center><h4>Ingredientes del plato</h4><hr></center></td>
+                                        </tr>
+                                    </table>
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
@@ -67,6 +72,27 @@
                                                 <td>{{$m->id_meassure}}</td>
                                                 <td>{{$m->type}}</td>
                                                 <td>{{$m->status}}</td>
+                                            </tr>
+                                            </tbody>
+                                        @endforeach
+                                    </table>
+                                    <table width="100%">
+                                        <tr>
+                                            <td><hr><center><h4>Pasos de preparacion del plato</h4><hr></center></td>
+                                        </tr>
+                                    </table>
+                                    <table class="table">
+                                        <thead class="text-success">
+                                        <tr>
+                                            <th><b>TITULO</b></th>
+                                            <th><b>DESCRIPCION</b></th>
+                                        </tr>
+                                        </thead>
+                                        @foreach ($s as $s)
+                                            <tbody>
+                                            <tr>
+                                                <td>{{$s->title}}</td>
+                                                <td>{{$s->description}}</td>
                                             </tr>
                                             </tbody>
                                         @endforeach

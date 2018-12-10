@@ -29,4 +29,13 @@ class IngredientsRequest extends FormRequest
             'id_meassure' => 'required|numeric',
         ];
     }
+    public function messages()
+    {
+        return [
+            'name.required' => 'El nombre del ingrediente no puede ser nulo',
+            'name.max'  => 'El nombre debe tener un maximo de 250 caracteres',
+            'type.required' => 'Debe elegir el tipo del ingrediente',
+            'id_meassure.required' => 'Debe elegir la medida que se utilizara',
+        ];
+    }
 }

@@ -88,6 +88,7 @@ Route::get('ingredients/{id}/cambiar', 'IngredientsController@cambiar');
 Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
 Route::resource('drink', 'DrinkController');
+Route::get('drink/{id}/cambiar', 'DrinkController@cambiar');
 Route::resource('steps', 'StepsController');
 Route::get('platos/create', 'PlatosController@create');
 Route::resource('/menu_dish', 'MenuDishController');

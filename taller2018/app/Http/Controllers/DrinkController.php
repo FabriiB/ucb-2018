@@ -87,4 +87,18 @@ class DrinkController extends Controller
         $meassure->update();
         return redirect()->action('DrinkController@index');
     }
+    public function cambiar($id)
+    {
+        $ingredients       = Drink::findOrFail($id);
+        if($ingredients->status == 'activo')
+        {
+            $ingredients->status = 'no actvo';
+        }
+        else
+        {
+            $ingredients->status = 'activo';
+        }
+        $ingredients->update();
+        return redirect()->action('DrinkController@index');
+    }
 }

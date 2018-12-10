@@ -17,8 +17,8 @@ class Drink extends Migration
             $table->increments('id_drink')->unique();
             $table->string('name',50);
             $table->string('type',50);
-            $table->timestamp('caducity_date');
-            $table->timestamp('packaging_date');
+            $table->date('caducity_date');
+            $table->date('packaging_date');
             $table->integer('id_administrator');
             $table->integer('id_menu_drink');
             $table->integer('id_meassure');

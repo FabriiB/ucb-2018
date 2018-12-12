@@ -130,15 +130,15 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="/dish">
-                        <i class="material-icons">dashboard</i>
-                        <p> Gestion de Platos </p>
-                    </a>
-                </li>
-                <li class="nav-item ">
                     <a class="nav-link" href="/ingredients">
                         <i class="material-icons">dashboard</i>
                         <p> Gestion de ingredientes </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/dish">
+                        <i class="material-icons">dashboard</i>
+                        <p> Gestion de Platos </p>
                     </a>
                 </li>
                 <li class="nav-item ">

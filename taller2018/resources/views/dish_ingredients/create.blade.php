@@ -84,7 +84,7 @@
                                     <label class="col-sm-3 col-form-label">CANTIDAD : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="number" name="quantity" class="form-control" value="1">
+                                            <input class="form-control" name="quantity" type="number" value="1">
                                         </div>
                                     </div>
                                 </div>

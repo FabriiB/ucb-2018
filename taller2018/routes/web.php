@@ -57,6 +57,7 @@ Route::get('usuarios/{id}',function () {
 Route::resource('/menu', 'MenuController');
 Route::get('menu/create', 'MenuController@create');
 Route::get('menu/first', 'MenuController@first');
+Route::get('menu/{id}/cambiar', 'MenuController@cambiar');
 Route::get('factura', 'facturacontroller@index');
 
 Route::resource('ListadoPedidos','ListaPedidosController');
@@ -98,6 +99,8 @@ Route::resource('dish', 'PlatosController');
 Route::resource('drink', 'DrinkController');
 Route::get('drink/{id}/cambiar', 'DrinkController@cambiar');
 Route::resource('steps', 'StepsController');
+Route::get('steps/{id}/edit', 'StepsController@edit');
+Route::get('steps/{id}/cambiar', 'StepsController@cambiar');
 Route::get('platos/create', 'PlatosController@create');
 Route::resource('/menu_dish', 'MenuDishController');
 Route::get('menu_dish/{id}/create', 'MenuDishController@create');

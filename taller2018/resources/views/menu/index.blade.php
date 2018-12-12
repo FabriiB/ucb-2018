@@ -53,20 +53,30 @@
                                                 <td>{{$m->date_created}}</td>
                                                 <td>{{$m->date_end}}</td>
                                                 <td>{{$m->fn}} {{$m->ln}}</td>
-                                                <td>{{$m->status}}</td>
+                                                @if($m->status == 'activo')
+                                                    <td><span class="badge badge-success">{{$m->status}}</span></td>
+                                                @else
+                                                    <td><span class="badge badge-danger">{{$m->status}}</span></td>
+                                                @endif
                                                 <td class="td-actions text-right">
                                                     <a rel="tooltip" class="btn btn-success" href="{{URL::action('MenuDishController@create',$m->id_menu)}}" type="submit">
                                                         <i class="material-icons">playlist_add</i>
                                                     </a>
                                                     <a rel="tooltip" class="btn btn-rose" href="{{URL::action('MenuDishController@index',$m->id_menu)}}" type="submit">
                                                         <i class="material-icons">format_list_numbered</i>
-                                                    </a>
+                                                    </a><!--
                                                     <a rel="tooltip" class="btn btn-warning" href="" type="submit">
                                                         <i class="material-icons">edit</i>
-                                                    </a>
-                                                    <a rel="tooltip" class="btn btn-danger" href="" type="submit">
-                                                        <i class="material-icons">close</i>
-                                                    </a>
+                                                    </a>-->
+                                                    @if($m->status == 'activo')
+                                                        <a class="btn btn-danger" href="{{URL::action('MenuController@cambiar',$m->id_menu)}}" type="submit">
+                                                            <i class="material-icons">not_interested</i>
+                                                        </a>
+                                                    @else
+                                                        <a class="btn btn-primary" href="{{URL::action('MenuController@cambiar',$m->id_menu)}}" type="submit">
+                                                            <i class="material-icons">replay</i>
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             </tbody>

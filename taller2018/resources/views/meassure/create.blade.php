@@ -37,7 +37,7 @@
                                         <label class="col-sm-3 col-form-label">NOMBRE : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="text" name="name" class="form-control" placeholder="Ejemplo: Gramos, Kilogramo, Litro">
+                                                <input type="text" name="name" class="form-control" placeholder="Ejemplo: Gramos, Kilogramo, Litro" value="{{old('name')}}">
                                             </div>
                                         </div>
                                     </div>
@@ -45,7 +45,7 @@
                                         <label class="col-sm-3 col-form-label">UNIDAD : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="text" name="unit" class="form-control" placeholder="Ejemplo: gr. , kg. , l. ">
+                                                <input type="text" name="unit" class="form-control" placeholder="Ejemplo: gr. , kg. , l. " value="{{old('unit')}}">
                                             </div>
                                         </div>
                                     </div>

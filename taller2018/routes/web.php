@@ -136,15 +136,17 @@ Route::group(["middleware" => 'entryfabrisio'], function () {
 
 });
 
-
+Route::group(["middleware" => 'admin'], function () {
+    Route::resource('pass','PassController');
+    Route::resource('pass','PassController');
+    Route::get ('/pass', 'PassController@index');
+});
 
 
 Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));
 Route::post('/insert', array('as'=>'insert', 'uses'=>'RecetaController@insert'));
 
-Route::get('/pass', function () {
-    return view('pass');
-});
+
 
 Route::get('/PassAssign', function () {
     return view('PassAssign');
@@ -162,3 +164,12 @@ Route::get('/qr/{id}',function($id){
 })->name('qr');
 
 
+/*Route::group(["middleware" => 'admin'], function () {
+    Route::resource('pass','PassController');
+    Route::resource('pedidos','ListaPedidosController');
+    Route::post ('/pass', 'PassController@ShowPermision');
+});*/
+
+/*Route::get('/pass', function () {
+    return view('pass');
+});*/

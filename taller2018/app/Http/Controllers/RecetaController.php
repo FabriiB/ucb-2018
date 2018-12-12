@@ -21,6 +21,7 @@ class RecetaController extends Controller
     {
         $ingrediente = DB::table('ingredients')
             ->select('id_ingredients', 'name')
+            ->where('status', '=', 'activo')
             ->get();
         return view('Receta_c.info', compact('ingrediente'));
     }

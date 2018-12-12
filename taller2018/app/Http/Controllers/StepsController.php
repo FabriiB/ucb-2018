@@ -50,8 +50,34 @@ class StepsController extends Controller
 
         return redirect()->action('StepsController@index');
     }
-    public function show()
+    public function show($id)
     {
-        return view('steps.index');
+        return view("steps.show", ["steps" => Steps::findOrFail($id)]);
+    }
+    public function edit($id)
+    {
+        return view("steps.edit", ["steps" => Steps::findOrfail($id)]);
+    }
+    public function update(StepsRequest $request, $id)
+    {
+        $step       = Steps::findOrFail($id);
+        $step->title = $request->get('title');
+        $step->description = $request->get('description');
+        $step->update();
+        return redirect()->action('StepsController@index');
+    }
+    public function cambiar($id)
+    {
+        $ingredients       = Steps::findOrFail($id);
+        if($ingredients->status == 'activo')
+        {
+            $ingredients->status = 'no actvo';
+        }
+        else
+        {
+            $ingredients->status = 'activo';
+        }
+        $ingredients->update();
+        return redirect()->action('StepsController@index');
     }
 }

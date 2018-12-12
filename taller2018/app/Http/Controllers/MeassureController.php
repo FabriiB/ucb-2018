@@ -65,9 +65,9 @@ class MeassureController extends Controller
         return redirect()->action('MeassureController@index');
     }
     public function destroy($id)
-    {
+    {/*
         $meassure = Meassure::findOrfail($id);
-        $meassure->delete();
+        $meassure->delete();*/
         return redirect()->action('MeassureController@index');
     }
 }

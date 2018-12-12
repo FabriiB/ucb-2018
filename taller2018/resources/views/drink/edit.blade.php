@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: cristal
- * Date: 11/11/18
- * Time: 08:20 PM
+ * Date: 12/11/18
+ * Time: 02:16 PM
  */
 ?>
 @extends('layouts.admin')
@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">CREAR PLATO</h4>
+                                    <h4 class="card-title">EDITAR MEDIDA {{$drink->id_drink}}</h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)
@@ -31,14 +31,13 @@
                                 </div>
                             @endif
                             <div class="card-body ">
-                                {!!Form::open(array('url'=>'/dish','method'=>'POST','autocomplete'=>'off', 'files'=>true))!!}
+                                {!!Form::model($drink,['method'=>'PATCH','route'=>['drink.update', $drink->id_drink]])!!}
                                 {{Form::token()}}
-
                                 <div class="row">
-                                    <label class="col-sm-3 col-form-label">name : </label>
+                                    <label class="col-sm-3 col-form-label">NOMBRE : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="">
+                                            <input type="text" name="name" class="form-control" value="{{$drink->name}}">
                                         </div>
                                     </div>
                                 </div>
@@ -46,7 +45,7 @@
                                     <label class="col-sm-3 col-form-label">DESCRIPCION : </label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" name="description" class="form-control" placeholder="">
+                                            <input type="text" name="description" class="form-control" value="{{$drink->description}}">
                                         </div>
                                     </div>
                                 </div>
@@ -55,29 +54,9 @@
                                     <div class="col-sm-8">
                                         <div class="form-group">
                                             <select class="form-control" name="type" type="text">
-                                                <option selected value="Vegetariano">Vegetariano</option>
-                                                <option value="Asiatico">Asiatico</option>
+                                                <option selected>Gaseosa</option>
+                                                <option>Tipo de bebida 2</option>
                                             </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 col-form-label">PORCION : </label>
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <select name="porcion" class="form-control">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="4">4</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 col-form-label">IMAGEN  : </label>
-                                    <div class="col-sm-8">
-                                        <div><br>
-                                            <input type="file" accept="image/*" name="imagen">
                                         </div>
                                     </div>
                                 </div>

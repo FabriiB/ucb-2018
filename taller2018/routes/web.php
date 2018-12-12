@@ -63,9 +63,22 @@ Route::get('ListadoPedidos.filtro', [
     'as' => 'filtro',
     'uses' => 'ListaPedidosController@filtro'
 ]);
-Route::get('ListadoPedidos.update', [
-    'as' => 'update',
-    'uses' => 'ListaPedidosController@update'
+//Route::get('ListadoPedidos.update', [
+//    'as' => 'update',
+//    'uses' => 'ListaPedidosController@update'
+//]);
+//
+Route::post('ListadoPedidos', [
+    'as' => 'fecha',
+    'uses' => 'ListaPedidosController@filtroFecha'
+]);
+Route::post('ListadoPedidos', [
+    'as' => 'nombre',
+    'uses' => 'ListaPedidosController@filtroNombre'
+]);
+Route::post('ListadoPedidos', [
+    'as' => 'estado',
+    'uses' => 'ListaPedidosController@filtroEstado'
 ]);
 
 Route::resource('meassure', 'MeassureController');
@@ -84,9 +97,11 @@ Route::resource('order', 'OrderController')->except([
 ]);
 
 Route::resource('ingredients', 'IngredientsController');
+Route::get('ingredients/{id}/cambiar', 'IngredientsController@cambiar');
 Route::resource('instructions', 'InstructionsController');
 Route::resource('dish', 'PlatosController');
 Route::resource('drink', 'DrinkController');
+Route::get('drink/{id}/cambiar', 'DrinkController@cambiar');
 Route::resource('steps', 'StepsController');
 Route::get('platos/create', 'PlatosController@create');
 Route::resource('/menu_dish', 'MenuDishController');
@@ -97,10 +112,12 @@ Route::get('/qrcode', 'QrController@make');
 Route::resource('/dish_ingredients', 'DishIngredientsController');
 Route::get('dish_ingredients/{id}/create', 'DishIngredientsController@create');
 Route::get('dish_ingredients/{id}/index', 'DishIngredientsController@index');
+Route::get('dish_ingredients/{id}/edit', 'DishIngredientsController@edit');
+Route::get('dish_ingredients/{id}/cambiar', 'DishIngredientsController@cambiar');
 
 Route::resource('/menugeneral', 'MenuGeneralController');
 Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');
-Route::get('/download-pdf', 'facturacontroller@downloadPDF');
+Route::get('/download-pdf/{id}', 'facturacontroller@downloadPDF');
 
 
 //Security routing
@@ -111,8 +128,10 @@ Route::group(["middleware" => 'entryrodrigo'], function () {
 });
 
 Route::group(["middleware" => 'entrybenji'], function () {
+
     Route::get('/factura', 'HomeController@factura');
-    Route::get('factura', 'facturacontroller@index');
+    Route::get('lista_factura/{id}', 'facturacontroller@index')->name('factura.index');
+    Route::get('/factura/{id}','facturacontroller@show')->name('factura.show');
 });
 
 Route::group(["middleware" => 'entryfabrisio'], function () {
@@ -124,3 +143,24 @@ Route::group(["middleware" => 'entryfabrisio'], function () {
 
 Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));
 Route::post('/insert', array('as'=>'insert', 'uses'=>'RecetaController@insert'));
+
+Route::get('/pass', function () {
+    return view('pass');
+});
+
+Route::get('/PassAssign', function () {
+    return view('PassAssign');
+});
+
+Route::post('/pass','PassController@AddNewRole');
+Route::post('/PassAssign','PassController@AssignRole');
+
+Route::get('/qr/{id}',function($id){
+
+    return QRCode::url("1"."|8435113|1|12/12/2018|20.0|339201600001329".$id)
+        ->setSize(3)
+        ->setMargin(2)
+        ->png();
+})->name('qr');
+
+

@@ -17,10 +17,11 @@
                                     <!--Filtro por fecha-->
                                     <b>Filtro por fecha</b>
                                     <hr>
+                                    <form method="POST" action="{{route('fecha')}}">
                                     <table>
                                         <tr>
                                             <td>
-                                                <tr>Fecha inicial:<input name="datefin" id="dateini" type="date" min="1990-01-01" max="2050-12-31" required></tr>
+                                                <tr>Fecha inicial:<input name="datefini" id="dateini" type="date" min="1990-01-01" max="2050-12-31" required></tr>
                                             </td>
                                             <td>
                                                 <tr>Fecha final:<input name="datefin" id="datefin" type="date" min="1990-01-01" max="2050-12-31" required></tr></tr>
@@ -31,14 +32,16 @@
                                         </tr>
 
                                     </table>
+                                    </form>
                                     <!--Filtro por nombre-->
                                     <b>Filtro por nombre</b>
                                     <hr>
+                                    <form method="POST" action="{{route('nombre')}}">
                                     <table>
 
                                         <tr>
                                             <td>
-                                                <tr>Fecha inicial:<input name="datefin" id="dateini" type="date" min="1990-01-01" max="2050-12-31" required></tr>
+                                                <tr>Fecha inicial:<input name="datefini" id="dateini" type="date" min="1990-01-01" max="2050-12-31" required></tr>
                                             </td>
                                             <td>
                                                 <tr>Fecha final:<input name="datefin" id="datefin" type="date" min="1990-01-01" max="2050-12-31" required></tr></tr>
@@ -49,14 +52,16 @@
                                         </tr>
 
                                     </table>
+                                    </form>
 
                                     <!--Filtro por estado-->
                                     <b>Filtro por estado</b>
                                     <hr>
+                                    <form method="POST" action="{{route('estado')}}">
                                     <table>
                                         <td>
                                             <tr>
-                                                <select name="status" form="estadoform" required>
+                                                <select name="status" form="estadoform" required id="status">
                                                     <option value="proceso">En proceso</option>
                                                     <option value="cancelado">Cancelado</option>
                                                     <option value="enviado">Enviado</option>
@@ -66,6 +71,7 @@
                                         </td>
 
                                     </table>
+                                    </form>
 
                                 </div>
                             </div>

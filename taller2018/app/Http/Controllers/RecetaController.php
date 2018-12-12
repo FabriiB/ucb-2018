@@ -30,7 +30,17 @@ class RecetaController extends Controller
         $dish->portion = $request->porcion;
         $dish->type = $request->tipo;
         $dish->date_created = $tfecha->format('Y-m-d H:i:s');
-        $dish->images = 'images';
+        if ($request->hasFile('imagen'))
+        {
+            $file = $request->file('imagen');
+            $name = $file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+            $dish->images = $name;
+        }
+        else
+        {
+            $dish->images = 'images';
+        }
         $dish->status = 'activo';
         $dish->id_user = '1';
         $id = $dish->save();
@@ -55,7 +65,7 @@ class RecetaController extends Controller
             }
 
         }
-        return redirect()->action('MenuController@index');
+        return redirect()->action('PlatosController@index');
     }
     public function edit()
     {

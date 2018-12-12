@@ -16,27 +16,10 @@ class EntryFabrisio
      */
     public function handle($request, Closure $next)
     {
-        $Look=collect($Search = DB::select(
-            DB::raw("select u.id 
-            from users u, users_role ur, role_permision rp 
-            where u.id=ur.id_users 
-            and ur.id_role=rp.id_role
-            and rp.id_permision=4;")
-        ))->pluck('id')->toArray();
+        $entry = new Entries();
 
+        $entry::handle($request, $next, 4);
 
-        $id = Auth::id();
-
-        if(in_array($id, $Look))
-        {
-            return $next($request);
-        }
-
-        else
-        {
-            return abort(403, "No access here, sorry!");
-        }
-
-
+        return $next($request);
     }
 }

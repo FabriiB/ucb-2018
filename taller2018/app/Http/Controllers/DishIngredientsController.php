@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Dish;
 use App\DishIngredients;
 use App\Http\Requests\DishIngredientsRequest;
+use App\Http\Requests\DishRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,8 +23,11 @@ class DishIngredientsController extends Controller
             ->join('ingredients', 'dish_ingredients.id_ingredients','=', 'ingredients.id_ingredients')
             ->where('dish_ingredients.id_dish','=', $id)
             ->get();
-
-        return view('dish_ingredients.index', ["dish" => Dish::findOrFail($id), "ing" => $ing]);
+        $s = DB::table('steps')
+            ->join('dish', 'steps.id_dish', '=', 'dish.id_dish')
+            ->where('dish.id_dish','=', $id)
+            ->get();
+        return view('dish_ingredients.index', ["dish" => Dish::findOrFail($id), "ing" => $ing, "s"=>$s]);
     }
     public function create($id)
     {
@@ -53,5 +57,29 @@ class DishIngredientsController extends Controller
     public function show()
     {
         return view('dish_ingredients.create');
+    }
+    public function update(DishRequest $request, $id)
+    {
+        $meassure       = Dish::findOrFail($id);
+        $meassure->name = $request->get('name');
+        $meassure->description = $request->get('description');
+        $meassure->type = $request->get('type');
+        $meassure->portion = $request->get('portion');
+        $meassure->update();
+        return redirect()->action('PlatosController@index');
+    }
+    public function cambiar($id)
+    {
+        $ingredients       = Dish::findOrFail($id);
+        if($ingredients->status == 'activo')
+        {
+            $ingredients->status = 'no actvo';
+        }
+        else
+        {
+            $ingredients->status = 'activo';
+        }
+        $ingredients->update();
+        return redirect()->action('PlatosController@index');
     }
 }

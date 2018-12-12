@@ -33,29 +33,30 @@
                             <div class="card-body ">
                                 {!!Form::open(array('url'=>'/drink','method'=>'POST','autocomplete'=>'off'))!!}
                                 {{Form::token()}}
-                            <div class="card-body ">
-                                <form method="get" action="/" class="form-horizontal">
                                     <div class="row">
                                         <label class="col-sm-3 col-form-label">NOMBRE : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="text" name="name" class="form-control">
+                                                <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label class="col-sm-3 col-form-label">FECHA DE CADUCIDAD : </label>
+                                        <label class="col-sm-3 col-form-label">DESCRIPCION : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="date" name="caducity_date" class="form-control">
+                                                <input type="text" name="description" class="form-control" value="{{ old('description') }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label class="col-sm-3 col-form-label">FECHA DE EMPAQUETADO : </label>
+                                        <label class="col-sm-3 col-form-label">TIPO : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="date" name="packaging_date" class="form-control">
+                                                <select class="form-control" name="type" type="text">
+                                                    <option selected>Gaseosa</option>
+                                                    <option>Tipo de bebida 2</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -75,24 +76,18 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label class="col-sm-3 col-form-label">DESCRIPCION : </label>
+                                        <label class="col-sm-3 col-form-label">FECHA DE CADUCIDAD : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="text" name="description" class="form-control">
+                                                <input type="date" name="caducity_date" class="form-control" value="{{ old('caducity_date') }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label class="col-sm-3 col-form-label">TIPO : </label>
+                                        <label class="col-sm-3 col-form-label">FECHA DE EMPAQUETADO : </label>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <select class="form-control" name="type" type="text">
-                                                    <option selected>asdfsa</option>
-                                                    <option>asdfsa</option>
-                                                    <option>asdfsa</option>
-                                                    <option>asdfsa</option>
-                                                    <option>asdfsa</option>
-                                                </select>
+                                                <input type="date" name="packaging_date" class="form-control" value="{{ old('packaging_date') }}">
                                             </div>
                                         </div>
                                     </div>

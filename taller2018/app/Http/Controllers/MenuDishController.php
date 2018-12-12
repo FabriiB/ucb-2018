@@ -23,7 +23,13 @@ class MenuDishController extends Controller
             ->where('menu_dish.id_menu','=', $id)
             ->get();
 
-        return view('menu_dish.index', ["menu" => Menu::findOrFail($id), "meassure" => $meassure]);
+        $drink = DB::table('drink')
+            ->join('dish_drink', 'drink.id_drink', '=', 'dish_drink.id_drink')
+            ->join('menu', 'dish_drink.id_menu','=', 'menu.id_menu')
+            ->where('dish_drink.id_menu','=', $id)
+            ->get();
+
+        return view('menu_dish.index', ["menu" => Menu::findOrFail($id), "meassure" => $meassure, "drink" => $drink]);
     }
     public function create($id)
     {

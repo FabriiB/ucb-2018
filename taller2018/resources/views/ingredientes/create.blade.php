@@ -52,6 +52,7 @@
                                                 <option value="Arroces, pastas, legumbres">Arroces, pastas, legumbres</option>
                                                 <option value="Conservas y deshidratados">Conservas y deshidratados</option>
                                                 <option value="Verduras">Verduras</option>
+                                                <option value="Tuberculos">Tuberculos (Ej. papa, oca, etc.)</option>
                                                 <option value="Frutas">Frutas</option>
                                                 <option value="Sales y azucares">Sales y azucares</option>
                                                 <option value="Aperitivos">Aperitivos</option>

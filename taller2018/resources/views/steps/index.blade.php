@@ -26,11 +26,11 @@
                                             <td width="92%">
                                                 @include('steps.search')
                                             </td>
-                                            <td width="8%" valign="top">
+                                            <!--<td width="8%" valign="top">
                                                 <a class="btn btn-info btn-sm" href="/steps/create">
                                                     <i class="material-icons">add</i>
                                                 </a>
-                                            </td>
+                                            </td>-->
                                         </tr>
                                     </table>
                                     <table class="table">

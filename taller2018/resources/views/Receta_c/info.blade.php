@@ -19,11 +19,23 @@
                                     <h4 class="card-title">Registro del Plato</h4>
                                 </div>
                             </div>
+
+                            @if (count($errors)>0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>
+                                                {{$error}}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             {!!Form::open(array('route'=>'insert','method'=>'POST','autocomplete'=>'off', 'id'=>'frmsave' , 'files'=>true))!!}
                             {{Form::token()}}
                             <table width="100%">
                                 <tr>
-                                    <td colspan="6"><br><hr><center><h4>Datos del plato</h4><hr></center></td>
+                                    <td colspan="6"><br><hr><center><h4><b>Datos del plato</b></h4><hr></center></td>
                                 </tr>
                                 <tr>
                                     <td width="10%"></td>
@@ -31,7 +43,7 @@
                                         <div class="row">
                                             <div class="col-sm-10"><br>
                                                 <div class="form-group">
-                                                    <input type="text" name="nombre" class="form-control" placeholder="NOMBRE" title="NOMBRE">
+                                                    <input type="text" name="nombre" class="form-control" placeholder="NOMBRE" title="NOMBRE" value="{{old('nombre')}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -40,7 +52,7 @@
                                         <div class="row">
                                             <div class="col-sm-11"><br>
                                                 <div class="form-group">
-                                                    <input type="text" name="descripcion" class="form-control" placeholder="DESCRIPCION" title="DESCRIPCION">
+                                                    <input type="text" name="descripcion" class="form-control" placeholder="DESCRIPCION" title="DESCRIPCION" value="{{old('descripcion')}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -93,7 +105,7 @@
                             </table>
                             <table width="100%">
                                 <tr>
-                                    <td colspan="6"><br><hr><center><h4>Ingredientes</h4><hr></center></td>
+                                    <td colspan="6"><br><hr><center><h4><b>Ingredientes</b></h4><hr></center></td>
                                 </tr>
                                 <tr>
                                     <td width="90%"></td>

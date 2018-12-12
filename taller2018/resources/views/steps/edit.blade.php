@@ -79,18 +79,6 @@
                                         </br>
                                     </div>
                                 </td>
-                                <td  width="50%">
-                                    <div class="form-group">
-                                        <br>
-                                        <label class="col-sm-4 col-sm-4 control-label">
-                                            DESCRIPTION
-                                        </label>
-                                        <div class="col-sm-12">
-                                            <textarea rows="5" class="form-control" name="description" type="text">{{$recipe->description}}</textarea>
-                                        </div>
-                                        </br>
-                                    </div>
-                                </td>
                             </tr>
                             <tr>
                                 <td colspan="2" width="33%">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -11,6 +12,8 @@ use App\Ingredients;
 use App\DishIngredients;
 use App\Steps;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\DishRequest;
+use App\Http\Requests\DishIngredientsRequest;
 
 class RecetaController extends Controller
 {
@@ -21,18 +24,18 @@ class RecetaController extends Controller
             ->get();
         return view('Receta_c.info', compact('ingrediente'));
     }
-    public function insert(Request $request)
+    public function insert(Request $request, DishRequest $request1)
     {
         $tfecha = Carbon::now();
         $dish = new Dish;
-        $dish->name = $request->nombre;
-        $dish->description = $request->descripcion;
-        $dish->portion = $request->porcion;
-        $dish->type = $request->tipo;
+        $dish->name = $request1->nombre;
+        $dish->description = $request1->descripcion;
+        $dish->portion = $request1->porcion;
+        $dish->type = $request1->tipo;
         $dish->date_created = $tfecha->format('Y-m-d H:i:s');
-        if ($request->hasFile('imagen'))
+        if ($request1->hasFile('imagen'))
         {
-            $file = $request->file('imagen');
+            $file = $request1->file('imagen');
             $name = $file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
             $dish->images = $name;

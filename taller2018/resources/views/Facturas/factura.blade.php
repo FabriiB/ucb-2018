@@ -6,7 +6,7 @@
             <table width="100%">
                 <tr>
                     <td width="33%"><h3 align="left"><b>APPETITO 24</b></h3>
-                        <p align="left">Zona ..., Calle ..., #100</p>
+                        <p align="left">Zona Miraflores, Calle Argentina, #2050</p>
                         <p align="left">La Paz - Bolivia</p>
                     </td>
                     <td width="33%"><h1 align="center"><b>Factura</b></h1></td>
@@ -32,7 +32,7 @@
                 <tr>
                     <td width="45%">
                         <p>Fecha:
-                            {{$now}}
+                            {{date("d/m/Y", strtotime($datos->issue_date))}}
                         </p>
                     </td>
                     <td width="45%">
@@ -56,7 +56,7 @@
                             Descripcion
                         </th>
                         <th>
-                            Total
+                            Importe
                         </th>
                     </tr>
                     </thead>
@@ -75,7 +75,7 @@
                     <tfoot>
                     <tr>
                         <td>TOTAL</td>
-                        <td>{{$datos->total_bill}}</td>
+                        <td>{{$total}}</td>
 
                     </tr>
                     </tfoot>
@@ -102,8 +102,7 @@
 
         </div>
         <div class="col-md-10 ml-auto" >
-        <!-- <a class="btn btn-info" href="{{URL::action('QrController@make')}}" type="submit" title="Generar QR"></a>-->
-            <img src="../../qr1.png">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{$nit->identifier."|".$datos->id_bill."|".$datos->authorization_number."|".date("d/m/Y", strtotime($datos->issue_date))."|".$total."|".$datos->control_code}}">
         </div>
         <table width="100%">
             <tr>

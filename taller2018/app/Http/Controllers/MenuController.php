@@ -44,9 +44,11 @@ class MenuController extends Controller
         //echo '<script type="text/javascript">alert("hello!");</script>';
         $dish = DB::table('dish')
             ->select('id_dish', 'name')
+            ->where('status', '=', 'activo')
             -> get();
         $drink = DB::table('drink')
             ->select('id_drink', 'name')
+            ->where('status', '=', 'activo')
             -> get();
         return view('menu.create', ["dish" =>$dish, "drink"=>$drink]);
     }
@@ -95,5 +97,19 @@ class MenuController extends Controller
     public function show()
     {
         return view('menu.index');
+    }
+    public function cambiar($id)
+    {
+        $ingredients       = Menu::findOrFail($id);
+        if($ingredients->status == 'activo')
+        {
+            $ingredients->status = 'no actvo';
+        }
+        else
+        {
+            $ingredients->status = 'activo';
+        }
+        $ingredients->update();
+        return redirect()->action('MenuController@index');
     }
 }

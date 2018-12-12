@@ -14,8 +14,8 @@
                                 </div>
                                 <form action="{{route('ListadoPedidos.index')}}" method="GET">
                                     <input type="text" name="firs_name">
-                                    <input name="fechaini" id="fechaini" type="date" min="1990-01-01" max="2050-12-31" >
-                                    <input name="fechafin" id="fechafin" type="date" min="1990-01-01" max="2050-12-31" >
+                                    <input name="fechaini" id="fechaini" type="date" min="1990-01-01" max="2050-12-31" value="1990-01-01">
+                                    <input name="fechafin" id="fechafin" type="date" min="1990-01-01" max="2050-12-31" value="2050-12-31">
                                     <select name="status" id="status">
                                         <option value=""></option>
                                         <option value="En proceso">En proceso</option>

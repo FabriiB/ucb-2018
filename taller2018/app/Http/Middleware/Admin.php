@@ -30,7 +30,6 @@ class Admin
             and rp.id_permision=3;")
         ))->pluck('id')->toArray();
 
-
         $UserSession = isset(auth()->user()->id);
 
         if(in_array($UserSession, $Search))

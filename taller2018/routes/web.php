@@ -29,6 +29,7 @@ Route::group(['prefix'=>'mi_cuenta'],(function () {
 
 
 Route::post('order/create', 'OrderController@create');
+Route::get('order/destroy/{id}', 'OrderController@destroy');
 Route::post('person/create', 'PersonController@create');
 Route::get('person/createPlan/{data}', 'PersonController@createNext');
 //Route::resource('passports','PassportController');
@@ -56,6 +57,7 @@ Route::get('usuarios/{id}',function () {
 Route::resource('/menu', 'MenuController');
 Route::get('menu/create', 'MenuController@create');
 Route::get('menu/first', 'MenuController@first');
+Route::get('menu/{id}/cambiar', 'MenuController@cambiar');
 Route::get('factura', 'facturacontroller@index');
 
 Route::resource('ListadoPedidos','ListaPedidosController');
@@ -87,14 +89,8 @@ Route::get('ingredientes/create', 'IngredientsController@create');
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');
 
-Route::resource('ordera', 'OrderController');
-Route::resource('ordera/create', 'OrderController@createa');
-Route::get('ordera/create', 'OrderController@createa');
-Route::post('order/create', 'OrderController@create');
+//Route::post('order/create', 'OrderController@create');
 Route::resource('pedidos', 'OrderController');
-Route::resource('order', 'OrderController')->except([
-
-]);
 
 Route::resource('ingredients', 'IngredientsController');
 Route::get('ingredients/{id}/cambiar', 'IngredientsController@cambiar');
@@ -103,6 +99,8 @@ Route::resource('dish', 'PlatosController');
 Route::resource('drink', 'DrinkController');
 Route::get('drink/{id}/cambiar', 'DrinkController@cambiar');
 Route::resource('steps', 'StepsController');
+Route::get('steps/{id}/edit', 'StepsController@edit');
+Route::get('steps/{id}/cambiar', 'StepsController@cambiar');
 Route::get('platos/create', 'PlatosController@create');
 Route::resource('/menu_dish', 'MenuDishController');
 Route::get('menu_dish/{id}/create', 'MenuDishController@create');
@@ -117,7 +115,7 @@ Route::get('dish_ingredients/{id}/cambiar', 'DishIngredientsController@cambiar')
 
 Route::resource('/menugeneral', 'MenuGeneralController');
 Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');
-Route::get('/download-pdf', 'facturacontroller@downloadPDF');
+Route::get('/download-pdf/{id}', 'facturacontroller@downloadPDF');
 
 
 //Security routing
@@ -128,8 +126,10 @@ Route::group(["middleware" => 'entryrodrigo'], function () {
 });
 
 Route::group(["middleware" => 'entrybenji'], function () {
+
     Route::get('/factura', 'HomeController@factura');
-    Route::get('factura', 'facturacontroller@index');
+    Route::get('lista_factura/{id}', 'facturacontroller@index')->name('factura.index');
+    Route::get('/factura/{id}','facturacontroller@show')->name('factura.show');
 });
 
 Route::group(["middleware" => 'entryfabrisio'], function () {
@@ -152,5 +152,13 @@ Route::get('/PassAssign', function () {
 
 Route::post('/pass','PassController@AddNewRole');
 Route::post('/PassAssign','PassController@AssignRole');
+
+Route::get('/qr/{id}',function($id){
+
+    return QRCode::url("1"."|8435113|1|12/12/2018|20.0|339201600001329".$id)
+        ->setSize(3)
+        ->setMargin(2)
+        ->png();
+})->name('qr');
 
 

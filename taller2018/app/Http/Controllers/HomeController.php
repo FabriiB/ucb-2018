@@ -85,7 +85,7 @@ class HomeController extends Controller
             $ordenes = DB::table('order')
                 ->join('menu_dish', 'order.id_menu_dish','=','menu_dish.id_menu_dish')
                 ->where('order.id_person','=',$person)
-                ->select('menu_dish.id_dish as dish')
+                ->select('menu_dish.id_dish as dish','order.idOrder as id')
                 ->get();
 
             foreach ($ordenes as $orden)
@@ -110,7 +110,7 @@ class HomeController extends Controller
                 ->join('dish', 'menu_dish.id_dish','=','dish.id_dish')
                 ->where('date_start', '<=', now())
                 ->where('date_end', '>=',now())
-                ->select('dish.name as dish','menu_dish.id_dish as id')
+                ->select('dish.name as dish','menu_dish.id_menu_dish as id')
                 ->get();
 
         }

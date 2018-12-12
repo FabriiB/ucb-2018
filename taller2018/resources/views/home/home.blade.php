@@ -26,19 +26,7 @@
                     </div>
                     @if($ordenes->count() > 0 )
                     <div class="row">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
-
-                        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
-                                    ...
-                                </div>
-                            </div>
-                        </div>
                     @foreach ($ordenes as $orden)
-
-
-
                             <div class="col-md-4">
                             <div class="card card-profile">
                                 <div class="card-header card-header-image">
@@ -51,11 +39,40 @@
                                 </div>
                                 <div class="card-footer ">
                                     <div class="author">
-                                        <a href="#pablo">
+                                        <a href="#">
                                             <span>Detalles</span>
                                         </a>
                                     </div>
+                                    <div class="ml-auto">
+                                        <button type="button" class="btn-small btn-primary" data-toggle="modal" data-target="#modal">
+                                            Eliminar
+                                        </button>
+                                        <button type="button" class="btn-small btn-primary" data-toggle="modal" data-target="#modal">
+                                            Editar
+                                        </button>
+                                        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Seguro que desea eliminar este plato de su orden?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                        <form method="GET" action="{{ url('/order/destroy/'.$orden->id) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-primary">Si</button>
+                                                        </form>
 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -91,7 +108,7 @@
 
                                             <input id="id_plan"  class="form-control{{ $errors->has('id_plan') ? ' is-invalid' : '' }}" name="id_plan" value="{{$plan->plan}}" hidden>
                                             <input id="id_person"  class="form-control{{ $errors->has('id_person') ? ' is-invalid' : '' }}" name="id_person" value="{{$person}}" hidden>
-                                            <input id="id_menu_dish"  class="form-control{{ $errors->has('id_menu_dish') ? ' is-invalid' : '' }}" name="id_menu_dish" value="{{$pedid->id}}" hidden required>
+                                            <input id="id_menu_dish"  class="form-control{{ $errors->has('id_menu_dish') ? ' is-invalid' : '' }}" name="id_menu_dish" value="{{$pedid->id}}" hidden>
 
 
                                             <div class="col-md-6 mr-auto ml-auto">
@@ -236,11 +253,6 @@
                     </div>
                 @endif
             </div>
-
         </div>
-
     </div>
-
-
-
 @endsection

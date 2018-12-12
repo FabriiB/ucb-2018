@@ -59,6 +59,7 @@
                                 @endif
                             </li>
                     @else
+                                <a href="{{ url('/factura',Auth::user()->id)}}" class="btn btn-info btn-round btn-sm">Mis Facturas</a>
                                 <a href="{{ url('/mi_cuenta/') }}" class="btn btn-info btn-round btn-sm">Inicio</a>
                                 <a href="{{ url('/mi_cuenta/datos') }}" class="btn btn-info btn-round btn-sm">Mi cuenta</a>
                                 <a href="{{ url('/mi_cuenta/factura') }}" class="btn btn-info btn-round btn-sm">Mis datos</a>

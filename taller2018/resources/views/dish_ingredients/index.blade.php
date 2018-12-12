@@ -98,7 +98,7 @@
                                         @endforeach
                                     </table>
                                     <center>
-                                        <a class="btn btn-danger btn-sm" href="/menu">
+                                        <a class="btn btn-danger btn-sm" href="/dish">
                                             <i class="material-icons">reply</i>
                                         </a>
                                     </center>

@@ -24,7 +24,19 @@ class DishRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre'=> 'required|string|max:100',
+            'descripcion'=> 'required|string|max:1000',
+            'tipo'=> 'required|string|max:50',
+            'porcion'=> 'required|numeric',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'nombre.required' => 'El nombre del plato no puede ser nulo',
+            'descripcion.required' => 'El descripcion del plato no puede ser nulo',
+            'tipo.required' => 'El tipo del plato no puede ser nulo',
+            'porcion.required' => 'El porcion del plato no puede ser nulo',
         ];
     }
 }

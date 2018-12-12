@@ -26,17 +26,17 @@
                                             <td width="92%">
                                                 @include('steps.search')
                                             </td>
-                                            <td width="8%" valign="top">
+                                            <!--<td width="8%" valign="top">
                                                 <a class="btn btn-info btn-sm" href="/steps/create">
                                                     <i class="material-icons">add</i>
                                                 </a>
-                                            </td>
+                                            </td>-->
                                         </tr>
                                     </table>
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b></b>ID</th>
+                                            <th class="text-center"><b>CODIGO</b></th>
                                             <th><b>TITULO</b></th>
                                             <th><b>DESCRIPCION</b></th>
                                             <th><b>STATUS</b></th>
@@ -49,14 +49,24 @@
                                                 <td class="text-center">{{$m->id_step}}</td>
                                                 <td>{{$m->title}}</td>
                                                 <td>{{$m->description}}</td>
-                                                <td>{{$m->status}}</td>
+                                                @if($m->status == 'activo')
+                                                    <td><span class="badge badge-success">{{$m->status}}</span></td>
+                                                @else
+                                                    <td><span class="badge badge-danger">{{$m->status}}</span></td>
+                                                @endif
                                                 <td class="td-actions text-right">
-                                                    <a rel="tooltip" class="btn btn-warning" href="" type="submit">
+                                                    <a rel="tooltip" class="btn btn-warning" href="{{URL::action('StepsController@edit',$m->id_step)}}" type="submit">
                                                         <i class="material-icons">edit</i>
                                                     </a>
-                                                    <a rel="tooltip" class="btn btn-danger" href="" type="submit">
-                                                        <i class="material-icons">close</i>
-                                                    </a>
+                                                    @if($m->status == 'activo')
+                                                        <a class="btn btn-danger" href="{{URL::action('StepsController@cambiar',$m->id_step)}}" type="submit">
+                                                            <i class="material-icons">not_interested</i>
+                                                        </a>
+                                                    @else
+                                                        <a class="btn btn-primary" href="{{URL::action('StepsController@cambiar',$m->id_step)}}" type="submit">
+                                                            <i class="material-icons">replay</i>
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             </tbody>

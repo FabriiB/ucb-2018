@@ -60,6 +60,44 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">FECHA DE CADUCIDAD : </label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <input type="date" name="caducity_date" class="form-control" value="{{$drink->caducity_date}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">FECHA DE EMPAQUETADO : </label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <input type="date" name="packaging_date" class="form-control" value="{{$drink->packaging_date}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">MEDIDA : </label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <select class="form-control" name="id_meassure" type="text">
+                                                @foreach ($meassure as $m)
+                                                    @if($drink->id_meassure == $m->id_meassure)
+                                                        <option value="{{$m->id_meassure}}" selected>
+                                                            {{$m->id_meassure}} .-
+                                                            {{$m->name}}
+                                                        </option>
+                                                    @else
+                                                        <option value="{{$m->id_meassure}}">
+                                                            {{$m->id_meassure}} .-
+                                                            {{$m->name}}
+                                                        </option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <center>
                                         <div class="col-sm-12">

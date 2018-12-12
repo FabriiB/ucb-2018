@@ -33,6 +33,7 @@ class DishIngredientsController extends Controller
     {
         $dish = DB::table('ingredients')
             ->select('id_ingredients', 'name')
+            ->where('status','=', 'activo')
             -> get();
         return view('dish_ingredients.create', ["menu" => Dish::findOrFail($id), "dish" =>$dish]);
     }

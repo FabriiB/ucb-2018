@@ -84,6 +84,9 @@ class DrinkController extends Controller
         $meassure->name = $request->get('name');
         $meassure->description = $request->get('description');
         $meassure->type = $request->get('type');
+        $meassure->caducity_date = $request->get('caducity_date');
+        $meassure->packaging_date = $request->get('packaging_date');
+        $meassure->id_meassure = $request->get('id_meassure');
         $meassure->update();
         return redirect()->action('DrinkController@index');
     }

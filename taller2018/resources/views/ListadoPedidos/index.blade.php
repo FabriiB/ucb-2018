@@ -12,36 +12,26 @@
                                 <div class="card-text">
                                     <h4 class="card-title"><i class="fa fa-calendar"></i> Listado de pedidos</h4>
                                 </div>
-                                {{--<div class="card-body">--}}
-                                    {{--{!!Form::open(array('url'=>'pedidos/filtro','method'=>'POST','autocomplete'=>'off'))!!}--}}
-                                    {{--{{Form::token()}}--}}
-                                        {{--<table class="table table-bordered d-md-table-cell" >--}}
-                                            {{--<p style="color:#000000";>Filtro por fecha de la orden:</p>--}}
-                                            {{--<tr>--}}
-                                                {{--<td><p style="color:#000000";>Fecha inicial:</p><input name="datefin" id="dateini" type="date" min="1990-01-01" max="2050-12-31" required></td>--}}
-                                            {{--</tr>--}}
-                                            {{--<tr>--}}
-                                                {{--<td><p style="color:#000000";>Fecha final:</p><input name="datefin" id="datefin" type="date" min="1990-01-01" max="2050-12-31" required></td>--}}
-                                            {{--</tr>--}}
-                                            {{--<tr>--}}
-                                                {{--<td>--}}
-                                                    {{--<button class="btn btn-success" title="Filtrar">FILTRAR</button>--}}
-                                                {{--</td>--}}
-                                            {{--</tr>--}}
-                                        {{--</table>--}}
-                                    {{--<hr>--}}
+                                <form action="{{route('ListadoPedidos.index')}}" method="GET">
+                                    <input type="text" name="firs_name">
+                                    <input name="fechaini" id="fechaini" type="date" min="1990-01-01" max="2050-12-31" >
+                                    <input name="fechafin" id="fechafin" type="date" min="1990-01-01" max="2050-12-31" >
+                                    <select name="status" id="status">
+                                        <option value=""></option>
+                                        <option value="En proceso">En proceso</option>
+                                        <option value="Cancelado">Cancelado</option>
+                                        <option value="Enviado">Enviado</option>
+                                    </select>
+                                    <button type="submit" rel="tooltip" class="btn btn-primary btn-sm">
+                                        <i class="material-icons">search</i>
+                                    </button>
+                                </form>
 
-                                    {{--{!!Form::close()!!}--}}
-                                    {{--<hr>--}}
-                                {{--</div>--}}
                             </div>
-                            <a class="btn btn-outline-warning mb-1" href="{{route('filtro')}}" title="Filtrar">
-                                Realizar Filtros
-                            </a>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-condensed cf" id="tablaPedidos">
-                                        <thead class="cf">
+                                    <table class="table" id="tablaPedidos">
+                                        <thead class="text-success">
                                         <tr>
                                             <th>ID ORDEN</th>
                                             <th>FECHA DE LA ORDEN</th>
@@ -59,8 +49,8 @@
                                                     <td>{{ $order->status }}</td>
                                                     <td>{{ $order->firs_name }} {{ $order->last_name1 }} {{ $order->last_name2 }}</td>
                                                     <td>
-                                                        <a class="btn btn-info mb-1" href="{{route('ListadoPedidos.edit',$order->idOrder)}}" type="submit" title="Editar">
-                                                            <i class="fa fa-pencil">
+                                                        <a rel="tooltip" class="btn btn-success" href="{{route('ListadoPedidos.edit',$order->idOrder)}}" type="submit" title="Editar">
+                                                            <i class="material-icons">edit
                                                             </i>
                                                         </a>
                                                     </td>
@@ -69,10 +59,11 @@
                                             @endforeach
                                         @else
                                             <tr>
-                                                <td colspan="8">No hay registro !!</td>
+                                                <td colspan="8">No existe el elemento</td>
                                             </tr>
                                         @endif
                                     </table>
+                                    {{$orders->links()}}
                                 </div>
                             </div>
                         </div>

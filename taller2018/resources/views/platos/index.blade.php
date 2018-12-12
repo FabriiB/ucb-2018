@@ -36,12 +36,11 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b></b>ID</th>
+                                            <th class="text-center"><b>ID</b></th>
                                             <th><b>NOMBRE</b></th>
                                             <th><b>DESCRIPCION</b></th>
                                             <th><b>TIPO</b></th>
                                             <th><b>ESTADO</b></th>
-                                            <th><b>USUARIO</b></th>
                                             <th class="text-right"><b>OPCIONES</b></th>
                                         </tr>
                                         </thead>
@@ -52,8 +51,11 @@
                                                 <td>{{$m->name}}</td>
                                                 <td>{{$m->description}}</td>
                                                 <td>{{$m->type}}</td>
-                                                <td>{{$m->status}}</td>
-                                                <td>{{$m->id_user}}</td>
+                                                @if($m->status == 'activo')
+                                                    <td><span class="badge badge-success">{{$m->status}}</span></td>
+                                                @else
+                                                    <td><span class="badge badge-danger">{{$m->status}}</span></td>
+                                                @endif
                                                 <td class="td-actions text-right">
                                                     <a rel="tooltip" class="btn btn-success" href="{{URL::action('DishIngredientsController@create',$m->id_dish)}}" type="submit">
                                                         <i class="material-icons">playlist_add</i>
@@ -61,12 +63,18 @@
                                                     <a rel="tooltip" class="btn btn-rose" href="{{URL::action('DishIngredientsController@index',$m->id_dish)}}" type="submit">
                                                         <i class="material-icons">format_list_numbered</i>
                                                     </a>
-                                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('PlatosController@edit',$m->id_dish)}}" type="submit">
                                                         <i class="material-icons">edit</i>
-                                                    </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger">
-                                                        <i class="material-icons">close</i>
-                                                    </button>
+                                                    </a>
+                                                    @if($m->status == 'activo')
+                                                        <a class="btn btn-danger" href="{{URL::action('DishIngredientsController@cambiar',$m->id_dish)}}" type="submit">
+                                                            <i class="material-icons">not_interested</i>
+                                                        </a>
+                                                    @else
+                                                        <a class="btn btn-primary" href="{{URL::action('DishIngredientsController@cambiar',$m->id_dish)}}" type="submit">
+                                                            <i class="material-icons">replay</i>
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             </tbody>

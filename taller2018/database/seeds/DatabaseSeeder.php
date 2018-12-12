@@ -30,29 +30,17 @@ class DatabaseSeeder extends Seeder
     {
         //need to seed specific roles
         DB::table('role')->insert([
-            'name' => 'Rodrigo',
+            'name' => 'Gestion',
         ]);
         DB::table('role')->insert([
-            'name' => 'Benji',
-        ]);
-        DB::table('role')->insert([
-            'name' => 'Cristal',
-        ]);
-        DB::table('role')->insert([
-            'name' => 'Fabricio',
+            'name' => 'Caja',
         ]);
         //need to seed specific permisions
         DB::table('permision')->insert([
-            'name' => 'Rodrigo',
+            'name' => 'Factura',
         ]);
         DB::table('permision')->insert([
-            'name' => 'Benji',
-        ]);
-        DB::table('permision')->insert([
-            'name' => 'Cristal',
-        ]);
-        DB::table('permision')->insert([
-            'name' => 'Fabricio',
+            'name' => 'Pedidos',
         ]);
         DB::table('permision')->insert([
             'name' => 'Admin',

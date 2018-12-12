@@ -63,9 +63,22 @@ Route::get('ListadoPedidos.filtro', [
     'as' => 'filtro',
     'uses' => 'ListaPedidosController@filtro'
 ]);
-Route::get('ListadoPedidos.update', [
-    'as' => 'update',
-    'uses' => 'ListaPedidosController@update'
+//Route::get('ListadoPedidos.update', [
+//    'as' => 'update',
+//    'uses' => 'ListaPedidosController@update'
+//]);
+//
+Route::post('ListadoPedidos', [
+    'as' => 'fecha',
+    'uses' => 'ListaPedidosController@filtroFecha'
+]);
+Route::post('ListadoPedidos', [
+    'as' => 'nombre',
+    'uses' => 'ListaPedidosController@filtroNombre'
+]);
+Route::post('ListadoPedidos', [
+    'as' => 'estado',
+    'uses' => 'ListaPedidosController@filtroEstado'
 ]);
 
 Route::resource('meassure', 'MeassureController');
@@ -99,6 +112,8 @@ Route::get('/qrcode', 'QrController@make');
 Route::resource('/dish_ingredients', 'DishIngredientsController');
 Route::get('dish_ingredients/{id}/create', 'DishIngredientsController@create');
 Route::get('dish_ingredients/{id}/index', 'DishIngredientsController@index');
+Route::get('dish_ingredients/{id}/edit', 'DishIngredientsController@edit');
+Route::get('dish_ingredients/{id}/cambiar', 'DishIngredientsController@cambiar');
 
 Route::resource('/menugeneral', 'MenuGeneralController');
 Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');

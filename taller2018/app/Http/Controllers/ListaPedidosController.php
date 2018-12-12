@@ -19,35 +19,16 @@ class ListaPedidosController extends Controller
      */
     public function index(Request $request)
     {
-        $fechainicial = null;
-        $fechafinal = null;
-            $orders = Order::
-                select('order.idOrder', 'order.orderDate','order.status','person.firs_name','person.last_name1','person.last_name2')
-                ->join('person', 'person.id_person', '=', 'order.id_person')
-                ->where('order.orderDate','>', '19800101')//$fechainicial
-                ->where('order.orderDate','<', '20500529')//$fechafinal
-                ->orderBy('idOrder')
-                ->paginate(5);
-            return view('ListadoPedidos.index',compact('orders'));
 
-        /*Filtro por estado
-         * $pedidos = DB::table('order')
+//          $orders = Order::name($request->get('firs_name'),$request->get('status'),$request->get('fechaini'),$request->get('fechafin'))
+       // $orders = Order::name($request->get('status'))
+        $orders = Order::name($request->get('fechaini'),$request->get('fechafin'))
                 ->select('order.idOrder', 'order.orderDate','order.status','person.firs_name','person.last_name1','person.last_name2')
                 ->join('person', 'person.id_person', '=', 'order.id_person')
-                ->where('order.status','=', 'En proceso')
                 ->orderBy('idOrder')
-                ->paginate(5);
-            return view('ListadoPedidos.index',["pedidos" => $pedidos],compact('pedidos'));
-         */
-            /*Filtro por cliente
-         * $pedidos = DB::table('order')
-                ->select('order.idOrder', 'order.orderDate','order.status','person.firs_name','person.last_name1','person.last_name2')
-                ->join('person', 'person.id_person', '=', 'order.id_person')
-                ->where('person.id_person','=', '50')
-                ->orderBy('idOrder')
-                ->paginate(5);
-            return view('ListadoPedidos.index',["pedidos" => $pedidos],compact('pedidos'));
-         */
+                ->paginate(10);
+//            dd($orders);
+            return view('ListadoPedidos.index',compact('orders'));
 
 
     }
@@ -93,8 +74,9 @@ class ListaPedidosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit($id)
     {
+        $order = Order::find($id);
         return view("ListadoPedidos.edit",compact( 'order'));
     }
 
@@ -106,23 +88,31 @@ class ListaPedidosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, Order $order)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'orderDate' => 'required',
-            'status'=> 'required',
-            'detalle'=> 'required',
-            'cancelDate'=> 'required',
-            'idPlan'=> 'required',
-            'id_person'=> 'required',
-            'id_menu_dish'=> 'required',
-            'transaction_id'=> 'required',
-            'transaction_date'=> 'required',
-            'transaction_host'=> 'required',
-            'transaction_user'=> 'required',
-        ]);
+//        $request->validate([
+//            'orderDate' => 'required',
+//            'status'=> 'required',
+//            'detalle'=> 'required',
+//            'cancelDate'=> 'required',
+//            'idPlan'=> 'required',
+//            'id_person'=> 'required',
+//            'id_menu_dish'=> 'required',
+//            'transaction_id'=> 'required',
+//            'transaction_date'=> 'required',
+//            'transaction_host'=> 'required',
+//            'transaction_user'=> 'required',
+//        ]);
+        $order = Order::find($id);
         $order -> update($request->all());
-        return redirect()->route('ListadoPedidos.index');
+        $orders = Order::
+        select('order.idOrder', 'order.orderDate','order.status','person.firs_name','person.last_name1','person.last_name2')
+            ->join('person', 'person.id_person', '=', 'order.id_person')
+            ->where('order.orderDate','>', '19800101')//$fechainicial
+            ->where('order.orderDate','<', '20500529')//$fechafinal
+            ->orderBy('idOrder')
+            ->paginate(5);
+        return view('ListadoPedidos.index',compact('orders'));
     }
 
     /**
@@ -156,5 +146,33 @@ class ListaPedidosController extends Controller
         return view('ListadoPedidos.filtro');
 
     }
+    public  function filtroFecha(Request $data){
+        $fechainicial = $data['dateini'];
+        $fechafinal = $data['datefin'];
+        dd($data['datefin']);
+        if ($data) {
+
+            $pedidos = DB::table('order')
+                ->select('order.idOrder', 'order.orderDate','order.status','person.firs_name','person.last_name1','person.last_name2')
+                ->join('person', 'person.id_person', '=', 'order.id_person')
+                ->where('order.orderDate','>', $fechainicial)//$fechainicial
+                ->where('order.orderDate','<', '20200529')//$fechafinal
+                ->orderBy('idOrder')
+                ->paginate(5);
+            //return view('ListadoPedidos.index',["pedidos" => $pedidos],compact('pedidos'));
+            return 'Hola';
+        }
+
+    }
+//    public  function filtroNombre(Request $data){
+//        return
+//
+//    }
+//
+//    public  function filtroEstado(Request $data){
+//        return
+//
+//    }
+
 
 }

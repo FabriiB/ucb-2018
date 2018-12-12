@@ -84,23 +84,15 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b></b>ID</th>
-                                            <th><b>NOMBRE</b></th>
-                                            <th><b>CANTIDAD</b></th>
-                                            <th><b>MEDIDA</b></th>
-                                            <th><b>TIPO</b></th>
-                                            <th><b>ESTADO</b></th>
+                                            <th><b>TITULO</b></th>
+                                            <th><b>DESCRIPCION</b></th>
                                         </tr>
                                         </thead>
-                                        @foreach ($ing as $m)
+                                        @foreach ($s as $s)
                                             <tbody>
                                             <tr>
-                                                <td class="text-center">{{$m->id_dish}}</td>
-                                                <td>{{$m->name}}</td>
-                                                <td>{{$m->quantity}}</td>
-                                                <td>{{$m->id_meassure}}</td>
-                                                <td>{{$m->type}}</td>
-                                                <td>{{$m->status}}</td>
+                                                <td>{{$s->title}}</td>
+                                                <td>{{$s->description}}</td>
                                             </tr>
                                             </tbody>
                                         @endforeach

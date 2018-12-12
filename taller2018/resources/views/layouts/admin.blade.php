@@ -89,7 +89,22 @@
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" href="/">
-                    Appetito 24 </a>
+                    Apetito 24 </a>
+                {{--<li class="dropdown nav-item">--}}
+                    {{--<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">--}}
+                        {{--<i class="material-icons">view_carousel</i> {{ Auth::user()->firs_name}}--}}
+                    {{--</a>--}}
+
+                    {{--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
+                        {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
+                           {{--onclick="event.preventDefault();--}}
+                                                     {{--document.getElementById('logout-form').submit();">--}}
+                            {{--{{ __('Logout') }}--}}
+                        {{--</a>--}}
+
+                        {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+                            {{--@csrf--}}
+                        {{--</form>--}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
                 </button>
@@ -144,48 +159,60 @@
         <div class="logo"><a href="" class="simple-text logo-mini">a</a><a href="" class="simple-text logo-normal">b</a></div>
         <div class="sidebar-wrapper">
             <div class="user">
+
                 <label> &emsp; USUARIO: Tania</label>
+
+                <div class="photo">
+                    <img src="{{asset('/assets/admin/img/faces/avatar.jpg')}}" />
+                </div>
+                <div class="user-info">
+                    <a data-toggle="collapse" href="#collapseExample" class="username">
+              <span>
+                Administrador
+              </span>
+                    </a>
+                </div>
             </div>
             <ul class="nav">
                 <li class="nav-item ">
                     <a class="nav-link" href="/meassure">
-                        <i class="material-icons">dashboard</i>
+                        <i class="fa fa-th  "></i>
                         <p> Gestion de medidas </p>
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/drink">
-                        <i class="material-icons">dashboard</i>
+                        <i class="fa fa-glass"></i>
                         <p> Gestion de Bebidas </p>
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/ingredients">
-                        <i class="material-icons">dashboard</i>
+                        <i class="fa fa-shopping-cart"></i>
                         <p> Gestion de ingredientes </p>
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/dish">
-                        <i class="material-icons">dashboard</i>
+                        <i class="fa fa-cutlery"></i>
                         <p> Gestion de Platos </p>
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/steps">
-                        <i class="material-icons">dashboard</i>
+                        <i class="fa fa-clock-o"></i>
                         <p> Gestion de preparacion </p>
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/menu">
-                        <i class="material-icons">dashboard</i>
+                        <i class="fa fa-th-large"></i>
                         <p> Gestion de Menu </p>
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/menugeneral">
-                        <i class="material-icons">dashboard</i>
+                        <i class="fa fa-list"></i>
                         <p> Menu (reporte) </p>
                     </a>
                 </li>

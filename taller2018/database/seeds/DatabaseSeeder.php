@@ -15,7 +15,7 @@ use App\Bill;
 use App\Role;
 use App\Permision;
 use App\Items;
-use Carbon\Carbon;
+
 use App\Order;
 
 
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //need to seed specific roles
-        /*DB::table('role')->insert([
+        DB::table('role')->insert([
             'name' => 'Gestion',
         ]);
         DB::table('role')->insert([
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('permision')->insert([
             'name' => 'Admin',
-        ]);*/
+        ]);
         //Seeding specific users
         DB::table('users')->insert([
             'firs_name' => 'Rodrigo',
@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
         //Seeding specific users_role
-       /* DB::table('users_role')->insert([
+        DB::table('users_role')->insert([
             'id_users' => 1,
             'id_role' => 1,
         ]);
@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('users_role')->insert([
             'id_users' => 4,
-            'id_role' => 4,
+            'id_role' => 2,
         ]);
         //Seeding specific role_permision
         DB::table('role_permision')->insert([
@@ -108,32 +108,15 @@ class DatabaseSeeder extends Seeder
             'id_permision' => 2,
             'id_role' => 2,
         ]);
+
         DB::table('role_permision')->insert([
             'id_permision' => 3,
-            'id_role' => 3,
-        ]);
-        DB::table('role_permision')->insert([
-            'id_permision' => 4,
-            'id_role' => 4,
-        ]);
-
-
-        DB::table('role_permision')->insert([
-            'id_permision' => 5,
             'id_role' => 1,
         ]);
         DB::table('role_permision')->insert([
-            'id_permision' => 5,
+            'id_permision' => 3,
             'id_role' => 2,
         ]);
-        DB::table('role_permision')->insert([
-            'id_permision' => 5,
-            'id_role' => 3,
-        ]);
-        DB::table('role_permision')->insert([
-            'id_permision' => 5,
-            'id_role' => 4,
-        ]);*/
 
 /*
         $this->call(
@@ -151,6 +134,11 @@ class DatabaseSeeder extends Seeder
         $this->call(
             PlanSeeder::class
         );
+
+        $this->call(
+            OrderSeeder::class
+        );
+
 
         $this->call(
             CompanySeeder::class
@@ -176,35 +164,9 @@ class DatabaseSeeder extends Seeder
         factory(Drink::class,2)->create();
         factory(DishDrink::class,2)->create();
         factory(MenuDish::class,2)->create();
-        //factory(Bill::class,10)->create();
+        factory(Bill::class,10)->create();
         factory(Order::class,30)->create();
-        $detalle_factura = [["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>100,"id_person"=>10,"id_bill"=>1],
-            ["description_bill"=>"producto 2","date_created"=>Carbon::now(),"monto"=>50,"id_person"=>10,"id_bill"=>1],
-            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>350,"id_person"=>10,"id_bill"=>1],
-            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>2],
-            ["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>2],
-            ["description_bill"=>"producto 2","date_created"=>Carbon::now(),"monto"=>250,"id_person"=>10,"id_bill"=>2],
-            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>3],
-            ["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>250,"id_person"=>10,"id_bill"=>3],
-            ["description_bill"=>"producto 2","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>3],
-            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>4],
-            ["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>250,"id_person"=>10,"id_bill"=>4],
-            ["description_bill"=>"producto 2","date_created"=>Carbon::now(),"monto"=>10,"id_person"=>10,"id_bill"=>5],
-            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>250,"id_person"=>10,"id_bill"=>5],
-            ["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>350,"id_person"=>10,"id_bill"=>5],
-            ["description_bill"=>"producto 2","date_created"=>Carbon::now(),"monto"=>50,"id_person"=>10,"id_bill"=>6],
-            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>6]];
-        $bill = [
-            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-06-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-06-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
-            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-07-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-07-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
-            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-08-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-08-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
-            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-09-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-09-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
-            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-10-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-10-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
-            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-11-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-11-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
 
-        ];
 
-        DB::table('bill')->insert($bill);
-        DB::table('detalle_fac')->insert($detalle_factura);
     }
 }

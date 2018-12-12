@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de las menu</h4>
+                                    <h4 class="card-title"><i class="fa fa-th-large"></i>Listado de los menus</h4>
                                 </div>
                             </div>
                             <div class="card-body">

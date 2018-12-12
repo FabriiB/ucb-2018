@@ -34,9 +34,6 @@ class Order extends Model
 //
 //    }
 
-
-
-
     public function scopeName($query,$fechaini,$fechafin){
 
 

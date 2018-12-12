@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de los ingredientes</h4>
+                                    <h4 class="card-title"><i class="fa fa-shopping-cart"></i>Listado de los ingredientes</h4>
                                 </div>
                             </div>
                             <div class="card-body">

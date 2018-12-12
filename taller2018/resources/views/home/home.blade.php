@@ -39,11 +39,37 @@
                                 </div>
                                 <div class="card-footer ">
                                     <div class="author">
-                                        <a href="#pablo">
+                                        <a href="#">
                                             <span>Detalles</span>
                                         </a>
                                     </div>
+                                    <div class="ml-auto">
+                                        <button type="button" class="btn-small btn-primary" data-toggle="modal" data-target="#modal">
+                                            Eliminar
+                                        </button>
+                                        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Seguro que desea eliminar este plato de su orden?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                        <form method="GET" action="{{ url('/order/destroy/'.$orden->id) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-primary">Si</button>
+                                                        </form>
 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -224,11 +250,6 @@
                     </div>
                 @endif
             </div>
-
         </div>
-
     </div>
-
-
-
 @endsection

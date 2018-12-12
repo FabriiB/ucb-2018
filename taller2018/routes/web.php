@@ -29,6 +29,7 @@ Route::group(['prefix'=>'mi_cuenta'],(function () {
 
 
 Route::post('order/create', 'OrderController@create');
+Route::get('order/destroy/{id}', 'OrderController@destroy');
 Route::post('person/create', 'PersonController@create');
 Route::get('person/createPlan/{data}', 'PersonController@createNext');
 //Route::resource('passports','PassportController');
@@ -87,14 +88,8 @@ Route::get('ingredientes/create', 'IngredientsController@create');
 Route::resource('meassure', 'MeassureController');
 Route::get('ingredientes/create', 'IngredientsController@create');
 
-Route::resource('ordera', 'OrderController');
-Route::resource('ordera/create', 'OrderController@createa');
-Route::get('ordera/create', 'OrderController@createa');
-Route::post('order/create', 'OrderController@create');
+//Route::post('order/create', 'OrderController@create');
 Route::resource('pedidos', 'OrderController');
-Route::resource('order', 'OrderController')->except([
-
-]);
 
 Route::resource('ingredients', 'IngredientsController');
 Route::get('ingredients/{id}/cambiar', 'IngredientsController@cambiar');

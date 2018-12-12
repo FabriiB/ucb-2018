@@ -31,11 +31,11 @@
                             <div class="card card-profile">
                                 <div class="card-header card-header-image">
                                     <a href="#pablo">
-                                        <img class="img" src="{{asset('img/platos/asparagus.jpg')}}">
+                                        <img class="card-img-top" src="/images/{{$orden->images}}" style="height:200px; ">
                                     </a>
                                 </div>
                                 <div class="card-body ">
-                                    <h4 class="card-title">{{ $orden->dish }}</h4>
+                                    <h4 class="card-title">{{ $orden->name }}</h4>
                                 </div>
                                 <div class="card-footer ">
                                     <div class="author">

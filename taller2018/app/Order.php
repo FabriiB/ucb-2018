@@ -25,31 +25,48 @@ class Order extends Model
     ];
 //---------------------------------ESTO SIRVE PARA LOS FILTROS EN ListadoPedidos
 
-
-    public function scopeName($query,$nombre,$status){
-        if (trim($nombre!="") || trim($status!="")){
-            $query -> where ("firs_name","ilike","%$nombre%")
-                    ->where ("status","like","%$status%");
-        }
-
-    }
-//    public function scopeName($query,$fechaini,$fechafin){
 //
-//
-//        if ($fechaini!=null && $fechafin!=null ){
-//            $query ->whereBetween("orderDate",array("$fechaini","$fechafin"));
-//
-//        }
-//        if ($fechaini==null && $fechafin!=null){
-//            $fechaini="0000-00-00";
-//            $query ->whereBetween("orderDate",array($fechaini,"$fechafin"));
-//        }
-//        if ($fechaini!=null && $fechafin==null){
-//            $fechafin="2018-12-21";
-//            $query ->whereBetween("orderDate",array("$fechaini","$fechafin"));
+//    public function scopeName($query,$nombre,$status){
+//        if (trim($nombre!="") || trim($status!="")){
+//            $query -> where ("firs_name","ilike","%$nombre%")
+//                    ->where ("status","like","%$status%");
 //        }
 //
 //    }
+    public function scopeName($query,$nombre,$status,$fechaini,$fechafin){
+
+
+        if ($fechaini!=null && $fechafin!=null ){
+            if (trim($nombre!="") || trim($status!="")){
+                $query  ->whereBetween("orderDate",array("$fechaini","$fechafin"))
+                        -> where ("firs_name","ilike","%$nombre%")
+                        -> where ("status","like","%$status%");
+
+            }
+
+
+        }
+        if ($fechaini==null && $fechafin!=null){
+            if (trim($nombre!="") || trim($status!="")){
+                $fechaCero = "1950-01-01";
+                $query  ->whereBetween("orderDate",array("$fechaCero","$fechafin"))
+                        -> where ("firs_name","ilike","%$nombre%")
+                        -> where ("status","like","%$status%");
+            }
+
+
+        }
+        if ($fechaini!=null && $fechafin==null){
+            if (trim($nombre!="") || trim($status!="")){
+                $fechaLimite="2050-12-31";
+                $query  ->whereBetween("orderDate",array("$fechaini","$fechaLimite"))
+                        -> where ("firs_name","ilike","%$nombre%")
+                        -> where ("status","like","%$status%");
+            }
+
+        }
+
+    }
 
 
 }

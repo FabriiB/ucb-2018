@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\DetalleFactura;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Requests\facturarequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Bill;
 use Carbon\Carbon;
 use NumeroALetras;
+use LaravelQRCode\Facades\QRCode;
 
 //include 'ControlCode.php';
 
 class facturacontroller extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request,$id)
     {
-        $id=1;
+        //$id=3;
         $name=DB::table('bill')
             ->join('detalle_fac','bill.id_bill','=','detalle_fac.id_bill')
             ->join('person', 'person.id_person','=','detalle_fac.id_person')
@@ -32,8 +35,12 @@ class facturacontroller extends Controller
             ->select( 'detalle_fac.description_bill as description_bill', 'detalle_fac.monto as monto')
             ->where('detalle_fac.id_bill','=',$id)
             ->get();
-
-
+        $total = DB::select("
+                                    select a.id_bill,sum(a.monto) as monto
+                                    from detalle_fac a
+                                    where a.id_bill = ".$id."
+                                    group by a.id_bill
+                                   ");
         $nit=DB::table('company')
             ->select('company.identifier as identifier')
             ->where('company.id_company','=',1)
@@ -41,13 +48,14 @@ class facturacontroller extends Controller
 
 
         $now = Carbon::now();
-        $numerito = 0;
-        $numerito=DB::table('bill')
-            ->select('total_bill')
-            ->where('id_bill','=',$id)
-            ->first()
-            ->total_bill;
 
+        $total = DB::select("
+                                    select sum(a.monto) as monto
+                                    from detalle_fac a
+                                    where a.id_bill = ".$id."
+                                    group by a.id_bill
+                                   ");
+        $total = $total[0]->monto;
         /*try{
             $filename="factura.txt";
             $handle = fopen($filename, "r");
@@ -86,8 +94,9 @@ class facturacontroller extends Controller
         /*$numerito1 = (int)$numerito;*/
         //$numerito = 6;
         //dd($numerito);
-        $letras = NumeroALetras::convertir($numerito,'bolivianos 00/100','centimos' );
-        return view('Facturas.index',["datos"=>$name, "now"=>$now, "numerito"=>$letras, "nit"=>$nit, "detalle"=>$detalle]);
+        $letras = NumeroALetras::convertir($total,'bolivianos 00/100','centimos' );
+
+        return view('Facturas.index',["datos"=>$name, "now"=>$now, "numerito"=>$letras, "nit"=>$nit, "detalle"=>$detalle,"total"=>$total]);
 
 
     }
@@ -96,8 +105,8 @@ class facturacontroller extends Controller
     public function create(Request $request){
 
     }
-    public function downloadPDF(Request $request){
-        $id=1;
+    public function downloadPDF(Request $request,$id){
+        //$id=2;
         $datos=DB::table('bill')
             ->join('detalle_fac','bill.id_bill','=','detalle_fac.id_bill')
             ->join('person', 'person.id_person','=','detalle_fac.id_person')
@@ -119,7 +128,13 @@ class facturacontroller extends Controller
             ->where('company.id_company','=',1)
             ->first();
 
-
+        $total = DB::select("
+                                    select sum(a.monto) as monto
+                                    from detalle_fac a
+                                    where a.id_bill = ".$id."
+                                    group by a.id_bill
+                                   ");
+        $total = $total[0]->monto;
         $now = Carbon::now();
         $numerito = 0;
         $numerito=DB::table('bill')
@@ -130,11 +145,29 @@ class facturacontroller extends Controller
 
 
 
-        $letras = NumeroALetras::convertir($numerito,'bolivianos 00/100','centimos' );
-        $pdf = PDF::loadView('Facturas.factura', compact(['datos','nit','now','letras','detalle']));
+        $letras = NumeroALetras::convertir($total,'bolivianos 00/100','centimos' );
+        $pdf = PDF::loadView('Facturas.factura', compact(['datos','nit','now','letras','detalle','total']));
         return $pdf->download('factura.pdf');
 
 
     }
-
+    public function show($id){
+        $facturas = DB::select("
+                                        select  d.id_bill,b.firs_name,b.last_name1,b.last_name2,d.issue_date, d.limit_issue_date, sum(c.monto) as monto
+                                        from users a, person b, detalle_fac c, bill d
+                                        where
+                                        a.id = b.id_user and
+                                        b.id_person = c.id_person and
+                                        d.id_bill = c.id_bill and
+                                        a.id = ".$id."
+                                        group by d.id_bill,b.firs_name,b.last_name1,b.last_name2,d.issue_date, d.limit_issue_date
+                            ");
+        return view('Facturas.lista_factura',['facturas'=>$facturas]);
+    }
+    public function getQR($id){
+        return QRCode::url($id)
+            ->setSize(3)
+            ->setMargin(2)
+            ->png();
+    }
 }

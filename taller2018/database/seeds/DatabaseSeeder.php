@@ -15,7 +15,7 @@ use App\Bill;
 use App\Role;
 use App\Permision;
 use App\Items;
-
+use Carbon\Carbon;
 use App\Order;
 
 
@@ -193,9 +193,35 @@ class DatabaseSeeder extends Seeder
         factory(Drink::class,2)->create();
         factory(DishDrink::class,2)->create();
         factory(MenuDish::class,2)->create();
-        factory(Bill::class,10)->create();
+        //factory(Bill::class,10)->create();
         factory(Order::class,30)->create();
+        $detalle_factura = [["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>100,"id_person"=>10,"id_bill"=>1],
+            ["description_bill"=>"producto 2","date_created"=>Carbon::now(),"monto"=>50,"id_person"=>10,"id_bill"=>1],
+            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>350,"id_person"=>10,"id_bill"=>1],
+            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>2],
+            ["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>2],
+            ["description_bill"=>"producto 2","date_created"=>Carbon::now(),"monto"=>250,"id_person"=>10,"id_bill"=>2],
+            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>3],
+            ["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>250,"id_person"=>10,"id_bill"=>3],
+            ["description_bill"=>"producto 2","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>3],
+            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>4],
+            ["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>250,"id_person"=>10,"id_bill"=>4],
+            ["description_bill"=>"producto 2","date_created"=>Carbon::now(),"monto"=>10,"id_person"=>10,"id_bill"=>5],
+            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>250,"id_person"=>10,"id_bill"=>5],
+            ["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>350,"id_person"=>10,"id_bill"=>5],
+            ["description_bill"=>"producto 2","date_created"=>Carbon::now(),"monto"=>50,"id_person"=>10,"id_bill"=>6],
+            ["description_bill"=>"producto 3","date_created"=>Carbon::now(),"monto"=>150,"id_person"=>10,"id_bill"=>6]];
+        $bill = [
+            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-06-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-06-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
+            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-07-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-07-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
+            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-08-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-08-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
+            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-09-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-09-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
+            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-10-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-10-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
+            [ "control_code"=>"B5-96-59-2A-27","issue_date" => "2018-11-10 00:00:00","number_bill"=>1,"total_bill"=>9,"identifier"=>123456789,"email"=>"vivienne74@example.com","limit_issue_date"=>date('Y-m-d', strtotime("2018-11-10 00:00:00". ' + 90 days')),"authorization_number"=>"798347","idCompany"=>1,"id_payment"=>5],
 
+        ];
 
+        DB::table('bill')->insert($bill);
+        DB::table('detalle_fac')->insert($detalle_factura);
     }
 }

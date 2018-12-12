@@ -72,7 +72,7 @@ require_once 'phpqrcode/qrlib.php';
                                                         Descripcion
                                                 </th>
                                                 <th>
-                                                        Total
+                                                        Importe
                                                 </th>
                                         </tr>
                                                 </thead>
@@ -90,8 +90,8 @@ require_once 'phpqrcode/qrlib.php';
                                                 @endforeach
                                                 <tfoot>
                                                 <tr>
-                                                        <td>TOTAL</td>
-                                                        <td>{{$datos->total_bill}}</td>
+                                                        <td><b>TOTAL Bs.</b></td>
+                                                        <td><b>{{$total}}</b></td>
 
                                                 </tr>
                                                 </tfoot>
@@ -118,7 +118,7 @@ require_once 'phpqrcode/qrlib.php';
 
                         </div>
                         <div class="col-md-10 ml-auto" >
-
+                                <img src=" https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{$nit->identifier."|".$datos->id_bill."|".$datos->authorization_number."|".date("d/m/Y", strtotime($datos->issue_date))."|".$total."|".$datos->control_code}}">
                         </div>
                         <table width="100%">
                                 <tr>
@@ -128,8 +128,7 @@ require_once 'phpqrcode/qrlib.php';
                                         <td>
                                                 <div class="row">
                                                         <div class="col-md-10 ml-auto" >
-                                                                <form method="get" action="/download-pdf">
-                                                                        <input type="hidden" name="{{$datos->id_bill}}" >
+                                                                <form method="get" action="/download-pdf/{{$datos->id_bill}}">
                                                                 <button type="submit" class="btn btn-info">Descargar PDF</button>
                                                                 </form>
                                                         </div>

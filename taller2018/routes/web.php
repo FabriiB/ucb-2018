@@ -102,7 +102,7 @@ Route::get('dish_ingredients/{id}/index', 'DishIngredientsController@index');
 
 Route::resource('/menugeneral', 'MenuGeneralController');
 Route::get('menugeneral/{id}/historial', 'MenuGeneralController@historial');
-Route::get('/download-pdf', 'facturacontroller@downloadPDF');
+Route::get('/download-pdf/{id}', 'facturacontroller@downloadPDF');
 
 
 //Security routing
@@ -113,8 +113,11 @@ Route::group(["middleware" => 'entryrodrigo'], function () {
 });
 
 Route::group(["middleware" => 'entrybenji'], function () {
+
     Route::get('/factura', 'HomeController@factura');
-    Route::get('factura', 'facturacontroller@index');
+    Route::get('lista_factura/{id}', 'facturacontroller@index')->name('factura.index');
+    Route::get('/factura/{id}','facturacontroller@show')->name('factura.show');
+    Route::get('/factura/{id}','facturacontroller@getQR')->name('factura.qr');
 });
 
 Route::group(["middleware" => 'entryfabrisio'], function () {
@@ -137,5 +140,13 @@ Route::get('/PassAssign', function () {
 
 Route::post('/pass','PassController@AddNewRole');
 Route::post('/PassAssign','PassController@AssignRole');
+
+Route::get('/qr/{id}',function($id){
+
+    return QRCode::url("1"."|8435113|1|12/12/2018|20.0|339201600001329".$id)
+        ->setSize(3)
+        ->setMargin(2)
+        ->png();
+})->name('qr');
 
 

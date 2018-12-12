@@ -22,7 +22,7 @@ require_once 'phpqrcode/qrlib.php';
                                 <table width="100%">
                                         <tr>
                                                 <td width="33%"><h3 align="left"><b>APPETITO 24</b></h3>
-                                                        <p align="left">Zona ..., Calle ..., #100</p>
+                                                        <p align="left">Zona Miraflores, Calle Argentina, #2050</p>
                                                         <p align="left">La Paz - Bolivia</p>
                                                 </td>
                                                 <td width="33%"><h1 align="center"><b>Factura</b></h1></td>

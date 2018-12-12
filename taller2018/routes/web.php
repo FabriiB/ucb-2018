@@ -132,7 +132,6 @@ Route::group(["middleware" => 'entrybenji'], function () {
     Route::get('/factura', 'HomeController@factura');
     Route::get('lista_factura/{id}', 'facturacontroller@index')->name('factura.index');
     Route::get('/factura/{id}','facturacontroller@show')->name('factura.show');
-    Route::get('/factura/{id}','facturacontroller@getQR')->name('factura.qr');
 });
 
 Route::group(["middleware" => 'entryfabrisio'], function () {

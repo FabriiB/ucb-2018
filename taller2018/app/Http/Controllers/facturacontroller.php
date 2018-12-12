@@ -164,10 +164,4 @@ class facturacontroller extends Controller
                             ");
         return view('Facturas.lista_factura',['facturas'=>$facturas]);
     }
-    public function getQR($id){
-        return QRCode::url($id)
-            ->setSize(3)
-            ->setMargin(2)
-            ->png();
-    }
 }

@@ -33,37 +33,34 @@ class Order extends Model
 //        }
 //
 //    }
-    public function scopeName($query,$nombre,$status,$fechaini,$fechafin){
+    public function scopeName($query,$nombre,$status,$fechaini,$fechafin)
+    {
+        if (trim($nombre!="") || trim($status!="")){
 
+            if ($fechaini != null && $fechafin != null) {
+                $query->whereBetween("orderDate", array("$fechaini", "$fechafin"))
+                    ->where("firs_name", "ilike", "%$nombre%")
+                    ->where("status", "like", "%$status%");
 
-        if ($fechaini!=null && $fechafin!=null ){
-            if (trim($nombre!="") || trim($status!="")){
-                $query  ->whereBetween("orderDate",array("$fechaini","$fechafin"))
-                        -> where ("firs_name","ilike","%$nombre%")
-                        -> where ("status","like","%$status%");
 
             }
-
-
-        }
-        if ($fechaini==null && $fechafin!=null){
-            if (trim($nombre!="") || trim($status!="")){
+            if ($fechaini == null && $fechafin != null) {
                 $fechaCero = "1950-01-01";
-                $query  ->whereBetween("orderDate",array("$fechaCero","$fechafin"))
-                        -> where ("firs_name","ilike","%$nombre%")
-                        -> where ("status","like","%$status%");
+                $query->whereBetween("orderDate", array("$fechaCero", "$fechafin"))
+                    ->where("firs_name", "ilike", "%$nombre%")
+                    ->where("status", "like", "%$status%");
+
+
             }
+            if ($fechaini != null && $fechafin == null) {
+                $fechaLimite = "2050-12-31";
+                $query->whereBetween("orderDate", array("$fechaini", "$fechaLimite"))
+                    ->where("firs_name", "ilike", "%$nombre%")
+                    ->where("status", "like", "%$status%");
 
-
-        }
-        if ($fechaini!=null && $fechafin==null){
-            if (trim($nombre!="") || trim($status!="")){
-                $fechaLimite="2050-12-31";
-                $query  ->whereBetween("orderDate",array("$fechaini","$fechaLimite"))
-                        -> where ("firs_name","ilike","%$nombre%")
-                        -> where ("status","like","%$status%");
             }
-
+            $query      -> where ("firs_name","ilike","%$nombre%")
+                        ->where ("status","like","%$status%");
         }
 
     }

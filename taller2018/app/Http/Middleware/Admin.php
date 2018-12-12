@@ -17,7 +17,7 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public static function handle()
+    public static function check()
 
     {
         $Cop = False;
@@ -41,11 +41,16 @@ class Admin
 
     }
 
+    public static function handle($request, Closure $next)
+
+    {
+        $entry = new Entries();
+
+        $entry::handle($request, $next, 3);
+
+        return $next($request);
+
+    }
+
 
 }
-/*
-DB::table('users')
-    ->select('users.id','users.name','profiles.photo')
-    ->join('profiles','profiles.id','=','users.id')
-    ->where(['something' => 'something', 'otherThing' => 'otherThing'])
-    ->get();*/

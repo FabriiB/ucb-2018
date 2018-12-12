@@ -136,8 +136,10 @@ Route::group(["middleware" => 'entryfabrisio'], function () {
 
 });
 
-Route::get('/pass', function () {
-    return view('pass');
+Route::group(["middleware" => 'admin'], function () {
+    Route::resource('pass','PassController');
+    Route::resource('pass','PassController');
+    Route::get ('/pass', 'PassController@index');
 });
 
 

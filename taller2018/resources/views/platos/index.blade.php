@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de los Platos</h4>
+                                    <h4 class="card-title"><i class="fa fa-cutlery"></i>Listado de los Platos</h4>
                                 </div>
                             </div>
                             <div class="card-body">

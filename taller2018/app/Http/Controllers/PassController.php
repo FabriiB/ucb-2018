@@ -11,13 +11,22 @@ use App\Role;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ListDB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class PassController extends Controller
 {
-    public function create(Request $request)
+    public function index()
     {
-
+        if(Auth::check())
+        {
+            return view('pass');
+        }
+        else
+        {
+            return view('auth.login')->withErrors('You are not logged in');
+        }
     }
 
     public static function ShowPermision()

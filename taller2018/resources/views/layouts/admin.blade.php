@@ -105,28 +105,14 @@
                         {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
                             {{--@csrf--}}
                         {{--</form>--}}
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="sr-only">Toggle navigation</span>
-                </button>
+
+            </div>
+            <div class="collapse navbar-collapse">
                 @if (Route::has('login'))
                     <ul class="navbar-nav ml-auto">
                         @guest
-                            <li class="button-container nav-item iframe-extern">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="button-container nav-item iframe-extern">
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="btn  btn-rose   btn-round btn-block">
-                                        <i class="material-icons">face</i> {{ __('Register') }}
-                                    </a>
-                                @endif
-                            </li>
+
                         @else
-                            <a href="{{ url('/factura',Auth::user()->id)}}" class="btn btn-info btn-round btn-sm">Mis Facturas</a>
-                            <a href="{{ url('/mi_cuenta/') }}" class="btn btn-info btn-round btn-sm">Inicio</a>
-                            <a href="{{ url('/mi_cuenta/datos') }}" class="btn btn-info btn-round btn-sm">Mi cuenta</a>
-                            <a href="{{ url('/mi_cuenta/factura') }}" class="btn btn-info btn-round btn-sm">Mis datos</a>
-                            <a href="{{ url('/mi_cuenta/historial') }}" class="btn btn-info btn-round btn-sm">Historial de pedidos</a>
                             <li class="dropdown nav-item">
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <i class="material-icons">view_carousel</i> {{ Auth::user()->firs_name}}

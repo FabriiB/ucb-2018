@@ -18,7 +18,7 @@ class EntryFabrisio
     {
         $entry = new Entries();
 
-        $entry::handle($request, $next, 4);
+        $entry::handle($request, $next, 2);
 
         return $next($request);
     }

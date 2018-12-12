@@ -110,8 +110,9 @@
 
                         <?php
                             $id = Auth::id();
+                            /*
                             echo ("loged user id is ");
-                            echo $id;
+                            echo $id;*/
                         $validateuser = new \App\Http\Middleware\Admin();
 
                         $Cop = $validateuser::handle();
@@ -121,14 +122,9 @@
                         {
                         ?>
                         <div class=”panel-body”>
-                            <a href="{{ url('/pedidos1') }}" target="_blank" class="btn  btn-rose   btn-round btn-block"”>Admin</a>
-
+                            <a href="{{ url('/pass') }}" target="_blank" class="btn  btn-rose   btn-round btn-block"”>Add Roles</a>
                         </div>
                         <?php
-                        }
-                        else
-                        {
-                            echo '<div class=”panel-heading”>Normal User</div>';
                         }
                         ?>
                     </div>

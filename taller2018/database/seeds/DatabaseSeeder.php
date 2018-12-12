@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('users_role')->insert([
             'id_users' => 4,
-            'id_role' => 4,
+            'id_role' => 2,
         ]);
         //Seeding specific role_permision
         DB::table('role_permision')->insert([
@@ -108,31 +108,14 @@ class DatabaseSeeder extends Seeder
             'id_permision' => 2,
             'id_role' => 2,
         ]);
+
         DB::table('role_permision')->insert([
             'id_permision' => 3,
-            'id_role' => 3,
-        ]);
-        DB::table('role_permision')->insert([
-            'id_permision' => 4,
-            'id_role' => 4,
-        ]);
-
-
-        DB::table('role_permision')->insert([
-            'id_permision' => 5,
             'id_role' => 1,
         ]);
         DB::table('role_permision')->insert([
-            'id_permision' => 5,
+            'id_permision' => 3,
             'id_role' => 2,
-        ]);
-        DB::table('role_permision')->insert([
-            'id_permision' => 5,
-            'id_role' => 3,
-        ]);
-        DB::table('role_permision')->insert([
-            'id_permision' => 5,
-            'id_role' => 4,
         ]);
 
 /*

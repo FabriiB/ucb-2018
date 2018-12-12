@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //need to seed specific roles
-        DB::table('role')->insert([
+        /*DB::table('role')->insert([
             'name' => 'Gestion',
         ]);
         DB::table('role')->insert([
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('permision')->insert([
             'name' => 'Admin',
-        ]);
+        ]);*/
         //Seeding specific users
         DB::table('users')->insert([
             'firs_name' => 'Rodrigo',
@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
         //Seeding specific users_role
-        DB::table('users_role')->insert([
+       /* DB::table('users_role')->insert([
             'id_users' => 1,
             'id_role' => 1,
         ]);
@@ -133,7 +133,7 @@ class DatabaseSeeder extends Seeder
         DB::table('role_permision')->insert([
             'id_permision' => 5,
             'id_role' => 4,
-        ]);
+        ]);*/
 
 /*
         $this->call(

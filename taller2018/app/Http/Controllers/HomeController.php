@@ -110,7 +110,7 @@ class HomeController extends Controller
                 ->join('dish', 'menu_dish.id_dish','=','dish.id_dish')
                 ->where('date_start', '<=', now())
                 ->where('date_end', '>=',now())
-                ->select('dish.name as dish','menu_dish.id_dish as id')
+                ->select('dish.name as dish','menu_dish.id_menu_dish as id')
                 ->get();
 
         }

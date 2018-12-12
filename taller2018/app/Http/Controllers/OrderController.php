@@ -261,9 +261,13 @@ class OrderController extends Controller
     public function destroy($idOrder)
 
     {
-
+        $orderdelivery = DB::table('order_delivery')
+            ->where('idOrder','=',$idOrder)
+            ->delete();
         $order = \App\Order::find($idOrder);
         $order->delete();
+
+
         return redirect('mi_cuenta');
 
     }

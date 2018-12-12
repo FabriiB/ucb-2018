@@ -47,6 +47,9 @@
                                         <button type="button" class="btn-small btn-primary" data-toggle="modal" data-target="#modal">
                                             Eliminar
                                         </button>
+                                        <button type="button" class="btn-small btn-primary" data-toggle="modal" data-target="#modal">
+                                            Editar
+                                        </button>
                                         <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -105,7 +108,7 @@
 
                                             <input id="id_plan"  class="form-control{{ $errors->has('id_plan') ? ' is-invalid' : '' }}" name="id_plan" value="{{$plan->plan}}" hidden>
                                             <input id="id_person"  class="form-control{{ $errors->has('id_person') ? ' is-invalid' : '' }}" name="id_person" value="{{$person}}" hidden>
-                                            <input id="id_menu_dish"  class="form-control{{ $errors->has('id_menu_dish') ? ' is-invalid' : '' }}" name="id_menu_dish" value="{{$pedid->id}}" hidden required>
+                                            <input id="id_menu_dish"  class="form-control{{ $errors->has('id_menu_dish') ? ' is-invalid' : '' }}" name="id_menu_dish" value="{{$pedid->id}}" hidden>
 
 
                                             <div class="col-md-6 mr-auto ml-auto">

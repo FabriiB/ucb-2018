@@ -97,6 +97,11 @@ class HomeController extends Controller
                     ->name;
             }
 
+            $fotos = DB::table('dish')
+                ->join('menu_dish','menu_dish.id_dish','=','dish.id_dish')
+                ->join('order','order.id_menu_dish','=','menu_dish.id_menu_dish')
+                ->get();
+
             $plan = DB::table('user_plan')
                 ->join('person', 'user_plan.id_person','=','person.id_person')
                 ->join('plan', 'user_plan.id_plan','=','plan.id_plan')

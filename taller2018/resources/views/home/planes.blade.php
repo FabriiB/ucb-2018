@@ -32,7 +32,7 @@
                         <p>Puedes realizar tu pedido hasta el sabado a las 23:59h. y lo recibirás lunes. Si realizas tu pedido a partir del lunes, nuestro prepara a lo largo del siguiente pedido.</p>
                     </div>
                     <div class="col-md-4 ml-2 mr-auto">
-                        @if($person === null)
+                        @if($person !== null)
                             <div class="row">
                                 <div class="col-lg-12 text-center">
                                     <h3 class="title"> Datos para la factura </h3>
@@ -115,8 +115,6 @@
                                         </div>
                                     </div>
 
-
-
                                     <div class="col-lg-10">
                                         <div class="form-group">
                                             <select id="country" class="selectpicker" data-style="select-with-transition" title="Pais" name="country" data-size="7">
@@ -134,9 +132,6 @@
                                             </select>
                                         </div>
                                     </div>
-
-
-
 
                                     <div class="col-lg-10">
                                         <div class="form-group">

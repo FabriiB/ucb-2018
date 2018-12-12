@@ -115,7 +115,9 @@
                             echo $id;*/
                         $validateuser = new \App\Http\Middleware\Admin();
 
-                        $Cop = $validateuser::handle();
+                        $next = '/pass';
+
+                        $Cop = $validateuser::check();
 
 
                         if($Cop == True)

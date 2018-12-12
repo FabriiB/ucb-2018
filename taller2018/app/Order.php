@@ -23,34 +23,33 @@ class Order extends Model
         'id_person',
         'id_menu_dish',
     ];
-
-//    public function scopeName($query,$nombre,$status,$fechaini,$fechafin){
-//        if (trim($nombre!="") || trim($status!="")){
-//            $query -> where ("firs_name","ilike","%$nombre%")
-//                    ->where ("status","like","%$status%")
-//                    ->whereBetween("orderDate",array("$fechaini","$fechafin"));
-//
-//        }
-//
-//    }
-
-    public function scopeName($query,$fechaini,$fechafin){
+//---------------------------------ESTO SIRVE PARA LOS FILTROS EN ListadoPedidos
 
 
-        if ($fechaini!=null && $fechafin!=null ){
-            $query ->whereBetween("orderDate",array("$fechaini","$fechafin"));
-
-        }
-        if ($fechaini==null && $fechafin!=null){
-            $fechaini="0000-00-00";
-            $query ->whereBetween("orderDate",array($fechaini,"$fechafin"));
-        }
-        if ($fechaini!=null && $fechafin==null){
-            $fechafin="2018-12-21";
-            $query ->whereBetween("orderDate",array("$fechaini","$fechafin"));
+    public function scopeName($query,$nombre,$status){
+        if (trim($nombre!="") || trim($status!="")){
+            $query -> where ("firs_name","ilike","%$nombre%")
+                    ->where ("status","like","%$status%");
         }
 
     }
+//    public function scopeName($query,$fechaini,$fechafin){
+//
+//
+//        if ($fechaini!=null && $fechafin!=null ){
+//            $query ->whereBetween("orderDate",array("$fechaini","$fechafin"));
+//
+//        }
+//        if ($fechaini==null && $fechafin!=null){
+//            $fechaini="0000-00-00";
+//            $query ->whereBetween("orderDate",array($fechaini,"$fechafin"));
+//        }
+//        if ($fechaini!=null && $fechafin==null){
+//            $fechafin="2018-12-21";
+//            $query ->whereBetween("orderDate",array("$fechaini","$fechafin"));
+//        }
+//
+//    }
 
 
 }

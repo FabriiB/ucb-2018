@@ -29,14 +29,14 @@
                                                     <label class="col-sm-2 col-form-label">ESTADO DEL PEDIDO:</label>
                                                     <div class="card-body ">
                                                         <div class="form-group">
-                                                            <select name="status" form="estadoform" required>
-                                                                <option value="proceso">En proceso</option>
-                                                                <option value="cancelado">Cancelado</option>
-                                                                <option value="enviado">Enviado</option>
-                                                            </select>
-                                                            <!--input type="text" class="form-control" name="status" readonly="readonly" value="{{$order->status}}"-->
+                                                            {{--<select name="status" form="estadoform" required value="{{$order->status}}">--}}
+                                                                {{--<option value="proceso">En proceso</option>--}}
+                                                                {{--<option value="cancelado">Cancelado</option>--}}
+                                                                {{--<option value="enviado">Enviado</option>--}}
+                                                            {{--</select>--}}
+                                                            <input type="text" class="form-control" name="status"  value="{{$order->status}} " required>
                                                         </div>
-                                                    </div>
+                                                    </div>s
                                                 </div>
                                                 <div class="row">
                                                     <label class="col-sm-2 col-form-label">DETALLE:</label>

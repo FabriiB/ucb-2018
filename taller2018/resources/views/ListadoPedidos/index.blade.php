@@ -12,11 +12,13 @@
                                 <div class="card-text">
                                     <h4 class="card-title"><i class="fa fa-calendar"></i> Listado de pedidos</h4>
                                 </div>
+                                <hr>
+                                <h4 style="color:#000000">Filtros:</h4>
                                 <form action="{{route('ListadoPedidos.index')}}" method="GET">
-                                    <input type="text" name="firs_name">
-                                    <input name="fechaini" id="fechaini" type="date" min="1990-01-01" max="2050-12-31" value="1990-01-01">
-                                    <input name="fechafin" id="fechafin" type="date" min="1990-01-01" max="2050-12-31" value="2050-12-31">
-                                    <select name="status" id="status">
+                                    <a style="color:#000000">Nombre:</a><input type="text" name="firs_name"/>
+                                    <a style="color:#000000">Fecha inicial:</a><input name="fechaini" id="fechaini" type="date" min="1990-01-01" max="2050-12-31" />
+                                    <a style="color:#000000">Fecha final:</a><input name="fechafin" id="fechafin" type="date" min="1990-01-01" max="2050-12-31" />
+                                    <a style="color:#000000">Estado:</a><select name="status" id="status">
                                         <option value=""></option>
                                         <option value="En proceso">En proceso</option>
                                         <option value="Cancelado">Cancelado</option>

@@ -20,14 +20,13 @@ class ListaPedidosController extends Controller
     public function index(Request $request)
     {
 
-//          $orders = Order::name($request->get('firs_name'),$request->get('status'),$request->get('fechaini'),$request->get('fechafin'))
-       // $orders = Order::name($request->get('status'))
-        $orders = Order::name($request->get('fechaini'),$request->get('fechafin'))
+          $orders = Order::name($request->get('firs_name'),$request->get('status'),$request->get('fechaini'),$request->get('fechafin'))
+       // $orders = Order::name($request->get('firs_name'),$request->get('status'))
+//        $orders = Order::name($request->get('fechaini'),$request->get('fechafin'))
                 ->select('order.idOrder', 'order.orderDate','order.status','person.firs_name','person.last_name1','person.last_name2')
                 ->join('person', 'person.id_person', '=', 'order.id_person')
                 ->orderBy('idOrder')
                 ->paginate(10);
-//            dd($orders);
             return view('ListadoPedidos.index',compact('orders'));
 
 

@@ -84,22 +84,9 @@ class HomeController extends Controller
 
             $ordenes = DB::table('order')
                 ->join('menu_dish', 'order.id_menu_dish','=','menu_dish.id_menu_dish')
+                ->join('dish','dish.id_dish','=','menu_dish.id_dish')
                 ->where('order.id_person','=',$person)
-                ->select('menu_dish.id_dish as dish','order.idOrder as id')
-                ->get();
-
-            foreach ($ordenes as $orden)
-            {
-                $orden->dish = DB::table('dish')
-                    ->where('id_dish','=',$orden->dish)
-                    ->select('name')
-                    ->first()
-                    ->name;
-            }
-
-            $fotos = DB::table('dish')
-                ->join('menu_dish','menu_dish.id_dish','=','dish.id_dish')
-                ->join('order','order.id_menu_dish','=','menu_dish.id_menu_dish')
+                ->select('menu_dish.id_dish as dish','order.idOrder as id','dish.images as images','dish.name as name')
                 ->get();
 
             $plan = DB::table('user_plan')

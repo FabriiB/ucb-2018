@@ -102,7 +102,7 @@ class facturacontroller extends Controller
     }
 
 
-    public function create(Request $request){
+    public function create($payment){
 
     }
     public function downloadPDF(Request $request,$id){

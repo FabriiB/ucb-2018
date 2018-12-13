@@ -41,7 +41,12 @@
                         </li>
                         <li class="nav-item">
                             <a href="#fabrii" class="nav-link">
-                            Como funciona
+                            Cómo funciona
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#fabrii" class="nav-link">
+                                Acerca de Nosotros
                             </a>
                         </li>
                     </ul>
@@ -49,12 +54,12 @@
                         <ul class="navbar-nav ml-auto">
                         @guest
                             <li class="button-container nav-item iframe-extern">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Ingreso') }}</a>
                             </li>
                             <li class="button-container nav-item iframe-extern">
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}" class="btn  btn-rose   btn-round btn-block">
-                                        <i class="material-icons">face</i> {{ __('Register') }}
+                                        <i class="material-icons">face</i> {{ __('Regístrate!') }}
                                     </a>
                                 @endif
                             </li>
@@ -72,8 +77,8 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-arrow-left"></i>
+                                        {{ __(' Salir') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -121,9 +121,7 @@ Route::get('/download-pdf/{id}', 'facturacontroller@downloadPDF');
 
 //Security routing
 Route::group(["middleware" => 'entryrodrigo'], function () {
-    Route::resource('pedidos1','ListaPedidosController');
-    Route::resource('pedidos','ListaPedidosController');
-    Route::post ('pedidos/filtro','ListaPedidosController@filtro');
+    Route::resource('ListadoPedidos','ListaPedidosController');
 });
 
 Route::group(["middleware" => 'entrybenji'], function () {

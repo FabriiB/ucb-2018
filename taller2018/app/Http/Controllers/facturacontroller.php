@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DetalleFactura;
+use App\Person;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Requests\facturarequest;
@@ -102,9 +103,8 @@ class facturacontroller extends Controller
     }
 
 
-    public function create($payment){
+    public function create($payment,$person){
 
-        $id = auth::id();
 
         $b = new Bill;
         $b->control_code = "B5-96-59-2A-27";
@@ -114,7 +114,7 @@ class facturacontroller extends Controller
         $b->identifier = 1;
         $b->email = "email@gmail.com";
         $b->limit_issue_date = now()->addDays(90);
-        $b->authorizacion_number = 798347827;
+        $b->authorization_number = 798347827;
         $b->idCompany = 1;
         $b->id_payment = $payment;
         $b->save();
@@ -123,23 +123,33 @@ class facturacontroller extends Controller
 
         $a = DB::table('payment')
             ->select('idPlan')
-            ->where('idPayment', '=', $payment);
+            ->where('idPayment', '=', $payment)
+            ->first()
+            ->idPlan;
 
-        $bo = DB::table('Plan')
+        $bo = DB::table('plan')
             ->select('type', 'price')
-            ->where('id_plan', '=', $a);
+            ->where('id_plan', '=', $a)
+            ->get();
 
-        $c = new DetalleFactura;
-        $c->description_bill = "Paquete ".$bo->type;
-        $c->date_created = Carbon::now();
-        $c->monto = $bo->price;
-        $c->id_person = $id;
+        /*$c = new DetalleFactura;
+        $c->description_bill = $bo[0]->type;
+        $c->date_created = now();
+        $c->monto = $bo[0]->price;
+        $c->id_person = $person;
         $c->id_bill = $idb;
-        $c->save();
+        $c->save();*/
 
+        DetalleFactura::create([
+            'description_bill' => $bo[0]->type,
+            'date_created'=> now(),
+            'monto'=> $bo[0]->price,
+            'id_person'  => $person,
+            'id_bill'  => $idb,
+        ]);
 
         $total=DB::table('detalle_fac')
-            ->where('id_bill', '=', $id)
+            ->where('id_bill', '=', $person)
             ->sum('monto');
 
         /*

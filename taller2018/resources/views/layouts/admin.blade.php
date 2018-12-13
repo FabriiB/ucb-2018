@@ -89,7 +89,7 @@
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" href="/">
-                    Apetito 24 </a>
+                    Appetito 24 </a>
                 {{--<li class="dropdown nav-item">--}}
                     {{--<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">--}}
                         {{--<i class="material-icons">view_carousel</i> {{ Auth::user()->firs_name}}--}}

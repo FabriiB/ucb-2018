@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\facturacontroller;
 use App\Person;
 use App\UserPlan;
 use App\Payment;
@@ -58,7 +58,7 @@ class PersonController extends Controller
                     'id_user.unique'    => 'El usuario ya tiene datos de factura',
                 ]);
 
-            Person::create([
+            $holi = Person::create([
                 'firs_name' => $data['firs_name'],
                 'last_name1'=> $data['last_name1'],
                 'last_name2'=> $data['last_name2'],
@@ -73,7 +73,26 @@ class PersonController extends Controller
                 'dishes'    => '30',
                 'id_user'   => $data['id_user'],
             ]);
+
+            $payment = Payment::create([
+                'idUser'    => $holi->id_person,
+                'idPlan'    => $data['id_plan'],
+                'date'      => now(),
+                'status'    => 'activo',
+                'platform'  => $data['platform'],
+            ]);
+
+            UserPlan::create([
+                'id_person'         => $holi->id_person,
+                'id_plan'           => $data['id_plan'],
+                'start_date_plan'   => now(),
+                'ending_date_plan'  => now()->addMonth(1),
+            ]);
+
+            $bill = new facturacontroller();
+            $bill->create($payment->idPayment);
         }
+
 
         /*$request = request();
         $profileImage = $request->file('photo');
@@ -83,28 +102,8 @@ class PersonController extends Controller
         $profile_image_url =$profileImageSaveAsName;
         $success = $profileImage->move($upload_path, $profileImageSaveAsName);*/
 
-        return redirect()->action(
-            'PersonController@createNext', [$data['id_plan']]
-        );
-    }
-
-    protected function createNext($data)
-    {
-        $id = Auth::id();
-        $person = DB::table('person')
-            ->select('id_person')
-            ->where('id_user','=',$id)
-            ->first()
-            ->id_person;
-        UserPlan::create([
-            'id_person'         => $person,
-            'id_plan'           => $data,
-            'start_date_plan'   => now(),
-            'ending_date_plan'  => now()->addMonth(1),
-
-        ]);
-
-
         return redirect()->route('mi_cuenta');
     }
+
+
 }

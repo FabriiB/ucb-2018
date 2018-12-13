@@ -83,6 +83,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
+                                                        {{ $orden->id }}
                                                         <div class="form-group">
                                                             <select id="country" class="selectpicker" data-style="select-with-transition" title="Plato" name="country" data-size="7">
                                                                 <option disabled>Elija un pais</option>

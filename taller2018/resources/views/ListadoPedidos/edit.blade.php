@@ -29,12 +29,24 @@
                                                     <label class="col-sm-2 col-form-label">ESTADO DEL PEDIDO:</label>
                                                     <div class="card-body ">
                                                         <div class="form-group">
-                                                            {{--<select name="status" form="estadoform" required value="{{$order->status}}">--}}
-                                                                {{--<option value="proceso">En proceso</option>--}}
-                                                                {{--<option value="cancelado">Cancelado</option>--}}
-                                                                {{--<option value="enviado">Enviado</option>--}}
-                                                            {{--</select>--}}
-                                                            <input type="text" class="form-control" name="status"  value="{{$order->status}} " required>
+                                                            <select name="status" id="status" type="text">
+                                                                @if($order->status == 'En proceso')
+                                                                    <option value="Proceso" selected>En proceso</option>
+                                                                    <option value="Cancelado">Cancelado</option>
+                                                                    <option value="Enviado">Enviado</option>
+                                                                @else
+                                                                    @if($order->status == 'Cancelado')
+                                                                        <option value="Proceso">En proceso</option>
+                                                                        <option value="Cancelado" selected>Cancelado</option>
+                                                                        <option value="Enviado">Enviado</option>
+                                                                    @else
+                                                                        <option value="Proceso">En proceso</option>
+                                                                        <option value="Cancelado">Cancelado</option>
+                                                                        <option value="Enviado" selected>Enviado</option>
+                                                                    @endif
+                                                                @endif
+                                                            </select>
+                                                            {{--<input type="hidden" class="form-control" name="status"  value="{{$order->status}} " required>--}}
                                                         </div>
                                                     </div>s
                                                 </div>
@@ -42,7 +54,7 @@
                                                     <label class="col-sm-2 col-form-label">DETALLE:</label>
                                                     <div class="card-body ">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" name="detalle" value="{{$order->detalle}}" required>
+                                                            <input type="text" class="form-control" name="detalle" placeholder="Detalle de la orden " value="{{$order->detalle}}" required>
                                                         </div>
                                                     </div>
                                                 </div>

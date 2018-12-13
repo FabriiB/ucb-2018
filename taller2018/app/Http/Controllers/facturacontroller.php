@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DetalleFactura;
+use App\Person;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Requests\facturarequest;
@@ -102,9 +103,68 @@ class facturacontroller extends Controller
     }
 
 
-    public function create(Request $request){
+    public function create($payment,$person){
+
+
+        $b = new Bill;
+        $b->control_code = "B5-96-59-2A-27";
+        $b->issue_date = Carbon::now();
+        $b->number_bill = 123400001;
+        $b->total_bill = 0;
+        $b->identifier = 1;
+        $b->email = "email@gmail.com";
+        $b->limit_issue_date = now()->addDays(90);
+        $b->authorization_number = 798347827;
+        $b->idCompany = 1;
+        $b->id_payment = $payment;
+        $b->save();
+
+        $idb = $b->id_bill;
+
+        $a = DB::table('payment')
+            ->select('idPlan')
+            ->where('idPayment', '=', $payment)
+            ->first()
+            ->idPlan;
+
+        $bo = DB::table('plan')
+            ->select('type', 'price')
+            ->where('id_plan', '=', $a)
+            ->get();
+
+        /*$c = new DetalleFactura;
+        $c->description_bill = $bo[0]->type;
+        $c->date_created = now();
+        $c->monto = $bo[0]->price;
+        $c->id_person = $person;
+        $c->id_bill = $idb;
+        $c->save();*/
+
+        DetalleFactura::create([
+            'description_bill' => $bo[0]->type,
+            'date_created'=> now(),
+            'monto'=> $bo[0]->price,
+            'id_person'  => $person,
+            'id_bill'  => $idb,
+        ]);
+
+        $total=DB::table('detalle_fac')
+            ->where('id_bill', '=', $person)
+            ->sum('monto');
+
+        /*
+        $total = DB::("select sum(a.monto) as monto
+                                    from detalle_fac a
+                                    where a.id_bill = ".$id."
+                                    group by a.id_bill
+                                   ");*/
+
+        $b = Bill::findOrFail($idb);
+        $b->total_bill = $total;
+        $b->update();
 
     }
+
     public function downloadPDF(Request $request,$id){
         //$id=2;
         $datos=DB::table('bill')

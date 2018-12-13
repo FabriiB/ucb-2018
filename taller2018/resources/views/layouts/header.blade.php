@@ -19,63 +19,85 @@
     </head>
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-inverse navbar-expand-lg bg-dark fixed-top ">
-            <div class="container">
-                <div class="navbar-translate">
-                    <a class="navbar-brand" href="/">
+<div id="app">
+    <nav class="navbar navbar-inverse navbar-expand-lg bg-dark fixed-top ">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="/">
                     Appetito 24 </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="pull-left navbar-nav">
-                        <li class="nav-item">
-                            <a href="#fabrii" class="nav-link">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="pull-left navbar-nav">
+                    <li class="nav-item">
+                        <a href="#fabrii" class="nav-link">
                             Nuestro menú
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#fabrii" class="nav-link">
-                            Como funciona
-                            </a>
-                        </li>
-                    </ul>
-                    @if (Route::has('login'))
-                        <ul class="navbar-nav ml-auto">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#fabrii" class="nav-link">
+                            Cómo funciona
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#fabrii" class="nav-link">
+                            Acerca de Nosotros
+                        </a>
+                    </li>
+                </ul>
+                @if (Route::has('login'))
+                    <ul class="navbar-nav ml-auto">
                         @guest
                             <li class="button-container nav-item iframe-extern">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Ingreso') }}</a>
                             </li>
                             <li class="button-container nav-item iframe-extern">
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}" class="btn  btn-rose   btn-round btn-block">
-                                        <i class="material-icons">face</i> {{ __('Register') }}
+                                        <i class="material-icons">face</i> {{ __('Regístrate!') }}
                                     </a>
                                 @endif
                             </li>
-                    @else
-                                <a href="{{ url('/factura',Auth::user()->id)}}" class="btn btn-info btn-round btn-sm">Mis Facturas</a>
-                                <a href="{{ url('/mi_cuenta/') }}" class="btn btn-info btn-round btn-sm">Inicio</a>
-                                <a href="{{ url('/mi_cuenta/datos') }}" class="btn btn-info btn-round btn-sm">Mi cuenta</a>
-                                <a href="{{ url('/mi_cuenta/factura') }}" class="btn btn-info btn-round btn-sm">Mis datos</a>
-                                <a href="{{ url('/mi_cuenta/historial') }}" class="btn btn-info btn-round btn-sm">Historial de pedidos</a>
-                                <a href="{{ url('/ListadoPedidos') }}" class="btn btn-info btn-round btn-sm">Listado de pedidos</a>
+                        @else
+                            <a href="{{ url('/factura',Auth::user()->id)}}" class="btn btn-info btn-round btn-sm">Mis Facturas</a>
+                            <a href="{{ url('/mi_cuenta/') }}" class="btn btn-info btn-round btn-sm">Inicio</a>
 
-                                <li class="dropdown nav-item">
+                                <?php
+                                $id = Auth::id();
+                                $validateuser = new \App\Http\Middleware\Admin();
+
+                                $next = '/pass';
+
+                                $Cop = $validateuser::check();
+
+                                if($Cop == True)
+                                {
+                                ?>
+                                <div class=”panel-body”>
+                                    <a href="{{ url('/ListadoPedidos') }}" class="btn btn-info btn-round btn-sm">Listado de pedidos</a>
+                                </div>
+                                <?php
+                                }
+                                ?>
+
+                            {{--<a href="{{ url('/mi_cuenta/datos') }}" class="btn btn-info btn-round btn-sm">Mi cuenta</a>--}}
+                            {{--<a href="{{ url('/mi_cuenta/factura') }}" class="btn btn-info btn-round btn-sm">Mis datos</a>--}}
+                            {{--<a href="{{ url('/mi_cuenta/historial') }}" class="btn btn-info btn-round btn-sm">Historial de pedidos</a>--}}
+                            <li class="dropdown nav-item">
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <i class="material-icons">view_carousel</i> {{ Auth::user()->firs_name}}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-arrow-left"></i>
+                                        {{ __(' Salir') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -84,15 +106,15 @@
                                 </div>
                             </li>
                         @endguest
-                        </ul>
-                    @endif
-                </div>
+                    </ul>
+                @endif
             </div>
-        </nav>
-        <main class="py-5">
-            @yield('content')
-        </main>
-    </div>
+        </div>
+    </nav>
+    <main class="py-5">
+        @yield('content')
+    </main>
+</div>
 </body>
 <!--   Core JS Files   -->
 <script src="{{ asset('js/core/jquery.min.js') }}" type="text/javascript"></script>

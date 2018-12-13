@@ -89,7 +89,7 @@
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" href="/">
-                    Apetito 24 </a>
+                    Appetito 24 </a>
                 {{--<li class="dropdown nav-item">--}}
                     {{--<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">--}}
                         {{--<i class="material-icons">view_carousel</i> {{ Auth::user()->firs_name}}--}}
@@ -105,9 +105,34 @@
                         {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
                             {{--@csrf--}}
                         {{--</form>--}}
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="sr-only">Toggle navigation</span>
-                </button>
+
+            </div>
+            <div class="collapse navbar-collapse">
+                @if (Route::has('login'))
+                    <ul class="navbar-nav ml-auto">
+                        @guest
+
+                        @else
+                            <li class="dropdown nav-item">
+                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <i class="material-icons">view_carousel</i> {{ Auth::user()->firs_name}}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                @endif
             </div>
         </div>
     </nav>
@@ -120,6 +145,9 @@
         <div class="logo"><a href="" class="simple-text logo-mini">a</a><a href="" class="simple-text logo-normal">b</a></div>
         <div class="sidebar-wrapper">
             <div class="user">
+
+                <label> &emsp; USUARIO: Tania</label>
+
                 <div class="photo">
                     <img src="{{asset('/assets/admin/img/faces/avatar.jpg')}}" />
                 </div>
@@ -178,6 +206,12 @@
                     <a class="nav-link" href="ListadoPedidos">
                         <i class="fa fa-calendar"></i>
                         <p> Gestion de pedidos </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-list"></i>
+                        <p> Gestion de facturas </p>
                     </a>
                 </li>
             </ul>

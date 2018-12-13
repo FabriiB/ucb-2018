@@ -153,12 +153,12 @@ class DatabaseSeeder extends Seeder
         factory(Items::class,190)->create();
         factory(Meassure::class,2)->create();
         factory(Distributors::class,50)->create();
-        factory(Menu::class,2)->create();
+        //factory(Menu::class,2)->create();
         factory(Payment::class,10)->create();
-        factory(Dish::class,2)->create();
+        //factory(Dish::class,2)->create();
         factory(Drink::class,2)->create();
-        factory(DishDrink::class,2)->create();
-        factory(MenuDish::class,2)->create();
+        //factory(DishDrink::class,2)->create();
+        //factory(MenuDish::class,2)->create();
         //factory(Bill::class,10)->create();
         factory(Order::class,30)->create();
         $detalle_factura = [["description_bill"=>"producto 1","date_created"=>Carbon::now(),"monto"=>100,"id_person"=>10,"id_bill"=>1],
@@ -189,5 +189,18 @@ class DatabaseSeeder extends Seeder
 
         DB::table('bill')->insert($bill);
         DB::table('detalle_fac')->insert($detalle_factura);
+
+        $m = [["date_created"=>Carbon::now(), "date_end"=>Carbon::now(), "name"=>"menu1", "status"=>"activo", "id_user"=>4],
+              ["date_created"=>Carbon::now(), "date_end"=>Carbon::now(), "name"=>"menu2", "status"=>"activo", "id_user"=>4]];
+        DB::table('menu')->insert($m);
+
+        $d = [["name"=>"dish1", "description"=>"dd1", "portion"=>2,"date_created"=>Carbon::now(), "images"=>"Captura de pantalla 2018-11-21 a la(s) 23.16.32.png", "status"=>"activo", "type"=>"tipo", "tip"=>"tip", "id_user"=>4],
+            ["name"=>"dish12", "description"=>"dd12", "portion"=>2,"date_created"=>Carbon::now(), "images"=>"Captura de pantalla 2018-11-21 a la(s) 23.16.32.png", "status"=>"activo", "type"=>"tipo", "tip"=>"tip", "id_user"=>4]];
+        DB::table('dish')->insert($d);
+
+        $md = [["date_start"=>now()->addDay(-7), "date_end"=>now()->addDay(7), "id_menu"=>1, "id_dish"=>1, "status"=>"activo"],
+            ["date_start"=>now()->addDay(-7), "date_end"=>now()->addDay(7), "id_menu"=>2, "id_dish"=>2, "status"=>"activo"]];
+        DB::table('menu_dish')->insert($md);
+
     }
 }

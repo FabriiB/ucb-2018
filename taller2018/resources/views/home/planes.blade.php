@@ -93,7 +93,7 @@
                                     <div class="col-lg-10">
                                         <div class="form-group">
                                             <label for="mobile" class="bmd-label-floating">Mobile</label>
-                                            <input id="mobile" type="number" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" required>
+                                            <input id="mobile" type="number" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="74015570" required>
 
                                             @if ($errors->has('mobile'))
                                                 <span class="invalid-feedback" role="alert">
@@ -105,7 +105,7 @@
                                     <div class="col-lg-10">
                                         <div class="form-group">
                                             <label for="phone" class="bmd-label-floating">Phone</label>
-                                            <input id="phone" type="number" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}">
+                                            <input id="phone" type="number" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="2450918">
 
                                             @if ($errors->has('phone'))
                                                 <span class="invalid-feedback" role="alert">

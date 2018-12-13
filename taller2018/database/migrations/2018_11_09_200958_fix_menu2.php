@@ -98,7 +98,7 @@ class FixMenu2 extends Migration
             $table->increments('id_detalle');
             $table->string('description_bill',250);
             $table->timestamp('date_created');
-            $table->integer('monto');
+            $table->decimal('monto');
             $table->integer('id_person');
             $table->foreign('id_person')->references('id_person')->on('person');
             $table->integer('id_bill');

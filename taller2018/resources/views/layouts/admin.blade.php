@@ -203,14 +203,14 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="ListadoPedidos">
+                    <a class="nav-link" href="{{route('ListadoPedidos.index')}}">
                         <i class="fa fa-calendar"></i>
                         <p> Gestion de pedidos </p>
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="#">
-                        <i class="fa fa-list"></i>
+                        <i class="fa fa-bank"></i>
                         <p> Gestion de facturas </p>
                     </a>
                 </li>

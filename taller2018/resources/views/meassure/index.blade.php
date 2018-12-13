@@ -27,7 +27,7 @@
                                             @include('meassure.search')
                                         </td>
                                         <td width="8%" valign="top">
-                                            <a class="btn btn-info btn-sm" href="meassure/create">
+                                            <a class="btn btn-info btn-sm" href="meassure/create" title="Agregar Medida">
                                                 <i class="material-icons">add</i>
                                             </a>
                                         </td>
@@ -36,11 +36,11 @@
                                 <table class="table">
                                     <thead class="text-success">
                                     <tr>
-                                        <th class="text-center"><b>CODIGO</b></th>
+                                        <th class="text-center"><b>CÓDIGO</b></th>
                                         <th><b>NOMBRE</b></th>
                                         <th><b>UNIDAD</b></th>
                                         <th><b>TIPO</b></th>
-                                        <th class="text-right"><b>OPCIONES</b></th>
+                                        <th class="text-right"><b>EDITAR MEDIDA</b></th>
                                     </tr>
                                     </thead>
                                     @foreach ($meassure as $m)
@@ -51,7 +51,7 @@
                                             <td>{{$m->unit}}</td>
                                             <td>{{$m->type}}</td>
                                             <td class="td-actions text-right">
-                                                <a rel="tooltip" class="btn btn-success" href="{{URL::action('MeassureController@edit',$m->id_meassure)}}" type="submit">
+                                                <a rel="tooltip" class="btn btn-success" href="{{URL::action('MeassureController@edit',$m->id_meassure)}}" type="submit" title="Editar">
                                                     <i class="material-icons">edit</i>
                                                 </a>
                                                 <!--<a class="btn btn-danger" data-target="#modal-delete-{{$m->id_meassure}}" data-toggle="modal" href="">

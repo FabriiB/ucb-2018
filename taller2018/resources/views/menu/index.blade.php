@@ -27,7 +27,7 @@
                                                 @include('menu.search')
                                             </td>
                                             <td width="8%" valign="top">
-                                                <a class="btn btn-info btn-sm" href="/menu/create">
+                                                <a class="btn btn-info btn-sm" href="/menu/create" title="Agregar Menú">
                                                     <i class="material-icons">add</i>
                                                 </a>
                                             </td>
@@ -36,7 +36,7 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b>ID</b></th>
+                                            <th class="text-center"><b>CÓDIGO</b></th>
                                             <th><b>NOMBRE</b></th>
                                             <th><b>FECHA DE INICIO</b></th>
                                             <th><b>FECHA DE FIN</b></th>
@@ -59,21 +59,21 @@
                                                     <td><span class="badge badge-danger">{{$m->status}}</span></td>
                                                 @endif
                                                 <td class="td-actions text-right">
-                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('MenuDishController@create',$m->id_menu)}}" type="submit">
+                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('MenuDishController@create',$m->id_menu)}}" type="submit" title="Agregar plato a Menú">
                                                         <i class="material-icons">playlist_add</i>
                                                     </a>
-                                                    <a rel="tooltip" class="btn btn-rose" href="{{URL::action('MenuDishController@index',$m->id_menu)}}" type="submit">
+                                                    <a rel="tooltip" class="btn btn-rose" href="{{URL::action('MenuDishController@index',$m->id_menu)}}" type="submit" title="Listado de platos del Menú">
                                                         <i class="material-icons">format_list_numbered</i>
                                                     </a><!--
                                                     <a rel="tooltip" class="btn btn-warning" href="" type="submit">
                                                         <i class="material-icons">edit</i>
                                                     </a>-->
                                                     @if($m->status == 'activo')
-                                                        <a class="btn btn-danger" href="{{URL::action('MenuController@cambiar',$m->id_menu)}}" type="submit">
+                                                        <a class="btn btn-danger" href="{{URL::action('MenuController@cambiar',$m->id_menu)}}" type="submit" title="Deshabilitar">
                                                             <i class="material-icons">not_interested</i>
                                                         </a>
                                                     @else
-                                                        <a class="btn btn-primary" href="{{URL::action('MenuController@cambiar',$m->id_menu)}}" type="submit">
+                                                        <a class="btn btn-primary" href="{{URL::action('MenuController@cambiar',$m->id_menu)}}" type="submit" title="Habilitar">
                                                             <i class="material-icons">replay</i>
                                                         </a>
                                                     @endif

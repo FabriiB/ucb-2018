@@ -27,7 +27,7 @@
                                                 @include('platos.search')
                                             </td>
                                             <td width="8%" valign="top">
-                                                <a class="btn btn-info btn-sm" href="receta_c">
+                                                <a class="btn btn-info btn-sm" href="receta_c" title="Agregar Plato">
                                                     <i class="material-icons">add</i>
                                                 </a>
                                             </td>
@@ -36,9 +36,9 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b>ID</b></th>
+                                            <th class="text-center"><b>CÓDIGO</b></th>
                                             <th><b>NOMBRE</b></th>
-                                            <th><b>DESCRIPCION</b></th>
+                                            <th><b>DESCRIPCIÓN</b></th>
                                             <th><b>TIPO</b></th>
                                             <th><b>ESTADO</b></th>
                                             <th class="text-right"><b>OPCIONES</b></th>
@@ -57,21 +57,21 @@
                                                     <td><span class="badge badge-danger">{{$m->status}}</span></td>
                                                 @endif
                                                 <td class="td-actions text-right">
-                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('DishIngredientsController@create',$m->id_dish)}}" type="submit">
+                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('DishIngredientsController@create',$m->id_dish)}}" type="submit" title="Agregar Ingrediente">
                                                         <i class="material-icons">playlist_add</i>
                                                     </a>
-                                                    <a rel="tooltip" class="btn btn-rose" href="{{URL::action('DishIngredientsController@index',$m->id_dish)}}" type="submit">
+                                                    <a rel="tooltip" class="btn btn-rose" href="{{URL::action('DishIngredientsController@index',$m->id_dish)}}" type="submit" title="Listar Ingredientes del Plato">
                                                         <i class="material-icons">format_list_numbered</i>
                                                     </a>
-                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('PlatosController@edit',$m->id_dish)}}" type="submit">
+                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('PlatosController@edit',$m->id_dish)}}" type="submit" title="Editar">
                                                         <i class="material-icons">edit</i>
                                                     </a>
                                                     @if($m->status == 'activo')
-                                                        <a class="btn btn-danger" href="{{URL::action('DishIngredientsController@cambiar',$m->id_dish)}}" type="submit">
+                                                        <a class="btn btn-danger" href="{{URL::action('DishIngredientsController@cambiar',$m->id_dish)}}" type="submit" title="Deshabilitar">
                                                             <i class="material-icons">not_interested</i>
                                                         </a>
                                                     @else
-                                                        <a class="btn btn-primary" href="{{URL::action('DishIngredientsController@cambiar',$m->id_dish)}}" type="submit">
+                                                        <a class="btn btn-primary" href="{{URL::action('DishIngredientsController@cambiar',$m->id_dish)}}" type="submit" title="Habilitar">
                                                             <i class="material-icons">replay</i>
                                                         </a>
                                                     @endif

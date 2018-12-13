@@ -1,16 +1,19 @@
-### Grupo de Appetito24
+### Aplicacion "Appetito24"
+Proyecto Presentado para la materia de Taller de Sistemas.
+Docente: <a href="https://github.com/ernestomar">Ing. Ernesto Omar Campohermoso Alcon</a>
+
+OBJETIVO DE LA APLICACION:
+	Aplicacion diseñada para las personas que desean poder recibir los ingredientes de sus alimentos en sus domicilios.
+
 
 ##Tags:
 - v0.0.2: Version donde estan mas campos pero faltan arrreglos minimos
 - v0.0.1: Version donde sirve el login y el registro por defecto de Laravel.
 
 #Aclaraciones:
-- Solo se usara el master, por recomendacion del ing Campohermoso, dijo "Aprendan a resolver los conflictos en el master no usen Branches >;v"
+- Solo se usara el master, por recomendacion del Ing. Campohermoso
 
-- Intenten explicar lo mejor posible sus commits porfavor!!
-
-- Por recomendacion del inge tenemos que hacer siempre estos pasos SI o SI:
-
+- Por recomendacion del ingenieror realizar los siguientes pasos:
 
 <ol>
 <li>Hacer un PULL de este repositorio</li>
@@ -19,17 +22,24 @@
 <li>RECIEN Y SOLO RECIEN hacer el PUSH de los cambios realizados por cada persona</li>
 </ol>
 
-#Aclaraciones:
+#Requisitos para el funcionamiento del sistema:
 
-Comandos bonitos para arreglar errores
+Comandos requeridos en caso de fallas:
 
-composer dump-autoload = para cuando no reconozca un seed
+Cuando no reconozco un seeder:
+>composer dump-autoload
 
-php artisan migrate:fresh --seed = para que haga los migrates y los seeds al mismo tiempo
+Cuando se desee realizar los seeders y migrates al mismo tiempo:
+>php artisan migrate:fresh --seed
 
-la tabla payment tiene el nombre de person como idUser 
+#Componentes extras para el funcionamiento del sistema:
 
-apt-get install php-gd
-apt-get install php-curl
+Realizar los siguientes comandos: 
 
-estos comandos hacerlos correr para el QR
+>apt-get install php-gd
+>apt-get install php-curl
+
+Para el funcionamiento del Codigo QR:
+
+Para el funcionamiento del generador de PDF:
+

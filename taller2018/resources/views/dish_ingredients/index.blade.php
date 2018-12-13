@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Listado de los ingredientes del plato  <b>{{$dish->name}}</b></h4>
+                                    <h4 class="card-title"><i class="fa fa-list"></i>Listado de los ingredientes del plato  <b>{{$dish->name}}</b></h4>
                                 </div>
                             </div>
                             <div class="card-body ">
@@ -55,7 +55,7 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b></b>ID</th>
+                                            <th class="text-center"><b>CÓDIGO</b></th>
                                             <th><b>NOMBRE</b></th>
                                             <th><b>CANTIDAD</b></th>
                                             <th><b>MEDIDA</b></th>
@@ -98,7 +98,7 @@
                                         @endforeach
                                     </table>
                                     <center>
-                                        <a class="btn btn-danger btn-sm" href="/dish">
+                                        <a class="btn btn-danger btn-sm" href="/dish" title="Regresar">
                                             <i class="material-icons">reply</i>
                                         </a>
                                     </center>

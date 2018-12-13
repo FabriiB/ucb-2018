@@ -12,7 +12,7 @@
         <div class="input-group">
             <input class="form-control" name="searchText" placeholder="Buscar..." style="padding: 5px" type="text" value="{{$searchText}}">
             <span class="input-group-btn">
-                    <button type="submit" rel="tooltip" class="btn btn-primary btn-sm">
+                    <button type="submit" rel="tooltip" class="btn btn-primary btn-sm" title="Buscar Tipo">
                         <i class="material-icons">search</i>
                     </button>
                 </span>

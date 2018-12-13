@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">EDITAR PLATO <b>{{$d->name}}</b></h4>
+                                    <h4 class="card-title"><i class="fa fa-pencil"></i>EDITAR PLATO <b>{{$d->name}}</b></h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)

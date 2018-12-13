@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">Registro del Plato</h4>
+                                    <h4 class="card-title"><i class="fa fa-plus"></i>Registro del Plato</h4>
                                 </div>
                             </div>
 
@@ -109,7 +109,7 @@
                                 </tr>
                                 <tr>
                                     <td width="90%"></td>
-                                    <td width="10%"><button id="adicional" name="adicional" type="button" class="btn btn-primary btn-sm"> + </button></td>
+                                    <td width="10%"><button id="adicional" name="adicional" type="button" class="btn btn-primary btn-sm" title="Adicionar Ingrediente"> + </button></td>
                                 </tr>
                             </table>
                             <table width="100%" id="tabla">
@@ -138,7 +138,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="eliminar"><input type="button" class="btn btn-warning btn-sm" value="-"/></td>
+                                    <td class="eliminar"><input type="button" class="btn btn-warning btn-sm" value="-" title="Quitar Ingrediente"/></td>
                                     <td width="10%"></td>
                                 </tr>
                             </table>
@@ -148,11 +148,11 @@
                                 </tr>
                                 <tr>
                                     <td width="90%"></td>
-                                    <td width="10%"><button id="adicional1" name="adicional1" type="button" class="btn btn-primary btn-sm"> + </button></td>
+                                    <td width="10%"><button id="adicional1" name="adicional1" type="button" class="btn btn-primary btn-sm" title="Agregar Paso"> + </button></td>
                                 </tr>
                             </table>
                             <table width="100%" id="tabla1">
-                                <tr class="fila-fija1">>
+                                <tr class="fila-fija1">
                                     <td width="10%"></td>
                                     <td width="40%">
                                         <div class="row">
@@ -172,7 +172,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="eliminar1"><input type="button" class="btn btn-warning btn-sm" value="-"/></td>
+                                    <td class="eliminar1"><input type="button" class="btn btn-warning btn-sm" value="-" title="Quitar Paso"/></td>
                                     <td width="10%"></td>
                                 </tr>
                             </table>

@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">EDITAR MEDIDA {{$drink->id_drink}}</h4>
+                                    <h4 class="card-title"><i class="fa fa-pencil"></i>EDITAR MEDIDA {{$drink->id_drink}}</h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)

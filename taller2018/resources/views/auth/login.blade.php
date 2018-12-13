@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h4 class="card-title"><i class="fa fa-user"></i> Ingreso al Sistema</h4></div>
+                <div class="card-header card-header-info card-header-text"><h4 class="card-title"><i class="fa fa-user"></i> Ingreso al Sistema</h4></div>
 
 
                 <div class="card-body">

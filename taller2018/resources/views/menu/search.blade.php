@@ -12,7 +12,7 @@
         <div class="input-group">
             <input class="form-control" name="searchText" placeholder="Buscar..." style="padding: 5px" type="text" >
             <span class="input-group-btn">
-                    <button class="btn btn-primary btn-sm" type="submit">
+                    <button class="btn btn-primary btn-sm" type="submit" title="Filtrar Nombre">
                         Buscar
                     </button>
                 </span>

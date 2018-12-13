@@ -27,21 +27,21 @@ OBJETIVO DE LA APLICACION:
 Comandos requeridos en caso de fallas:
 
 Cuando no reconozco un seeder:
->composer dump-autoload
+>$ composer dump-autoload
 
 Cuando se desee realizar los seeders y migrates al mismo tiempo:
->php artisan migrate:fresh --seed
+>$ php artisan migrate:fresh --seed
 
 #Componentes extras para el funcionamiento del sistema:
 
 Realizar los siguientes comandos: 
 
->apt-get install php-gd
->apt-get install php-curl
+>$ apt-get install php-gd
+>$ apt-get install php-curl
 
 Para el funcionamiento del Codigo QR:
 >$ composer require werneckbh/laravel-qr-code
 
 Para el funcionamiento del generador de PDF:
 Se requiere instalar la librería del PDF:
->composer require dompdf/dompdf
+>$ composer require dompdf/dompdf

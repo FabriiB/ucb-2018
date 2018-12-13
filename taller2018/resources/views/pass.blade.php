@@ -112,18 +112,33 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <lable>User:</lable>
-                <select name="new_user">
+                <table style="width:100%" name="new_user">
+                    <tr>
+                        <th>Role</th>
+                        <th>Permision</th>
+                    </tr>
                     <div class="col-sm-9">
+
                         <?php
-                        $Search = \App\Http\Controllers\PassController::ShowUser();
+                            $SearchRole = \App\Http\Controllers\PassController::ShowRole();
+                            $SearchPermision = \App\Http\Controllers\PassController::ShowPermision();
+
+                            $Cop = false;
                         ?>
 
-                        @foreach ($Search as $Searchs)
-                            <option value="{{ $Searchs->firs_name }}">{{ $Searchs->firs_name }}</option>
+                        @foreach ($SearchRole as $SearchesRole)
+                            <?php
+                                collect($Search = DB::select(
+                                DB::raw("select p.name
+                                from role r, role_permision rp, permision p
+                                where r.id_role = rp.id_role
+                                and rp.id_permision=p.id_permision
+                                and r.name='$SearchesRole->name';")
+                                ))->pluck('name')->toArray();
+                                ?>
                         @endforeach
                     </div>
-                </select>
+                </table>
             </div>
         </div>
 
@@ -133,6 +148,7 @@
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
+
     {{ Form::close() }}
 <!-- ------->
     <h2>Assign Role</h2><br/>

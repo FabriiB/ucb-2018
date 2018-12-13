@@ -180,6 +180,12 @@
                         <p> Gestion de pedidos </p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-list"></i>
+                        <p> Gestion de facturas </p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

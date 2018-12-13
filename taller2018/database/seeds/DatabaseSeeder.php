@@ -198,8 +198,8 @@ class DatabaseSeeder extends Seeder
             ["name"=>"dish12", "description"=>"dd12", "portion"=>2,"date_created"=>Carbon::now(), "images"=>"Captura de pantalla 2018-11-21 a la(s) 23.16.32.png", "status"=>"activo", "type"=>"tipo", "tip"=>"tip", "id_user"=>4]];
         DB::table('dish')->insert($d);
 
-        $md = [["date_start"=>Carbon::now(), "date_end"=>Carbon::now(), "id_menu"=>1, "id_dish"=>1, "status"=>"activo"],
-            ["date_start"=>Carbon::now(), "date_end"=>Carbon::now(), "id_menu"=>2, "id_dish"=>2, "status"=>"activo"]];
+        $md = [["date_start"=>now()->addDay(-7), "date_end"=>now()->addDay(7), "id_menu"=>1, "id_dish"=>1, "status"=>"activo"],
+            ["date_start"=>now()->addDay(-7), "date_end"=>now()->addDay(7), "id_menu"=>2, "id_dish"=>2, "status"=>"activo"]];
         DB::table('menu_dish')->insert($md);
 
     }

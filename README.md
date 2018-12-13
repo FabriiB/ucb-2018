@@ -4,6 +4,8 @@ Docente: <a href="https://github.com/ernestomar">Ing. Ernesto Omar Campohermoso 
 
 OBJETIVO DE LA APLICACION:
 	Aplicacion diseñada para las personas que desean poder recibir los ingredientes de sus alimentos en sus domicilios.
+
+
 ##Tags:
 - v0.0.2: Version donde estan mas campos pero faltan arrreglos minimos
 - v0.0.1: Version donde sirve el login y el registro por defecto de Laravel.

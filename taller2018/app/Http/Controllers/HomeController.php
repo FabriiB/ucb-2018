@@ -86,6 +86,7 @@ class HomeController extends Controller
                 ->join('menu_dish', 'order.id_menu_dish','=','menu_dish.id_menu_dish')
                 ->join('dish','dish.id_dish','=','menu_dish.id_dish')
                 ->where('order.id_person','=',$person)
+                ->where('order.status','=','En proceso')
                 ->select('menu_dish.id_dish as dish','order.idOrder as id','dish.images as images','dish.name as name')
                 ->get();
 
@@ -102,7 +103,7 @@ class HomeController extends Controller
                 ->join('dish', 'menu_dish.id_dish','=','dish.id_dish')
                 ->where('date_start', '<=', now())
                 ->where('date_end', '>=',now())
-                ->select('dish.name as dish','menu_dish.id_menu_dish as id')
+                ->select('dish.name as dish','menu_dish.id_menu_dish as id', 'dish.images as images')
                 ->get();
 
         }

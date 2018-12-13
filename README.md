@@ -22,7 +22,7 @@ OBJETIVO DE LA APLICACION:
 <li>RECIEN Y SOLO RECIEN hacer el PUSH de los cambios realizados por cada persona</li>
 </ol>
 
-#Aclaraciones:
+#Requisitos para el funcionamiento del sistema:
 
 Comandos requeridos en caso de fallas:
 

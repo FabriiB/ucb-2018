@@ -90,7 +90,7 @@ class PersonController extends Controller
             ]);
 
             $bill = new facturacontroller();
-            $bill->create($payment->idPayment);
+            $bill->create($payment->idPayment,$holi->id_person);
         }
 
 

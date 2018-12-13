@@ -47,7 +47,7 @@
                                         <button type="button" class="btn-small btn-primary" data-toggle="modal" data-target="#modal">
                                             Eliminar
                                         </button>
-                                        <button type="button" class="btn-small btn-primary" data-toggle="modal" data-target="#modal">
+                                        <button type="button" class="btn-small btn-primary" data-toggle="modal" data-target="#modal2">
                                             Editar
                                         </button>
                                         <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -72,6 +72,35 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <form method="POST" action="{{ url('/order/update/')}}">
+                                                        @csrf
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <select id="country" class="selectpicker" data-style="select-with-transition" title="Plato" name="country" data-size="7">
+                                                                <option disabled>Elija un pais</option>
+                                                                @foreach ($pedido as $pedid)
+                                                                    <option value="{{$pedid->id}}">{{$pedid->dish}}</option>
+                                                                @endforeach
+                                                                <input id="id_order"  class="form-control{{ $errors->has('id_order') ? ' is-invalid' : '' }}" name="id_order" value="{{ $orden->id }}" hidden required>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                        <button type="submit" class="btn btn-primary">Si</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +121,7 @@
                                             @csrf
                                             <div class="card-header card-header-image">
                                                 <a href="#pablo">
-                                                    <img class="img" src="{{asset('img/platos/asparagus.jpg')}}">
+                                                    <img class="card-img-top" src="/images/{{$pedid->images}}" style="height:200px; ">
                                                 </a>
                                             </div>
                                             <div class="card-body ">

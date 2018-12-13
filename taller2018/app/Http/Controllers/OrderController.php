@@ -242,11 +242,12 @@ class OrderController extends Controller
 
      */
 
-    public function update(Request $request,$idOrder)
-
+    public function update(Request $request)
     {
-        //
-
+        $order = Order::find($request['id_order']);
+        $order->id_menu_dish= $request['country'];
+        $order->save();
+        return redirect('mi_cuenta');
     }
 
 

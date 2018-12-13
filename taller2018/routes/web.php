@@ -30,6 +30,7 @@ Route::group(['prefix'=>'mi_cuenta'],(function () {
 
 Route::post('order/create', 'OrderController@create');
 Route::get('order/destroy/{id}', 'OrderController@destroy');
+Route::post('order/update', 'OrderController@update');
 Route::post('person/create', 'PersonController@create');
 Route::get('person/createPlan/{data}', 'PersonController@createNext');
 //Route::resource('passports','PassportController');
@@ -145,7 +146,6 @@ Route::group(["middleware" => 'admin'], function () {
 
 Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));
 Route::post('/insert', array('as'=>'insert', 'uses'=>'RecetaController@insert'));
-
 
 
 Route::get('/PassAssign', function () {

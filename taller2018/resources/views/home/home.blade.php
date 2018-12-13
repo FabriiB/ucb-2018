@@ -44,13 +44,10 @@
                                         </a>
                                     </div>
                                     <div class="ml-auto">
-                                        <button type="button" class="btn-small btn-primary" data-toggle="modal" data-target="#modal">
+                                        <button type="button" data-item="{{ $orden->id }}" class="btn-small btn-primary" data-toggle="modal" data-target="#modal{{ $orden->id }}">
                                             Eliminar
                                         </button>
-                                        <button type="button" class="btn-small btn-primary" data-toggle="modal" data-target="#modal2">
-                                            Editar
-                                        </button>
-                                        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="modal{{ $orden->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -67,37 +64,40 @@
                                                             @csrf
                                                             <button type="submit" class="btn btn-primary">Si</button>
                                                         </form>
-
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <button type="button" data-item="{{ $orden->id }}" class="btn-small btn-primary" data-toggle="modal" data-target="#modal2{{ $orden->id }}">
+                                            Editar
+                                        </button>
+
+                                        <div class="modal fade" id="modal2{{ $orden->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
-                                                    <form method="POST" action="{{ url('/order/update/')}}">
+                                                    <form method="POST" action="{{ url('/order/update')}}">
                                                         @csrf
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        {{ $orden->id }}
-                                                        <div class="form-group">
-                                                            <select id="country" class="selectpicker" data-style="select-with-transition" title="Plato" name="country" data-size="7">
-                                                                <option disabled>Elija un pais</option>
-                                                                @foreach ($pedido as $pedid)
-                                                                    <option value="{{$pedid->id}}">{{$pedid->dish}}</option>
-                                                                @endforeach
-                                                                <input id="id_order"  class="form-control{{ $errors->has('id_order') ? ' is-invalid' : '' }}" name="id_order" value="{{ $orden->id }}" hidden required>
-                                                            </select>
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
                                                         </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                        <button type="submit" class="btn btn-primary">Si</button>
-                                                    </div>
+                                                        <div class="modal-body">
+                                                            {{ $orden->id }}
+                                                            <div class="form-group">
+                                                                <select id="country" class="selectpicker" data-style="select-with-transition" title="Plato" name="country" data-size="7">
+                                                                    <option disabled>Elija un pais</option>
+                                                                    @foreach ($pedido as $pedid)
+                                                                        <option value="{{$pedid->id}}">{{$pedid->dish}}</option>
+                                                                    @endforeach
+                                                                    <input id="id_order"  class="form-control{{ $errors->has('id_order') ? ' is-invalid' : '' }}" name="id_order" value="{{ $orden->id }}" hidden required>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                            <button type="submit" class="btn btn-primary">Si</button>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
@@ -105,10 +105,10 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     @endforeach
                     </div>
+
                     @endif
                     @if($ordenes->count() < $max)
                         <div class="row">

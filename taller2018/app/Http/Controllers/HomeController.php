@@ -87,7 +87,7 @@ class HomeController extends Controller
                 ->join('dish','dish.id_dish','=','menu_dish.id_dish')
                 ->where('order.id_person','=',$person)
                 ->where('order.status','=','En proceso')
-                ->select('menu_dish.id_dish as dish','order.idOrder as id','dish.images as images','dish.name as name')
+                ->select('menu_dish.id_dish as dish','order.idOrder as id','dish.images as images','dish.name as name','menu_dish.id_menu_dish as iddish')
                 ->get();
 
             $plan = DB::table('user_plan')

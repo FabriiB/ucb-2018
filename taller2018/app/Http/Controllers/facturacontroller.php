@@ -106,15 +106,37 @@ class facturacontroller extends Controller
 
         $id = auth::id();
 
+        $b = new Bill;
+        $b->control_code = "B5-96-59-2A-27";
+        $b->issue_date = Carbon::now();
+        $b->number_bill = 123400001;
+        $b->total_bill = 0;
+        $b->identifier = 1;
+        $b->email = "email@gmail.com";
+        $b->limit_issue_date = now()->addDays(90);
+        $b->authorizacion_number = 798347827;
+        $b->idCompany = 1;
+        $b->id_payment = $payment;
+        $b->save();
+
+        $idb = $b->id_bill;
+
         $a = DB::table('payment')
             ->select('idPlan')
             ->where('idPayment', '=', $payment);
 
-        $b = DB::table('Plan')
-            ->select('type')
+        $bo = DB::table('Plan')
+            ->select('type', 'price')
             ->where('id_plan', '=', $a);
 
         $c = new DetalleFactura;
+        $c->description_bill = "Paquete ".$bo->type;
+        $c->date_created = Carbon::now();
+        $c->monto = $bo->price;
+        $c->id_person = $id;
+        $c->id_bill = $idb;
+        $c->save();
+
 
         $total=DB::table('detalle_fac')
             ->where('id_bill', '=', $id)
@@ -127,20 +149,9 @@ class facturacontroller extends Controller
                                     group by a.id_bill
                                    ");*/
 
-        $b = new Bill;
-        $b->control_code = "B5-96-59-2A-27";
-        $b->issue_date = Carbon::now();
-        $b->number_bill = 123400001;
+        $b = Bill::findOrFail($idb);
         $b->total_bill = $total;
-        $b->identifier = 1;
-        $b->email = "email@gmail.com";
-        $b->limit_issue_date = now()->addDays(90);
-        $b->authorizacion_number = 798347827;
-        $b->idCompany = 1;
-        $b->id_payment = $payment;
-        $b->save();
-
-
+        $b->update();
 
     }
 

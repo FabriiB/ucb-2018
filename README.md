@@ -40,6 +40,8 @@ Realizar los siguientes comandos:
 >apt-get install php-curl
 
 Para el funcionamiento del Codigo QR:
+>$ composer require werneckbh/laravel-qr-code
 
 Para el funcionamiento del generador de PDF:
-
+Se requiere instalar la librería del PDF:
+>composer require dompdf/dompdf

@@ -49,18 +49,18 @@
                     @auth
                         <li class="button-container nav-item iframe-extern">
                             <a href="{{ url('/mi_cuenta') }}" class="nav-link"><!---->
-                                Home
+                                Principal
                             </a>
                         </li>
                     @else
                         <li class="button-container nav-item iframe-extern">
                             <a href="{{ route('login') }}" class="nav-link">
-                                Login
+                                Ingreso
                             </a>
                         </li>
                         <li class="button-container nav-item iframe-extern">
                             <a href="{{ route('register') }}" target="_blank" class="btn  btn-rose   btn-round btn-block">
-                                <i class="material-icons">face</i> Register
+                                <i class="material-icons">face</i> Regístrate!
                             </a>
                         </li>
                     @endauth

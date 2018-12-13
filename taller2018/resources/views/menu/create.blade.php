@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">CREAR MENU</h4>
+                                    <h4 class="card-title"><i class="fa fa-plus"></i>CREAR MENU</h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)
@@ -76,9 +76,9 @@
                                     </tr>
                                     <tr>
                                         <td width="40%"></td>
-                                        <td width="10%"><button id="adicional100" name="adicional100" type="button" class="btn btn-primary btn-sm"> + </button></td>
+                                        <td width="10%"><button id="adicional100" name="adicional100" type="button" class="btn btn-primary btn-sm" title="Agregar plato al Menú"> + </button></td>
                                         <td width="40%"></td>
-                                        <td width="10%"><button id="adicional200" name="adicional200" type="button" class="btn btn-primary btn-sm"> + </button></td>
+                                        <td width="10%"><button id="adicional200" name="adicional200" type="button" class="btn btn-primary btn-sm" title="Agregar bebida al Menú"> + </button></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
@@ -102,7 +102,7 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td class="eliminar100"><input type="button" class="btn btn-warning btn-sm" value="-"/></td>
+                                                    <td class="eliminar100"><input type="button" class="btn btn-warning btn-sm" value="-" title="Quitar plato al Menú"/></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -127,7 +127,7 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td class="eliminar200"><input type="button" class="btn btn-warning btn-sm" value="-"/></td>
+                                                    <td class="eliminar200"><input type="button" class="btn btn-warning btn-sm" value="-" title="Quitar bebida al Menú"/></td>
                                                 </tr>
                                             </table>
                                         </td>

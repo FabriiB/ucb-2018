@@ -24,7 +24,7 @@
                                         <option value="Cancelado">Cancelado</option>
                                         <option value="Enviado">Enviado</option>
                                     </select>
-                                    <button type="submit" rel="tooltip" class="btn btn-primary btn-sm">
+                                    <button type="submit" rel="tooltip" class="btn btn-primary btn-sm" title="Filtrar">
                                         <i class="material-icons">search</i>
                                     </button>
                                 </form>
@@ -35,11 +35,11 @@
                                     <table class="table" id="tablaPedidos">
                                         <thead class="text-success">
                                         <tr>
-                                            <th>ID ORDEN</th>
+                                            <th>CÓDIGO</th>
                                             <th>FECHA DE LA ORDEN</th>
                                             <th>ESTADO</th>
                                             <th>NOMBRE DEL USUARIO</th>
-                                            <th>MODIFICAR ESTADO</th>
+                                            <th>EDITAR ESTADO</th>
                                         </tr>
                                         </thead>
                                         @if($orders->count())

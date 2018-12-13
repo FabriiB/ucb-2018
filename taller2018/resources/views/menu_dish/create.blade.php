@@ -16,7 +16,7 @@
                         <div class="card ">
                             <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title">ELEGIR PLATO PARA EL MENU</h4>
+                                    <h4 class="card-title"><i class="fa fa-plus"></i>ELEGIR PLATO PARA EL MENU</h4>
                                 </div>
                             </div>
                             @if (count($errors)>0)

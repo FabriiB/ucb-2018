@@ -36,9 +36,9 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b>CODIGO</b></th>
-                                            <th><b>TITULO</b></th>
-                                            <th><b>DESCRIPCION</b></th>
+                                            <th class="text-center"><b>CÓDIGO</b></th>
+                                            <th><b>TÍTULO</b></th>
+                                            <th><b>DESCRIPCIÓN</b></th>
                                             <th><b>STATUS</b></th>
                                             <th class="text-right"><b>OPCIONES</b></th>
                                         </tr>
@@ -55,11 +55,11 @@
                                                     <td><span class="badge badge-danger">{{$m->status}}</span></td>
                                                 @endif
                                                 <td class="td-actions text-right">
-                                                    <a rel="tooltip" class="btn btn-warning" href="{{URL::action('StepsController@edit',$m->id_step)}}" type="submit">
+                                                    <a rel="tooltip" class="btn btn-warning" href="{{URL::action('StepsController@edit',$m->id_step)}}" type="submit" title="Editar">
                                                         <i class="material-icons">edit</i>
                                                     </a>
                                                     @if($m->status == 'activo')
-                                                        <a class="btn btn-danger" href="{{URL::action('StepsController@cambiar',$m->id_step)}}" type="submit">
+                                                        <a class="btn btn-danger" href="{{URL::action('StepsController@cambiar',$m->id_step)}}" type="submit" title="Deshabilitar">
                                                             <i class="material-icons">not_interested</i>
                                                         </a>
                                                     @else

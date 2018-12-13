@@ -27,7 +27,7 @@
                                             @include('drink.search')
                                         </td>
                                         <td width="8%" valign="top">
-                                            <a class="btn btn-info btn-sm" href="drink/create">
+                                            <a class="btn btn-info btn-sm" href="drink/create" title="Agregar Bebida">
                                                 <i class="material-icons">add</i>
                                             </a>
                                         </td>
@@ -36,9 +36,9 @@
                                 <table class="table">
                                     <thead class="text-success">
                                     <tr>
-                                        <th class="text-center"><b>ID</b></th>
+                                        <th class="text-center"><b>CÓDIGO</b></th>
                                         <th><b>NOMBRE</b></th>
-                                        <th><b>DESCRICION</b></th>
+                                        <th><b>DESCRICIÓN</b></th>
                                         <th><b>TIPO</b></th>
                                         <th><b>FECHA DE CADUCIDAD</b></th>
                                         <th><b>MEDIDA</b></th>
@@ -61,15 +61,15 @@
                                                 <td><span class="badge badge-danger">{{$m->status}}</span></td>
                                             @endif
                                             <td class="td-actions text-right">
-                                                <a rel="tooltip" class="btn btn-success" href="{{URL::action('DrinkController@edit',$m->id_drink)}}" type="submit">
+                                                <a rel="tooltip" class="btn btn-success" href="{{URL::action('DrinkController@edit',$m->id_drink)}}" type="submit" title="Editar">
                                                     <i class="material-icons">edit</i>
                                                 </a>
                                                 @if($m->status == 'activo')
-                                                <a class="btn btn-danger" href="{{URL::action('DrinkController@cambiar',$m->id_drink)}}" type="submit">
+                                                <a class="btn btn-danger" href="{{URL::action('DrinkController@cambiar',$m->id_drink)}}" type="submit" title="Deshabilitar">
                                                     <i class="material-icons">not_interested</i>
                                                 </a>
                                                 @else
-                                                    <a class="btn btn-primary" href="{{URL::action('DrinkController@cambiar',$m->id_drink)}}" type="submit">
+                                                    <a class="btn btn-primary" href="{{URL::action('DrinkController@cambiar',$m->id_drink)}}" type="submit" title="Habiitar">
                                                         <i class="material-icons">replay</i>
                                                     </a>
                                                 @endif

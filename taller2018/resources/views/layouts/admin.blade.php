@@ -210,7 +210,7 @@
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="#">
-                        <i class="fa fa-list"></i>
+                        <i class="fa fa-bank"></i>
                         <p> Gestion de facturas </p>
                     </a>
                 </li>

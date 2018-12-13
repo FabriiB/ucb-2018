@@ -27,7 +27,7 @@
                                                 @include('ingredientes.search')
                                             </td>
                                             <td width="8%" valign="top">
-                                                <a class="btn btn-info btn-sm" href="ingredientes/create">
+                                                <a class="btn btn-info btn-sm" href="ingredientes/create" title="Agregar Ingrediente">
                                                     <i class="material-icons">add</i>
                                                 </a>
                                             </td>
@@ -36,10 +36,10 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b></b>ID</th>
+                                            <th class="text-center"><b>CÓDIGO</b></th>
                                             <th><b>NOMBRE</b></th>
                                             <th><b>TIPO</b></th>
-                                            <th><b>FECHA DE CREACION</b></th>
+                                            <th><b>FECHA DE CREACIÓN</b></th>
                                             <th><b>ESTADO</b></th>
                                             <th class="text-right"><b>OPCIONES</b></th>
                                         </tr>
@@ -57,15 +57,15 @@
                                                     <td><span class="badge badge-danger">{{$i->status}}</span></td>
                                                 @endif
                                                 <td class="td-actions text-right">
-                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('IngredientsController@edit',$i->id_ingredients)}}" type="submit">
+                                                    <a rel="tooltip" class="btn btn-success" href="{{URL::action('IngredientsController@edit',$i->id_ingredients)}}" type="submit" title="Editar">
                                                         <i class="material-icons">edit</i>
                                                     </a>
                                                     @if($i->status == 'activo')
-                                                        <a class="btn btn-danger" href="{{URL::action('IngredientsController@cambiar',$i->id_ingredients)}}" type="submit">
+                                                        <a class="btn btn-danger" href="{{URL::action('IngredientsController@cambiar',$i->id_ingredients)}}" type="submit" title="Deshabilitar">
                                                             <i class="material-icons">not_interested</i>
                                                         </a>
                                                     @else
-                                                        <a class="btn btn-primary" href="{{URL::action('IngredientsController@cambiar',$i->id_ingredients)}}" type="submit">
+                                                        <a class="btn btn-primary" href="{{URL::action('IngredientsController@cambiar',$i->id_ingredients)}}" type="submit" title="Habilitar">
                                                             <i class="material-icons">replay</i>
                                                         </a>
                                                     @endif

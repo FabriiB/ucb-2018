@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header card-header-info card-header-text">
+                            <div class="card-header card-header-success card-header-text">
                                 <div class="card-text">
                                     <h4 class="card-title"><i class="fa fa-pencil"></i> Estado del pedido</h4>
                                 </div>

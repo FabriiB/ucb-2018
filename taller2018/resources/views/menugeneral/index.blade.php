@@ -27,7 +27,7 @@
                                                 @include('menu.search')
                                             </td>
                                             <td width="8%" valign="top">
-                                                <a class="btn btn-info btn-sm" href="/menu/create">
+                                                <a class="btn btn-info btn-sm" href="/menu/create" title="Agregar Menú">
                                                     <i class="material-icons">add</i>
                                                 </a>
                                             </td>
@@ -36,7 +36,7 @@
                                     <table class="table">
                                         <thead class="text-success">
                                         <tr>
-                                            <th class="text-center"><b>ID</b></th>
+                                            <th class="text-center"><b>CÓDIGO</b></th>
                                             <th><b>NOMBRE</b></th>
                                             <th><b>STATUS</b></th>
                                             <th class="text-right" width="16%"><b>OPCIONES</b></th>
@@ -49,7 +49,7 @@
                                                 <td>{{$m->name}}</td>
                                                 <td>{{$m->status}}</td>
                                                 <td class="td-actions text-right">
-                                                    <a rel="tooltip" class="btn btn-rose" href="{{URL::action('MenuGeneralController@historial',$m->id_menu)}}" type="submit">
+                                                    <a rel="tooltip" class="btn btn-rose" href="{{URL::action('MenuGeneralController@historial',$m->id_menu)}}" type="submit" title="Historial del Menú">
                                                         <i class="material-icons">format_list_numbered</i>
                                                     </a>
                                                 </td>

@@ -79,7 +79,6 @@
 <div class="container">
     <h2>Add New Role</h2><br/>
 
-    {{Form::open(array('url'=>'/pass','method'=>'AddNewRole'))}}
         @csrf
         <div class="row">
             <div class="col-md-4"></div>
@@ -114,42 +113,66 @@
             <div class="form-group col-md-4">
                 <table style="width:100%" name="new_user">
                     <tr>
-                        <th>Role</th>
-                        <th>Permision</th>
+                        <th>id_Role</th>
+                        <th>id_Permision</th>
                     </tr>
                     <div class="col-sm-9">
 
                         <?php
-                            $SearchRole = \App\Http\Controllers\PassController::ShowRole();
-                            $SearchPermision = \App\Http\Controllers\PassController::ShowPermision();
-
-                            $Cop = false;
+                        $SearchRolePermision = \App\Http\Controllers\PassController::ShowRolePermision('role_permision', 'id_role, id_permision', 'id_role, id_permision');
+                        $SearchRole = \App\Http\Controllers\PassController::ShowRole();
+                        $SearchPermision = \App\Http\Controllers\PassController::ShowPermision();
                         ?>
 
-                        @foreach ($SearchRole as $SearchesRole)
-                            <?php
-                                collect($Search = DB::select(
-                                DB::raw("select p.name
-                                from role r, role_permision rp, permision p
-                                where r.id_role = rp.id_role
-                                and rp.id_permision=p.id_permision
-                                and r.name='$SearchesRole->name';")
+                        @foreach ($SearchRolePermision as $SearchesRolePermision)
+                        <tr>
+
+                            <td>
+                                <?php
+                                collect($SearchR = DB::select(
+                                DB::raw("select name
+                                from role
+                                where id_role = $SearchesRolePermision->id_role;")
                                 ))->pluck('name')->toArray();
+                                //echo dd($Search);
                                 ?>
+                                {{ $SearchR[0]->name }}
+                            </td>
+
+                            <td>
+                                <?php
+                                collect($SearchP = DB::select(
+                                    DB::raw("select name
+                                from permision
+                                where id_permision = $SearchesRolePermision->id_permision;")
+                                ))->pluck('name')->toArray();
+                                //echo dd($Search);
+                                ?>
+                                <?php
+                                collect($SearchPId = DB::select(
+                                    DB::raw("select id_permision
+                                from permision
+                                where id_permision = $SearchesRolePermision->id_permision;")
+                                ))->pluck('id_permision')->toArray();
+                                //echo dd($Search);
+                                ?>
+                                {{ $SearchP[0]->name }}
+                            </td>
+
+                            <td>
+                                {!! Form::open(['route' => ['pass.delete', $SearchesRolePermision->id_permision], 'method' => 'DELETE']) !!}
+                                {!! Form::submit('DELETE') !!}
+                                {!! Form::close() !!}
+                            </td>
+                        </tr>
                         @endforeach
                     </div>
                 </table>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4" style="margin-top:60px">
-                <button type="submit" class="btn btn-success">Submit</button>
-            </div>
-        </div>
 
-    {{ Form::close() }}
+
 <!-- ------->
     <h2>Assign Role</h2><br/>
 

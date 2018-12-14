@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\role_permision;
 use App\User;
 use DemeterChain\C;
 use Doctrine\DBAL\Schema\Column;
 use Illuminate\Http\Request;
 use App\Permision;
 use App\Role;
+
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ListDB;
 use Illuminate\Support\Facades\Input;
@@ -27,6 +29,28 @@ class PassController extends Controller
         {
             return view('auth.login')->withErrors('You are not logged in');
         }
+    }
+
+    public function destroy($id)
+    {
+        $todo= role_permision::find($id);
+        $todo->delete();
+        return redirect()->route('home');
+    }
+
+
+    public static function ShowRolePermision($Table, $Column, $PluckVar)
+
+    {
+        $SentTable = str_replace("'", '', $Table);
+        $SentColumn = str_replace("'", '', $Column);
+
+        collect($Search = DB::select(
+            DB::raw("select $SentColumn 
+            from $SentTable")
+        ))->pluck($PluckVar)->toArray();
+
+        return $Search;
     }
 
     public static function ShowPermision()

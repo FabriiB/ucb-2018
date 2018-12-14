@@ -171,3 +171,5 @@ Route::get('/qr/{id}',function($id){
 /*Route::get('/pass', function () {
     return view('pass');
 });*/
+
+Route::delete('pass/{todo}', 'PassController@destroy')->name('pass.delete');

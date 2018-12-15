@@ -146,12 +146,8 @@ Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));
 Route::post('/insert', array('as'=>'insert', 'uses'=>'RecetaController@insert'));
 
 
-Route::get('/PassAssign', function () {
-    return view('PassAssign');
-});
-
 Route::post('/pass','PassController@AddNewRole');
-Route::post('/PassAssign','PassController@AssignRole');
+Route::post('/pass','PassController@AssignRole');
 
 Route::get('/qr/{id}',function($id){
 

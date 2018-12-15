@@ -37,10 +37,10 @@ class DatabaseSeeder extends Seeder
         ]);
         //need to seed specific permisions
         DB::table('permision')->insert([
-            'name' => 'Factura',
+            'name' => 'Pedidos',
         ]);
         DB::table('permision')->insert([
-            'name' => 'Pedidos',
+            'name' => 'Factura',
         ]);
         DB::table('permision')->insert([
             'name' => 'Admin',

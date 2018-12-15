@@ -13,6 +13,7 @@ class Permision extends Model
     protected $fillable = [
         'name',
         'description',
+        'id_permision',
     ];
 
     public function persons()

@@ -135,6 +135,7 @@
                                 from permision
                                 where id_permision = $SearchesRolePermision->id_permision;")
                                 ))->pluck('id_permision')->toArray();
+                                //echo dd( $SearchRId[0]->id_role, $SearchPId[0]->id_permision );
                                 ?>
                                     {{ $SearchP[0]->name }}
                             </td>
@@ -160,11 +161,9 @@
                                         </div>
                                     </select>
                                 </div>
-
-                                {!! Form::open(['route' => ['pass.add', $SearchPId[0]->id_permision, $SearchRId[0]->id_role], 'method' => 'POST']) !!}
-                                {!! Form::submit('ADD') !!}
-                                {!! Form::close() !!}
+                                <button onclick="AddTableRegCustom(1,1)">Click me</button>
                             </td>
+
                         </tr>
                         @endforeach
                     </div>
@@ -174,3 +173,4 @@
 </div>
 </body>
 </html>
+

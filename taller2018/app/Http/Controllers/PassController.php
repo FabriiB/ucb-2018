@@ -120,23 +120,17 @@ class PassController extends Controller
         return view('pass');
     }
 
-    public function AssignRole()
+    public function AssignRole($fetch_permision_id, $fetch_role_id)
     {
         //dd( Input::all() );
 
-        $role = new Role;
-        $permision = new Permision();
 
-        $role->name = Input::get('assign');
-        $permision->name = Input::get('assign_permision');
         //////////////////////get values
 
-        $fetch_permision_id = User::where('firs_name',$permision->name)->pluck('id');
-        $fetch_role_id = Role::where('name',$role->name)->pluck('id_role');
 
         ///////////////////insert values
 
-        $values = array('id_permision' => $fetch_permision_id[0],'id_role' => $fetch_role_id[0]);
+        $values = array('id_permision' => $fetch_permision_id,'id_role' => $fetch_role_id);
         DB::table('role_permision')
             ->insert($values);
 

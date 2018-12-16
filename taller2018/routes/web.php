@@ -141,13 +141,13 @@ Route::group(["middleware" => 'admin'], function () {
     Route::get ('/pass', 'PassController@index');
 });
 
+Route::post('/pass','PassController@AddNewRole');
+
+Route::delete('pass/{todo}', 'PassController@destroy')->name('pass.delete');
+Route::post('/pass/{todo, todo2}', 'PassController@AssignRole')->name('pass.add');
 
 Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));
 Route::post('/insert', array('as'=>'insert', 'uses'=>'RecetaController@insert'));
-
-
-Route::post('/pass','PassController@AddNewRole');
-Route::post('/pass','PassController@AssignRole');
 
 Route::get('/qr/{id}',function($id){
 
@@ -168,4 +168,3 @@ Route::get('/qr/{id}',function($id){
     return view('pass');
 });*/
 
-Route::delete('pass/{todo}', 'PassController@destroy')->name('pass.delete');

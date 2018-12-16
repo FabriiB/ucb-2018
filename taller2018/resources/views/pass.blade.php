@@ -100,8 +100,7 @@
 
                         @foreach ($SearchRolePermision as $SearchesRolePermision)
                         <tr>
-
-                            <td name="assign">
+                            <td>
                                 <?php
                                 collect($SearchR = DB::select(
                                 DB::raw("select name
@@ -116,8 +115,10 @@
                                 where id_role = $SearchesRolePermision->id_role;")
                                 ))->pluck('id_role')->toArray();
                                 ?>
-                                {{ $SearchR[0]->name }}
+                                    {{ $SearchR[0]->name }}
+
                             </td>
+
 
                             <td>
                                 <?php
@@ -144,27 +145,25 @@
                                 {!! Form::close() !!}
                             </td>
                             <td>
-                                {{Form::open(array('url'=>'/pass','method'=>'AssignRole'))}}
                                 @csrf
                                 <div class="row">
-                                        <lable>Permision</lable>
-                                        <select name="assign_permision">
-                                            <div class="col-sm-9">
-                                                <?php
-                                                $Search = \App\Http\Controllers\PassController::ShowPermision();
-                                                ?>
+                                    <lable>Permision</lable>
+                                    <select name="assign_permision">
+                                        <div class="col-sm-9">
+                                            <?php
+                                            $Search = \App\Http\Controllers\PassController::ShowPermision();
+                                            ?>
 
-                                                @foreach ($Search as $Searchs)
-                                                    <option>{{ $Searchs->name }}</option>
-                                                @endforeach
-                                            </div>
-                                        </select>
+                                            @foreach ($Search as $Searchs)
+                                                <option>{{ $Searchs->name }}</option>
+                                            @endforeach
+                                        </div>
+                                    </select>
                                 </div>
 
-                                <div class="row">
-                                        <button type="submit" class="btn btn-success">add</button>
-                                </div>
-                                {{ Form::close() }}
+                                {!! Form::open(['route' => ['pass.add', $SearchPId[0]->id_permision, $SearchRId[0]->id_role], 'method' => 'POST']) !!}
+                                {!! Form::submit('ADD') !!}
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                         @endforeach

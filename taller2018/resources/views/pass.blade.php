@@ -85,6 +85,54 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
+                {{Form::open(array('url'=>'/pass','method'=>'AssignRole'))}}
+                @csrf
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="form-group col-md-4">
+                        <lable>Role</lable>
+                        <select name="assign_role">
+                            <div class="col-sm-9">
+                                <?php
+                                $Search = \App\Http\Controllers\PassController::ShowRole();
+                                /*$Search = \App\Http\Controllers\PassController::ShowPass();
+                                var_dump ($Search);*/
+                                ?>
+                                @foreach ($Search as $Searchs)
+                                    <option value="{{ $Searchs->name }}"> {{ $Searchs->name }} </option>
+                                @endforeach
+                            </div>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="form-group col-md-4">
+                        <lable>Permission</lable>
+                        <select name="assign_permission">
+                            <div class="col-sm-9">
+                                <?php
+                                $Search = \App\Http\Controllers\PassController::ShowPermision();
+                                ?>
+
+                                @foreach ($Search as $Searchs)
+                                    <option>{{ $Searchs->name }}</option>
+                                @endforeach
+                            </div>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+                {{ Form::close() }}
+
+
+
                 <table style="width:300%" name="new_user">
                     <tr>
                         <th>id_Role</th>
@@ -116,7 +164,6 @@
                                 ))->pluck('id_role')->toArray();
                                 ?>
                                     {{ $SearchR[0]->name }}
-
                             </td>
 
 
@@ -145,25 +192,6 @@
                                 {!! Form::submit('DELETE') !!}
                                 {!! Form::close() !!}
                             </td>
-                            <td>
-                                @csrf
-                                <div class="row">
-                                    <lable>Permision</lable>
-                                    <select name="assign_permision">
-                                        <div class="col-sm-9">
-                                            <?php
-                                            $Search = \App\Http\Controllers\PassController::ShowPermision();
-                                            ?>
-
-                                            @foreach ($Search as $Searchs)
-                                                <option>{{ $Searchs->name }}</option>
-                                            @endforeach
-                                        </div>
-                                    </select>
-                                </div>
-                                <button onclick="AddTableRegCustom(1,1)">Click me</button>
-                            </td>
-
                         </tr>
                         @endforeach
                     </div>

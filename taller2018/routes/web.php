@@ -137,12 +137,12 @@ Route::group(["middleware" => 'entryfabrisio'], function () {
 
 Route::group(["middleware" => 'admin'], function () {
     Route::resource('pass','PassController');
-    Route::resource('pass','PassController');
-    Route::delete('pass/{todo}', 'PassController@destroy')->name('pass.delete');
     Route::get ('/pass', 'PassController@index');
 });
 
-Route::post('/pass','PassController@AddNewRole');
+Route::delete('pass/{todo}', 'PassController@destroy')->name('pass.delete');
+
+Route::post('/pass','PassController@AssignRole');
 
 
 Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));

@@ -44,9 +44,13 @@ class PassController extends Controller
     public function destroy($id)
     {
         $todo= role_permision::find($id);
-        $todo->delete();
-        return view('pass');
+        if($todo!=null)
+        {
+        }
+        DB::table('role_permision')->where('id_permision', $id)->delete();
+        
 
+        return view('pass');
     }
 
     public static function ShowRolePermision($Table, $Column, $PluckVar)
@@ -120,21 +124,21 @@ class PassController extends Controller
         return view('pass');
     }
 
-    public function AssignRole($fetch_permision_id, $fetch_role_id)
+    public function AssignRole()
     {
         //dd( Input::all() );
-
-
+        $role = new Role;
+        $permission = new Permision();
+        $role->name = Input::get('assign_role');
+        $permission->name = Input::get('assign_permission');
         //////////////////////get values
-
-
+        $fetch_permission_id = Permision::where('name',$permission->name)->pluck('id_permision');
+        $fetch_role_id = Role::where('name',$role->name)->pluck('id_role');
         ///////////////////insert values
-
-        $values = array('id_permision' => $fetch_permision_id,'id_role' => $fetch_role_id);
+        $values = array('id_permision' => $fetch_permission_id[0],'id_role' => $fetch_role_id[0]);
         DB::table('role_permision')
             ->insert($values);
-
-        return view('/pass');
+        return view('pass');
     }
 
 }

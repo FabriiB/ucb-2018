@@ -78,30 +78,30 @@
 
 <div class="container">
     <h2>Role</h2><br/>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-group col-md-4">
 
 
-                <table style="width:300%" name="new_user">
-                    <tr>
-                        <th>id_Role</th>
-                        <th>id_Permision</th>
-                    </tr>
-                    <div class="col-sm-9">
+            <table style="width:300%" name="new_user">
+                <tr>
+                    <th>id_Role</th>
+                    <th>id_Permision</th>
+                </tr>
+                <div class="col-sm-9">
 
-                        <?php
-                        $SearchRolePermision = \App\Http\Controllers\PassController::ShowRolePermision('role_permision', 'id_role, id_permision', 'id_role, id_permision');
-                        $SearchRole = \App\Http\Controllers\PassController::ShowRole();
-                        $SearchPermision = \App\Http\Controllers\PassController::ShowPermision();
-                        ?>
+                    <?php
+                    $SearchRolePermision = \App\Http\Controllers\PassController::ShowRolePermision('role_permision', 'id_role, id_permision', 'id_role, id_permision');
+                    $SearchRole = \App\Http\Controllers\PassController::ShowRole();
+                    $SearchPermision = \App\Http\Controllers\PassController::ShowPermision();
+                    ?>
 
-                        @foreach ($SearchRolePermision as $SearchesRolePermision)
+                    @foreach ($SearchRolePermision as $SearchesRolePermision)
                         <tr>
                             <td>
                                 <?php
                                 collect($SearchR = DB::select(
-                                DB::raw("select name
+                                    DB::raw("select name
                                 from role
                                 where id_role = $SearchesRolePermision->id_role;")
                                 ))->pluck('name')->toArray();
@@ -113,7 +113,7 @@
                                 where id_role = $SearchesRolePermision->id_role;")
                                 ))->pluck('id_role')->toArray();
                                 ?>
-                                    {{ $SearchR[0]->name }}
+                                {{ $SearchR[0]->name }}
                             </td>
 
 
@@ -134,11 +134,11 @@
                                 ))->pluck('id_permision')->toArray();
                                 //echo dd( $SearchRId[0]->id_role, $SearchPId[0]->id_permision );
                                 ?>
-                                    {{ $SearchP[0]->name }}
+                                {{ $SearchP[0]->name }}
                             </td>
 
                             <td>
-                                {!! Form::open(['route' => ['pass.rolepermisiondelete', $SearchesRolePermision->id_permision, $SearchesRolePermision->id_role], 'method' => 'DELETE']) !!}
+                                {!! Form::open(['route' => ['pass.rolepermisiondelete', $SearchesRolePermision->id_permision], 'method' => 'DELETE']) !!}
                                 {!! Form::submit('Delete Permission') !!}
                                 {!! Form::close() !!}
                             </td>
@@ -149,63 +149,63 @@
                                 {!! Form::close() !!}
                             </td>
                         </tr>
-                        @endforeach
-                    </div>
-                </table>
-
-
-
-
-                {{Form::open(array('url'=>'/pass','method'=>'pass.assignrole'))}}
-                @csrf
-                <h3>Add</h3>
-
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="form-group col-md-4">
-                        <lable>Role</lable>
-                        <select name="assign_role">
-                            <div class="col-sm-9">
-                                <?php
-                                $Search = \App\Http\Controllers\PassController::ShowRole();
-                                /*$Search = \App\Http\Controllers\PassController::ShowPass();
-                                var_dump ($Search);*/
-                                ?>
-                                @foreach ($Search as $Searchs)
-                                    <option value="{{ $Searchs->name }}"> {{ $Searchs->name }} </option>
-                                @endforeach
-                            </div>
-                        </select>
-
-                    </div>
+                    @endforeach
                 </div>
+            </table>
 
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="form-group col-md-4">
-                        <lable>Permission</lable>
-                        <select name="assign_permission">
-                            <div class="col-sm-9">
-                                <?php
-                                $Search = \App\Http\Controllers\PassController::ShowPermision();
-                                ?>
 
-                                @foreach ($Search as $Searchs)
-                                    <option>{{ $Searchs->name }}</option>
-                                @endforeach
-                            </div>
-                        </select>
-                    </div>
+
+
+            {{Form::open(array('url'=>'/pass','method'=>'pass.assignrole'))}}
+            @csrf
+            <h3>Add</h3>
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="form-group col-md-4">
+                    <lable>Role</lable>
+                    <select name="assign_role">
+                        <div class="col-sm-9">
+                            <?php
+                            $Search = \App\Http\Controllers\PassController::ShowRole();
+                            /*$Search = \App\Http\Controllers\PassController::ShowPass();
+                            var_dump ($Search);*/
+                            ?>
+                            @foreach ($Search as $Searchs)
+                                <option value="{{ $Searchs->name }}"> {{ $Searchs->name }} </option>
+                            @endforeach
+                        </div>
+                    </select>
+
                 </div>
-
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <button type="submit" class="btn btn-success">Submit</button>
-                </div>
-                {{ Form::close() }}
-
             </div>
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="form-group col-md-4">
+                    <lable>Permission</lable>
+                    <select name="assign_permission">
+                        <div class="col-sm-9">
+                            <?php
+                            $Search = \App\Http\Controllers\PassController::ShowPermision();
+                            ?>
+
+                            @foreach ($Search as $Searchs)
+                                <option>{{ $Searchs->name }}</option>
+                            @endforeach
+                        </div>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+            {{ Form::close() }}
+
         </div>
+    </div>
 </div>
 </body>
 </html>

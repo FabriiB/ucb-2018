@@ -140,9 +140,10 @@ Route::group(["middleware" => 'admin'], function () {
     Route::get ('/pass', 'PassController@index');
 });
 
-Route::delete('pass/{todo}', 'PassController@destroy')->name('pass.delete');
+Route::delete('/passRD/{todo}', 'PassController@DeleteRole')->name('pass.roledelete');
+Route::delete('/pass/{todo}//{todo2}', 'PassController@destroy')->name('pass.rolepermisiondelete');
+Route::post('/pass','PassController@AssignRole')->name('pass.assignrole');
 
-Route::post('/pass','PassController@AssignRole');
 
 
 Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));

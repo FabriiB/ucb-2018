@@ -143,11 +143,6 @@
                                 {!! Form::close() !!}
                             </td>
 
-                            <td>
-                                {!! Form::open(['route' => ['pass.roledelete', $SearchesRolePermision->id_role], 'method' => 'DELETE']) !!}
-                                {!! Form::submit('Delete Role') !!}
-                                {!! Form::close() !!}
-                            </td>
                         </tr>
                         @endforeach
                     </div>

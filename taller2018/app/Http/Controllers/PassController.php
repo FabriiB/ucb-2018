@@ -43,29 +43,23 @@ class PassController extends Controller
 
     public function DeleteRole($id)
     {
-        //dd( Input::all() );
-        $role = new Role;
-        $role->name = Input::get('delete_role');
-        //////////////////////get values
-        $fetch_role_id = Role::where('name',$role->name)->pluck('id_role');
-
         collect($Search = DB::select(
-            DB::raw("select rp.id_permision 
-            from role_permision rp 
-            where rp.id_role=$fetch_role_id[0];")
-        ))->pluck('id_permision')->toArray();
+            DB::raw("select count (id_permision) 
+            from role_permision
+            where $id = id_role")
+        ))->pluck('id_role')->toArray();
 
-        dd($Search);
+        //dd( $Search[0]->count);
 
-        ///////////////////delete values
-
-        if($Search!=null)
+        if ($Search[0]->count <=0)
         {
-            //dd($Search);
-            DB::table('role')->where('id', $id)->delete();
+            DB::table('role')->where('id_role', $id)->delete();
+
+            return view('passpermission');
         }
 
-        return view('pass');
+        return view('passpermission');
+
     }
 
     public function destroy($id, $idr)
@@ -103,6 +97,14 @@ class PassController extends Controller
     {
         $Table = 'Permision';
         $Column = 'id_permision';
+        return ListDB::ShowPass($Table, $Column);
+    }
+
+    public static function ShowIdRole()
+
+    {
+        $Table = 'role';
+        $Column = 'id_role';
         return ListDB::ShowPass($Table, $Column);
     }
 

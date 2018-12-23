@@ -78,13 +78,13 @@
 
 <div class="container">
     <h2>Permission</h2><br/>
-    <div class="row">
+    <div class="">
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
 
             <table style="width:300%" name="new_user">
                 <tr>
-                    <th>id_Permision</th>
+                    <th>Permision</th>
 
                 </tr>
                 <div class="col-sm-9">
@@ -123,9 +123,58 @@
                 </div>
             </table>
 
+            <br>
+            <br>
+
+            <h2>Role</h2><br/>
+
+            <table style="width:300%" name="table_role">
+                <tr>
+                    <th>role</th>
+
+                </tr>
+                <div class="col-sm-9">
+
+                    <?php
+                    $SearchRole = \App\Http\Controllers\PassController::ShowIdRole();
+                    ?>
+
+                    @foreach ($SearchRole as $SearchesRole)
+                        <tr>
+                            <td>
+                                <?php
+                                collect($SearchR = DB::select(
+                                    DB::raw("select name
+                                from role
+                                where id_role = $SearchesRole->id_role;")
+                                ))->pluck('name')->toArray();
+                                //echo dd($Search);
+                                ?>
+                                <?php
+                                collect($SearchRId = DB::select(
+                                    DB::raw("select id_role
+                                from role
+                                where id_role = $SearchesRole->id_role;")
+                                ))->pluck('id_role')->toArray();
+                                ?>
+                                {{ $SearchR[0]->name }}
+                            </td>
+
+                            <td>
+                                {!! Form::open(['route' => ['pass.roledelete', $SearchesRole->id_role], 'method' => 'DELETE']) !!}
+                                {!! Form::submit('Delete Role') !!}
+                                {!! Form::close() !!}
+                            </td>
+                        </tr>
+                    @endforeach
+                </div>
+            </table>
+
         </div>
     </div>
 </div>
 </body>
 </html>
+
+
 

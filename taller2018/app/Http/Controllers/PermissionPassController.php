@@ -56,6 +56,25 @@ class PermissionPassController extends Controller
         return view('/userpass');
     }
 
+    public function DeleteRole($id)
+    {
+        collect($Search = DB::select(
+            DB::raw("select count (id_permision) 
+            from role_permision
+            where $id = id_role")
+        ))->pluck('id_role')->toArray();
+
+        if ($Search == null)
+        {
+            DB::table('role_permision')->where('id_permision', $id)->delete();
+
+            return view('pass');
+        }
+
+        return view('pass');
+
+    }
+
 }
 
 

@@ -80,10 +80,24 @@ class UserPassController extends Controller
         //////////////////////get values
         $fetch_user_id = User::where('firs_name',$user->firs_name)->pluck('id');
         $fetch_role_id = Role::where('name',$role->name)->pluck('id_role');
+
+        collect($Search = DB::select(
+            DB::raw("select count (id_role) 
+            from users_role
+            where $fetch_user_id[0] = id_users
+            and $fetch_role_id[0] = id_role")
+        ))->pluck('id_role')->toArray();
+
         ///////////////////insert values
-        $values = array('id_users' => $fetch_user_id[0],'id_role' => $fetch_role_id[0]);
-        DB::table('users_role')
-            ->insert($values);
+        //dd( $Search[0]->count );
+
+        if($Search[0]->count <=0)
+        {
+            $values = array('id_users' => $fetch_user_id[0], 'id_role' => $fetch_role_id[0]);
+            DB::table('users_role')
+                ->insert($values);
+            return view('/userpass');
+        }
         return view('/userpass');
     }
 

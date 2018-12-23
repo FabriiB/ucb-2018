@@ -80,7 +80,7 @@
     <h2>Role</h2><br/>
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
 
 
                 <table style="width:300%" name="new_user">
@@ -139,7 +139,7 @@
 
                             <td>
                                 {!! Form::open(['route' => ['pass.rolepermisiondelete', $SearchesRolePermision->id_permision, $SearchesRolePermision->id_role], 'method' => 'DELETE']) !!}
-                                {!! Form::submit('Delete Permission') !!}
+                                {!! Form::submit('Delete Permission from Role') !!}
                                 {!! Form::close() !!}
                             </td>
 

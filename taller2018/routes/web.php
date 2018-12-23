@@ -134,18 +134,31 @@ Route::group(["middleware" => 'entrybenji'], function () {
 Route::group(["middleware" => 'entryfabrisio'], function () {
 
 });
+//////////////////////////////////////////////////////////////////////
+///
+///
+///
+
 
 Route::group(["middleware" => 'admin'], function () {
     Route::resource('pass','PassController');
     Route::get ('/pass', 'PassController@index');
+    Route::resource('userpass','UserPassController');
+    Route::get ('/userpass', 'UserPassController@index');
 });
 
 Route::delete('/passRD/{todo}', 'PassController@DeleteRole')->name('pass.roledelete');
-Route::delete('/pass/{todo}//{todo2}', 'PassController@destroy')->name('pass.rolepermisiondelete');
+Route::delete('/pass/{todo}/{todo2}', 'PassController@destroy')->name('pass.rolepermisiondelete');
 Route::post('/pass','PassController@AssignRole')->name('pass.assignrole');
 
+Route::delete('/userpass/{todo}/{todo2}', 'UserPassController@destroy')->name('pass.roleuserdelete');
+Route::post('/userpass','UserPassController@AssignRole')->name('pass.assignuserole');
 
 
+//////////////////////////////////////////////////////////////////
+///
+///
+///
 Route::get('/receta_c', array('as'=>'info', 'uses'=>'RecetaController@index'));
 Route::post('/insert', array('as'=>'insert', 'uses'=>'RecetaController@insert'));
 

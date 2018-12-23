@@ -84,8 +84,8 @@
 
             <table style="width:300%" name="new_user">
                 <tr>
-                    <th>id_Role</th>
                     <th>id_Permision</th>
+
                 </tr>
                 <div class="col-sm-9">
 

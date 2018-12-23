@@ -160,16 +160,33 @@ class PassController extends Controller
         //dd( Input::all() );
         $role = new Role;
         $permission = new Permision();
+        $rolepermission = new role_permision();
         $role->name = Input::get('assign_role');
         $permission->name = Input::get('assign_permission');
         //////////////////////get values
         $fetch_permission_id = Permision::where('name',$permission->name)->pluck('id_permision');
         $fetch_role_id = Role::where('name',$role->name)->pluck('id_role');
+
+        collect($Search = DB::select(
+            DB::raw("select count (id_role) 
+            from role_permision
+            where $fetch_permission_id[0] = id_permision
+            and $fetch_role_id[0] = id_role")
+        ))->pluck('id_role')->toArray();
+
         ///////////////////insert values
-        $values = array('id_permision' => $fetch_permission_id[0],'id_role' => $fetch_role_id[0]);
-        DB::table('role_permision')
-            ->insert($values);
+        //dd( $Search[0]->count );
+
+        if($Search[0]->count <=0)
+        {
+            $values = array('id_permision' => $fetch_permission_id[0],'id_role' => $fetch_role_id[0]);
+            DB::table('role_permision')
+                ->insert($values);
+            return view('pass');
+        }
+
         return view('pass');
+
     }
 
 }

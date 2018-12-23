@@ -98,6 +98,14 @@ class PassController extends Controller
         return ListDB::ShowPass($Table, $Column);
     }
 
+    public static function ShowIdPermision()
+
+    {
+        $Table = 'Permision';
+        $Column = 'id_permision';
+        return ListDB::ShowPass($Table, $Column);
+    }
+
     public static function ShowUser()
 
     {
